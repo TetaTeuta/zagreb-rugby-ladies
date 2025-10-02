@@ -69,11 +69,11 @@ const Home = () => {
                         : "-translate-y-20 opacity-95"
                 }`}
             >
-                <div className="absolute inset-0">
+                <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <iframe
                         src="https://www.youtube.com/embed/5w2mBzgmUIo?autoplay=1&mute=1&loop=1&playlist=5w2mBzgmUIo&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
                         title="Rugby action"
-                        className="w-full h-full object-cover scale-105"
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen

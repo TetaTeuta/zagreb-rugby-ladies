@@ -21,7 +21,6 @@ const Header = () => {
         { name: t("navigation.contact"), href: "/contact" },
     ];
 
-    // Handle scroll effects
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
@@ -30,12 +29,10 @@ const Header = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close mobile menu when route changes
     useEffect(() => {
         setIsMenuOpen(false);
     }, [location.pathname]);
 
-    // Close mobile menu when clicking outside
     useEffect(() => {
         const handleClickOutside = () => {
             setIsMenuOpen(false);
@@ -47,7 +44,6 @@ const Header = () => {
         }
     }, [isMenuOpen]);
 
-    // Prevent body scroll when mobile menu is open
     useEffect(() => {
         if (isMenuOpen) {
             document.body.style.overflow = "hidden";
@@ -74,14 +70,12 @@ const Header = () => {
                         : "bg-surface/90 backdrop-blur-sm",
                 ].join(" ")}
             >
-                {/* Top banner */}
                 <div className="bg-accent text-center py-1 text-sm text-text-light hidden sm:block">
                     {t("header.banner")}
                 </div>
 
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 items-center justify-between lg:justify-center">
-                        {/* Logo */}
                         <Link
                             to="/"
                             className="flex items-center space-x-2 focus-visible:outline-none lg:absolute lg:left-4"
@@ -115,16 +109,14 @@ const Header = () => {
                                 </Link>
                             ))}
 
-                            {/* Language Switcher */}
-                            <LanguageSwitcher variant="header" />
-
-                            {/* Integrated CTA */}
                             <Button size="sm" variant="accent" asChild>
                                 <Link to="/contact">{t("common.joinUs")}</Link>
                             </Button>
                         </nav>
 
-                        {/* Mobile menu button */}
+                        <div className="hidden lg:block absolute right-4">
+                            <LanguageSwitcher variant="header" />
+                        </div>
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -144,18 +136,14 @@ const Header = () => {
                 </div>
             </header>
 
-            {/* Mobile Navigation Overlay */}
             {isMenuOpen && (
                 <div className="fixed inset-0 z-50 lg:hidden">
-                    {/* Backdrop */}
                     <div className="absolute inset-0 bg-text-contrast/50 backdrop-blur-sm" />
 
-                    {/* Menu Panel */}
                     <div
                         className="absolute top-0 right-0 h-full w-full max-w-sm bg-surface shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Header */}
                         <div className="flex items-center justify-between p-4 border-b border-muted-light">
                             <div className="flex items-center space-x-2">
                                 <img
@@ -176,7 +164,6 @@ const Header = () => {
                             </button>
                         </div>
 
-                        {/* Navigation */}
                         <nav className="p-4 space-y-1">
                             {navigationItems.map((item, index) => (
                                 <Link
@@ -194,7 +181,6 @@ const Header = () => {
                             ))}
                         </nav>
 
-                        {/* Mobile Actions */}
                         <div className="p-4 border-t border-muted-light mt-auto space-y-3">
                             <LanguageSwitcher variant="mobile" />
                             <Button variant="accent" asChild>

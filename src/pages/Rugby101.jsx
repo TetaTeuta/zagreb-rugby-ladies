@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
-import { Container } from "../components/layout/Container";
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { Accordion } from "../components/ui/Accordion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Users, Target, Clock, Heart } from "lucide-react";
+import { Shield, Users, Target, Clock, Heart } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 
 const Rugby101 = () => {
