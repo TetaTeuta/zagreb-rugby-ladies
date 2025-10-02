@@ -103,7 +103,7 @@ const Modal = ({
             <div
                 ref={modalRef}
                 className={[
-                    "relative w-full rounded-2xl bg-surface shadow-float border border-accent/10 p-6",
+                    "relative w-full rounded-sm bg-surface shadow-float border border-white",
                     sizes[size],
                     className,
                 ].join(" ")}
@@ -112,7 +112,7 @@ const Modal = ({
                 {/* Close button */}
                 <button
                     onClick={onClose}
-                    className="absolute right-4 top-4 rounded-lg p-1 text-muted transition-colors hover:bg-primary/10 hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    className="absolute right-4 top-4 z-10 rounded-lg p-1 bg-white/90 text-text transition-colors hover:bg-white hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-md"
                     aria-label="Close modal"
                 >
                     <X className="h-5 w-5" />

@@ -1,6 +1,6 @@
 import { Modal } from "../ui/Modal";
 import { Button } from "../ui/Button";
-import { Instagram, ExternalLink } from "lucide-react";
+import { Instagram, ExternalLink, Zap } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const PlayerModal = ({ player, isOpen, onClose }) => {
@@ -8,7 +8,6 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
     const [imageLoading, setImageLoading] = useState(true);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    // Reset image state when modal opens/closes or player changes
     useEffect(() => {
         if (isOpen && player) {
             setImageError(false);
@@ -24,20 +23,15 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
         .map((n) => n[0])
         .join("");
 
-    // Generate multiple fallback image URLs
     const getImageServices = () => {
         const seed = player.name.replace(/\s+/g, "-").toLowerCase();
         const services = [
-            // If player has a photo URL, prioritize it first
             ...(player.photo ? [player.photo] : []),
-            // UI-Avatars - most reliable service
             `https://ui-avatars.com/api/?name=${encodeURIComponent(
                 player.name
-            )}&size=400&background=5e6ad2&color=fff&bold=true&format=svg`,
-            // Robohash - fun robot avatars as fallback
-            `https://robohash.org/${seed}?set=set1&size=400x400&format=png`,
-            // DiceBear - cartoon avatars as last resort
-            `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}&backgroundColor=5e6ad2,d6336c&size=400`,
+            )}&size=800&background=5e6ad2&color=fff&bold=true&format=svg`,
+            `https://robohash.org/${seed}?set=set1&size=800x600&format=png`,
+            `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}&backgroundColor=5e6ad2,d6336c&size=800`,
         ];
         return services;
     };
@@ -51,7 +45,6 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
     };
 
     const handleImageError = () => {
-        // Try next image service if available
         if (currentImageIndex < imageServices.length - 1) {
             setCurrentImageIndex((prev) => prev + 1);
             setImageLoading(true);
@@ -65,151 +58,170 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
         <Modal
             isOpen={isOpen}
             onClose={onClose}
-            title={player.name}
-            description={`${player.position} • Zagreb Rugby Ladies`}
-            size="lg"
+            title=""
+            description=""
+            size="md"
+            className="p-0 overflow-hidden"
         >
-            <div className="space-y-6">
-                {/* Player Image/Avatar */}
-                <div className="flex flex-col sm:flex-row gap-6">
-                    <div className="flex-shrink-0">
-                        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative overflow-hidden">
-                            {!imageError ? (
-                                <>
-                                    {imageLoading && (
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="w-28 h-28 rounded-full bg-primary/30 flex items-center justify-center animate-pulse">
-                                                <span className="text-2xl font-light tracking-wide text-primary">
-                                                    {initials}
-                                                </span>
-                                            </div>
+            <div className="overflow-y-auto max-h-[calc(100vh-8rem)] scrollbar-hide">
+                <div className="relative mb-6 border border-white">
+                    <div className="relative h-64 bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
+                        {!imageError ? (
+                            <>
+                                {imageLoading && (
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="text-6xl font-light tracking-wide text-primary animate-pulse">
+                                            {initials}
                                         </div>
-                                    )}
-                                    <img
-                                        src={currentImageSrc}
-                                        alt={`${player.name} portrait`}
-                                        className={`w-full h-full object-cover rounded-full transition-opacity duration-300 ${
-                                            imageLoading
-                                                ? "opacity-0"
-                                                : "opacity-100"
-                                        }`}
-                                        onLoad={handleImageLoad}
-                                        onError={handleImageError}
-                                    />
-                                </>
-                            ) : (
-                                <div className="w-28 h-28 rounded-full bg-primary/30 flex items-center justify-center">
-                                    <span className="text-2xl font-light tracking-wide text-primary">
-                                        {initials}
-                                    </span>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
-                    <div className="flex-1 space-y-4">
-                        <div>
-                            <h3 className="text-lg font-semibold text-text mb-1">
-                                Position
-                            </h3>
-                            <p className="text-primary font-medium">
-                                {player.position}
-                            </p>
-                        </div>
-
-                        {player.quote && (
-                            <div>
-                                <h3 className="text-lg font-semibold text-text mb-2">
-                                    Player Quote
-                                </h3>
-                                <blockquote className="text-muted italic border-l-4 border-primary pl-4">
-                                    "{player.quote}"
-                                </blockquote>
+                                    </div>
+                                )}
+                                <img
+                                    src={currentImageSrc}
+                                    alt={`${player.name} portrait`}
+                                    className={`w-full h-full object-cover transition-opacity duration-300 ${
+                                        imageLoading
+                                            ? "opacity-0"
+                                            : "opacity-100"
+                                    }`}
+                                    onLoad={handleImageLoad}
+                                    onError={handleImageError}
+                                />
+                            </>
+                        ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                                <span className="text-6xl font-light tracking-wide text-primary">
+                                    {initials}
+                                </span>
                             </div>
                         )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                            <h2 className="text-4xl font-bold mb-2">
+                                {player.name}
+                            </h2>
+                            <p className="text-base opacity-90">
+                                {player.position} • Zagreb Rugby Ladies
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                {/* About */}
-                <div>
-                    <h3 className="text-lg font-semibold text-text mb-3">
-                        About {player.name.split(" ")[0]}
-                    </h3>
-                    <p className="text-muted leading-relaxed">{player.about}</p>
-                </div>
-
-                {/* Fun Fact */}
-                {player.funFact && (
-                    <div className="bg-primary/5 rounded-xl p-4">
-                        <h3 className="text-lg font-semibold text-text mb-2">
-                            Fun Fact
-                        </h3>
-                        <p className="text-muted">{player.funFact}</p>
-                    </div>
-                )}
-
-                {/* Social Links */}
-                {player.socials && Object.keys(player.socials).length > 0 && (
+                <div className="px-6 space-y-6">
                     <div>
-                        <h3 className="text-lg font-semibold text-text mb-3">
-                            Connect
+                        <h3 className="text-sm font-semibold text-muted mb-2">
+                            Position
                         </h3>
-                        <div className="flex gap-2">
-                            {player.socials.instagram && (
-                                <Button variant="blue" size="sm" asChild>
-                                    <a
-                                        href={player.socials.instagram}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2"
-                                    >
-                                        <Instagram className="h-4 w-4" />
-                                        Instagram
-                                    </a>
-                                </Button>
-                            )}
+                        <p className="text-lg text-text font-medium">
+                            {player.position}
+                        </p>
+                    </div>
 
-                            {/* Add other social links if needed */}
-                            {Object.entries(player.socials).map(
-                                ([platform, url]) => {
-                                    if (platform === "instagram") return null; // Already handled above
-                                    return (
+                    {player.quote && (
+                        <div>
+                            <h3 className="text-sm font-semibold text-muted mb-2">
+                                Player Quote
+                            </h3>
+                            <blockquote className="text-muted italic border-l-4 border-accent pl-4 py-1">
+                                "{player.quote}"
+                            </blockquote>
+                        </div>
+                    )}
+
+                    <div>
+                        <h3 className="text-sm font-semibold text-muted mb-2">
+                            About {player.name.split(" ")[0]}
+                        </h3>
+                        <p className="text-text leading-relaxed">
+                            {player.about}
+                        </p>
+                    </div>
+
+                    {player.funFact && (
+                        <div className="bg-white rounded-xl border border-gray-200">
+                            <div className="p-4">
+                                <div className="flex items-start gap-3">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
+                                        <Zap className="w-6 h-6 text-yellow-600" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <h3 className="text-sm font-semibold text-text mb-1">
+                                            Fun Fact
+                                        </h3>
+                                        <p className="text-muted text-sm">
+                                            {player.funFact}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {player.socials &&
+                        Object.keys(player.socials).length > 0 && (
+                            <div>
+                                <h3 className="text-sm font-semibold text-muted mb-3">
+                                    Connect
+                                </h3>
+                                <div className="flex gap-2">
+                                    {player.socials.instagram && (
                                         <Button
-                                            key={platform}
                                             variant="blue"
                                             size="sm"
                                             asChild
                                         >
                                             <a
-                                                href={url}
+                                                href={player.socials.instagram}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="flex items-center gap-2"
                                             >
-                                                <ExternalLink className="h-4 w-4" />
-                                                {platform
-                                                    .charAt(0)
-                                                    .toUpperCase() +
-                                                    platform.slice(1)}
+                                                <Instagram className="h-4 w-4" />
+                                                Instagram
                                             </a>
                                         </Button>
-                                    );
-                                }
-                            )}
-                        </div>
-                    </div>
-                )}
+                                    )}
 
-                {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100">
-                    <Button variant="blue" className="flex-1" asChild>
-                        <a href="mailto:team@zagreb-rugby-ladies.hr?subject=Interest in Joining">
-                            Join the Team
-                        </a>
-                    </Button>
-                    <Button variant="yellow" onClick={onClose}>
-                        Close
-                    </Button>
+                                    {Object.entries(player.socials).map(
+                                        ([platform, url]) => {
+                                            if (platform === "instagram")
+                                                return null;
+                                            return (
+                                                <Button
+                                                    key={platform}
+                                                    variant="blue"
+                                                    size="sm"
+                                                    asChild
+                                                >
+                                                    <a
+                                                        href={url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex items-center gap-2"
+                                                    >
+                                                        <ExternalLink className="h-4 w-4" />
+                                                        {platform
+                                                            .charAt(0)
+                                                            .toUpperCase() +
+                                                            platform.slice(1)}
+                                                    </a>
+                                                </Button>
+                                            );
+                                        }
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
+                    <div className="flex flex-col sm:flex-row gap-3 pt-4 pb-6">
+                        <Button variant="blue" className="flex-1" asChild>
+                            <a href="mailto:team@zagreb-rugby-ladies.hr?subject=Interest in Joining">
+                                Join the Team
+                            </a>
+                        </Button>
+                        <Button variant="yellow" onClick={onClose}>
+                            Close
+                        </Button>
+                    </div>
                 </div>
             </div>
         </Modal>
