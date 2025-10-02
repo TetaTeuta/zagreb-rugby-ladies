@@ -1,0 +1,364 @@
+import { useState, useEffect } from "react";
+import { Calendar, MapPin, Clock, Trophy, Users } from "lucide-react";
+import { Button } from "../components/ui/Button";
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+} from "../components/ui/Card";
+import { Container } from "../components/layout/Container";
+import { Link } from "react-router-dom";
+import { Countdown } from "../components/ui/Countdown";
+import { MatchSchedule } from "../components/home/MatchSchedule";
+import { NextMatch } from "../components/home/NextMatch";
+import { AnimatedSection } from "../components/ui/AnimatedSection";
+import scheduleData from "../data/schedule.json";
+import nextMatchData from "../data/nextMatch.json";
+
+const Schedule = () => {
+    const [activeTeam, setActiveTeam] = useState("senior");
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    const getMatchStatusColor = (status) => {
+        switch (status) {
+            case "completed":
+                return "bg-success/10 text-success border-success";
+            case "upcoming":
+                return "bg-info/10 text-info border-info";
+            default:
+                return "bg-muted-light text-text-contrast border-muted-light";
+        }
+    };
+
+    const isHomeMatch = (match, teamName) => {
+        return match.homeTeam === teamName;
+    };
+
+    const getOpponent = (match, teamName) => {
+        return match.homeTeam === teamName ? match.awayTeam : match.homeTeam;
+    };
+
+    const formatMatchResult = (match, teamName) => {
+        if (match.status !== "completed" || !match.result) return null;
+
+        const isHome = isHomeMatch(match, teamName);
+        const ourScore = isHome
+            ? match.result.homeScore
+            : match.result.awayScore;
+        const theirScore = isHome
+            ? match.result.awayScore
+            : match.result.homeScore;
+
+        return {
+            ourScore,
+            theirScore,
+            isWin: ourScore > theirScore,
+        };
+    };
+
+    const MatchCard = ({ match, teamName }) => {
+        const isHome = isHomeMatch(match, teamName);
+        const opponent = getOpponent(match, teamName);
+        const result = formatMatchResult(match, teamName);
+
+        return (
+            <Card className="bg-surface border-muted-light hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                            <div
+                                className={`px-3 py-1 rounded-full text-xs font-medium border ${getMatchStatusColor(
+                                    match.status
+                                )}`}
+                            >
+                                {match.status.charAt(0).toUpperCase() +
+                                    match.status.slice(1)}
+                            </div>
+                            <div className="text-xs text-muted uppercase tracking-wide">
+                                {match.matchType}
+                            </div>
+                        </div>
+                        {result && (
+                            <div
+                                className={`px-3 py-1 rounded-full text-sm font-bold ${
+                                    result.isWin
+                                        ? "bg-success/10 text-success"
+                                        : "bg-error/10 text-error"
+                                }`}
+                            >
+                                {result.isWin ? "W" : "L"}
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="mb-4">
+                        <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center gap-2">
+                                <Calendar className="h-4 w-4 text-primary" />
+                                <span className="text-text-contrast font-medium">
+                                    {new Date(match.date).toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            weekday: "long",
+                                            month: "long",
+                                            day: "numeric",
+                                            year: "numeric",
+                                        }
+                                    )}
+                                </span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <Clock className="h-4 w-4 text-primary" />
+                                <span className="text-text-contrast font-medium">
+                                    {match.time}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Teams Display */}
+                    <div className="flex items-center justify-between mb-4 p-4 bg-muted-light rounded-xl">
+                        <div className="text-center flex-1">
+                            <p
+                                className={`font-semibold ${
+                                    isHome
+                                        ? "text-primary"
+                                        : "text-text-contrast"
+                                }`}
+                            >
+                                {teamName}
+                            </p>
+                            {result && (
+                                <p className="text-lg font-bold text-text-contrast mt-1">
+                                    {result.ourScore}
+                                </p>
+                            )}
+                        </div>
+
+                        <div className="text-center px-4">
+                            <div className="text-muted font-medium">
+                                {isHome ? "vs" : "@"}
+                            </div>
+                        </div>
+
+                        <div className="text-center flex-1">
+                            <p
+                                className={`font-semibold ${
+                                    !isHome
+                                        ? "text-primary"
+                                        : "text-text-contrast"
+                                }`}
+                            >
+                                {opponent}
+                            </p>
+                            {result && (
+                                <p className="text-lg font-bold text-text-contrast mt-1">
+                                    {result.theirScore}
+                                </p>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Location */}
+                    <div className="flex items-start gap-2 mb-4">
+                        <MapPin className="h-4 w-4 text-primary mt-0.5" />
+                        <div>
+                            <p className="text-text-contrast font-medium text-sm">
+                                {match.location.name}
+                            </p>
+                            <p className="text-muted text-xs">
+                                {match.location.address}
+                            </p>
+                        </div>
+                    </div>
+
+                    {match.status === "upcoming" && (
+                        <Button variant="outline" asChild>
+                            <a
+                                href={match.location.mapUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Get Directions
+                            </a>
+                        </Button>
+                    )}
+                </CardContent>
+            </Card>
+        );
+    };
+
+    return (
+        <div className="min-h-screen bg-surface">
+            {/* Hero Section */}
+            <div className="relative h-[500px] overflow-hidden mt-20">
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+                    <div className="absolute inset-0 bg-black/20"></div>
+                </div>
+                <div className="absolute inset-0 bg-[url('/src/assets/images/photos/josipa_rugby.jpg')] bg-cover bg-center opacity-30"></div>
+
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
+                            MATCH SCHEDULE.
+                        </h1>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            <Button
+                                size="lg"
+                                className="bg-surface/95 backdrop-blur-sm text-text-contrast hover:bg-surface hover:scale-105"
+                                asChild
+                            >
+                                <Link to="/contact">Join Our Matches</Link>
+                            </Button>
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="border-2 border-text-light/80 bg-surface/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast hover:scale-105"
+                                asChild
+                            >
+                                <Link to="/rugby101">Learn Rugby</Link>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="px-4 py-16 max-w-7xl mx-auto">
+                {/* Next Match */}
+                <AnimatedSection divider="wave" className="mb-8">
+                    <NextMatch
+                        matchData={nextMatchData.match}
+                        opponent={
+                            nextMatchData.opponents[
+                                nextMatchData.match.opponentKey
+                            ]
+                        }
+                    />
+                </AnimatedSection>
+
+                {/* Team Selection */}
+                <AnimatedSection className="mb-8" delay={1}>
+                    <div className="text-center mb-8">
+                        <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                            MATCH SCHEDULE
+                        </h2>
+                        <p className="text-lg text-muted max-w-2xl mx-auto">
+                            Follow our teams throughout the season.
+                        </p>
+                    </div>
+
+                    {/* Team Toggle */}
+                    <div className="flex justify-center mb-12">
+                        <div className="bg-surface/50 rounded-xl p-1 relative min-w-0">
+                            {/* Selection indicator */}
+                            <div
+                                className={`absolute top-1 bottom-1 bg-primary rounded-lg transition-all duration-300 shadow-medium z-0 ${
+                                    activeTeam === "senior"
+                                        ? "left-1 w-[calc(50%-2px)]"
+                                        : "left-[calc(50%+2px)] w-[calc(50%-2px)]"
+                                }`}
+                            />
+                            <div className="flex relative z-10 whitespace-nowrap">
+                                <button
+                                    onClick={() => setActiveTeam("senior")}
+                                    className={`px-4 py-3 rounded-lg font-button font-semibold transition-all duration-normal hover:scale-105 ${
+                                        activeTeam === "senior"
+                                            ? "text-text-light"
+                                            : "text-text hover:text-text-contrast"
+                                    }`}
+                                >
+                                    <div className="flex items-center gap-2">
+                                        <Users className="h-4 w-4 flex-shrink-0" />
+                                        <span>Senior Team</span>
+                                    </div>
+                                </button>
+                                <button
+                                    onClick={() => setActiveTeam("junior")}
+                                    className={`px-4 py-3 rounded-lg font-button font-semibold transition-all duration-normal hover:scale-105 ${
+                                        activeTeam === "junior"
+                                            ? "text-text-light"
+                                            : "text-text hover:text-text-contrast"
+                                    }`}
+                                >
+                                    <div className="flex items-center gap-2">
+                                        <Users className="h-4 w-4 flex-shrink-0" />
+                                        <span>Junior Team (U18)</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Matches Grid */}
+                    <div className="max-w-6xl mx-auto">
+                        <div className="mb-6">
+                            <h3 className="text-2xl font-light mb-2 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                                {scheduleData.teams[
+                                    activeTeam
+                                ].name.toUpperCase()}
+                            </h3>
+                            <p className="text-muted mb-8">
+                                {scheduleData.teams[activeTeam].matches.length}{" "}
+                                matches this season
+                            </p>
+                        </div>
+
+                        <MatchSchedule
+                            matches={scheduleData.teams[activeTeam].matches}
+                            teamName={scheduleData.teams[activeTeam].name}
+                            getOpponent={getOpponent}
+                            formatMatchResult={formatMatchResult}
+                            getMatchStatusColor={getMatchStatusColor}
+                            isHomeMatch={isHomeMatch}
+                        />
+                    </div>
+                </AnimatedSection>
+
+                {/* Call to Action */}
+                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
+                    <img
+                        src="src/assets/images/photos/manuela_rugby.jpg"
+                        alt="Join our matches"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+                    <div className="absolute inset-0 flex items-center">
+                        <div className="max-w-2xl ml-12 text-text-light">
+                            <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
+                                COME SUPPORT OUR TEAM!
+                            </h2>
+                            <p className="text-xl mb-8 opacity-90 leading-relaxed">
+                                Join us at our matches and be part of the Zagreb
+                                Rugby Ladies community. Your support fuels our
+                                passion and drives us to victory.
+                            </p>
+                            <div className="flex gap-4">
+                                <Button
+                                    size="lg"
+                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8 py-4 text-lg font-semibold"
+                                    asChild
+                                >
+                                    <Link to="/contact">Get Match Updates</Link>
+                                </Button>
+                                <Button
+                                    size="lg"
+                                    variant="outline"
+                                    className="border-2 border-text-light text-text-light hover:bg-surface hover:text-text-contrast rounded px-8 py-4 text-lg font-semibold flex items-center gap-2"
+                                    asChild
+                                >
+                                    <Link to="/team">Meet the Players</Link>
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Schedule;

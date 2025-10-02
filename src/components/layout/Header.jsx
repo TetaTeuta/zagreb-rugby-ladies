@@ -1,0 +1,211 @@
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Button } from "../ui/Button";
+import { LanguageSwitcher } from "../ui/LanguageSwitcher";
+
+const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const location = useLocation();
+    const { t } = useTranslation();
+
+    const navigationItems = [
+        { name: t("navigation.home"), href: "/" },
+        { name: t("navigation.about"), href: "/about" },
+        { name: t("navigation.team"), href: "/team" },
+        { name: t("navigation.schedule"), href: "/schedule" },
+        { name: t("navigation.rugby101"), href: "/rugby101" },
+        { name: t("navigation.gallery"), href: "/gallery" },
+        { name: t("navigation.contact"), href: "/contact" },
+    ];
+
+    // Handle scroll effects
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setIsMenuOpen(false);
+    }, [location.pathname]);
+
+    // Close mobile menu when clicking outside
+    useEffect(() => {
+        const handleClickOutside = () => {
+            setIsMenuOpen(false);
+        };
+        if (isMenuOpen) {
+            document.addEventListener("click", handleClickOutside);
+            return () =>
+                document.removeEventListener("click", handleClickOutside);
+        }
+    }, [isMenuOpen]);
+
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isMenuOpen]);
+
+    const isActiveRoute = (path) => {
+        if (path === "/") return location.pathname === "/";
+        return location.pathname.startsWith(path);
+    };
+
+    return (
+        <>
+            <header
+                className={[
+                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                    isScrolled
+                        ? "bg-surface/95 backdrop-blur-md shadow-sm"
+                        : "bg-surface/90 backdrop-blur-sm",
+                ].join(" ")}
+            >
+                {/* Top banner */}
+                <div className="bg-accent text-center py-1 text-sm text-text-light hidden sm:block">
+                    {t("header.banner")}
+                </div>
+
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="flex h-16 items-center justify-between lg:justify-center">
+                        {/* Logo */}
+                        <Link
+                            to="/"
+                            className="flex items-center space-x-2 focus-visible:outline-none lg:absolute lg:left-4"
+                        >
+                            <img
+                                src="src/assets/images/logos/logo_vector.png"
+                                alt="Zagreb Rugby Ladies Logo"
+                                className="h-16 w-16 object-contain"
+                            />
+                        </Link>
+
+                        <nav className="hidden lg:flex items-center space-x-8">
+                            {navigationItems.map((item, index) => (
+                                <Link
+                                    key={index}
+                                    to={item.href}
+                                    className={[
+                                        "relative text-text-contrast hover:text-accent font-medium text-sm py-2 px-3 transition-all duration-200 group",
+                                        isActiveRoute(item.href)
+                                            ? "text-accent font-semibold"
+                                            : "",
+                                    ].join(" ")}
+                                >
+                                    {item.name}
+                                    {/* Hover underline */}
+                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 group-hover:w-full"></span>
+                                    {/* Active indicator */}
+                                    {isActiveRoute(item.href) && (
+                                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent"></span>
+                                    )}
+                                </Link>
+                            ))}
+
+                            {/* Language Switcher */}
+                            <LanguageSwitcher variant="header" />
+
+                            {/* Integrated CTA */}
+                            <Button size="sm" variant="accent" asChild>
+                                <Link to="/contact">{t("common.joinUs")}</Link>
+                            </Button>
+                        </nav>
+
+                        {/* Mobile menu button */}
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsMenuOpen(!isMenuOpen);
+                            }}
+                            className="lg:hidden p-2 rounded-lg text-text-contrast hover:bg-muted-light"
+                            aria-label={t("header.toggleMenu")}
+                            aria-expanded={isMenuOpen}
+                        >
+                            {isMenuOpen ? (
+                                <X className="h-6 w-6" />
+                            ) : (
+                                <Menu className="h-6 w-6" />
+                            )}
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            {/* Mobile Navigation Overlay */}
+            {isMenuOpen && (
+                <div className="fixed inset-0 z-50 lg:hidden">
+                    {/* Backdrop */}
+                    <div className="absolute inset-0 bg-text-contrast/50 backdrop-blur-sm" />
+
+                    {/* Menu Panel */}
+                    <div
+                        className="absolute top-0 right-0 h-full w-full max-w-sm bg-surface shadow-2xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Header */}
+                        <div className="flex items-center justify-between p-4 border-b border-muted-light">
+                            <div className="flex items-center space-x-2">
+                                <img
+                                    src="/zagreb-rugby-logo.png"
+                                    alt="Zagreb Rugby Ladies Logo"
+                                    className="h-8 w-8 object-contain"
+                                />
+                                <span className="text-base font-semibold text-text-contrast">
+                                    {t("navigation.menu")}
+                                </span>
+                            </div>
+                            <button
+                                onClick={() => setIsMenuOpen(false)}
+                                className="p-2 rounded-lg text-muted hover:bg-muted-light"
+                                aria-label={t("header.closeMenu")}
+                            >
+                                <X className="h-5 w-5" />
+                            </button>
+                        </div>
+
+                        {/* Navigation */}
+                        <nav className="p-4 space-y-1">
+                            {navigationItems.map((item, index) => (
+                                <Link
+                                    key={index}
+                                    to={item.href}
+                                    className={[
+                                        "block px-4 py-3 rounded-lg text-base font-medium hover:bg-muted-light transition-all duration-200",
+                                        isActiveRoute(item.href)
+                                            ? "bg-accent text-text-light font-semibold"
+                                            : "text-text-contrast",
+                                    ].join(" ")}
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </nav>
+
+                        {/* Mobile Actions */}
+                        <div className="p-4 border-t border-muted-light mt-auto space-y-3">
+                            <LanguageSwitcher variant="mobile" />
+                            <Button variant="accent" asChild>
+                                <Link to="/contact">{t("common.joinUs")}</Link>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
+    );
+};
+
+export { Header };

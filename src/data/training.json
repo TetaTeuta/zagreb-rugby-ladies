@@ -1,0 +1,62 @@
+{
+    "location": {
+        "name": "Rugby Center Rudes",
+        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8",
+        "coordinates": {
+            "lat": 45.7888,
+            "lng": 15.9442
+        }
+    },
+    "schedule": [
+        {
+            "day": "Monday",
+            "time": "20:00",
+            "duration": "90 minutes",
+            "type": "Skills & Fitness"
+        },
+        {
+            "day": "Tuesday",
+            "time": "20:00",
+            "duration": "90 minutes",
+            "type": "Team Training"
+        },
+        {
+            "day": "Thursday",
+            "time": "20:00",
+            "duration": "90 minutes",
+            "type": "Team Training"
+        },
+        {
+            "day": "Saturday",
+            "time": "10:00",
+            "duration": "Variable",
+            "type": "Match Day"
+        }
+    ],
+    "contact": {
+        "email": "team@zagreb-rugby-ladies.hr",
+        "phone": "+385 99 123 4567",
+        "whatsapp": "+385 99 123 4567"
+    },
+    "gettingStarted": {
+        "whatToBring": [
+            "Comfortable athletic wear",
+            "Running shoes or rugby boots",
+            "Water bottle",
+            "Positive attitude"
+        ],
+        "providedByClub": [
+            "Rugby balls",
+            "Training equipment",
+            "First aid support",
+            "Beginner coaching",
+            "Rugby boots"
+        ]
+    },
+    "seasonInfo": {
+        "season": "2024/2025",
+        "championshipStart": "September 2025",
+        "registrationDeadline": "November 2026"
+    }
+}

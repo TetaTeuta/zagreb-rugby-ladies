@@ -1,0 +1,51 @@
+/* App-specific styles - Using design system variables */
+
+/* Root app container */
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--spacing-container);
+    text-align: center;
+}
+
+/* Logo styles */
+.logo {
+    height: 6em;
+    padding: var(--spacing-card);
+    will-change: filter;
+    transition: filter var(--transition-normal);
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 2em rgba(var(--color-primary), 0.6));
+}
+
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em rgba(var(--color-accent), 0.6));
+}
+
+/* Logo animation */
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+
+/* Generic card padding */
+.card {
+    padding: var(--spacing-section);
+}
+
+/* Muted text */
+.read-the-docs {
+    color: rgb(var(--color-muted));
+}

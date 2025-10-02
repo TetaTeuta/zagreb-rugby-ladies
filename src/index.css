@@ -1,0 +1,1423 @@
+@import "tailwindcss";
+
+/* Modern, attention-grabbing fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap");
+
+:root {
+    /* ===== CENTRALIZED DESIGN SYSTEM ===== */
+    /* Change primary color here and it updates everywhere! */
+
+    /* Background & Foundation Colors - Clean Team Colors */
+    --color-bg: 249 250 251; /* clean light gray background */
+    --color-grad-start: 30 58 138; /* navy blue gradient start */
+    --color-grad-mid: 59 130 246; /* light blue gradient middle */
+    --color-grad-end: 245 158 11; /* amber gradient end */
+
+    /* Surface Colors - Clean & Minimal */
+    --color-surface: 255 255 255; /* pure white surfaces */
+    --color-surface-glass: 255 255 255; /* glass effect surface */
+    --color-surface-dark: 30 58 138; /* navy surface variant */
+    --color-surface-elevated: 255 255 255; /* clean white surface */
+    --color-surface-navy: 30 58 138; /* navy surface for sections */
+    --color-surface-light-blue: 255 255 255; /* clean white instead of blue tint */
+    --color-surface-amber: 255 255 255; /* clean white instead of amber tint */
+
+    /* Text Colors - Semantic naming */
+    --color-text: 15 15 20; /* primary text (dark) */
+    --color-text-light: 255 255 255; /* light text (white) */
+    --color-text-contrast: 0 0 0; /* high contrast text (black) */
+    --color-muted: 120 120 130; /* muted text */
+    --color-muted-light: 200 200 210; /* light muted text */
+
+    /* Border Colors */
+    --color-border: 229 231 235; /* default border (gray-200) */
+    --color-border-light: 243 244 246; /* light border (gray-100) */
+    --color-border-focus: 30 58 138; /* focus border (navy blue) */
+
+    /* Brand Colors - ZAGREB RUGBY LADIES TEAM COLORS */
+    --color-primary: 30 58 138; /* navy blue from jerseys - CHANGE HERE TO UPDATE EVERYWHERE */
+    --color-primary-light: 59 130 246; /* lighter blue */
+    --color-primary-dark: 15 23 42; /* deeper navy */
+
+    --color-accent: 245 158 11; /* golden amber from jersey stripes */
+    --color-accent-light: 255 188 41; /* bright gold */
+    --color-accent-dark: 215 128 0; /* deep gold */
+
+    /* Status Colors */
+    --color-success: 34 197 94; /* emerald green */
+    --color-warning: 245 158 11; /* amber */
+    --color-error: 239 68 68; /* red */
+
+    /* Typography System - Unified Hero Typography */
+    --font-sans: "Bebas Neue", "Oswald", sans-serif;
+    --font-hero: "Bebas Neue", "Oswald", sans-serif;
+    --font-heading: "Bebas Neue", "Oswald", sans-serif;
+    --font-body: "Bebas Neue", "Oswald", sans-serif;
+    --font-accent: "Bebas Neue", "Oswald", sans-serif;
+    --font-button: sans-serif;
+
+    /* Border Radius System */
+    --radius-sm: 0.5rem; /* 8px */
+    --radius-md: 0.75rem; /* 12px */
+    --radius-lg: 1rem; /* 16px */
+    --radius-xl: 1.25rem; /* 20px */
+    --radius-2xl: 1.5rem; /* 24px */
+    --radius-3xl: 2rem; /* 32px */
+
+    /* Shadow System */
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-large: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-float: 0 10px 30px -10px rgb(0 0 0 / 0.35);
+    --shadow-glow: 0 0 30px rgba(var(--color-primary), 0.3);
+
+    /* Spacing System */
+    --spacing-container: 1rem;
+    --spacing-section: 3rem;
+    --spacing-card: 1.5rem;
+
+    /* Animation & Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-normal: 200ms ease-in-out;
+    --transition-slow: 300ms ease-in-out;
+    --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Easing Curves */
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-card: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-gentle: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* Base Typography Settings */
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    font-weight: 400;
+
+    /* Font Optimization */
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Alternative theme - Away Jersey Colors */
+[data-theme="alt"] {
+    --color-primary: 59 130 246; /* lighter blue */
+    --color-accent: 30 58 138; /* navy blue */
+}
+
+/* Jersey-inspired theme - Home Jersey Colors (Default) */
+[data-theme="home"] {
+    --color-primary: 30 58 138; /* navy blue */
+    --color-accent: 245 158 11; /* golden amber */
+    --color-surface: 255 255 255; /* white like jersey background */
+}
+
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
+
+/* Universal transitions for smoother interactions */
+*,
+*::before,
+*::after {
+    transition-property: color, background-color, border-color,
+        text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+        filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: var(--transition-fast);
+}
+
+/* Enhanced focus styles */
+*:focus-visible {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
+    transition: outline-offset var(--transition-fast);
+}
+
+/* Interactive elements get enhanced transitions */
+button,
+a,
+input,
+textarea,
+select,
+[tabindex],
+[role="button"],
+[role="tab"],
+[role="menuitem"] {
+    transition-duration: var(--transition-normal);
+    transition-property: all;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+}
+
+/* Floating container effects */
+.floating-container {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Focus management */
+.focus-trap:focus-visible {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+}
+
+/* Utility animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse-glow {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(var(--color-primary), 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(var(--color-primary), 0);
+    }
+}
+
+/* Animation utility classes */
+.animate-slide-in-up {
+    animation: slideInUp var(--transition-smooth) var(--ease-out-quart);
+}
+
+.animate-slide-in-down {
+    animation: slideInDown var(--transition-smooth) var(--ease-out-quart);
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft var(--transition-smooth) var(--ease-out-quart);
+}
+
+.animate-slide-in-right {
+    animation: slideInRight var(--transition-smooth) var(--ease-out-quart);
+}
+
+.animate-fade-in {
+    animation: fadeIn var(--transition-slow) ease-out;
+}
+
+.animate-scale-in {
+    animation: scaleIn var(--transition-smooth) var(--ease-spring);
+}
+
+.animate-bounce-in {
+    animation: bounceIn 0.6s var(--ease-in-out-back);
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+    transition: transform var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+}
+
+.hover-glow {
+    transition: box-shadow var(--transition-normal);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px rgba(var(--color-primary), 0.3);
+}
+
+.hover-scale {
+    transition: transform var(--transition-normal);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-rotate {
+    transition: transform var(--transition-normal);
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+/* Staggered animations for lists */
+.stagger-children > * {
+    animation-delay: calc(var(--stagger-delay, 0.1s) * var(--index, 0));
+}
+
+/* Enhanced card transitions */
+.card-smooth {
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: var(--ease-card);
+    transform-origin: center;
+}
+
+.card-smooth:hover {
+    transition-duration: 400ms;
+}
+
+/* Award-Winning Card System */
+.card-glass {
+    background: rgba(var(--color-surface-glass), 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.card-glass:hover {
+    background: rgba(var(--color-surface-glass), 0.98);
+    border-color: rgba(var(--color-primary), 0.3);
+    box-shadow: 0 20px 60px rgba(var(--color-primary), 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(var(--color-primary), 0.1) inset;
+    transform: translateY(-4px);
+}
+
+.card-elevated {
+    background: rgb(var(--color-surface));
+    border: 1px solid rgba(var(--color-primary), 0.1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(var(--color-primary), 0.03) inset;
+}
+
+.card-elevated:hover {
+    border-color: rgba(var(--color-primary), 0.2);
+    box-shadow: 0 12px 40px rgba(var(--color-primary), 0.12),
+        0 4px 24px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(var(--color-primary), 0.08) inset;
+    transform: translateY(-2px);
+}
+
+.card-accent-glow {
+    background: rgb(var(--color-surface));
+    border: 1px solid rgba(var(--color-accent), 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-accent-glow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--color-accent), 0.8),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.card-accent-glow:hover::before {
+    opacity: 1;
+}
+
+.card-accent-glow:hover {
+    border-color: rgba(var(--color-accent), 0.3);
+    box-shadow: 0 12px 40px rgba(var(--color-accent), 0.15),
+        0 4px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Loading states */
+.loading-shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(var(--color-surface), 0.2) 25%,
+        rgba(var(--color-surface), 0.4) 50%,
+        rgba(var(--color-surface), 0.2) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Color utility classes using design system */
+.bg-surface {
+    background-color: rgb(var(--color-surface));
+}
+
+.bg-surface\/95 {
+    background-color: rgb(var(--color-surface) / 0.95);
+}
+
+.bg-surface-dark {
+    background-color: rgb(var(--color-surface-dark));
+}
+
+.text-text-contrast {
+    color: rgb(var(--color-text-contrast));
+}
+
+.text-text-light {
+    color: rgb(var(--color-text-light));
+}
+
+.text-muted {
+    color: rgb(var(--color-muted));
+}
+
+.text-muted-light {
+    color: rgb(var(--color-muted-light));
+}
+
+.border-text-light {
+    border-color: rgb(var(--color-text-light));
+}
+
+.border-text-light\/80 {
+    border-color: rgb(var(--color-text-light) / 0.8);
+}
+
+.bg-text-light\/10 {
+    background-color: rgb(var(--color-text-light) / 0.1);
+}
+
+.hover\:bg-surface:hover {
+    background-color: rgb(var(--color-surface));
+}
+
+.hover\:text-text-contrast:hover {
+    color: rgb(var(--color-text-contrast));
+}
+
+.hover\:bg-muted-light:hover {
+    background-color: rgb(var(--color-muted-light));
+}
+
+.bg-surface\/90 {
+    background-color: rgb(var(--color-surface) / 0.9);
+}
+
+.bg-muted-light {
+    background-color: rgb(var(--color-muted-light));
+}
+
+.hover\:text-text-contrast:hover {
+    color: rgb(var(--color-text-contrast));
+}
+
+.hover\:text-muted:hover {
+    color: rgb(var(--color-muted));
+}
+
+.border-muted-light {
+    border-color: rgb(var(--color-muted-light));
+}
+
+.hover\:bg-surface-dark:hover {
+    background-color: rgb(var(--color-surface-dark));
+}
+
+/* ===== BUTTON SYSTEM ===== */
+/* Global button styles using design system colors */
+
+.btn-primary {
+    background-color: rgb(30 58 138); /* blue-600 */
+    color: white;
+    border: 2px solid rgba(245 158 11 / 0.3); /* yellow accent border */
+}
+
+.btn-primary:hover {
+    background-color: rgb(29 78 216); /* blue-700 */
+    border-color: rgba(245 158 11 / 0.5);
+    transform: scale(1.02);
+}
+
+.btn-secondary {
+    background-color: white;
+    color: rgb(30 58 138); /* blue-600 */
+    border: 2px solid rgb(30 58 138);
+}
+
+.btn-secondary:hover {
+    background-color: rgb(254 252 232); /* yellow-50 */
+    color: rgb(29 78 216); /* blue-700 */
+    border-color: rgb(29 78 216);
+    transform: scale(1.02);
+}
+
+.btn-accent {
+    background-color: rgb(var(--color-accent));
+    color: rgb(var(--color-text-contrast));
+}
+
+.btn-accent:hover {
+    background-color: rgb(var(--color-accent-dark));
+    transform: scale(1.02);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: rgb(var(--color-primary));
+    border: 2px solid rgb(var(--color-primary));
+}
+
+.btn-outline:hover {
+    background-color: rgb(var(--color-accent) / 0.1);
+    color: rgb(var(--color-text-contrast));
+    border-color: rgb(var(--color-accent));
+    transform: scale(1.02);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: rgb(var(--color-text));
+    border: none;
+    box-shadow: none;
+}
+
+.btn-ghost:hover {
+    background-color: rgb(var(--color-accent) / 0.1);
+    color: rgb(var(--color-accent));
+    box-shadow: none;
+}
+
+/* Button component color classes */
+.bg-primary {
+    background-color: rgb(var(--color-primary));
+}
+
+.bg-primary\/90 {
+    background-color: rgb(var(--color-primary) / 0.9);
+}
+
+.bg-primary\/95 {
+    background-color: rgb(var(--color-primary) / 0.95);
+}
+
+.bg-primary\/5 {
+    background-color: rgb(var(--color-primary) / 0.05);
+}
+
+.bg-primary\/10 {
+    background-color: rgb(var(--color-primary) / 0.1);
+}
+
+.bg-primary\/20 {
+    background-color: rgb(var(--color-primary) / 0.2);
+}
+
+.bg-accent {
+    background-color: rgb(var(--color-accent));
+}
+
+.bg-accent\/90 {
+    background-color: rgb(var(--color-accent) / 0.9);
+}
+
+.bg-accent\/95 {
+    background-color: rgb(var(--color-accent) / 0.95);
+}
+
+.text-text {
+    color: rgb(var(--color-text));
+}
+
+.text-primary {
+    color: rgb(var(--color-primary));
+}
+
+.border-primary {
+    border-color: rgb(var(--color-primary));
+}
+
+.border-border {
+    border-color: rgb(var(--color-border));
+}
+
+.border-border-focus {
+    border-color: rgb(var(--color-border-focus));
+}
+
+.hover\:bg-primary:hover {
+    background-color: rgb(var(--color-primary));
+}
+
+.hover\:bg-primary\/5:hover {
+    background-color: rgb(var(--color-primary) / 0.05);
+}
+
+.hover\:bg-primary\/10:hover {
+    background-color: rgb(var(--color-primary) / 0.1);
+}
+
+.hover\:bg-primary\/20:hover {
+    background-color: rgb(var(--color-primary) / 0.2);
+}
+
+.hover\:text-primary\/80:hover {
+    color: rgb(var(--color-primary) / 0.8);
+}
+
+.hover\:border-border-focus:hover {
+    border-color: rgb(var(--color-border-focus));
+}
+
+.active\:bg-primary\/95:active {
+    background-color: rgb(var(--color-primary) / 0.95);
+}
+
+.active\:bg-primary\/10:active {
+    background-color: rgb(var(--color-primary) / 0.1);
+}
+
+.active\:bg-primary\/20:active {
+    background-color: rgb(var(--color-primary) / 0.2);
+}
+
+.active\:bg-accent\/95:active {
+    background-color: rgb(var(--color-accent) / 0.95);
+}
+
+/* Additional color utility classes */
+.text-text-light\/80 {
+    color: rgb(var(--color-text-light) / 0.8);
+}
+
+.text-text-light\/60 {
+    color: rgb(var(--color-text-light) / 0.6);
+}
+
+.border-text-light\/10 {
+    border-color: rgb(var(--color-text-light) / 0.1);
+}
+
+.bg-grad-start\/50 {
+    background-color: rgb(var(--color-grad-start) / 0.5);
+}
+
+.bg-surface\/10 {
+    background-color: rgb(var(--color-surface) / 0.1);
+}
+
+.text-surface {
+    color: rgb(var(--color-surface));
+}
+
+.hover\:text-surface:hover {
+    color: rgb(var(--color-surface));
+}
+
+/* More surface opacity variations */
+.bg-surface\/20 {
+    background-color: rgb(var(--color-surface) / 0.2);
+}
+
+.bg-surface\/30 {
+    background-color: rgb(var(--color-surface) / 0.3);
+}
+
+.border-text-light\/30 {
+    border-color: rgb(var(--color-text-light) / 0.3);
+}
+
+.border-text-light\/40 {
+    border-color: rgb(var(--color-text-light) / 0.4);
+}
+
+/* Semantic color classes for Toast component */
+.border-success {
+    border-color: rgb(var(--color-success));
+}
+
+.bg-success {
+    background-color: rgb(var(--color-success));
+}
+
+.text-success {
+    color: rgb(var(--color-success));
+}
+
+.border-error {
+    border-color: rgb(var(--color-error));
+}
+
+.bg-error {
+    background-color: rgb(var(--color-error));
+}
+
+.text-error {
+    color: rgb(var(--color-error));
+}
+
+.border-warning {
+    border-color: rgb(var(--color-warning));
+}
+
+.bg-warning {
+    background-color: rgb(var(--color-warning));
+}
+
+.text-warning {
+    color: rgb(var(--color-warning));
+}
+
+.border-info {
+    border-color: rgb(var(--color-primary));
+}
+
+.bg-info {
+    background-color: rgb(var(--color-primary));
+}
+
+.text-info {
+    color: rgb(var(--color-primary));
+}
+
+/* Light variants for toast backgrounds */
+.bg-success\/10 {
+    background-color: rgb(var(--color-success) / 0.1);
+}
+
+.bg-error\/10 {
+    background-color: rgb(var(--color-error) / 0.1);
+}
+
+.bg-warning\/10 {
+    background-color: rgb(var(--color-warning) / 0.1);
+}
+
+.bg-info\/10 {
+    background-color: rgb(var(--color-primary) / 0.1);
+}
+
+/* Gradient utility classes using CSS variables */
+.from-text-contrast {
+    --tw-gradient-from: rgb(var(--color-text-contrast));
+    --tw-gradient-stops: var(--tw-gradient-from),
+        var(--tw-gradient-to, rgb(var(--color-text-contrast) / 0));
+}
+
+.via-text-contrast {
+    --tw-gradient-to: rgb(var(--color-text-contrast) / 0);
+    --tw-gradient-stops: var(--tw-gradient-from),
+        rgb(var(--color-text-contrast)),
+        var(--tw-gradient-to, rgb(var(--color-text-contrast) / 0));
+}
+
+.from-text-contrast\/90 {
+    --tw-gradient-from: rgb(var(--color-text-contrast) / 0.9);
+    --tw-gradient-stops: var(--tw-gradient-from),
+        var(--tw-gradient-to, rgb(var(--color-text-contrast) / 0));
+}
+
+.from-text-contrast\/80 {
+    --tw-gradient-from: rgb(var(--color-text-contrast) / 0.8);
+    --tw-gradient-stops: var(--tw-gradient-from),
+        var(--tw-gradient-to, rgb(var(--color-text-contrast) / 0));
+}
+
+.from-text-contrast\/70 {
+    --tw-gradient-from: rgb(var(--color-text-contrast) / 0.7);
+    --tw-gradient-stops: var(--tw-gradient-from),
+        var(--tw-gradient-to, rgb(var(--color-text-contrast) / 0));
+}
+
+.via-text-contrast\/50 {
+    --tw-gradient-to: rgb(var(--color-text-contrast) / 0);
+    --tw-gradient-stops: var(--tw-gradient-from),
+        rgb(var(--color-text-contrast) / 0.5),
+        var(--tw-gradient-to, rgb(var(--color-text-contrast) / 0));
+}
+
+.via-text-contrast\/40 {
+    --tw-gradient-to: rgb(var(--color-text-contrast) / 0);
+    --tw-gradient-stops: var(--tw-gradient-from),
+        rgb(var(--color-text-contrast) / 0.4),
+        var(--tw-gradient-to, rgb(var(--color-text-contrast) / 0));
+}
+
+.via-text-contrast\/30 {
+    --tw-gradient-to: rgb(var(--color-text-contrast) / 0);
+    --tw-gradient-stops: var(--tw-gradient-from),
+        rgb(var(--color-text-contrast) / 0.3),
+        var(--tw-gradient-to, rgb(var(--color-text-contrast) / 0));
+}
+
+/* Enhanced Color System - Team Colors */
+.text-primary-dark {
+    color: rgb(var(--color-primary-dark));
+}
+
+.hover\:text-primary:hover {
+    color: rgb(var(--color-primary));
+}
+
+.focus\:ring-primary:focus {
+    --tw-ring-color: rgb(var(--color-primary));
+}
+
+/* New Surface Color Classes */
+.bg-surface-light-blue {
+    background-color: rgb(var(--color-surface-light-blue));
+}
+
+.bg-surface-amber {
+    background-color: rgb(var(--color-surface-amber));
+}
+
+.bg-surface-navy {
+    background-color: rgb(var(--color-surface-navy));
+}
+
+.bg-surface-elevated {
+    background-color: rgb(var(--color-surface-elevated));
+}
+
+.bg-accent {
+    background-color: rgb(var(--color-accent));
+}
+
+/* Simple team color backgrounds */
+.bg-team-gradient {
+    background-color: rgb(var(--color-surface));
+}
+
+.bg-team-gradient-dark {
+    background-color: rgb(var(--color-surface-dark));
+}
+
+/* Border utilities */
+.border-primary\/10 {
+    border-color: rgb(var(--color-primary) / 0.1);
+}
+
+/* Accent color variations */
+.bg-accent\/80 {
+    background-color: rgb(var(--color-accent) / 0.8);
+}
+
+.bg-accent\/90 {
+    background-color: rgb(var(--color-accent) / 0.9);
+}
+
+.border-accent {
+    border-color: rgb(var(--color-accent));
+}
+
+.border-accent\/10 {
+    border-color: rgb(var(--color-accent) / 0.1);
+}
+
+.border-accent\/30 {
+    border-color: rgb(var(--color-accent) / 0.3);
+}
+
+.border-accent\/40 {
+    border-color: rgb(var(--color-accent) / 0.4);
+}
+
+.text-accent {
+    color: rgb(var(--color-accent));
+}
+
+/* Enhanced button hover states */
+.hover\:bg-accent:hover {
+    background-color: rgb(var(--color-accent));
+}
+
+.hover\:text-text-light:hover {
+    color: rgb(var(--color-text-light));
+}
+
+.hover\:text-text-contrast:hover {
+    color: rgb(var(--color-text-contrast));
+}
+
+.hover\:border-accent:hover {
+    border-color: rgb(var(--color-accent));
+}
+
+.hover\:text-accent:hover {
+    color: rgb(var(--color-accent));
+}
+
+.hover\:bg-accent\/10:hover {
+    background-color: rgb(var(--color-accent) / 0.1);
+}
+
+.active\:bg-accent\/90:active {
+    background-color: rgb(var(--color-accent) / 0.9);
+}
+
+.active\:bg-accent\/20:active {
+    background-color: rgb(var(--color-accent) / 0.2);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .animate-float,
+    .animate-pulse-glow,
+    .loading-shimmer {
+        animation: none !important;
+    }
+}
+
+/* Global page background - Rugby image with dark overlay */
+.page-background {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+        url("https://images.squarespace-cdn.com/content/v1/5c434f9f75f9ee29faa1b7cb/1577350001024-5E67K4CPWMY53CKP5YH3/best-rugby-photos-29.jpg")
+            center/cover fixed;
+    min-height: 100vh;
+}
+
+/* Global floating container wrapper - Fully Responsive */
+.floating-wrapper {
+    position: relative;
+    z-index: 10;
+    margin: 2rem auto;
+    max-width: 70%;
+    padding: 0 1rem;
+}
+
+/* Large screens (1440px+) */
+@media (min-width: 1440px) {
+    .floating-wrapper {
+        margin: 3rem auto;
+        max-width: 65%;
+        padding: 0 2rem;
+    }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (max-width: 1439px) and (min-width: 1024px) {
+    .floating-wrapper {
+        margin: 2.5rem auto;
+        max-width: 75%;
+        padding: 0 1.5rem;
+    }
+}
+
+/* Tablet landscape (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .floating-wrapper {
+        margin: 2rem auto;
+        max-width: 90%;
+        padding: 0 2rem;
+    }
+}
+
+/* Tablet portrait (640px - 767px) */
+@media (max-width: 767px) and (min-width: 640px) {
+    .floating-wrapper {
+        margin: 1.5rem auto;
+        max-width: 95%;
+        padding: 0 1.5rem;
+    }
+}
+
+/* Mobile large (480px - 639px) */
+@media (max-width: 639px) and (min-width: 480px) {
+    .floating-wrapper {
+        margin: 1rem auto;
+        max-width: 97%;
+        padding: 0 1rem;
+    }
+}
+
+/* Mobile small (320px - 479px) */
+@media (max-width: 479px) {
+    .floating-wrapper {
+        margin: 0.75rem auto;
+        max-width: 98%;
+        padding: 0 0.75rem;
+    }
+}
+
+/* Extra small mobile (below 320px) */
+@media (max-width: 319px) {
+    .floating-wrapper {
+        margin: 0.5rem auto;
+        max-width: 99%;
+        padding: 0 0.5rem;
+    }
+}
+
+/* Global floating container - Clean Design */
+.floating-container-global {
+    background: rgb(var(--color-surface));
+    border-radius: 1rem;
+    overflow: hidden;
+    padding-top: 5rem;
+}
+
+/* Typography Classes - Use Design System Fonts */
+.hero-title {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-title {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.body-text {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.accent-text {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.button-text {
+    font-family: var(--font-button);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.9;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Global text colors for floating container content - Use Design System */
+.floating-container-global h1 {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.floating-container-global h2 {
+    font-size: 1.5rem;
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .floating-container-global h2 {
+        font-size: 1.875rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.floating-container-global h3 {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.floating-container-global h4,
+.floating-container-global h5,
+.floating-container-global h6 {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.floating-container-global p,
+.floating-container-global span,
+.floating-container-global div {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: rgb(var(--color-text-light));
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Global Transition Styles */
+.group {
+    transition: var(--transition-smooth);
+}
+
+.group:hover {
+    transform: translateY(-1px);
+}
+
+.group img {
+    transition: var(--transition-smooth);
+}
+
+.group h1,
+.group h2,
+.group h3,
+.group h4,
+.group h5,
+.group h6,
+.group p,
+.group span {
+    transition: var(--transition-smooth);
+}
+
+/* Button Transitions */
+button {
+    transition: var(--transition-smooth);
+}
+
+button span {
+    transition: var(--transition-smooth);
+}
+
+/* Navigation Transitions */
+nav a,
+header a,
+header button {
+    transition: var(--transition-smooth);
+}
+
+/* Header Transitions */
+header {
+    transition: var(--transition-smooth);
+}
+
+/* Card component overrides for floating container */
+.floating-container-global .bg-white h1,
+.floating-container-global .bg-white h2,
+.floating-container-global .bg-white h3,
+.floating-container-global .bg-white h4,
+.floating-container-global .bg-white h5,
+.floating-container-global .bg-white h6 {
+    color: black !important;
+}
+
+/* Card content overrides for white backgrounds - Use Design System */
+.floating-container-global .bg-white h3 {
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.625 !important;
+    text-shadow: none !important;
+}
+
+.floating-container-global .bg-white p,
+.floating-container-global .bg-white span,
+.floating-container-global .bg-white div {
+    color: rgb(var(--color-text-contrast)) !important;
+}
+
+/* Noise texture for floating container */
+.bg-noise {
+    background-image: radial-gradient(
+            circle at 25% 30%,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 75% 60%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 45% 80%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255, 255, 255, 0.02) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 50%
+        );
+}
+
+/* Cinematic Image Treatment - Matte finish with sunset tones */
+.image-cinematic {
+    filter: brightness(0.9) contrast(0.75) saturate(0.75) blur(0.5px);
+    transition: transform 8000ms ease-out;
+}
+
+.image-cinematic:hover {
+    transform: scale(1.05);
+}
+
+/* Cinematic overlay layers - Use with image-cinematic */
+.overlay-cinematic-base {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.2),
+        transparent
+    );
+}
+
+.overlay-cinematic-sunset {
+    background: linear-gradient(
+        to bottom right,
+        rgba(245, 158, 11, 0.3),
+        rgba(154, 52, 18, 0.2),
+        rgba(146, 64, 14, 0.4)
+    );
+    mix-blend-mode: overlay;
+}
+
+.overlay-cinematic-matte {
+    background: rgba(107, 114, 128, 0.15);
+    mix-blend-mode: soft-light;
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-up.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.fade-in-up.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.fade-in-up.delay-3 {
+    transition-delay: 0.3s;
+}
+
+/* ===== VISUAL DIVIDERS ===== */
+.angled-divider {
+    position: relative;
+    overflow: hidden;
+}
+
+.angled-divider::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(
+        135deg,
+        rgb(var(--color-bg)) 50%,
+        transparent 50%
+    );
+    z-index: 1;
+}
+
+.wave-divider {
+    position: relative;
+}
+
+.wave-divider::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: rgb(var(--color-bg));
+    clip-path: polygon(0 20px, 100% 0, 100% 40px, 0 40px);
+}

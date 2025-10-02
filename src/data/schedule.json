@@ -1,0 +1,145 @@
+{
+    "season": "2025/2026",
+    "teams": {
+        "senior": {
+            "name": "Zagreb Rugby Ladies",
+            "logo": "src/assets/images/logo_vector.png",
+            "matches": [
+                {
+                    "id": "sr-001",
+                    "date": "2024-09-15",
+                    "time": "15:00",
+                    "homeTeam": "Zagreb Rugby Ladies",
+                    "awayTeam": "Split Rugby Club",
+                    "location": {
+                        "name": "Rugby Center Rudes",
+                        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
+                    },
+                    "matchType": "Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 24,
+                        "awayScore": 18
+                    }
+                },
+                {
+                    "id": "sr-002",
+                    "date": "2024-09-29",
+                    "time": "14:00",
+                    "homeTeam": "Rijeka Rugby",
+                    "awayTeam": "Zagreb Rugby Ladies",
+                    "location": {
+                        "name": "Kantrida Stadium",
+                        "address": "Ul. Kantrida 1, 51000 Rijeka, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/rijekarugby456"
+                    },
+                    "matchType": "Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 12,
+                        "awayScore": 30
+                    }
+                },
+                {
+                    "id": "sr-003",
+                    "date": "2025-10-15",
+                    "time": "15:00",
+                    "homeTeam": "Zagreb Rugby Ladies",
+                    "awayTeam": "Rugby Nada Split",
+                    "location": {
+                        "name": "Rugby Center Rudes",
+                        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
+                    },
+                    "matchType": "Championship",
+                    "status": "upcoming"
+                },
+                {
+                    "id": "sr-004",
+                    "date": "2025-10-29",
+                    "time": "16:00",
+                    "homeTeam": "Osijek Rugby Club",
+                    "awayTeam": "Zagreb Rugby Ladies",
+                    "location": {
+                        "name": "Gradski vrt",
+                        "address": "Ul. Sjenjak 1, 31000 Osijek, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/osijekrugby789"
+                    },
+                    "matchType": "Championship",
+                    "status": "upcoming"
+                }
+            ]
+        },
+        "junior": {
+            "name": "Zagreb Rugby Ladies U18",
+            "logo": "src/assets/images/logo_vector.png",
+            "matches": [
+                {
+                    "id": "jr-001",
+                    "date": "2024-09-08",
+                    "time": "11:00",
+                    "homeTeam": "Zagreb Rugby Ladies U18",
+                    "awayTeam": "Split Rugby U18",
+                    "location": {
+                        "name": "Rugby Center Rudes",
+                        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
+                    },
+                    "matchType": "Youth Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 35,
+                        "awayScore": 10
+                    }
+                },
+                {
+                    "id": "jr-002",
+                    "date": "2024-09-22",
+                    "time": "10:30",
+                    "homeTeam": "Rijeka Rugby U18",
+                    "awayTeam": "Zagreb Rugby Ladies U18",
+                    "location": {
+                        "name": "Kantrida Stadium",
+                        "address": "Ul. Kantrida 1, 51000 Rijeka, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/rijekarugby456"
+                    },
+                    "matchType": "Youth Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 15,
+                        "awayScore": 28
+                    }
+                },
+                {
+                    "id": "jr-003",
+                    "date": "2025-10-08",
+                    "time": "11:00",
+                    "homeTeam": "Zagreb Rugby Ladies U18",
+                    "awayTeam": "Pula Pirates U18",
+                    "location": {
+                        "name": "Rugby Center Rudes",
+                        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
+                    },
+                    "matchType": "Youth Championship",
+                    "status": "upcoming"
+                },
+                {
+                    "id": "jr-004",
+                    "date": "2025-10-22",
+                    "time": "12:00",
+                    "homeTeam": "Zadar Wolves U18",
+                    "awayTeam": "Zagreb Rugby Ladies U18",
+                    "location": {
+                        "name": "Stanovi Sports Complex",
+                        "address": "Ul. Mata Gupca 4, 23000 Zadar, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/zadarwolves678"
+                    },
+                    "matchType": "Youth Championship",
+                    "status": "upcoming"
+                }
+            ]
+        }
+    }
+}

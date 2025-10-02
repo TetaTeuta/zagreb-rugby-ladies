@@ -1,0 +1,534 @@
+{
+    "navigation": {
+        "home": "Home",
+        "about": "About Us",
+        "team": "Team",
+        "schedule": "Schedule",
+        "rugby101": "Rugby 101",
+        "gallery": "Gallery",
+        "contact": "Contact",
+        "menu": "Menu"
+    },
+    "common": {
+        "joinUs": "Join us today",
+        "joinTraining": "Join Training",
+        "learnMore": "Learn More",
+        "watchVideo": "Watch Full Video",
+        "learnAboutRugby": "Learn About Rugby",
+        "readMore": "Read More",
+        "close": "Close",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success"
+    },
+    "header": {
+        "banner": "The future of women's rugby starts here.",
+        "toggleMenu": "Toggle menu",
+        "closeMenu": "Close menu"
+    },
+    "home": {
+        "hero": {
+            "title": "EMPOWER YOUR GAME.",
+            "joinTraining": "Join a Training",
+            "watchVideo": "Watch Full Video"
+        },
+        "meetTeam": {
+            "title": "MEET THE TEAM",
+            "subtitle": "The champions behind the team."
+        },
+        "highlights": {
+            "inclusive": {
+                "title": "Inclusive Team",
+                "description": "Every background. Every story. One team."
+            },
+            "beginner": {
+                "title": "Beginner Friendly",
+                "description": "No experience? No problem. Start here."
+            },
+            "strength": {
+                "title": "Strength & Confidence",
+                "description": "Get strong. Stay fierce. Win everywhere."
+            }
+        },
+        "cta": {
+            "title": "READY TO START YOUR RUGBY JOURNEY?",
+            "description": "Join us for a training session and discover what rugby can do for you. No experience necessary—just bring your courage and we'll teach you the rest."
+        }
+    },
+    "match": {
+        "vs": "VS",
+        "nextMatch": "Next Match",
+        "matchDay": "Match Day",
+        "time": "Time",
+        "location": "Location",
+        "countdown": {
+            "days": "Days",
+            "hours": "Hours",
+            "minutes": "Minutes",
+            "seconds": "Seconds"
+        }
+    },
+    "training": {
+        "title": "Training Schedule",
+        "subtitle": "Join us on the field",
+        "description": "Regular training sessions for all skill levels. Come as you are, leave stronger.",
+        "viewSchedule": "View Full Schedule"
+    },
+    "team": {
+        "title": "Our Team",
+        "subtitle": "Meet the incredible women who make Zagreb Rugby Ladies special",
+        "position": "Position",
+        "about": "About",
+        "quote": "Quote",
+        "funFact": "Fun Fact",
+        "social": "Follow on Instagram"
+    },
+    "about": {
+        "title": "About Zagreb Rugby Ladies",
+        "subtitle": "Building strength, character, and community through rugby",
+        "mission": "Our Mission",
+        "values": "Our Values",
+        "history": "Our History"
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "subtitle": "Ready to join us? Have questions? We'd love to hear from you.",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "message": "Message",
+            "send": "Send Message",
+            "sending": "Sending...",
+            "success": "Message sent successfully!",
+            "error": "Failed to send message. Please try again."
+        },
+        "info": {
+            "address": "Address",
+            "phone": "Phone",
+            "email": "Email",
+            "followUs": "Follow Us"
+        }
+    },
+    "rugby101": {
+        "title": "Rugby 101",
+        "subtitle": "New to rugby? Start here to learn the basics",
+        "basics": "The Basics",
+        "positions": "Positions",
+        "rules": "Rules",
+        "equipment": "Equipment"
+    },
+    "gallery": {
+        "title": "Gallery",
+        "subtitle": "Moments from our journey",
+        "categories": {
+            "all": "All",
+            "matches": "Matches",
+            "training": "Training",
+            "events": "Events"
+        }
+    },
+    "schedule": {
+        "title": "Schedule",
+        "subtitle": "Upcoming matches and training sessions",
+        "matches": "Matches",
+        "trainings": "Training Sessions",
+        "events": "Events"
+    },
+    "footer": {
+        "description": "Zagreb Rugby Ladies - Empowering women through rugby since 2020.",
+        "quickLinks": "Quick Links",
+        "contact": "Contact Info",
+        "followUs": "Follow Us",
+        "copyright": "© 2024 Zagreb Rugby Ladies. All rights reserved."
+    },
+    "language": {
+        "english": "English",
+        "croatian": "Croatian",
+        "switchTo": "Switch to {{language}}"
+    },
+    "about": {
+        "hero": {
+            "title": "Breaking Barriers. Building Dreams.",
+            "joinTeam": "Join Our Team",
+            "meetTeam": "Meet the Team"
+        },
+        "story": {
+            "title": "OUR STORY",
+            "subtitle": "Founded in 2020, Zagreb Rugby Ladies emerged from a simple belief.",
+            "description1": "Today, we're proud members of the Croatian Rugby Federation, with over 30 active players ranging from complete beginners to experienced athletes. Our club has become a cornerstone of women's rugby in Croatia, inspiring other cities to start their own teams.",
+            "description2": "But our greatest achievement isn't our wins on the field—it's the confidence, friendships, and personal growth our players develop."
+        },
+        "mission": {
+            "title": "OUR MISSION & VALUES",
+            "missionTitle": "OUR MISSION",
+            "missionText": "To empower girls and young women through rugby, fostering confidence, resilience, and lifelong friendships while promoting the sport we love throughout Croatia.",
+            "valuesTitle": "OUR VALUES",
+            "values": {
+                "inclusion": {
+                    "title": "INCLUSION",
+                    "description": "Rugby is for everyone. We celebrate diversity in all its forms and create a space where every player feels valued and supported."
+                },
+                "resilience": {
+                    "title": "RESILIENCE",
+                    "description": "Rugby teaches us to get back up when we fall. We build mental and physical toughness that serves us on and off the field."
+                },
+                "teamwork": {
+                    "title": "TEAMWORK",
+                    "description": "No one succeeds alone in rugby. We support each other, grow together, and celebrate collective achievements."
+                },
+                "courage": {
+                    "title": "COURAGE",
+                    "description": "We encourage our players to step outside their comfort zones, take on challenges, and discover what they're truly capable of."
+                }
+            }
+        },
+        "coaches": {
+            "title": "MEET OUR COACHES",
+            "contactCoach": "Contact Coach"
+        },
+        "training": {
+            "title": "TRAINING SCHEDULE",
+            "trainingAt": "Training at",
+            "joinTraining": "Join Training"
+        },
+        "contact": {
+            "title": "GET IN TOUCH",
+            "venue": "TRAINING VENUE",
+            "contactInfo": "CONTACT"
+        },
+        "cta": {
+            "title": "READY TO JOIN OUR TEAM?",
+            "description": "Whether you're a complete beginner or experienced player, we'd love to welcome you to the Zagreb Rugby Ladies family."
+        }
+    },
+    "contact": {
+        "hero": {
+            "title": "READY TO START YOUR JOURNEY?",
+            "learnRugby": "Learn About Rugby",
+            "meetTeam": "Meet Our Team"
+        },
+        "form": {
+            "title": "SEND US A MESSAGE",
+            "subtitle": "Fill out the form below and we'll get back to you as soon as possible.",
+            "fullName": "Full Name",
+            "emailAddress": "Email Address",
+            "phoneNumber": "Phone Number",
+            "phoneOptional": "+385 99 123 4567 (optional)",
+            "reasonForContact": "Reason for Contact",
+            "chooseReason": "Choose a reason...",
+            "reasons": {
+                "join": "I want to join training",
+                "information": "I need more information",
+                "sponsor": "Sponsorship inquiry",
+                "press": "Press/Media",
+                "other": "Other"
+            },
+            "message": "Message",
+            "messagePlaceholder": "Tell us about yourself, your experience level, questions you have...",
+            "consent": "I agree to the privacy policy and consent to my data being processed for the purpose of responding to my inquiry.",
+            "sending": "Sending...",
+            "sendMessage": "Send Message",
+            "successMessage": "Thank you! We'll get back to you within 24 hours.",
+            "errorMessage": "Something went wrong. Please try again or email us directly.",
+            "validation": {
+                "nameRequired": "Please enter your name",
+                "emailRequired": "Please enter your email",
+                "emailInvalid": "Please enter a valid email address",
+                "reasonRequired": "Please select a reason",
+                "messageRequired": "Please enter a message",
+                "consentRequired": "Please agree to our privacy policy"
+            }
+        },
+        "info": {
+            "title": "GET IN TOUCH",
+            "trainingSchedule": "TRAINING SCHEDULE",
+            "location": "LOCATION",
+            "directContact": "DIRECT CONTACT",
+            "whatToExpect": "What to Expect",
+            "expectations": {
+                "response": "Response within 24 hours",
+                "invitation": "Invitation to attend a trial training",
+                "information": "Information about what to bring",
+                "answers": "Answers to all your questions",
+                "noPressure": "No pressure—just friendly advice!"
+            },
+            "rugbyGuide": "Rugby 101 Guide"
+        },
+        "cta": {
+            "title": "STILL HAVE QUESTIONS?",
+            "description": "Check out our comprehensive Rugby 101 guide or don't hesitate to get in touch. We're here to help you start your rugby journey!",
+            "emailDirect": "Email Us Directly"
+        }
+    },
+    "team": {
+        "hero": {
+            "title": "INSPIRING STORIES. UNSTOPPABLE SPIRIT.",
+            "joinTeam": "Join Our Team",
+            "learnRugby": "Learn About Rugby"
+        },
+        "stats": {
+            "title": "OUR TEAM",
+            "subtitle": "Every player has a unique journey.",
+            "activePlayers": "Active Players",
+            "yearsStrong": "Years Strong",
+            "teamSpirit": "Team Spirit"
+        },
+        "players": {
+            "title": "MEET OUR PLAYERS",
+            "subtitle": "Meet the incredible women who are redefining what it means to be strong, fearless, and unstoppable."
+        },
+        "culture": {
+            "inclusive": {
+                "title": "INCLUSIVE ENVIRONMENT",
+                "description": "We welcome players of all backgrounds, skill levels, and experience. Whether you're a complete beginner or seasoned athlete, you'll find your place on our team.",
+                "points": [
+                    "• Beginner-friendly coaching approach",
+                    "• Mentorship program for new players",
+                    "• Celebrating diversity and individual strengths",
+                    "• Creating lasting friendships beyond rugby"
+                ]
+            },
+            "development": {
+                "title": "PLAYER DEVELOPMENT",
+                "description": "We're committed to helping every player reach their full potential, both as athletes and as confident individuals.",
+                "points": [
+                    "• Personalized skill development plans",
+                    "• Leadership opportunities for all players",
+                    "• Mental health and wellness support",
+                    "• Pathway to competitive rugby opportunities"
+                ]
+            }
+        },
+        "cta": {
+            "title": "WANT TO JOIN OUR TEAM?",
+            "description": "We're always looking for new players who want to challenge themselves, make friends, and be part of something special. No experience required—just bring your enthusiasm!"
+        }
+    },
+    "schedule": {
+        "hero": {
+            "title": "MATCH SCHEDULE.",
+            "joinMatches": "Join Our Matches",
+            "learnRugby": "Learn Rugby"
+        },
+        "title": "MATCH SCHEDULE",
+        "subtitle": "Follow our teams throughout the season.",
+        "teams": {
+            "senior": "Senior Team",
+            "junior": "Junior Team (U18)"
+        },
+        "matchesThisSeason": "matches this season",
+        "status": {
+            "completed": "Completed",
+            "upcoming": "Upcoming"
+        },
+        "getDirections": "Get Directions",
+        "cta": {
+            "title": "COME SUPPORT OUR TEAM!",
+            "description": "Join us at our matches and be part of the Zagreb Rugby Ladies community. Your support fuels our passion and drives us to victory.",
+            "getUpdates": "Get Match Updates",
+            "meetPlayers": "Meet the Players"
+        }
+    },
+    "rugby101": {
+        "hero": {
+            "title": "RUGBY 7S 101",
+            "subtitle": "Master the fastest, most exciting format in rugby",
+            "startTraining": "Start Training Today"
+        },
+        "basics": {
+            "title": "Rugby 7s Essentials",
+            "subtitle": "Everything you need to know to get started with the world's most exciting rugby format",
+            "players": {
+                "title": "7 Players Per Team",
+                "description": "Each team has 7 players on the field, creating fast-paced action with more space to run and score."
+            },
+            "objective": {
+                "title": "Objective",
+                "description": "Score more tries than the opposition by carrying, passing, or kicking the ball into the opponent's try zone."
+            },
+            "time": {
+                "title": "14 Minutes",
+                "description": "A match consists of two 7-minute halves with a 2-minute break at halftime."
+            },
+            "safety": {
+                "title": "Safety First",
+                "description": "Proper technique and protective gear ensure rugby is safe. The faster pace promotes skillful play over heavy contact."
+            }
+        },
+        "positions": {
+            "title": "Player Positions",
+            "subtitle": "Understanding the unique roles that make rugby sevens so dynamic",
+            "forwards": {
+                "title": "Forwards (1-3)",
+                "description": "The foundation and power",
+                "roles": [
+                    "Scrum formation",
+                    "Lineout throwing and catching",
+                    "Ball security at breakdown",
+                    "Physical ball carrying"
+                ]
+            },
+            "backs": {
+                "title": "Backs (4-7)",
+                "description": "Speed, skill and finishing",
+                "roles": [
+                    "Ball distribution and pace",
+                    "Strategic kicking",
+                    "Support play and offloading",
+                    "Try-scoring opportunities"
+                ]
+            },
+            "learnPosition": "Learn This Position"
+        },
+        "scoring": {
+            "title": "How to Score",
+            "subtitle": "Four ways to put points on the board and dominate the game",
+            "try": {
+                "points": "5",
+                "title": "Try",
+                "description": "Grounding the ball in the opponent's try zone"
+            },
+            "conversion": {
+                "points": "2",
+                "title": "Conversion",
+                "description": "Kick through the posts after a try"
+            },
+            "penalty": {
+                "points": "3",
+                "title": "Penalty",
+                "description": "Kick awarded for opponent infractions"
+            },
+            "dropGoal": {
+                "points": "3",
+                "title": "Drop Goal",
+                "description": "Field goal kicked during regular play"
+            }
+        },
+        "safety": {
+            "title": "Safety & Equipment",
+            "subtitle": "Everything you need to play safely and confidently",
+            "whatYouNeed": {
+                "title": "What You Need",
+                "items": [
+                    "Comfortable athletic clothing",
+                    "Rugby boots or running shoes",
+                    "Mouth guard (recommended)",
+                    "Water bottle"
+                ]
+            },
+            "safetyMeasures": {
+                "title": "Safety Measures",
+                "items": [
+                    "Proper tackling technique training",
+                    "Progressive contact introduction",
+                    "Qualified first aid at all sessions",
+                    "Regular equipment safety checks"
+                ]
+            }
+        },
+        "myths": {
+            "title": "Myths vs Reality",
+            "subtitle": "Debunking common misconceptions about rugby sevens",
+            "myth": "MYTH",
+            "reality": "REALITY",
+            "items": [
+                {
+                    "myth": "Rugby sevens is just sprint rugby",
+                    "reality": "While faster, rugby sevens requires strategic thinking, skill, and endurance. The open space creates opportunities for creative play."
+                },
+                {
+                    "myth": "Only super fit athletes can play",
+                    "reality": "Rugby sevens welcomes all fitness levels. The shorter game time and smaller teams mean more opportunities for everyone to contribute."
+                },
+                {
+                    "myth": "It's too fast-paced to learn",
+                    "reality": "The simplified format with fewer players makes rugby sevens easier to understand. The action is exciting but the rules remain the same."
+                },
+                {
+                    "myth": "Women's sevens isn't as exciting",
+                    "reality": "Women's rugby sevens is Olympic sport showcasing incredible skill, speed and athleticism. It's one of the most exciting formats to watch and play."
+                }
+            ]
+        },
+        "faq": {
+            "title": "FAQ",
+            "subtitle": "Everything you wanted to know about getting started",
+            "items": [
+                {
+                    "question": "Is rugby sevens safe for beginners?",
+                    "answer": "Absolutely! Rugby sevens has strict safety protocols and the faster pace actually promotes skillful play over heavy contact. Our coaches prioritize safety and teach proper technique from day one."
+                },
+                {
+                    "question": "Do I need to be super fit to play sevens?",
+                    "answer": "Rugby sevens welcomes all fitness levels. The 7-minute halves mean everyone gets rest, and there are positions that suit different attributes - from pace to power. Fitness develops naturally through training."
+                },
+                {
+                    "question": "What equipment do I need?",
+                    "answer": "For beginners, just comfortable athletic wear and running shoes or rugby boots. The club provides balls and training equipment. Optional protective gear like mouth guards are available as you progress."
+                },
+                {
+                    "question": "Can I start playing sevens with no experience?",
+                    "answer": "Yes! Many players find sevens easier to learn with fewer players and more space. Our beginner-friendly training sessions teach fundamentals step by step in a supportive environment."
+                },
+                {
+                    "question": "How is women's sevens different from men's?",
+                    "answer": "The rules are identical, and women's sevens is an Olympic sport showcasing incredible skill and athleticism. The game emphasizes speed, strategy, and teamwork with equally competitive and exciting play."
+                },
+                {
+                    "question": "What if I'm not naturally fast?",
+                    "answer": "Rugby sevens is for everyone! While speed helps, the game also requires strategy, strength, and skill. Every player brings different attributes, and our club focuses on developing each player's unique strengths."
+                }
+            ]
+        },
+        "cta": {
+            "title": "Ready to Join the Action?",
+            "description": "Experience the thrill of rugby sevens firsthand. Join our beginner-friendly training sessions.",
+            "startNow": "Start Training Now",
+            "meetPlayers": "Meet Our Players"
+        }
+    },
+    "gallery": {
+        "hero": {
+            "title": "CAPTURING MOMENTS. SHARING STORIES.",
+            "joinTeam": "Join Our Team",
+            "meetPlayers": "Meet Our Players"
+        },
+        "story": {
+            "title": "OUR STORY IN PICTURES",
+            "subtitle": "Every training session, match, and celebration tells our story.",
+            "description1": "From intense training sessions to triumphant matches, these moments capture the spirit, dedication, and joy of Zagreb Rugby Ladies.",
+            "description2": "Each photo tells a story of determination, friendship, and the incredible journey of women who dared to step onto the rugby field.",
+            "bePartOfStory": "Be Part of Our Story"
+        },
+        "collections": {
+            "title": "Gallery Collections",
+            "subtitle": "Explore our memories organized by moments that matter most to us.",
+            "all": "All Photos",
+            "training": "Training",
+            "matches": "Matches",
+            "community": "Community"
+        },
+        "stats": {
+            "collection": "Our Collection",
+            "totalMedia": "Total Media",
+            "photos": "Photos",
+            "videos": "Videos",
+            "joinStory": "Join Our Story"
+        },
+        "highlights": {
+            "title": "Recent Highlights",
+            "items": [
+                "Championship Victory 2024",
+                "New Player Recruitment Drive",
+                "Community Outreach Program",
+                "International Friendly Match"
+            ]
+        },
+        "noPhotos": "No photos found for the selected album.",
+        "showAll": "Show All Photos",
+        "cta": {
+            "title": "Want to Be Part of These Moments?",
+            "description": "Join Zagreb Rugby Ladies and create your own unforgettable memories. Every training session, every match, every celebration could include you."
+        }
+    }
+}
