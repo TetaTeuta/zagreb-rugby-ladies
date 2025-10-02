@@ -93,16 +93,26 @@ const Header = () => {
                                     key={index}
                                     to={item.href}
                                     className={[
-                                        "relative text-text-contrast hover:text-accent font-medium text-sm py-2 px-3 transition-all duration-200 group",
+                                        "relative text-text-contrast font-medium text-sm py-2 px-3 transition-all duration-200 group",
                                         isActiveRoute(item.href)
-                                            ? "text-accent font-semibold"
+                                            ? "font-semibold"
                                             : "",
                                     ].join(" ")}
                                 >
                                     {item.name}
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 group-hover:w-full"></span>
+                                    {/* Hover underline */}
+                                    <span
+                                        className="absolute bottom-0 left-0 w-0 h-[2px] transition-all duration-200 group-hover:w-full"
+                                        style={{ backgroundColor: "#facc15" }}
+                                    ></span>
+                                    {/* Active underline */}
                                     {isActiveRoute(item.href) && (
-                                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent"></span>
+                                        <span
+                                            className="absolute bottom-0 left-0 w-full h-[2px]"
+                                            style={{
+                                                backgroundColor: "#facc15",
+                                            }}
+                                        ></span>
                                     )}
                                 </Link>
                             ))}
