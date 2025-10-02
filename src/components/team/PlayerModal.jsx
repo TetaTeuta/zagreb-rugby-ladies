@@ -156,7 +156,7 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
                         </h3>
                         <div className="flex gap-2">
                             {player.socials.instagram && (
-                                <Button variant="outline" size="sm" asChild>
+                                <Button variant="blue" size="sm" asChild>
                                     <a
                                         href={player.socials.instagram}
                                         target="_blank"
@@ -176,7 +176,7 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
                                     return (
                                         <Button
                                             key={platform}
-                                            variant="outline"
+                                            variant="blue"
                                             size="sm"
                                             asChild
                                         >
@@ -202,17 +202,13 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100">
-                    <Button
-                        variant="outline"
-                        onClick={onClose}
-                        className="flex-1"
-                    >
-                        Close
-                    </Button>
-                    <Button variant="primary" asChild>
+                    <Button variant="blue" className="flex-1" asChild>
                         <a href="mailto:team@zagreb-rugby-ladies.hr?subject=Interest in Joining">
                             Join the Team
                         </a>
+                    </Button>
+                    <Button variant="yellow" onClick={onClose}>
+                        Close
                     </Button>
                 </div>
             </div>

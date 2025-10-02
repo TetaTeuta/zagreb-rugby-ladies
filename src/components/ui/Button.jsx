@@ -4,7 +4,7 @@ const Button = forwardRef(
     (
         {
             children,
-            variant = "primary",
+            variant = "blue",
             size = "md",
             className = "",
             disabled = false,
@@ -14,22 +14,18 @@ const Button = forwardRef(
         ref
     ) => {
         const baseClasses =
-            "inline-flex items-center justify-center rounded-lg font-button font-normal tracking-[0.05em] uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden group button-text transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl";
+            "inline-flex items-center justify-center rounded-sm font-semibold tracking-wide uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden group transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-lg";
 
         const variants = {
-            primary: "btn-primary",
-            secondary: "btn-secondary",
-            accent: "btn-accent",
-            outline: "btn-outline",
-            ghost: "btn-ghost",
-            link: "text-primary underline-offset-4 hover:underline p-0 h-auto hover:text-accent shadow-none hover:shadow-none",
+            blue: "btn-blue",
+            yellow: "btn-yellow",
         };
 
         const sizes = {
-            sm: "h-10 px-6 text-base",
-            md: "h-12 px-8 text-lg",
-            lg: "h-14 px-10 text-xl",
-            xl: "h-16 px-12 text-2xl",
+            sm: "min-h-[44px] px-6 text-sm",
+            md: "min-h-[48px] px-8 text-base",
+            lg: "min-h-[52px] px-10 text-base",
+            xl: "min-h-[56px] px-12 text-base",
         };
 
         const classes = [

@@ -184,19 +184,10 @@ const Rugby101 = () => {
                             Master the fastest, most exciting format in rugby
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button
-                                size="lg"
-                                className="bg-white text-gray-900 hover:bg-gray-100"
-                                asChild
-                            >
+                            <Button size="lg" variant="blue" asChild>
                                 <Link to="/contact">Start Training Today</Link>
                             </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900"
-                                asChild
-                            >
+                            <Button size="lg" variant="yellow" asChild>
                                 <Link to="/team">Meet Our Team</Link>
                             </Button>
                         </div>
@@ -626,19 +617,10 @@ const Rugby101 = () => {
                             Join our beginner-friendly training sessions.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                            <Button
-                                size="lg"
-                                className="bg-white text-gray-900 hover:bg-gray-100 rounded-2xl"
-                                asChild
-                            >
+                            <Button size="lg" variant="blue" asChild>
                                 <Link to="/contact">Start Training Now</Link>
                             </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900 rounded-2xl"
-                                asChild
-                            >
+                            <Button size="lg" variant="yellow" asChild>
                                 <Link to="/team">Meet Our Players</Link>
                             </Button>
                         </div>

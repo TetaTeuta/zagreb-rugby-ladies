@@ -80,21 +80,12 @@ const Contact = () => {
                             {t("contact.hero.title")}
                         </h1>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button
-                                size="lg"
-                                className="bg-surface/95 backdrop-blur-sm text-text-contrast hover:bg-surface"
-                                asChild
-                            >
+                            <Button size="lg" variant="blue" asChild>
                                 <Link to="/rugby101">
                                     {t("contact.hero.learnRugby")}
                                 </Link>
                             </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-text-light/80 bg-surface/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast"
-                                asChild
-                            >
+                            <Button size="lg" variant="yellow" asChild>
                                 <Link to="/team">
                                     {t("contact.hero.meetTeam")}
                                 </Link>
@@ -298,7 +289,8 @@ const Contact = () => {
                                 <Button
                                     type="submit"
                                     size="lg"
-                                    className="w-full bg-primary text-text-light hover:bg-primary-dark rounded-lg"
+                                    variant="blue"
+                                    className="w-full"
                                     loading={isSubmitting}
                                     disabled={isSubmitting}
                                 >
@@ -415,10 +407,7 @@ const Contact = () => {
                             </div>
 
                             <div className="text-center">
-                                <Button
-                                    className="bg-primary text-text-light hover:bg-primary-dark rounded-lg px-8 py-3"
-                                    asChild
-                                >
+                                <Button variant="blue" asChild>
                                     <Link to="/rugby101">Rugby 101 Guide</Link>
                                 </Button>
                             </div>
@@ -445,23 +434,14 @@ const Contact = () => {
                                 help you start your rugby journey!
                             </p>
                             <div className="flex gap-4">
-                                <Button
-                                    size="lg"
-                                    className="bg-surface text-text-contrast hover:bg-muted-light"
-                                    asChild
-                                >
+                                <Button size="lg" variant="blue" asChild>
                                     <a
                                         href={`mailto:${trainingData.contact.email}`}
                                     >
                                         Email Us Directly
                                     </a>
                                 </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="border-text-light text-text-light hover:bg-surface hover:text-text-contrast flex items-center gap-2"
-                                    asChild
-                                >
+                                <Button size="lg" variant="yellow" asChild>
                                     <Link to="/rugby101">Rugby 101 Guide</Link>
                                 </Button>
                             </div>

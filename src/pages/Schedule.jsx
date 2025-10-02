@@ -177,7 +177,7 @@ const Schedule = () => {
                     </div>
 
                     {match.status === "upcoming" && (
-                        <Button variant="outline" asChild>
+                        <Button variant="blue" asChild>
                             <a
                                 href={match.location.mapUrl}
                                 target="_blank"
@@ -207,19 +207,10 @@ const Schedule = () => {
                             MATCH SCHEDULE.
                         </h1>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button
-                                size="lg"
-                                className="bg-surface/95 backdrop-blur-sm text-text-contrast hover:bg-surface hover:scale-105"
-                                asChild
-                            >
+                            <Button size="lg" variant="blue" asChild>
                                 <Link to="/contact">Join Our Matches</Link>
                             </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-2 border-text-light/80 bg-surface/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast hover:scale-105"
-                                asChild
-                            >
+                            <Button size="lg" variant="yellow" asChild>
                                 <Link to="/rugby101">Learn Rugby</Link>
                             </Button>
                         </div>

@@ -96,7 +96,7 @@ const MatchItem = ({
             {/* Action Button */}
             {match.status === "upcoming" && (
                 <div className="text-center">
-                    <Button variant="primary" size="sm" asChild>
+                    <Button variant="blue" size="sm" asChild>
                         <a
                             href={match.location.mapUrl}
                             target="_blank"

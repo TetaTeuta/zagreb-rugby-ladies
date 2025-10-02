@@ -224,19 +224,10 @@ const Gallery = () => {
                             CAPTURING MOMENTS. SHARING STORIES.
                         </h1>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button
-                                size="lg"
-                                className="bg-surface/95 backdrop-blur-sm text-text-contrast hover:bg-surface hover:scale-105 px-8 py-3 text-base font-medium rounded transition-all duration-300 shadow-lg hover:shadow-xl"
-                                asChild
-                            >
+                            <Button size="lg" variant="blue" asChild>
                                 <Link to="/contact">Join Our Team</Link>
                             </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-2 border-text-light/80 bg-surface/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast px-8 py-3 text-base font-medium rounded transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-                                asChild
-                            >
+                            <Button size="lg" variant="yellow" asChild>
                                 <Link to="/team">Meet Our Players</Link>
                             </Button>
                         </div>
@@ -278,10 +269,7 @@ const Gallery = () => {
                                 </p>
                             </div>
                             <div className="text-center mt-6">
-                                <Button
-                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8"
-                                    asChild
-                                >
+                                <Button variant="blue" asChild>
                                     <Link to="/contact">
                                         Be Part of Our Story
                                     </Link>
@@ -308,8 +296,8 @@ const Gallery = () => {
                                 key={album.id}
                                 variant={
                                     selectedAlbum === album.id
-                                        ? "default"
-                                        : "outline"
+                                        ? "yellow"
+                                        : "blue"
                                 }
                                 size="sm"
                                 onClick={() => setSelectedAlbum(album.id)}
@@ -374,7 +362,7 @@ const Gallery = () => {
                                 No photos found for the selected album.
                             </p>
                             <Button
-                                variant="outline"
+                                variant="blue"
                                 onClick={() => setSelectedAlbum("all")}
                                 className="mt-4"
                             >
@@ -429,10 +417,7 @@ const Gallery = () => {
                             </div>
                         </div>
                         <div className="text-center">
-                            <Button
-                                className="bg-primary text-text-light hover:bg-primary-dark rounded-lg px-8 py-3"
-                                asChild
-                            >
+                            <Button variant="blue" asChild>
                                 <Link to="/contact">Join Our Story</Link>
                             </Button>
                         </div>
@@ -469,10 +454,7 @@ const Gallery = () => {
                             ))}
                         </div>
                         <div className="text-center">
-                            <Button
-                                className="bg-primary text-text-light hover:bg-primary-dark rounded-lg px-8 py-3"
-                                asChild
-                            >
+                            <Button variant="blue" asChild>
                                 <Link to="/team">Meet Our Team</Link>
                             </Button>
                         </div>
@@ -499,19 +481,10 @@ const Gallery = () => {
                                 you.
                             </p>
                             <div className="flex gap-4">
-                                <Button
-                                    size="lg"
-                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8 py-4 text-lg font-semibold"
-                                    asChild
-                                >
+                                <Button size="lg" variant="blue" asChild>
                                     <Link to="/contact">Join Training</Link>
                                 </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="border-2 border-text-light text-text-light hover:bg-surface hover:text-text-contrast rounded px-8 py-4 text-lg font-semibold flex items-center gap-2"
-                                    asChild
-                                >
+                                <Button size="lg" variant="yellow" asChild>
                                     <Link to="/team">Meet Our Players</Link>
                                 </Button>
                             </div>

@@ -59,19 +59,10 @@ const Team = () => {
                             INSPIRING STORIES. UNSTOPPABLE SPIRIT.
                         </h1>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button
-                                size="lg"
-                                className="bg-surface/95 backdrop-blur-sm text-text-contrast hover:bg-surface"
-                                asChild
-                            >
+                            <Button size="lg" variant="blue" asChild>
                                 <Link to="/contact">Join Our Team</Link>
                             </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-text-light/80 bg-surface/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast"
-                                asChild
-                            >
+                            <Button size="lg" variant="yellow" asChild>
                                 <Link to="/rugby101">Learn About Rugby</Link>
                             </Button>
                         </div>
@@ -118,10 +109,7 @@ const Team = () => {
                                 })}
                             </div>
                             <div className="text-center">
-                                <Button
-                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8"
-                                    asChild
-                                >
+                                <Button variant="blue" asChild>
                                     <Link to="/contact">Join Training</Link>
                                 </Button>
                             </div>
@@ -185,10 +173,7 @@ const Team = () => {
                                 </li>
                             </ul>
                             <div className="text-center">
-                                <Button
-                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8"
-                                    asChild
-                                >
+                                <Button variant="blue" asChild>
                                     <Link to="/contact">Join Us</Link>
                                 </Button>
                             </div>
@@ -223,10 +208,7 @@ const Team = () => {
                                 </li>
                             </ul>
                             <div className="text-center">
-                                <Button
-                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8"
-                                    asChild
-                                >
+                                <Button variant="blue" asChild>
                                     <Link to="/rugby101">Learn More</Link>
                                 </Button>
                             </div>
@@ -254,19 +236,10 @@ const Team = () => {
                                 required—just bring your enthusiasm!
                             </p>
                             <div className="flex gap-4">
-                                <Button
-                                    size="lg"
-                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8 py-4 text-lg font-semibold"
-                                    asChild
-                                >
+                                <Button size="lg" variant="blue" asChild>
                                     <Link to="/contact">Join Training</Link>
                                 </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="border-2 border-text-light text-text-light hover:bg-surface hover:text-text-contrast rounded px-8 py-4 text-lg font-semibold flex items-center gap-2"
-                                    asChild
-                                >
+                                <Button size="lg" variant="yellow" asChild>
                                     <Link to="/rugby101">
                                         Learn About Rugby
                                     </Link>

@@ -78,12 +78,12 @@ const About = () => {
                             {t("about.hero.title")}
                         </h1>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" variant="primary" asChild>
+                            <Button size="lg" variant="blue" asChild>
                                 <Link to="/contact">
                                     {t("about.hero.joinTeam")}
                                 </Link>
                             </Button>
-                            <Button size="lg" variant="secondary" asChild>
+                            <Button size="lg" variant="yellow" asChild>
                                 <Link to="/team">
                                     {t("about.hero.meetTeam")}
                                 </Link>
@@ -117,7 +117,7 @@ const About = () => {
                                 <p>{t("about.story.description2")}</p>
                             </div>
                             <div className="text-center mt-6">
-                                <Button variant="outline" asChild>
+                                <Button variant="blue" asChild>
                                     <Link to="/team">Meet the Team</Link>
                                 </Button>
                             </div>
@@ -150,7 +150,7 @@ const About = () => {
                                         {t("about.mission.missionText")}
                                     </p>
                                     <div className="text-center">
-                                        <Button variant="outline" asChild>
+                                        <Button variant="blue" asChild>
                                             <Link to="/contact">Join Us</Link>
                                         </Button>
                                     </div>
@@ -206,7 +206,7 @@ const About = () => {
                                             })}
                                     </div>
                                     <div className="text-center">
-                                        <Button variant="outline" asChild>
+                                        <Button variant="blue" asChild>
                                             <Link to="/rugby101">
                                                 Learn More
                                             </Link>
@@ -250,7 +250,7 @@ const About = () => {
                                     <p className="text-lg opacity-90 mb-4">
                                         {coach.role}
                                     </p>
-                                    <Button size="sm" variant="outline" asChild>
+                                    <Button size="sm" variant="blue" asChild>
                                         <Link to="/contact">
                                             {t("about.coaches.contactCoach")}
                                         </Link>
@@ -305,7 +305,7 @@ const About = () => {
                                     </p>
                                 </div>
                                 <div className="text-center">
-                                    <Button variant="outline" asChild>
+                                    <Button variant="blue" asChild>
                                         <Link to="/contact">
                                             {t("about.training.joinTraining")}
                                         </Link>
@@ -355,7 +355,7 @@ const About = () => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <Button variant="outline" asChild>
+                                    <Button variant="blue" asChild>
                                         <Link to="/contact">Contact Us</Link>
                                     </Button>
                                 </div>
@@ -381,10 +381,10 @@ const About = () => {
                                 {t("about.cta.description")}
                             </p>
                             <div className="flex gap-4">
-                                <Button size="lg" variant="primary" asChild>
+                                <Button size="lg" variant="blue" asChild>
                                     <Link to="/contact">Join Training</Link>
                                 </Button>
-                                <Button size="lg" variant="secondary" asChild>
+                                <Button size="lg" variant="yellow" asChild>
                                     <Link to="/team">Meet the Team</Link>
                                 </Button>
                             </div>

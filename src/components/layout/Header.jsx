@@ -70,7 +70,7 @@ const Header = () => {
                         : "bg-surface/90 backdrop-blur-sm",
                 ].join(" ")}
             >
-                <div className="bg-accent text-center py-1 text-sm text-text-light hidden sm:block">
+                <div className="bg-accent text-center py-1 text-sm text-text-black hidden sm:block">
                     {t("header.banner")}
                 </div>
 
@@ -100,16 +100,14 @@ const Header = () => {
                                     ].join(" ")}
                                 >
                                     {item.name}
-                                    {/* Hover underline */}
                                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 group-hover:w-full"></span>
-                                    {/* Active indicator */}
                                     {isActiveRoute(item.href) && (
                                         <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent"></span>
                                     )}
                                 </Link>
                             ))}
 
-                            <Button size="sm" variant="accent" asChild>
+                            <Button size="sm" variant="yellow" asChild>
                                 <Link to="/contact">{t("common.joinUs")}</Link>
                             </Button>
                         </nav>
@@ -183,7 +181,7 @@ const Header = () => {
 
                         <div className="p-4 border-t border-muted-light mt-auto space-y-3">
                             <LanguageSwitcher variant="mobile" />
-                            <Button variant="accent" asChild>
+                            <Button variant="yellow" asChild>
                                 <Link to="/contact">{t("common.joinUs")}</Link>
                             </Button>
                         </div>

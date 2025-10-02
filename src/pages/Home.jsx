@@ -89,21 +89,12 @@ const Home = () => {
                             {t("home.hero.title")}
                         </h1>
                         <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-                            <Button
-                                size="lg"
-                                className="bg-surface/95 backdrop-blur-sm text-text-contrast hover:bg-surface"
-                                asChild
-                            >
+                            <Button size="lg" variant="blue" asChild>
                                 <Link to="/contact">
                                     {t("home.hero.joinTraining")}
                                 </Link>
                             </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-text-light/80 bg-text-light/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast"
-                                asChild
-                            >
+                            <Button size="lg" variant="yellow" asChild>
                                 <Link to="/gallery">
                                     {t("home.hero.watchVideo")}
                                 </Link>
@@ -161,21 +152,12 @@ const Home = () => {
                                 {t("home.cta.description")}
                             </p>
                             <div className="flex gap-4">
-                                <Button
-                                    size="lg"
-                                    className="bg-surface text-text-contrast hover:bg-muted-light"
-                                    asChild
-                                >
+                                <Button size="lg" variant="blue" asChild>
                                     <Link to="/contact">
                                         {t("common.joinTraining")}
                                     </Link>
                                 </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="border-text-light/80 bg-text-light/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast"
-                                    asChild
-                                >
+                                <Button size="lg" variant="yellow" asChild>
                                     <Link to="/rugby101">
                                         {t("common.learnAboutRugby")}
                                     </Link>
