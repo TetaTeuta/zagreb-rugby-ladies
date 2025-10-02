@@ -9,16 +9,16 @@
 
     /* Background & Foundation Colors - Clean Team Colors */
     --color-bg: 249 250 251; /* clean light gray background */
-    --color-grad-start: 30 58 138; /* navy blue gradient start */
-    --color-grad-mid: 59 130 246; /* light blue gradient middle */
-    --color-grad-end: 245 158 11; /* amber gradient end */
+    --color-grad-start: 0 48 87; /* official jersey navy gradient start */
+    --color-grad-mid: 0 70 130; /* lighter navy gradient middle */
+    --color-grad-end: 255 184 28; /* official jersey gold gradient end */
 
     /* Surface Colors - Clean & Minimal */
     --color-surface: 255 255 255; /* pure white surfaces */
     --color-surface-glass: 255 255 255; /* glass effect surface */
-    --color-surface-dark: 30 58 138; /* navy surface variant */
+    --color-surface-dark: 0 48 87; /* official jersey navy surface variant */
     --color-surface-elevated: 255 255 255; /* clean white surface */
-    --color-surface-navy: 30 58 138; /* navy surface for sections */
+    --color-surface-navy: 0 48 87; /* official jersey navy for sections */
     --color-surface-light-blue: 255 255 255; /* clean white instead of blue tint */
     --color-surface-amber: 255 255 255; /* clean white instead of amber tint */
 
@@ -32,16 +32,16 @@
     /* Border Colors */
     --color-border: 229 231 235; /* default border (gray-200) */
     --color-border-light: 243 244 246; /* light border (gray-100) */
-    --color-border-focus: 30 58 138; /* focus border (navy blue) */
+    --color-border-focus: 0 48 87; /* official jersey navy focus border */
 
-    /* Brand Colors - ZAGREB RUGBY LADIES TEAM COLORS */
-    --color-primary: 30 58 138; /* navy blue from jerseys - CHANGE HERE TO UPDATE EVERYWHERE */
-    --color-primary-light: 59 130 246; /* lighter blue */
-    --color-primary-dark: 15 23 42; /* deeper navy */
+    /* Brand Colors - OFFICIAL ZAGREB RUGBY LADIES JERSEY COLORS */
+    --color-primary: 0 48 87; /* official jersey navy #003057 */
+    --color-primary-light: 0 70 130; /* lighter jersey navy */
+    --color-primary-dark: 0 30 60; /* deeper jersey navy */
 
-    --color-accent: 250 204 21; /* yellow button color #facc15 */
-    --color-accent-light: 255 188 41; /* bright gold */
-    --color-accent-dark: 234 179 8; /* yellow button hover #eab308 */
+    --color-accent: 255 184 28; /* official jersey gold #FFB81C */
+    --color-accent-light: 255 200 60; /* lighter jersey gold */
+    --color-accent-dark: 230 160 0; /* darker jersey gold for hover */
 
     /* Status Colors */
     --color-success: 34 197 94; /* emerald green */
@@ -113,14 +113,14 @@
 
 /* Alternative theme - Away Jersey Colors */
 [data-theme="alt"] {
-    --color-primary: 59 130 246; /* lighter blue */
-    --color-accent: 30 58 138; /* navy blue */
+    --color-primary: 0 70 130; /* lighter jersey navy */
+    --color-accent: 0 48 87; /* official jersey navy */
 }
 
 /* Jersey-inspired theme - Home Jersey Colors (Default) */
 [data-theme="home"] {
-    --color-primary: 30 58 138; /* navy blue */
-    --color-accent: 245 158 11; /* golden amber */
+    --color-primary: 0 48 87; /* official jersey navy #003057 */
+    --color-accent: 255 184 28; /* official jersey gold #FFB81C */
     --color-surface: 255 255 255; /* white like jersey background */
 }
 
@@ -565,46 +565,69 @@ body {
     background-color: rgb(var(--color-surface-dark));
 }
 
+/* ===== DIVIDER SYSTEM ===== */
+/* Reusable divider component with brand accent color */
+.divider-wrapper {
+    margin-top: var(--spacing-section);
+    margin-bottom: var(--spacing-section);
+    width: 100%;
+}
+
+.divider-line {
+    height: 2px;
+    background-color: #ffb81c; /* Official jersey gold */
+    width: 100%;
+    opacity: 0.8;
+}
+
+/* Responsive spacing adjustments */
+@media (max-width: 768px) {
+    .divider-wrapper {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
 /* ===== BUTTON SYSTEM ===== */
-/* Standardized two-variant button system: blue (primary) and yellow (CTA) */
+/* Standardized two-variant button system: official jersey colors */
 
 .btn-blue {
-    background-color: #1d4ed8; /* Blue primary */
-    color: #ffffff; /* White text */
+    background-color: #003057; /* Official jersey navy */
+    color: #ffffff; /* White text - WCAG AAA compliant */
     border: 2px solid transparent;
 }
 
 .btn-blue:hover {
-    background-color: #1e40af; /* Darker blue on hover */
+    background-color: #00467f; /* Lighter jersey navy on hover */
 }
 
 .btn-blue:active {
-    background-color: #1e3a8a; /* Even darker on active */
+    background-color: #001e3c; /* Darker jersey navy on active */
     transform: scale(0.98);
 }
 
 .btn-blue:focus-visible {
-    --tw-ring-color: #1d4ed8;
+    --tw-ring-color: #003057;
     --tw-ring-offset-color: #ffffff;
 }
 
 .btn-yellow {
-    background-color: #facc15; /* Yellow highlight/CTA */
-    color: #000000; /* Black text */
+    background-color: #ffb81c; /* Official jersey gold */
+    color: #000000; /* Black text - WCAG AAA compliant */
     border: 2px solid transparent;
 }
 
 .btn-yellow:hover {
-    background-color: #eab308; /* Darker yellow on hover */
+    background-color: #e6a000; /* Darker jersey gold on hover */
 }
 
 .btn-yellow:active {
-    background-color: #ca8a04; /* Even darker on active */
+    background-color: #cc8e00; /* Even darker on active */
     transform: scale(0.98);
 }
 
 .btn-yellow:focus-visible {
-    --tw-ring-color: #facc15;
+    --tw-ring-color: #ffb81c;
     --tw-ring-offset-color: #ffffff;
 }
 

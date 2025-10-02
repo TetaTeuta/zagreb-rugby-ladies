@@ -8,6 +8,7 @@ import {
     CardTitle,
 } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
+import { Divider } from "../components/ui/Divider";
 import { Link } from "react-router-dom";
 import { MapPin, Clock, Mail, Users, Heart, Zap } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
@@ -68,10 +69,7 @@ const About = () => {
         <div className="min-h-screen bg-surface">
             {/* Hero Section */}
             <div className="relative h-[500px] overflow-hidden mt-20">
-                <div className="absolute inset-0 bg-[url('/src/assets/images/photos/manuela_rugby.jpg')] bg-cover bg-center"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-indigo-900/75"></div>
-                <div className="absolute inset-0 bg-blue-900/40"></div>
-
+                <div className="absolute inset-0 bg-[url('https://i.guim.co.uk/img/static/sys-images/Sport/Pix/pictures/2014/2/8/1391863566865/Rugby-Sevens-Waratahs-blu-018.jpg?width=480&dpr=1&s=none&crop=none')] bg-cover bg-center"></div>
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-white leading-[0.85] drop-shadow-lg">
@@ -92,6 +90,8 @@ const About = () => {
                     </div>
                 </div>
             </div>
+
+            <Divider />
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Our Story Section */}

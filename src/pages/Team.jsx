@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "../components/ui/Button";
+import { Divider } from "../components/ui/Divider";
 import { Card, CardContent, CardTitle } from "../components/ui/Card";
 import { PlayerCard } from "../components/team/PlayerCard";
 import { PlayerModal } from "../components/team/PlayerModal";
@@ -69,6 +70,8 @@ const Team = () => {
                     </div>
                 </div>
             </div>
+
+            <Divider />
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Team Stats Section */}

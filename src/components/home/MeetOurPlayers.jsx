@@ -26,9 +26,9 @@ const PlayerCard = ({ player, showImage = false }) => {
 
 const MeetOurPlayers = ({ players, title = "Meet Our Players" }) => {
     const playerImages = [
-        "/src/assets/images/photos/petra_rugby.jpg",
-        "/src/assets/images/photos/lucija_rugby.jpg",
-        "/src/assets/images/photos/manuela_rugby.jpg",
+        "https://resources.worldrugby-rims.pulselive.com/worldrugby/photo/2025/08/16/a99126a7-c00c-4a2f-a7b4-fd29d35a7019/2230441281.jpg",
+        "https://resources.worldrugby-rims.pulselive.com/worldrugby/photo/2025/08/16/a99126a7-c00c-4a2f-a7b4-fd29d35a7019/2230441281.jpg",
+        "https://resources.worldrugby-rims.pulselive.com/worldrugby/photo/2025/08/16/a99126a7-c00c-4a2f-a7b4-fd29d35a7019/2230441281.jpg",
     ];
 
     return (

@@ -8,6 +8,7 @@ import {
     CardTitle,
 } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
+import { Divider } from "../components/ui/Divider";
 import { Input, Textarea, Label, Select } from "../components/ui/Input";
 import { Toast } from "../components/ui/Toast";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
@@ -94,6 +95,8 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
+
+            <Divider />
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Intro Section */}

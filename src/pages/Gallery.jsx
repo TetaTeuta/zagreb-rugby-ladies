@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "../components/ui/Button";
+import { Divider } from "../components/ui/Divider";
 import { Card, CardContent } from "../components/ui/Card";
 import { Lightbox } from "../components/ui/Lightbox";
 import { Play, Calendar, MapPin } from "lucide-react";
@@ -234,6 +235,8 @@ const Gallery = () => {
                     </div>
                 </div>
             </div>
+
+            <Divider />
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Intro Section */}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Calendar, MapPin, Clock, Trophy, Users } from "lucide-react";
 import { Button } from "../components/ui/Button";
+import { Divider } from "../components/ui/Divider";
 import {
     Card,
     CardContent,
@@ -218,6 +219,8 @@ const Schedule = () => {
                 </div>
             </div>
 
+            <Divider />
+
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Next Match */}
                 <AnimatedSection divider="wave" className="mb-8">
@@ -244,43 +247,49 @@ const Schedule = () => {
 
                     {/* Team Toggle */}
                     <div className="flex justify-center mb-12">
-                        <div className="bg-surface/50 rounded-xl p-1 relative min-w-0">
-                            {/* Selection indicator */}
-                            <div
-                                className={`absolute top-1 bottom-1 bg-primary rounded-lg transition-all duration-300 shadow-medium z-0 ${
-                                    activeTeam === "senior"
-                                        ? "left-1 w-[calc(50%-2px)]"
-                                        : "left-[calc(50%+2px)] w-[calc(50%-2px)]"
-                                }`}
-                            />
-                            <div className="flex relative z-10 whitespace-nowrap">
-                                <button
-                                    onClick={() => setActiveTeam("senior")}
-                                    className={`px-4 py-3 rounded-lg font-button font-semibold transition-all duration-normal hover:scale-105 ${
+                        <div className="inline-flex flex-col sm:flex-row gap-3 sm:gap-4 p-2 bg-surface rounded-lg border-2 border-border shadow-soft">
+                            <button
+                                onClick={() => setActiveTeam("senior")}
+                                className={`
+                                    inline-flex items-center justify-center gap-2 
+                                    min-h-[44px] px-6 sm:px-8 py-3
+                                    font-button font-semibold text-sm sm:text-base uppercase tracking-wide
+                                    rounded-sm border-2 
+                                    transition-all duration-300 
+                                    hover:scale-[1.02] hover:shadow-md
+                                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+                                    whitespace-nowrap
+                                    ${
                                         activeTeam === "senior"
-                                            ? "text-text-light"
-                                            : "text-text hover:text-text-contrast"
-                                    }`}
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <Users className="h-4 w-4 flex-shrink-0" />
-                                        <span>Senior Team</span>
-                                    </div>
-                                </button>
-                                <button
-                                    onClick={() => setActiveTeam("junior")}
-                                    className={`px-4 py-3 rounded-lg font-button font-semibold transition-all duration-normal hover:scale-105 ${
+                                            ? "bg-[#003057] text-white border-transparent shadow-md"
+                                            : "bg-transparent text-text-contrast border-border hover:border-[#003057] hover:bg-[#003057]/5"
+                                    }
+                                `}
+                            >
+                                <Users className="h-4 w-4 flex-shrink-0" />
+                                <span>Senior Team</span>
+                            </button>
+                            <button
+                                onClick={() => setActiveTeam("junior")}
+                                className={`
+                                    inline-flex items-center justify-center gap-2 
+                                    min-h-[44px] px-6 sm:px-8 py-3
+                                    font-button font-semibold text-sm sm:text-base uppercase tracking-wide
+                                    rounded-sm border-2 
+                                    transition-all duration-300 
+                                    hover:scale-[1.02] hover:shadow-md
+                                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+                                    whitespace-nowrap
+                                    ${
                                         activeTeam === "junior"
-                                            ? "text-text-light"
-                                            : "text-text hover:text-text-contrast"
-                                    }`}
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <Users className="h-4 w-4 flex-shrink-0" />
-                                        <span>Junior Team (U18)</span>
-                                    </div>
-                                </button>
-                            </div>
+                                            ? "bg-[#003057] text-white border-transparent shadow-md"
+                                            : "bg-transparent text-text-contrast border-border hover:border-[#003057] hover:bg-[#003057]/5"
+                                    }
+                                `}
+                            >
+                                <Users className="h-4 w-4 flex-shrink-0" />
+                                <span>Junior Team (U18)</span>
+                            </button>
                         </div>
                     </div>
 
@@ -328,19 +337,10 @@ const Schedule = () => {
                                 passion and drives us to victory.
                             </p>
                             <div className="flex gap-4">
-                                <Button
-                                    size="lg"
-                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8 py-4 text-lg font-semibold"
-                                    asChild
-                                >
+                                <Button size="lg" variant="blue" asChild>
                                     <Link to="/contact">Get Match Updates</Link>
                                 </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="border-2 border-text-light text-text-light hover:bg-surface hover:text-text-contrast rounded px-8 py-4 text-lg font-semibold flex items-center gap-2"
-                                    asChild
-                                >
+                                <Button size="lg" variant="yellow" asChild>
                                     <Link to="/team">Meet the Players</Link>
                                 </Button>
                             </div>

@@ -18,7 +18,7 @@ const Header = () => {
         { name: t("navigation.schedule"), href: "/schedule" },
         { name: t("navigation.rugby101"), href: "/rugby101" },
         { name: t("navigation.gallery"), href: "/gallery" },
-        { name: t("navigation.contact"), href: "/contact" },
+        // { name: t("navigation.contact"), href: "/contact" },
     ];
 
     useEffect(() => {
@@ -103,14 +103,14 @@ const Header = () => {
                                     {/* Hover underline */}
                                     <span
                                         className="absolute bottom-0 left-0 w-0 h-[2px] transition-all duration-200 group-hover:w-full"
-                                        style={{ backgroundColor: "#facc15" }}
+                                        style={{ backgroundColor: "#FFB81C" }}
                                     ></span>
                                     {/* Active underline */}
                                     {isActiveRoute(item.href) && (
                                         <span
                                             className="absolute bottom-0 left-0 w-full h-[2px]"
                                             style={{
-                                                backgroundColor: "#facc15",
+                                                backgroundColor: "#FFB81C",
                                             }}
                                         ></span>
                                     )}

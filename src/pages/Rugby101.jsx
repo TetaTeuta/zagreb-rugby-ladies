@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "../components/ui/Button";
+import { Divider } from "../components/ui/Divider";
 import { Accordion } from "../components/ui/Accordion";
 import { Link } from "react-router-dom";
 import { Shield, Users, Target, Clock, Heart } from "lucide-react";
@@ -194,6 +195,8 @@ const Rugby101 = () => {
                     </div>
                 </div>
             </div>
+
+            <Divider />
 
             <div className="px-4 py-20 max-w-7xl mx-auto">
                 {/* Rugby Basics - Bento Grid Style */}

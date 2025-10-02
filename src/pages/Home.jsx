@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Users, Heart, Zap } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
+import { Divider } from "../components/ui/Divider";
 import { useState, useEffect } from "react";
 import playersData from "../data/players.json";
 import trainingData from "../data/training.json";
@@ -103,6 +104,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <Divider />
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 <AnimatedSection divider="wave" className="mb-8">

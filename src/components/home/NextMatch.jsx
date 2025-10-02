@@ -7,7 +7,7 @@ const NextMatch = ({ matchData, opponent }) => {
     return (
         <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
             <img
-                src="/src/assets/images/photos/petra_rugby.jpg"
+                src="https://www.telegraph.co.uk/content/dam/rugby-union/2019/03/13/TELEMMGLPICT000190683981_trans_NvBQzQNjv4Bqg21xs0VcZiA4CV6qr0RdEBo6c-7YxqXVwjqXYLBnJIY.jpeg?imwidth=1920"
                 alt="Match day action"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
