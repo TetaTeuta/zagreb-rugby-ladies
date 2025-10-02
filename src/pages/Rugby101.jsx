@@ -1,26 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Button } from "../components/ui/Button";
 import { Divider } from "../components/ui/Divider";
 import { Accordion } from "../components/ui/Accordion";
 import { Link } from "react-router-dom";
-import { Shield, Users, Target, Clock, Heart } from "lucide-react";
+import { Shield, Users, Target, Clock, CheckCircle2 } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 
 const Rugby101 = () => {
-    const [isHeroVisible, setIsHeroVisible] = useState(true);
-
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            setIsHeroVisible(scrollPosition < window.innerHeight * 0.5);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const rugbyBasics = [
@@ -29,33 +17,30 @@ const Rugby101 = () => {
             title: "7 Players Per Team",
             description:
                 "Each team has 7 players on the field, creating fast-paced action with more space to run and score.",
-            color: "blue",
         },
         {
             icon: Target,
             title: "Objective",
             description:
                 "Score more tries than the opposition by carrying, passing, or kicking the ball into the opponent's try zone.",
-            color: "orange",
         },
         {
             icon: Clock,
             title: "14 Minutes",
             description:
                 "A match consists of two 7-minute halves with a 2-minute break at halftime.",
-            color: "green",
         },
         {
             icon: Shield,
             title: "Safety First",
             description:
                 "Proper technique and protective gear ensure rugby is safe. The faster pace promotes skillful play over heavy contact.",
-            color: "purple",
         },
     ];
 
     const positions = [
         {
+            number: 1,
             name: "Forwards (1-3)",
             description: "The foundation and power",
             roles: [
@@ -64,8 +49,10 @@ const Rugby101 = () => {
                 "Ball security at breakdown",
                 "Physical ball carrying",
             ],
+            color: "navy", // navy background
         },
         {
+            number: 2,
             name: "Backs (4-7)",
             description: "Speed, skill and finishing",
             roles: [
@@ -74,6 +61,7 @@ const Rugby101 = () => {
                 "Support play and offloading",
                 "Try-scoring opportunities",
             ],
+            color: "orange", // orange background
         },
     ];
 
@@ -82,25 +70,25 @@ const Rugby101 = () => {
             type: "Try",
             points: 5,
             description: "Grounding the ball in the opponent's try zone",
-            color: "from-emerald-500 to-teal-600",
+            color: "navy",
         },
         {
             type: "Conversion",
             points: 2,
             description: "Kick through the posts after a try",
-            color: "from-blue-500 to-indigo-600",
+            color: "orange",
         },
         {
             type: "Penalty",
             points: 3,
             description: "Kick awarded for opponent infractions",
-            color: "from-orange-500 to-red-500",
+            color: "navy",
         },
         {
             type: "Drop Goal",
             points: 3,
             description: "Field goal kicked during regular play",
-            color: "from-purple-500 to-pink-600",
+            color: "orange",
         },
     ];
 
@@ -131,9 +119,9 @@ const Rugby101 = () => {
                 "The rules are identical, and women's sevens is an Olympic sport showcasing incredible skill and athleticism. The game emphasizes speed, strategy, and teamwork with equally competitive and exciting play.",
         },
         {
-            title: "What if I'm not naturally fast?",
+            title: "What's the time commitment?",
             content:
-                "Rugby sevens is for everyone! While speed helps, the game also requires strategy, strength, and skill. Every player brings different attributes, and our club focuses on developing each player's unique strengths.",
+                "We train twice a week with matches on weekends. Training sessions are 90 minutes. You can attend as many sessions as your schedule allows, and we welcome players who can't make every session.",
         },
     ];
 
@@ -161,28 +149,24 @@ const Rugby101 = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Hero Section */}
-            <div className="relative h-[500px] overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-                    <div className="absolute inset-0 bg-black/20"></div>
-                </div>
-                <div className="absolute inset-0 bg-[url('/src/assets/images/photos/josipa_rugby.jpg')] bg-cover bg-center opacity-30"></div>
+        <div className="min-h-screen bg-surface">
+            {/* Hero Section - No animations as per requirements */}
+            <div className="relative h-[500px] overflow-hidden mt-20">
+                <div className="absolute inset-0 bg-[url('/src/assets/images/photos/josipa_rugby.jpg')] bg-cover bg-center"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-text-contrast/70 via-text-contrast/50 to-transparent"></div>
 
                 <div className="relative z-10 flex items-center justify-center h-full">
                     <div className="text-center max-w-5xl mx-auto px-6">
-                        <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/80 text-sm font-medium mb-6">
-                            🏉 Complete Rugby Guide
+                        <div className="inline-flex items-center px-4 py-2 bg-surface/20 backdrop-blur-sm rounded-full text-text-light text-sm font-medium mb-6">
+                            Quick Start Guide
                         </div>
-                        <h1 className="text-6xl md:text-7xl lg:text-8xl font-light mb-6 tracking-wide font-hero text-white leading-[0.85]">
-                            RUGBY{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-                                7S
-                            </span>{" "}
-                            101
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
+                            Rugby 7s{" "}
+                            <span className="text-accent">Essentials</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-white/90 mb-8 font-light">
-                            Master the fastest, most exciting format in rugby
+                        <p className="text-xl text-text-light/90 mb-8 max-w-3xl mx-auto">
+                            Everything you need to know to get started with the
+                            world's most exciting rugby format
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" variant="blue" asChild>
@@ -198,359 +182,300 @@ const Rugby101 = () => {
 
             <Divider />
 
-            <div className="px-4 py-20 max-w-7xl mx-auto">
-                {/* Rugby Basics - Bento Grid Style */}
-                <AnimatedSection className="mb-24" delay={1}>
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mb-6">
-                            ⚡ Quick Start Guide
-                        </div>
-                        <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-gray-900 leading-[0.85]">
-                            Rugby 7s{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                                Essentials
-                            </span>
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Everything you need to know to get started with the
-                            world's most exciting rugby format
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="px-4 py-16 max-w-7xl mx-auto">
+                {/* Quick Start Guide Section */}
+                <AnimatedSection className="mb-20">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {rugbyBasics.map((basic, index) => {
                             const Icon = basic.icon;
-                            const colors = {
-                                blue: "from-blue-500 to-blue-600",
-                                orange: "from-orange-500 to-red-500",
-                                green: "from-emerald-500 to-teal-600",
-                                purple: "from-purple-500 to-pink-600",
-                            };
+                            const iconColors = [
+                                "bg-text-contrast",
+                                "bg-accent",
+                                "bg-text-contrast",
+                                "bg-accent",
+                            ];
 
                             return (
                                 <div
                                     key={index}
-                                    className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100 overflow-hidden"
+                                    className="bg-surface rounded-lg p-6 shadow-soft hover:shadow-medium transition-all duration-normal border border-border group"
                                 >
-                                    {/* Background Gradient */}
+                                    {/* Icon Circle */}
                                     <div
-                                        className={`absolute inset-0 bg-gradient-to-br ${
-                                            colors[basic.color]
-                                        } opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                                    ></div>
-
-                                    {/* Icon Container */}
-                                    <div
-                                        className={`w-16 h-16 bg-gradient-to-br ${
-                                            colors[basic.color]
-                                        } rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg`}
+                                        className={`w-16 h-16 ${iconColors[index]} rounded-full flex items-center justify-center mb-4`}
                                     >
-                                        <Icon className="h-8 w-8 text-white" />
+                                        <Icon className="h-8 w-8 text-text-light" />
                                     </div>
 
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-700 transition-colors">
+                                    <h3 className="text-xl font-semibold text-text-contrast mb-3">
                                         {basic.title}
                                     </h3>
 
-                                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
+                                    <p className="text-muted leading-relaxed">
                                         {basic.description}
                                     </p>
-
-                                    {/* Decorative Element */}
-                                    <div
-                                        className={`absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-br ${
-                                            colors[basic.color]
-                                        } rounded-full opacity-10 group-hover:scale-125 transition-transform duration-500`}
-                                    ></div>
                                 </div>
                             );
                         })}
                     </div>
                 </AnimatedSection>
 
-                {/* Positions - Side by Side Cards */}
-                <AnimatedSection className="mb-24" delay={2}>
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-bold mb-6">
-                            👥 Team Structure
+                {/* Points System Section */}
+                <AnimatedSection className="mb-20 bg-gray-50 -mx-4 px-4 py-16">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="text-center mb-12">
+                            <div className="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium mb-4">
+                                Points System
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                                How to{" "}
+                                <span className="text-accent">Score</span>
+                            </h2>
+                            <p className="text-lg text-muted max-w-3xl mx-auto">
+                                Four ways to put points on the board and
+                                dominate the game
+                            </p>
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {scoring.map((score, index) => (
+                                <div
+                                    key={index}
+                                    className="bg-surface rounded-lg p-8 shadow-soft hover:shadow-medium transition-all duration-normal border border-border text-center"
+                                >
+                                    {/* Points Circle */}
+                                    <div
+                                        className={`w-20 h-20 ${
+                                            score.color === "navy"
+                                                ? "bg-text-contrast"
+                                                : "bg-accent"
+                                        } rounded-full flex items-center justify-center mx-auto mb-6`}
+                                    >
+                                        <span className="text-3xl font-bold text-text-light">
+                                            {score.points}
+                                        </span>
+                                    </div>
+
+                                    <h3 className="text-xl font-semibold text-text-contrast mb-3">
+                                        {score.type}
+                                    </h3>
+                                    <p className="text-muted leading-relaxed">
+                                        {score.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </AnimatedSection>
+
+                {/* Player Positions Section */}
+                <AnimatedSection className="mb-20" delay={1}>
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium mb-4">
+                            Team Structure
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
                             Player{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                                Positions
-                            </span>
+                            <span className="text-accent">Positions</span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-lg text-muted max-w-3xl mx-auto">
                             Understanding the unique roles that make rugby
                             sevens so dynamic
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         {positions.map((position, index) => (
                             <div
                                 key={index}
-                                className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                                className="bg-surface rounded-lg overflow-hidden shadow-soft hover:shadow-medium transition-all duration-normal border border-border"
                             >
                                 {/* Header Section */}
                                 <div
-                                    className={`p-8 bg-gradient-to-br ${
-                                        index === 0
-                                            ? "from-blue-500 to-indigo-600"
-                                            : "from-emerald-500 to-teal-600"
-                                    } text-white relative overflow-hidden`}
+                                    className={`p-8 ${
+                                        position.color === "navy"
+                                            ? "bg-text-contrast"
+                                            : "bg-accent"
+                                    } text-text-light`}
                                 >
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-                                    <div className="relative z-10">
-                                        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                                            <span className="text-2xl font-black">
-                                                {index + 1}
+                                    <div className="flex items-start gap-4 mb-4">
+                                        <div className="w-12 h-12 bg-surface/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span className="text-2xl font-bold">
+                                                {position.number}
                                             </span>
                                         </div>
-                                        <h3 className="text-3xl font-black mb-2">
-                                            {position.name}
-                                        </h3>
-                                        <p className="text-white/90 text-lg">
-                                            {position.description}
-                                        </p>
+                                        <div>
+                                            <h3 className="text-2xl font-semibold mb-2">
+                                                {position.name}
+                                            </h3>
+                                            <p className="text-text-light/90">
+                                                {position.description}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
                                 {/* Content Section */}
                                 <div className="p-8">
-                                    <h4 className="text-lg font-bold text-gray-900 mb-6">
+                                    <h4 className="text-lg font-semibold text-text-contrast mb-4">
                                         Key Responsibilities:
                                     </h4>
-                                    <div className="space-y-4">
+                                    <ul className="space-y-3 mb-6">
                                         {position.roles.map(
                                             (role, roleIndex) => (
-                                                <div
+                                                <li
                                                     key={roleIndex}
-                                                    className="flex items-start space-x-4 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group-hover:shadow-sm"
+                                                    className="flex items-start gap-3"
                                                 >
-                                                    <div
-                                                        className={`w-2 h-2 ${
-                                                            index === 0
-                                                                ? "bg-blue-500"
-                                                                : "bg-emerald-500"
+                                                    <span
+                                                        className={`w-1.5 h-1.5 ${
+                                                            position.color ===
+                                                            "navy"
+                                                                ? "bg-text-contrast"
+                                                                : "bg-accent"
                                                         } rounded-full mt-2 flex-shrink-0`}
-                                                    ></div>
-                                                    <p className="text-gray-700 font-medium">
+                                                    ></span>
+                                                    <span className="text-muted">
                                                         {role}
-                                                    </p>
-                                                </div>
+                                                    </span>
+                                                </li>
                                             )
                                         )}
-                                    </div>
+                                    </ul>
 
-                                    <div className="mt-8">
-                                        <Button
-                                            className={`w-full bg-gradient-to-r ${
-                                                index === 0
-                                                    ? "from-blue-500 to-indigo-600"
-                                                    : "from-emerald-500 to-teal-600"
-                                            } text-white font-bold py-3 rounded-2xl hover:scale-105 transition-transform shadow-lg`}
-                                            asChild
-                                        >
-                                            <Link to="/contact">
-                                                Learn This Position
-                                            </Link>
-                                        </Button>
-                                    </div>
+                                    <Button
+                                        className="w-full"
+                                        variant={
+                                            position.color === "navy"
+                                                ? "blue"
+                                                : "yellow"
+                                        }
+                                        asChild
+                                    >
+                                        <Link to="/contact">
+                                            Learn This Position
+                                        </Link>
+                                    </Button>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </AnimatedSection>
 
-                {/* Scoring - Floating Cards */}
-                <AnimatedSection className="mb-24" delay={3}>
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-bold mb-6">
-                            🎯 Points System
+                {/* Safety & Equipment Section */}
+                <AnimatedSection className="mb-20" delay={2}>
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center px-4 py-2 bg-red-50 text-red-600 rounded-full text-sm font-medium mb-4">
+                            Safety First
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
-                            How to{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-                                Score
-                            </span>
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Four ways to put points on the board and dominate
-                            the game
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {scoring.map((score, index) => (
-                            <div
-                                key={index}
-                                className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-6 border border-gray-100 text-center overflow-hidden"
-                            >
-                                {/* Background Effect */}
-                                <div
-                                    className={`absolute inset-0 bg-gradient-to-br ${score.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                                ></div>
-
-                                {/* Points Circle */}
-                                <div className="relative mb-8">
-                                    <div
-                                        className={`w-24 h-24 bg-gradient-to-br ${score.color} rounded-full flex items-center justify-center mx-auto shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`}
-                                    >
-                                        <span className="text-3xl font-black text-white">
-                                            {score.points}
-                                        </span>
-                                    </div>
-                                    {/* Animated Ring */}
-                                    <div
-                                        className={`absolute inset-0 rounded-full border-4 border-transparent bg-gradient-to-r ${score.color} p-1 opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500`}
-                                    >
-                                        <div className="w-full h-full bg-white rounded-full"></div>
-                                    </div>
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                                    {score.type}
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    {score.description}
-                                </p>
-
-                                {/* Accent Line */}
-                                <div
-                                    className={`w-16 h-1 bg-gradient-to-r ${score.color} rounded-full mx-auto mt-6 group-hover:w-24 transition-all duration-500`}
-                                ></div>
-                            </div>
-                        ))}
-                    </div>
-                </AnimatedSection>
-
-                {/* Safety & Equipment - Split Layout */}
-                <AnimatedSection className="mb-24" delay={4}>
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-bold mb-6">
-                            🛡️ Safety First
-                        </div>
-                        <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
                             Safety &{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-pink-600">
-                                Equipment
-                            </span>
+                            <span className="text-accent">Equipment</span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-lg text-muted max-w-3xl mx-auto">
                             Everything you need to play safely and confidently
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         {/* What You Need */}
-                        <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-3xl p-10 border border-orange-100 group hover:shadow-xl transition-all duration-500">
-                            <div className="flex items-center mb-8">
-                                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg">
-                                    <Heart className="h-8 w-8 text-white" />
+                        <div className="bg-surface rounded-lg p-8 shadow-soft hover:shadow-medium transition-all duration-normal border border-border">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                                    <Shield className="h-7 w-7 text-text-light" />
                                 </div>
-                                <h3 className="text-3xl font-bold text-gray-900 ml-4">
+                                <h3 className="text-2xl font-semibold text-text-contrast">
                                     What You Need
                                 </h3>
                             </div>
 
-                            <div className="space-y-4">
+                            <ul className="space-y-3">
                                 {[
                                     "Comfortable athletic clothing",
                                     "Rugby boots or running shoes",
                                     "Mouth guard (recommended)",
                                     "Water bottle",
                                 ].map((item, idx) => (
-                                    <div
+                                    <li
                                         key={idx}
-                                        className="flex items-center space-x-4 p-4 bg-white/60 rounded-2xl border border-white/50"
+                                        className="flex items-start gap-3"
                                     >
-                                        <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <span className="text-white text-sm font-bold">
-                                                ✓
-                                            </span>
-                                        </div>
-                                        <p className="text-gray-700 font-medium">
+                                        <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                                        <span className="text-muted">
                                             {item}
-                                        </p>
-                                    </div>
+                                        </span>
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
                         </div>
 
                         {/* Safety Measures */}
-                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-10 border border-blue-100 group hover:shadow-xl transition-all duration-500">
-                            <div className="flex items-center mb-8">
-                                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-                                    <Shield className="h-8 w-8 text-white" />
+                        <div className="bg-surface rounded-lg p-8 shadow-soft hover:shadow-medium transition-all duration-normal border border-border">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-14 h-14 bg-text-contrast rounded-full flex items-center justify-center flex-shrink-0">
+                                    <Shield className="h-7 w-7 text-text-light" />
                                 </div>
-                                <h3 className="text-3xl font-bold text-gray-900 ml-4">
+                                <h3 className="text-2xl font-semibold text-text-contrast">
                                     Safety Measures
                                 </h3>
                             </div>
 
-                            <div className="space-y-4">
+                            <ul className="space-y-3">
                                 {[
                                     "Proper tackling technique training",
                                     "Progressive contact introduction",
                                     "Qualified first aid at all sessions",
                                     "Regular equipment safety checks",
                                 ].map((item, idx) => (
-                                    <div
+                                    <li
                                         key={idx}
-                                        className="flex items-center space-x-4 p-4 bg-white/60 rounded-2xl border border-white/50"
+                                        className="flex items-start gap-3"
                                     >
-                                        <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <span className="text-white text-sm font-bold">
-                                                ✓
-                                            </span>
-                                        </div>
-                                        <p className="text-gray-700 font-medium">
+                                        <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                                        <span className="text-muted">
                                             {item}
-                                        </p>
-                                    </div>
+                                        </span>
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
                         </div>
                     </div>
                 </AnimatedSection>
 
-                {/* Myths vs Reality - Card Layout */}
-                <AnimatedSection className="mb-24" delay={5}>
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-bold mb-6">
-                            💡 Truth Check
+                {/* Myths vs Reality Section */}
+                <AnimatedSection className="mb-20" delay={3}>
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center px-4 py-2 bg-yellow-50 text-yellow-600 rounded-full text-sm font-medium mb-4">
+                            Truth Check
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
                             Myths vs{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500">
-                                Reality
-                            </span>
+                            <span className="text-accent">Reality</span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-lg text-muted max-w-3xl mx-auto">
                             Debunking common misconceptions about rugby sevens
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         {myths.map((item, index) => (
                             <div
                                 key={index}
-                                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
+                                className="bg-surface rounded-lg overflow-hidden shadow-soft hover:shadow-medium transition-all duration-normal border border-border"
                             >
                                 {/* Myth Section */}
-                                <div className="p-8 bg-gradient-to-r from-red-50 to-pink-50 border-b border-red-100">
-                                    <div className="flex items-start space-x-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-red-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                                            <span className="text-white font-bold text-xl">
+                                <div className="p-6 bg-red-50 border-b border-red-100">
+                                    <div className="flex items-start gap-3">
+                                        <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span className="text-white font-bold text-lg">
                                                 ✗
                                             </span>
                                         </div>
                                         <div>
-                                            <div className="text-red-600 font-bold text-sm uppercase tracking-wide mb-2">
+                                            <div className="text-red-600 font-semibold text-xs uppercase tracking-wide mb-1">
                                                 MYTH
                                             </div>
-                                            <h3 className="text-xl font-bold text-gray-900">
+                                            <h3 className="text-lg font-semibold text-text-contrast">
                                                 {item.myth}
                                             </h3>
                                         </div>
@@ -558,18 +483,14 @@ const Rugby101 = () => {
                                 </div>
 
                                 {/* Reality Section */}
-                                <div className="p-8 bg-gradient-to-r from-green-50 to-emerald-50">
-                                    <div className="flex items-start space-x-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                                            <span className="text-white font-bold text-xl">
-                                                ✓
-                                            </span>
-                                        </div>
+                                <div className="p-6">
+                                    <div className="flex items-start gap-3">
+                                        <CheckCircle2 className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                                         <div>
-                                            <div className="text-green-600 font-bold text-sm uppercase tracking-wide mb-2">
+                                            <div className="text-text-contrast font-semibold text-xs uppercase tracking-wide mb-1">
                                                 REALITY
                                             </div>
-                                            <p className="text-gray-700 leading-relaxed">
+                                            <p className="text-muted leading-relaxed">
                                                 {item.reality}
                                             </p>
                                         </div>
@@ -580,51 +501,44 @@ const Rugby101 = () => {
                     </div>
                 </AnimatedSection>
 
-                {/* FAQ */}
-                <AnimatedSection className="mb-16" delay={6}>
+                {/* FAQ Section */}
+                <AnimatedSection className="mb-16" delay={4}>
                     <div className="text-center mb-12">
-                        <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-bold mb-6">
-                            ❓ Common Questions
+                        <div className="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium mb-4">
+                            Common Questions
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-                                FAQ
-                            </span>
+                        <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                            <span className="text-accent">FAQ</span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-lg text-muted max-w-3xl mx-auto">
                             Everything you wanted to know about getting started
                         </p>
                     </div>
 
-                    <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-                        <div className="p-8">
-                            <Accordion items={faqs} allowMultiple={true} />
-                        </div>
+                    <div className="max-w-4xl mx-auto bg-surface rounded-lg shadow-soft border border-border p-6">
+                        <Accordion items={faqs} allowMultiple={true} />
                     </div>
                 </AnimatedSection>
             </div>
 
             {/* Call to Action */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+            <div className="relative overflow-hidden bg-text-contrast">
                 <div className="absolute inset-0 bg-[url('/src/assets/images/photos/petra_rugby.jpg')] bg-cover bg-center opacity-20"></div>
                 <div className="relative z-10 py-24 px-4">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-5xl md:text-6xl font-black text-white mb-8 leading-tight">
-                            Ready to Join the{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-                                Action?
-                            </span>
+                        <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
+                            Ready to Start Your Rugby Journey?
                         </h2>
-                        <p className="text-xl md:text-2xl text-white/90 mb-12 font-light max-w-3xl mx-auto">
-                            Experience the thrill of rugby sevens firsthand.
-                            Join our beginner-friendly training sessions.
+                        <p className="text-lg text-text-light/90 mb-10 max-w-2xl mx-auto">
+                            Join Zagreb Rugby Ladies and become part of
+                            Croatia's premier women's rugby sevens team
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                            <Button size="lg" variant="blue" asChild>
-                                <Link to="/contact">Start Training Now</Link>
-                            </Button>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" variant="yellow" asChild>
-                                <Link to="/team">Meet Our Players</Link>
+                                <Link to="/contact">Join Us Today</Link>
+                            </Button>
+                            <Button size="lg" variant="blue" asChild>
+                                <Link to="/team">Contact Us</Link>
                             </Button>
                         </div>
                     </div>

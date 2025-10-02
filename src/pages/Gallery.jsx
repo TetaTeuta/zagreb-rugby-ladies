@@ -9,20 +9,9 @@ import { AnimatedSection } from "../components/ui/AnimatedSection";
 
 const Gallery = () => {
     const [selectedAlbum, setSelectedAlbum] = useState("all");
-    const [isHeroVisible, setIsHeroVisible] = useState(true);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            setIsHeroVisible(scrollPosition < window.innerHeight * 0.5);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -283,7 +272,7 @@ const Gallery = () => {
                 </AnimatedSection>
 
                 {/* Album Filter */}
-                <div className="mb-8">
+                <AnimatedSection className="mb-8" delay={1}>
                     <div className="text-center mb-8">
                         <h2 className="text-4xl md:text-5xl font-bold text-text-contrast mb-4 tracking-tight">
                             Gallery Collections
@@ -313,10 +302,10 @@ const Gallery = () => {
                             </Button>
                         ))}
                     </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Gallery Grid */}
-                <div className="mb-8">
+                <AnimatedSection className="mb-8" delay={2}>
                     {filteredItems.length > 0 ? (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
                             {filteredItems.map((item) => (
@@ -373,10 +362,13 @@ const Gallery = () => {
                             </Button>
                         </div>
                     )}
-                </div>
+                </AnimatedSection>
 
                 {/* Stats */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <AnimatedSection
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8"
+                    delay={3}
+                >
                     {/* Gallery Stats */}
                     <div className="bg-surface rounded-xl p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
                         <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
@@ -462,7 +454,7 @@ const Gallery = () => {
                             </Button>
                         </div>
                     </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Call to Action */}
                 <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">

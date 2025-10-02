@@ -121,7 +121,7 @@ const Team = () => {
                 </AnimatedSection>
 
                 {/* Players Section */}
-                <div className="mb-8">
+                <AnimatedSection className="mb-8" delay={1}>
                     <div className="text-center mb-8">
                         <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
                             MEET OUR PLAYERS
@@ -142,10 +142,13 @@ const Team = () => {
                             />
                         ))}
                     </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Team Culture Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-4">
+                <AnimatedSection
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-4"
+                    delay={2}
+                >
                     {/* Inclusive Environment */}
                     <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
                         <img
@@ -217,7 +220,7 @@ const Team = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Call to Action */}
                 <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">

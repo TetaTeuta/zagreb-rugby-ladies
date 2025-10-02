@@ -14,7 +14,6 @@ import { Highlights } from "../components/home/Highlights";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 
 const Home = () => {
-    const [isHeroVisible, setIsHeroVisible] = useState(true);
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -51,25 +50,9 @@ const Home = () => {
 
     const [featuredPlayers] = useState(() => getRandomPlayers());
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            setIsHeroVisible(scrollPosition < window.innerHeight * 0.5);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
     return (
         <div className="min-h-screen bg-surface-elevated">
-            <div
-                className={`relative h-screen overflow-hidden transition-all duration-1000 ${
-                    isHeroVisible
-                        ? "translate-y-0"
-                        : "-translate-y-20 opacity-95"
-                }`}
-            >
+            <div className="relative h-screen overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <iframe
                         src="https://www.youtube.com/embed/5w2mBzgmUIo?autoplay=1&mute=1&loop=1&playlist=5w2mBzgmUIo&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
@@ -86,7 +69,7 @@ const Home = () => {
 
                 <div className="absolute inset-0 flex items-end justify-center z-10">
                     <div className="text-center max-w-5xl mx-auto pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-8">
-                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 sm:mb-10 tracking-wide font-hero text-text-light leading-[0.85] transition-all duration-1000 ease-out animate-slide-in-up">
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 sm:mb-10 tracking-wide font-hero text-text-light leading-[0.85]">
                             {t("home.hero.title")}
                         </h1>
                         <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">

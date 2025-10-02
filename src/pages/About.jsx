@@ -126,7 +126,7 @@ const About = () => {
                 </AnimatedSection>
 
                 {/* Mission & Values Grid */}
-                <div className="mb-8">
+                <AnimatedSection className="mb-8" delay={1}>
                     <div className="text-center mb-8">
                         <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
                             {t("about.mission.title")}
@@ -216,10 +216,10 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Coaching Staff */}
-                <div className="mb-8">
+                <AnimatedSection className="mb-8" delay={2}>
                     <div className="text-center mb-8">
                         <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
                             {t("about.coaches.title")}
@@ -259,10 +259,13 @@ const About = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Training Information Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-4">
+                <AnimatedSection
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-4"
+                    delay={3}
+                >
                     {/* Training Schedule */}
                     <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
                         <img
@@ -362,7 +365,7 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Call to Action */}
                 <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
