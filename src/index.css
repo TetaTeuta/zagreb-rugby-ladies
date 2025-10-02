@@ -1,13 +1,7 @@
 @import "tailwindcss";
 
-/* Modern, attention-grabbing fonts */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap");
+/* Clean, minimal typography - Nike-inspired */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 :root {
     /* ===== CENTRALIZED DESIGN SYSTEM ===== */
@@ -54,13 +48,19 @@
     --color-warning: 245 158 11; /* amber */
     --color-error: 239 68 68; /* red */
 
-    /* Typography System - Unified Hero Typography */
-    --font-sans: "Bebas Neue", "Oswald", sans-serif;
-    --font-hero: "Bebas Neue", "Oswald", sans-serif;
-    --font-heading: "Bebas Neue", "Oswald", sans-serif;
-    --font-body: "Bebas Neue", "Oswald", sans-serif;
-    --font-accent: "Bebas Neue", "Oswald", sans-serif;
-    --font-button: sans-serif;
+    /* Typography System - Single Font Family */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    --font-hero: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    --font-accent: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    --font-button: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
 
     /* Border Radius System */
     --radius-sm: 0.5rem; /* 8px */
@@ -173,8 +173,9 @@ body {
     color: rgb(var(--color-text));
     overflow-x: hidden;
     min-height: 100vh;
-    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 /* Floating container effects */
@@ -1084,85 +1085,78 @@ body {
     padding-top: 5rem;
 }
 
-/* Typography Classes - Use Design System Fonts */
+/* Typography Classes - Nike-Inspired Minimalism */
 .hero-title {
     font-family: var(--font-hero);
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1;
     color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .section-title {
-    font-family: var(--font-hero);
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
-    line-height: 0.9;
-    color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.1;
+    color: rgb(var(--color-text-contrast));
 }
 
 .card-title {
-    font-family: var(--font-hero);
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    line-height: 0.9;
-    color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.3;
+    color: rgb(var(--color-text-contrast));
 }
 
 .body-text {
-    font-family: var(--font-hero);
+    font-family: var(--font-body);
     font-weight: 400;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    line-height: 0.9;
-    color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.6;
+    color: rgb(var(--color-text));
 }
 
 .accent-text {
-    font-family: var(--font-hero);
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    font-family: var(--font-accent);
+    font-weight: 600;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    line-height: 0.9;
-    color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+    color: rgb(var(--color-accent));
 }
 
 .button-text {
     font-family: var(--font-button);
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
-    line-height: 0.9;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1;
+    letter-spacing: 0.05em;
 }
 
-/* Global text colors for floating container content - Use Design System */
+/* Global text colors for floating container content - Clean & Minimal */
 .floating-container-global h1 {
     font-family: var(--font-hero);
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1;
     color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .floating-container-global h2 {
     font-size: 1.5rem;
-    font-family: var(--font-hero);
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1.1;
     color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 0.75rem;
 }
 
@@ -1174,37 +1168,34 @@ body {
 }
 
 .floating-container-global h3 {
-    font-family: var(--font-hero);
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    line-height: 0.9;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.3;
     color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .floating-container-global h4,
 .floating-container-global h5,
 .floating-container-global h6 {
-    font-family: var(--font-hero);
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    line-height: 0.9;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.3;
     color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .floating-container-global p,
 .floating-container-global span,
 .floating-container-global div {
-    font-family: var(--font-hero);
+    font-family: var(--font-body);
     font-weight: 400;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    line-height: 0.9;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.6;
     color: rgb(var(--color-text-light));
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Global Transition Styles */
@@ -1262,12 +1253,12 @@ header {
     color: black !important;
 }
 
-/* Card content overrides for white backgrounds - Use Design System */
+/* Card content overrides for white backgrounds */
 .floating-container-global .bg-white h3 {
-    font-family: var(--font-body) !important;
+    font-family: var(--font-heading) !important;
     font-weight: 600 !important;
-    letter-spacing: 0.1em !important;
-    line-height: 1.625 !important;
+    letter-spacing: 0 !important;
+    line-height: 1.3 !important;
     text-shadow: none !important;
 }
 
