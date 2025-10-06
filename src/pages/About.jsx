@@ -95,7 +95,7 @@ const About = () => {
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Our Story Section */}
-                <AnimatedSection divider="wave" className="mb-8">
+                <AnimatedSection className="mb-8">
                     <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
                         <img
                             src="/src/assets/images/photos/lucija_rugby.jpg"

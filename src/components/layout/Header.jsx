@@ -70,7 +70,7 @@ const Header = () => {
                         : "bg-surface/90 backdrop-blur-sm",
                 ].join(" ")}
             >
-                <div className="bg-accent text-center py-1 text-sm text-text-black hidden sm:block">
+                <div className="bg-primary text-center py-1 text-sm text-muted-light hidden sm:block">
                     {t("header.banner")}
                 </div>
 
@@ -101,18 +101,10 @@ const Header = () => {
                                 >
                                     {item.name}
                                     {/* Hover underline */}
-                                    <span
-                                        className="absolute bottom-0 left-0 w-0 h-[2px] transition-all duration-200 group-hover:w-full"
-                                        style={{ backgroundColor: "#FFB81C" }}
-                                    ></span>
+                                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-200 group-hover:w-full"></span>
                                     {/* Active underline */}
                                     {isActiveRoute(item.href) && (
-                                        <span
-                                            className="absolute bottom-0 left-0 w-full h-[2px]"
-                                            style={{
-                                                backgroundColor: "#FFB81C",
-                                            }}
-                                        ></span>
+                                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary"></span>
                                     )}
                                 </Link>
                             ))}
