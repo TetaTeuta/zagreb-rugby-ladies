@@ -60,87 +60,92 @@ const Lightbox = ({
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-text-contrast/90"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm"
             role="dialog"
             aria-modal="true"
             aria-label="Image gallery"
         >
-            {/* Close button */}
-            <button
-                onClick={onClose}
-                className="absolute top-4 right-4 z-10 p-2 rounded-lg bg-text-contrast/50 text-text-light hover:bg-text-contrast/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                aria-label="Close gallery"
-            >
-                <X className="h-6 w-6" />
-            </button>
+            {/* Top bar with close button and counter */}
+            <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-6 bg-gradient-to-b from-black/60 to-transparent">
+                <div className="text-text-light text-lg font-medium">
+                    {currentImage.title}
+                </div>
+                <div className="flex items-center gap-4">
+                    {images.length > 1 && (
+                        <div className="text-text-light/80 text-sm font-medium">
+                            {currentIndex + 1} / {images.length}
+                        </div>
+                    )}
+                    <button
+                        onClick={onClose}
+                        className="p-2 rounded-lg bg-white/10 text-text-light hover:bg-white/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                        aria-label="Close gallery"
+                    >
+                        <X className="h-6 w-6" />
+                    </button>
+                </div>
+            </div>
 
-            {/* Previous button */}
+            {/* Navigation buttons */}
             {images.length > 1 && (
-                <button
-                    onClick={onPrev}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-lg bg-text-contrast/50 text-text-light hover:bg-text-contrast/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                    aria-label="Previous image"
-                >
-                    <ChevronLeft className="h-8 w-8" />
-                </button>
+                <>
+                    <button
+                        onClick={onPrev}
+                        className="absolute left-8 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 text-text-light hover:bg-white/20 hover:scale-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white backdrop-blur-sm"
+                        aria-label="Previous image"
+                    >
+                        <ChevronLeft className="h-8 w-8" />
+                    </button>
+                    <button
+                        onClick={onNext}
+                        className="absolute right-8 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 text-text-light hover:bg-white/20 hover:scale-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white backdrop-blur-sm"
+                        aria-label="Next image"
+                    >
+                        <ChevronRight className="h-8 w-8" />
+                    </button>
+                </>
             )}
 
-            {/* Next button */}
-            {images.length > 1 && (
-                <button
-                    onClick={onNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-lg bg-text-contrast/50 text-text-light hover:bg-text-contrast/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                    aria-label="Next image"
-                >
-                    <ChevronRight className="h-8 w-8" />
-                </button>
-            )}
-
-            {/* Main image */}
+            {/* Main image container */}
             <div
                 ref={lightboxRef}
-                className="relative max-w-7xl max-h-full w-full h-full flex items-center justify-center p-4"
+                className="w-full h-full flex items-center justify-center p-8 pt-24 pb-32"
                 tabIndex={-1}
+                onClick={onClose}
             >
                 <img
                     src={currentImage.src}
-                    alt={currentImage.alt || `Image ${currentIndex + 1}`}
-                    className="max-w-full max-h-full object-contain"
+                    alt={
+                        currentImage.alt ||
+                        currentImage.title ||
+                        `Image ${currentIndex + 1}`
+                    }
+                    className="max-w-full max-h-full w-auto h-auto object-contain shadow-2xl"
+                    style={{ maxWidth: "95vw", maxHeight: "85vh" }}
+                    onClick={(e) => e.stopPropagation()}
                     onError={(e) => {
                         e.target.src = "/images/placeholder-image.jpg";
                     }}
                 />
+            </div>
 
-                {/* Image info */}
-                {(currentImage.title || currentImage.description) && (
-                    <div className="absolute bottom-4 left-4 right-4 bg-text-contrast/70 text-text-light p-4 rounded-lg">
-                        {currentImage.title && (
-                            <h3 className="text-lg font-semibold mb-1">
-                                {currentImage.title}
-                            </h3>
-                        )}
-                        {currentImage.description && (
-                            <p className="text-sm opacity-90">
-                                {currentImage.description}
-                            </p>
-                        )}
+            {/* Bottom info bar */}
+            <div className="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-black/60 to-transparent">
+                {currentImage.dateISO && (
+                    <div className="px-8 py-6">
+                        <p className="text-text-light/80 text-sm">
+                            {new Date(currentImage.dateISO).toLocaleDateString(
+                                "en-US",
+                                {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                }
+                            )}
+                        </p>
                     </div>
                 )}
             </div>
-
-            {/* Image counter */}
-            {images.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-text-contrast/70 text-text-light text-sm rounded-full">
-                    {currentIndex + 1} / {images.length}
-                </div>
-            )}
-
-            {/* Backdrop click to close */}
-            <div
-                className="absolute inset-0 -z-10"
-                onClick={onClose}
-                aria-hidden="true"
-            />
         </div>
     );
 };

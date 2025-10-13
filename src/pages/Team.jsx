@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Button } from "../components/ui/Button";
-import { Divider } from "../components/ui/Divider";
 import { Card, CardContent, CardTitle } from "../components/ui/Card";
 import { PlayerCard } from "../components/team/PlayerCard";
 import { PlayerModal } from "../components/team/PlayerModal";
@@ -52,7 +51,7 @@ const Team = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
                     <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                <div className="absolute inset-0 bg-[url('/src/assets/images/photos/petra_rugby.jpg')] bg-cover bg-center opacity-30"></div>
+                <div className="absolute inset-0 bg-[url('/src/assets/images/players/petra_rugby.jpg')] bg-cover bg-center opacity-30"></div>
 
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
@@ -71,14 +70,12 @@ const Team = () => {
                 </div>
             </div>
 
-            <Divider />
-
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Team Stats Section */}
                 <AnimatedSection divider="wave" className="mb-8">
                     <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
                         <img
-                            src="/src/assets/images/photos/teuta_rugby.jpg"
+                            src="/src/assets/images/players/teuta_rugby.jpg"
                             alt="Team stats"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
@@ -152,7 +149,7 @@ const Team = () => {
                     {/* Inclusive Environment */}
                     <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
                         <img
-                            src="/src/assets/images/photos/lucija_rugby.jpg"
+                            src="/src/assets/images/players/lucija_rugby.jpg"
                             alt="Inclusive environment"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
@@ -167,17 +164,6 @@ const Team = () => {
                                 complete beginner or seasoned athlete, you'll
                                 find your place on our team.
                             </p>
-                            <ul className="space-y-2 text-text-light/80 mb-6">
-                                <li>• Beginner-friendly coaching approach</li>
-                                <li>• Mentorship program for new players</li>
-                                <li>
-                                    • Celebrating diversity and individual
-                                    strengths
-                                </li>
-                                <li>
-                                    • Creating lasting friendships beyond rugby
-                                </li>
-                            </ul>
                             <div className="text-center">
                                 <Button variant="blue" asChild>
                                     <Link to="/contact">Join Us</Link>
@@ -189,7 +175,7 @@ const Team = () => {
                     {/* Player Development */}
                     <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
                         <img
-                            src="/src/assets/images/photos/manuela_rugby.jpg"
+                            src="/src/assets/images/players/manuela_rugby.jpg"
                             alt="Player development"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
@@ -203,16 +189,6 @@ const Team = () => {
                                 their full potential, both as athletes and as
                                 confident individuals.
                             </p>
-                            <ul className="space-y-2 text-text-light/80 mb-6">
-                                <li>• Personalized skill development plans</li>
-                                <li>
-                                    • Leadership opportunities for all players
-                                </li>
-                                <li>• Mental health and wellness support</li>
-                                <li>
-                                    • Pathway to competitive rugby opportunities
-                                </li>
-                            </ul>
                             <div className="text-center">
                                 <Button variant="blue" asChild>
                                     <Link to="/rugby101">Learn More</Link>
@@ -225,7 +201,7 @@ const Team = () => {
                 {/* Call to Action */}
                 <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
                     <img
-                        src="/src/assets/images/photos/margaux_rugby.jpg"
+                        src="/src/assets/images/players/margaux_rugby.jpg"
                         alt="Join our team"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

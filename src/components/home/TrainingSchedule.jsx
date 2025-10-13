@@ -5,7 +5,7 @@ const TrainingSchedule = ({ trainingData }) => {
     return (
         <div className="relative h-[462px] overflow-hidden rounded group cursor-pointer">
             <img
-                src="/src/assets/images/photos/margaux_rugby.jpg"
+                src="/src/assets/images/players/margaux_rugby.jpg"
                 alt="Training session"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />

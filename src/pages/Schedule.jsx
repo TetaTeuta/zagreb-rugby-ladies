@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Calendar, MapPin, Clock, Trophy, Users } from "lucide-react";
 import { Button } from "../components/ui/Button";
-import { Divider } from "../components/ui/Divider";
 import {
     Card,
     CardContent,
@@ -200,7 +199,7 @@ const Schedule = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
                     <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                <div className="absolute inset-0 bg-[url('/src/assets/images/photos/josipa_rugby.jpg')] bg-cover bg-center opacity-30"></div>
+                <div className="absolute inset-0 bg-[url('/src/assets/images/players/josipa_rugby.jpg')] bg-cover bg-center opacity-30"></div>
 
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
@@ -218,8 +217,6 @@ const Schedule = () => {
                     </div>
                 </div>
             </div>
-
-            <Divider />
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Next Match */}
@@ -321,7 +318,7 @@ const Schedule = () => {
                 {/* Call to Action */}
                 <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
                     <img
-                        src="src/assets/images/photos/manuela_rugby.jpg"
+                        src="src/assets/images/players/manuela_rugby.jpg"
                         alt="Join our matches"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

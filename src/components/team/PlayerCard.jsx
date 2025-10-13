@@ -3,13 +3,13 @@ import { Button } from "../ui/Button";
 const PlayerCard = ({ player, onPlayerClick, imagePath }) => {
     // Use local rugby photos as placeholders with correct import paths
     const placeholderImages = [
-        "src/assets/images/photos/petra_rugby.jpg",
-        "src/assets/images/photos/lucija_rugby.jpg",
-        "src/assets/images/photos/manuela_rugby.jpg",
-        "src/assets/images/photos/margaux_rugby.jpg",
-        "src/assets/images/photos/teuta_rugby.jpg",
-        "src/assets/images/photos/josipa_rugby.jpg",
-        "src/assets/images/photos/petra1_rugby.jpg",
+        "src/assets/images/players/petra_rugby.jpg",
+        "src/assets/images/players/lucija_rugby.jpg",
+        "src/assets/images/players/manuela_rugby.jpg",
+        "src/assets/images/players/margaux_rugby.jpg",
+        "src/assets/images/players/teuta_rugby.jpg",
+        "src/assets/images/players/josipa_rugby.jpg",
+        "src/assets/images/players/petra1_rugby.jpg",
     ];
 
     // Use provided imagePath or fallback to placeholder

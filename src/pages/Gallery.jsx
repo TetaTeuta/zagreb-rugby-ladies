@@ -1,213 +1,351 @@
-import { useState, useEffect } from "react";
-import { Button } from "../components/ui/Button";
-import { Divider } from "../components/ui/Divider";
-import { Card, CardContent } from "../components/ui/Card";
+// src/pages/Gallery.jsx
+import {
+    useState,
+    useEffect,
+    useMemo,
+    useCallback,
+    useRef,
+    memo,
+    useDeferredValue,
+    startTransition,
+} from "react";
+import { useSearchParams, Link } from "react-router-dom";
 import { Lightbox } from "../components/ui/Lightbox";
-import { Play, Calendar, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
-import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { Play } from "lucide-react";
+import { Button } from "../components/ui/Button";
+import { cdn } from "../lib/cdn";
 
-const Gallery = () => {
-    const [selectedAlbum, setSelectedAlbum] = useState("all");
+const VARIANTS = [320, 640, 1280, 1600];
 
+function buildSrc(slug, ext = "jpg", width = 640) {
+    return cdn(`gallery/${slug}_${width}.${ext}`);
+}
+
+function buildSrcSet(slug, ext = "jpg") {
+    return VARIANTS.map(
+        (w) => `${cdn(`gallery/${slug}_${w}.${ext}`)} ${w}w`
+    ).join(", ");
+}
+
+function formatDate(dateISO) {
+    return new Date(dateISO).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
+}
+
+const Thumb = memo(function Thumb({ item, onOpen }) {
+    const imgRef = useRef(null);
     useEffect(() => {
-        window.scrollTo(0, 0);
+        const el = imgRef.current;
+        if (!el) return;
+        const obs = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        const target = e.target;
+                        target.dataset.loaded = "1";
+                        obs.unobserve(target);
+                    }
+                });
+            },
+            { rootMargin: "400px 0px" }
+        );
+        obs.observe(el);
+        return () => obs.disconnect();
     }, []);
 
+    const isVideo = item.type === "video";
+    const alt = item.alt || item.title;
+    const thumbSlug = isVideo ? item.thumbSlug : item.slug;
+
+    return (
+        <div
+            className="gallery-card group"
+            role="button"
+            tabIndex={0}
+            aria-label={item.title}
+            onClick={() => onOpen(item)}
+            onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onOpen(item);
+                }
+            }}
+        >
+            {isVideo ? (
+                <img
+                    ref={imgRef}
+                    src={buildSrc(thumbSlug, "jpg", 640)}
+                    alt={alt}
+                    className="gallery-card-image"
+                    loading="lazy"
+                    decoding="async"
+                    width={item.w}
+                    height={item.h}
+                />
+            ) : (
+                <picture>
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={buildSrcSet(item.slug, "avif")}
+                        type="image/avif"
+                    />
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={buildSrcSet(item.slug, "webp")}
+                        type="image/webp"
+                    />
+                    <source
+                        srcSet={buildSrcSet(item.slug, "avif")}
+                        type="image/avif"
+                    />
+                    <source
+                        srcSet={buildSrcSet(item.slug, "webp")}
+                        type="image/webp"
+                    />
+                    <img
+                        ref={imgRef}
+                        src={buildSrc(item.slug, "jpg", 640)}
+                        alt={alt}
+                        className="gallery-card-image"
+                        loading="lazy"
+                        decoding="async"
+                        width={item.w}
+                        height={item.h}
+                        sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                    />
+                </picture>
+            )}
+            <div className="gallery-card-overlay" />
+            <div className="gallery-card-content">
+                <h3 className="gallery-card-title">{item.title}</h3>
+                <p className="gallery-card-date">{formatDate(item.dateISO)}</p>
+            </div>
+            {isVideo && (
+                <div className="gallery-card-video-badge" aria-hidden="true">
+                    <Play className="h-5 w-5 text-text-contrast" />
+                </div>
+            )}
+        </div>
+    );
+});
+
+export default function Gallery() {
+    const [galleryItems, setGalleryItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [params, setParams] = useSearchParams();
     const [lightboxOpen, setLightboxOpen] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const gridRef = useRef(null);
+    const yearSectionRefs = useRef({});
 
-    // Sample gallery data using local images
-    const albums = [
-        { id: "all", name: "All Photos", count: 12 },
-        { id: "training", name: "Training", count: 5 },
-        { id: "matches", name: "Matches", count: 4 },
-        { id: "community", name: "Community", count: 3 },
-    ];
+    // Initializing activeYear and activeCategory based on URL params or defaults
+    const activeYearParam = parseInt(params.get("year") || "0", 10);
+    const activeCategoryParam = params.get("cat") || "all";
 
-    const galleryItems = [
-        {
-            id: 1,
-            type: "image",
-            src: "/src/assets/images/photos/teuta_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/teuta_rugby.jpg",
-            alt: "Team training session",
-            title: "Weekly Training Session",
-            description: "Players practicing rucking and mauling techniques",
-            album: "training",
-            date: "2024-03-15",
-        },
-        {
-            id: 2,
-            type: "image",
-            src: "/src/assets/images/photos/manuela_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/manuela_rugby.jpg",
-            alt: "Match action shot",
-            title: "Zagreb vs Rijeka",
-            description: "Intense match action from our league game",
-            album: "matches",
-            date: "2024-03-10",
-        },
-        {
-            id: 3,
-            type: "image",
-            src: "/src/assets/images/photos/margaux_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/margaux_rugby.jpg",
-            alt: "Team celebration",
-            title: "Post-Match Celebration",
-            description: "Celebrating another great game with the team",
-            album: "community",
-            date: "2024-03-10",
-        },
-        {
-            id: 4,
-            type: "image",
-            src: "/src/assets/images/photos/petra_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/petra_rugby.jpg",
-            alt: "Fitness training",
-            title: "Fitness & Conditioning",
-            description: "Building strength and endurance",
-            album: "training",
-            date: "2024-03-08",
-        },
-        {
-            id: 5,
-            type: "video",
-            src: "https://www.youtube.com/embed/5w2mBzgmUIo",
-            thumbnail: "/src/assets/images/photos/lucija_rugby.jpg",
-            alt: "Training highlights video",
-            title: "Training Highlights",
-            description: "Best moments from this week's training sessions",
-            album: "training",
-            date: "2024-03-05",
-        },
-        {
-            id: 6,
-            type: "image",
-            src: "/src/assets/images/photos/josipa_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/josipa_rugby.jpg",
-            alt: "Try scoring moment",
-            title: "Winning Try",
-            description: "The moment that sealed our victory",
-            album: "matches",
-            date: "2024-02-28",
-        },
-        {
-            id: 7,
-            type: "image",
-            src: "/src/assets/images/photos/petra1_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/petra1_rugby.jpg",
-            alt: "Team huddle",
-            title: "Team Strategy Meeting",
-            description: "Planning our next move during halftime",
-            album: "training",
-            date: "2024-03-12",
-        },
-        {
-            id: 8,
-            type: "image",
-            src: "/src/assets/images/photos/teuta_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/teuta_rugby.jpg",
-            alt: "Team group photo",
-            title: "Season Opener",
-            description: "Ready for another amazing season",
-            album: "community",
-            date: "2024-02-20",
-        },
-        {
-            id: 9,
-            type: "image",
-            src: "/src/assets/images/photos/manuela_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/manuela_rugby.jpg",
-            alt: "Action shot during match",
-            title: "Championship Quarter-Final",
-            description: "Fighting for every meter in the championship",
-            album: "matches",
-            date: "2024-02-25",
-        },
-        {
-            id: 10,
-            type: "image",
-            src: "/src/assets/images/photos/margaux_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/margaux_rugby.jpg",
-            alt: "Training equipment",
-            title: "Equipment Check",
-            description: "Making sure everything is ready for the big game",
-            album: "training",
-            date: "2024-02-18",
-        },
-        {
-            id: 11,
-            type: "image",
-            src: "/src/assets/images/photos/petra_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/petra_rugby.jpg",
-            alt: "Community event",
-            title: "Youth Rugby Workshop",
-            description: "Teaching the next generation about rugby",
-            album: "community",
-            date: "2024-02-15",
-        },
-        {
-            id: 12,
-            type: "image",
-            src: "/src/assets/images/photos/lucija_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/lucija_rugby.jpg",
-            alt: "Victory celebration",
-            title: "Tournament Champions",
-            description: "Our biggest victory of the season",
-            album: "matches",
-            date: "2024-02-10",
-        },
-    ];
+    // Fetch gallery items from manifest.json
+    useEffect(() => {
+        const fetchGalleryItems = async () => {
+            try {
+                const response = await fetch("/gallery/manifest.json");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch gallery manifest");
+                }
+                const data = await response.json();
+                const transformedData = data.map((item) => ({
+                    ...item,
+                    src: `/gallery/${item.slug}.jpg`,
+                    thumbnail: `/gallery/${item.slug}_thumbnail.jpg`,
+                }));
+                setGalleryItems(transformedData);
+                setLoading(false);
+            } catch (err) {
+                console.error("Error loading gallery items:", err);
+                setError(err.message);
+                setLoading(false);
+            }
+        };
 
-    const filteredItems =
-        selectedAlbum === "all"
-            ? galleryItems
-            : galleryItems.filter((item) => item.album === selectedAlbum);
+        fetchGalleryItems();
+    }, []);
 
-    const imageItems = filteredItems.filter((item) => item.type === "image");
+    const availableYears = useMemo(() => {
+        if (galleryItems.length === 0) return [];
+        const years = [...new Set(galleryItems.map((item) => item.year))].sort(
+            (a, b) => b - a
+        );
+        return years;
+    }, [galleryItems]);
 
-    const openLightbox = (imageId) => {
-        const imageIndex = imageItems.findIndex((item) => item.id === imageId);
-        if (imageIndex !== -1) {
-            setCurrentImageIndex(imageIndex);
-            setLightboxOpen(true);
+    const activeYear = useMemo(() => {
+        if (availableYears.length === 0) return new Date().getFullYear(); // Fallback if no years available
+        return availableYears.includes(activeYearParam)
+            ? activeYearParam
+            : availableYears[0];
+    }, [availableYears, activeYearParam]);
+
+    const [activeCategory, setActiveCategory] = useState(activeCategoryParam);
+    useEffect(() => {
+        setActiveCategory(activeCategoryParam);
+    }, [activeCategoryParam]);
+
+    const deferredCategory = useDeferredValue(activeCategory);
+
+    useEffect(() => {
+        const next = new URLSearchParams();
+        next.set("year", String(activeYear));
+        if (deferredCategory !== "all") next.set("cat", deferredCategory);
+        setParams(next, { replace: true });
+    }, [activeYear, deferredCategory, setParams]);
+
+    const filtered = useMemo(() => {
+        return galleryItems.filter(
+            (item) =>
+                (deferredCategory === "all" ||
+                    item.category === deferredCategory) &&
+                item.year === activeYear
+        );
+    }, [galleryItems, deferredCategory, activeYear]);
+
+    const itemsByYear = useMemo(() => {
+        const grouped = {};
+        for (const item of filtered) {
+            if (!grouped[item.year]) {
+                grouped[item.year] = [];
+            }
+            grouped[item.year].push(item);
         }
-    };
+        return grouped;
+    }, [filtered]);
 
-    const closeLightbox = () => {
-        setLightboxOpen(false);
-    };
+    const categoryStats = useMemo(() => {
+        const stats = {
+            all: galleryItems.length,
+            training: galleryItems.filter(
+                (item) => item.category === "training"
+            ).length,
+            matches: galleryItems.filter((item) => item.category === "matches")
+                .length,
+            community: galleryItems.filter(
+                (item) => item.category === "community"
+            ).length,
+        };
+        return stats;
+    }, [galleryItems]);
 
-    const nextImage = () => {
-        setCurrentImageIndex((prev) =>
-            prev === imageItems.length - 1 ? 0 : prev + 1
+    const yearStats = useMemo(() => {
+        return availableYears.map((year) => ({
+            year,
+            count: galleryItems.filter((item) => item.year === year).length,
+        }));
+    }, [availableYears, galleryItems]);
+
+    useEffect(() => {
+        if (galleryItems.length === 0) return; // Don't observe if no items
+
+        const observerOptions = {
+            root: null,
+            rootMargin: "-50% 0px -50% 0px",
+            threshold: 0,
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const year = parseInt(entry.target.dataset.year, 10);
+                    if (!Number.isNaN(year) && year !== activeYear) {
+                        startTransition(() => {
+                            const next = new URLSearchParams(params);
+                            next.set("year", String(year));
+                            setParams(next, { replace: true });
+                        });
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(
+            observerCallback,
+            observerOptions
         );
-    };
 
-    const prevImage = () => {
-        setCurrentImageIndex((prev) =>
-            prev === 0 ? imageItems.length - 1 : prev - 1
-        );
-    };
-
-    const formatDate = (dateString) => {
-        return new Date(dateString).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
+        Object.values(yearSectionRefs.current).forEach((ref) => {
+            if (ref) observer.observe(ref);
         });
-    };
+
+        return () => {
+            observer.disconnect();
+        };
+    }, [params, activeYear, setParams, galleryItems]); // Added galleryItems
+
+    const imageItems = useMemo(
+        () => filtered.filter((item) => item.type !== "video"),
+        [filtered]
+    );
+
+    const openItem = useCallback(
+        (item) => {
+            if (item.type === "video") {
+                window.open(item.src, "_blank", "noopener,noreferrer");
+                return;
+            }
+            const idx = imageItems.findIndex((x) => x.id === item.id);
+            if (idx !== -1) {
+                setCurrentIndex(idx);
+                setLightboxOpen(true);
+            }
+        },
+        [imageItems]
+    );
+
+    const closeLightbox = useCallback(() => setLightboxOpen(false), []);
+    const nextImage = useCallback(
+        () => setCurrentIndex((i) => (i + 1) % imageItems.length),
+        [imageItems.length]
+    );
+    const prevImage = useCallback(
+        () =>
+            setCurrentIndex(
+                (i) => (i - 1 + imageItems.length) % imageItems.length
+            ),
+        [imageItems.length]
+    );
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-surface">
+                <p className="text-muted text-lg">Loading gallery items...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-surface">
+                <p className="text-red-500 text-lg">Error: {error}</p>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-surface">
-            {/* Hero Section */}
-            <div className="relative h-[500px] overflow-hidden mt-20">
+            <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="absolute inset-0 bg-black/20" />
                 </div>
-                <div className="absolute inset-0 bg-[url('/src/assets/images/photos/margaux_rugby.jpg')] bg-cover bg-center opacity-30"></div>
-
+                <div
+                    className="absolute inset-0 bg-cover bg-center opacity-30"
+                    style={{
+                        backgroundImage: `url(${buildSrc(
+                            "players/margaux/margaux-rugby",
+                            "jpg",
+                            1280
+                        )})`,
+                    }}
+                />
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide text-text-light leading-tight">
@@ -225,243 +363,157 @@ const Gallery = () => {
                 </div>
             </div>
 
-            <Divider />
-
             <div className="px-4 py-16 max-w-7xl mx-auto">
-                {/* Intro Section */}
-                <AnimatedSection divider="wave" className="mb-8">
-                    <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
-                        <img
-                            src="/src/assets/images/photos/teuta_rugby.jpg"
-                            alt="Our story in pictures"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                        <div className="absolute inset-0 p-8 sm:p-10 lg:p-12 flex flex-col justify-end text-text-light">
-                            <div className="mb-6">
-                                <h2 className="text-4xl font-bold text-text-light mb-2 tracking-wide">
-                                    OUR STORY IN PICTURES
-                                </h2>
-                                <p className="text-lg text-text-light/80 mb-4">
-                                    Every training session, match, and
-                                    celebration tells our story.
-                                </p>
-                            </div>
-                            <div className="space-y-4 text-text-light/90 leading-relaxed max-w-3xl">
-                                <p>
-                                    From intense training sessions to triumphant
-                                    matches, these moments capture the spirit,
-                                    dedication, and joy of Zagreb Rugby Ladies.
-                                </p>
-                                <p>
-                                    Each photo tells a story of determination,
-                                    friendship, and the incredible journey of
-                                    women who dared to step onto the rugby
-                                    field.
-                                </p>
-                            </div>
-                            <div className="text-center mt-6">
-                                <Button variant="blue" asChild>
-                                    <Link to="/contact">
-                                        Be Part of Our Story
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </AnimatedSection>
-
-                {/* Album Filter */}
-                <AnimatedSection className="mb-8" delay={1}>
-                    <div className="text-center mb-8">
-                        <h2 className="text-4xl md:text-5xl font-bold text-text-contrast mb-4 tracking-tight">
-                            Gallery Collections
-                        </h2>
-                        <p className="text-lg text-muted max-w-2xl mx-auto">
-                            Explore our memories organized by moments that
-                            matter most to us.
-                        </p>
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-3">
-                        {albums.map((album) => (
-                            <Button
-                                key={album.id}
-                                variant={
-                                    selectedAlbum === album.id
-                                        ? "yellow"
-                                        : "blue"
-                                }
-                                size="sm"
-                                onClick={() => setSelectedAlbum(album.id)}
-                                className="flex items-center gap-2"
-                            >
-                                {album.name}
-                                <span className="text-xs opacity-75">
-                                    ({album.count})
-                                </span>
-                            </Button>
-                        ))}
-                    </div>
-                </AnimatedSection>
-
-                {/* Gallery Grid */}
-                <AnimatedSection className="mb-8" delay={2}>
-                    {filteredItems.length > 0 ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
-                            {filteredItems.map((item) => (
-                                <div
-                                    key={item.id}
-                                    className="relative h-[350px] overflow-hidden rounded group cursor-pointer"
-                                    onClick={() => {
-                                        if (item.type === "image") {
-                                            openLightbox(item.id);
-                                        } else if (item.type === "video") {
-                                            window.open(item.src, "_blank");
-                                        }
-                                    }}
-                                >
-                                    <img
-                                        src={item.thumbnail || item.src}
-                                        alt={item.alt}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-
-                                    {/* Overlay */}
-                                    <div className="absolute inset-0 bg-text-contrast/0 group-hover:bg-text-contrast/20 transition-colors duration-300" />
-
-                                    {/* Title overlay */}
-                                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                                        <h3 className="text-text-light font-medium text-sm mb-1 line-clamp-1">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-text-light/80 text-xs line-clamp-1">
-                                            {formatDate(item.date)}
-                                        </p>
-                                    </div>
-
-                                    {/* Video indicator */}
-                                    {item.type === "video" && (
-                                        <div className="absolute top-3 right-3 p-2 rounded-full bg-text-contrast/70">
-                                            <Play className="h-4 w-4 text-text-light" />
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="text-center py-12">
-                            <p className="text-muted text-lg">
-                                No photos found for the selected album.
-                            </p>
-                            <Button
-                                variant="blue"
-                                onClick={() => setSelectedAlbum("all")}
-                                className="mt-4"
-                            >
-                                Show All Photos
-                            </Button>
-                        </div>
-                    )}
-                </AnimatedSection>
-
-                {/* Stats */}
-                <AnimatedSection
-                    className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8"
-                    delay={3}
+                <div
+                    className="gallery-filters"
+                    role="group"
+                    aria-label="Photo categories"
                 >
-                    {/* Gallery Stats */}
-                    <div className="bg-surface rounded-xl p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
-                        <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                            <Calendar className="h-8 w-8 text-primary" />
-                        </div>
-                        <h3 className="text-2xl font-bold mb-6 text-text-contrast">
-                            Our Collection
-                        </h3>
-                        <div className="grid grid-cols-3 gap-4 mb-8">
-                            <div className="bg-muted-light/50 rounded-lg p-4 text-center">
-                                <div className="text-2xl font-bold text-primary mb-1">
-                                    {galleryItems.length}
-                                </div>
-                                <div className="text-xs text-muted font-medium">
-                                    Total Media
-                                </div>
-                            </div>
-                            <div className="bg-muted-light/50 rounded-lg p-4 text-center">
-                                <div className="text-2xl font-bold text-primary mb-1">
-                                    {
-                                        galleryItems.filter(
-                                            (item) => item.type === "image"
-                                        ).length
-                                    }
-                                </div>
-                                <div className="text-xs text-muted font-medium">
-                                    Photos
-                                </div>
-                            </div>
-                            <div className="bg-muted-light/50 rounded-lg p-4 text-center">
-                                <div className="text-2xl font-bold text-primary mb-1">
-                                    {
-                                        galleryItems.filter(
-                                            (item) => item.type === "video"
-                                        ).length
-                                    }
-                                </div>
-                                <div className="text-xs text-muted font-medium">
-                                    Videos
-                                </div>
-                            </div>
-                        </div>
-                        <div className="text-center">
-                            <Button variant="blue" asChild>
-                                <Link to="/contact">Join Our Story</Link>
-                            </Button>
-                        </div>
-                    </div>
+                    {[
+                        { id: "all", label: "All Photos" },
+                        { id: "training", label: "Training" },
+                        { id: "matches", label: "Matches" },
+                        { id: "community", label: "Community" },
+                    ].map((cat) => (
+                        <button
+                            key={cat.id}
+                            onClick={() => {
+                                startTransition(() => {
+                                    const next = new URLSearchParams(params);
+                                    if (cat.id === "all") next.delete("cat");
+                                    else next.set("cat", cat.id);
+                                    setParams(next, { replace: true });
+                                });
+                            }}
+                            className={`pill ${
+                                activeCategory === cat.id ? "pill-active" : ""
+                            }`}
+                            aria-pressed={activeCategory === cat.id}
+                        >
+                            {cat.label}
+                            <span className="pill-badge">
+                                {categoryStats[cat.id]}
+                            </span>
+                        </button>
+                    ))}
+                </div>
 
-                    {/* Recent Highlights */}
-                    <div className="bg-surface rounded-xl p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
-                        <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
-                            <Play className="h-8 w-8 text-accent" />
-                        </div>
-                        <h3 className="text-2xl font-bold mb-6 text-text-contrast">
-                            Recent Highlights
-                        </h3>
-                        <div className="space-y-4 mb-8">
-                            {[
-                                "Championship Victory 2024",
-                                "New Player Recruitment Drive",
-                                "Community Outreach Program",
-                                "International Friendly Match",
-                            ].map((highlight, idx) => (
-                                <div
-                                    key={idx}
-                                    className="flex items-center p-3 bg-muted-light/50 rounded-lg"
-                                >
-                                    <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center mr-3">
-                                        <span className="text-accent text-sm font-bold">
-                                            •
-                                        </span>
-                                    </div>
-                                    <p className="text-muted font-medium">
-                                        {highlight}
-                                    </p>
-                                </div>
+                <div className="gallery-layout" ref={gridRef}>
+                    <nav
+                        aria-label="Years"
+                        className="gallery-timeline hidden lg:flex"
+                    >
+                        <ol role="list">
+                            {yearStats.map(({ year, count }) => (
+                                <li key={year}>
+                                    <button
+                                        onClick={() => {
+                                            startTransition(() => {
+                                                const next =
+                                                    new URLSearchParams(params);
+                                                next.set("year", String(year));
+                                                setParams(next, {
+                                                    replace: true,
+                                                });
+                                                gridRef.current?.scrollIntoView(
+                                                    {
+                                                        behavior: "smooth",
+                                                        block: "start",
+                                                    }
+                                                );
+                                            });
+                                        }}
+                                        className="gallery-timeline-item"
+                                        aria-current={
+                                            activeYear === year
+                                                ? "page"
+                                                : undefined
+                                        }
+                                    >
+                                        <div className="gallery-timeline-dot" />
+                                        <div className="gallery-timeline-label">
+                                            <div className="gallery-timeline-year">
+                                                {year}
+                                            </div>
+                                            <div className="gallery-timeline-count">
+                                                {count} photos
+                                            </div>
+                                        </div>
+                                    </button>
+                                </li>
                             ))}
-                        </div>
-                        <div className="text-center">
-                            <Button variant="blue" asChild>
-                                <Link to="/team">Meet Our Team</Link>
-                            </Button>
-                        </div>
-                    </div>
-                </AnimatedSection>
+                        </ol>
+                    </nav>
 
-                {/* Call to Action */}
-                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
+                    <div className="lg:hidden mb-6">
+                        <select
+                            value={activeYear}
+                            onChange={(e) => {
+                                const y = parseInt(e.target.value, 10);
+                                const next = new URLSearchParams(params);
+                                next.set("year", String(y));
+                                setParams(next, { replace: true });
+                                gridRef.current?.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "start",
+                                });
+                            }}
+                            className="gallery-year-select"
+                            aria-label="Select year"
+                        >
+                            {yearStats.map(({ year, count }) => (
+                                <option key={year} value={year}>
+                                    {year} ({count} photos)
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div>
+                        {galleryItems.length > 0 ? (
+                            <div className="space-y-12">
+                                {availableYears.map((year) => (
+                                    <section
+                                        key={year}
+                                        ref={(el) =>
+                                            (yearSectionRefs.current[year] = el)
+                                        }
+                                        data-year={year}
+                                        className="scroll-mt-32"
+                                    >
+                                        <div className="gallery-grid">
+                                            {itemsByYear[year]?.map((item) => (
+                                                <Thumb
+                                                    key={item.id}
+                                                    item={item}
+                                                    onOpen={openItem}
+                                                />
+                                            ))}
+                                        </div>
+                                    </section>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="text-center py-12">
+                                <p className="text-muted text-lg">
+                                    {loading
+                                        ? "Loading gallery items..."
+                                        : error
+                                        ? `Error: ${error}`
+                                        : "No photos found for this selection."}
+                                </p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer mt-20">
                     <img
-                        src="/src/assets/images/photos/petra1_rugby.jpg"
+                        src={buildSrc("players/petra/petra-alt", "jpg", 1280)}
                         alt="Join our story"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-text-contrast/70 via-text-contrast/30 to-transparent"></div>
                     <div className="absolute inset-0 flex items-center">
@@ -488,17 +540,18 @@ const Gallery = () => {
                 </div>
             </div>
 
-            {/* Lightbox */}
             <Lightbox
-                images={imageItems}
+                images={imageItems.map((it) => ({
+                    ...it,
+                    src: buildSrc(it.slug, "jpg", 1600),
+                    thumbnail: buildSrc(it.slug, "jpg", 320),
+                }))}
                 isOpen={lightboxOpen}
-                currentIndex={currentImageIndex}
+                currentIndex={currentIndex}
                 onClose={closeLightbox}
                 onNext={nextImage}
                 onPrev={prevImage}
             />
         </div>
     );
-};
-
-export default Gallery;
+}

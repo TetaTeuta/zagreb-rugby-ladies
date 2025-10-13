@@ -8,7 +8,6 @@ import {
     CardTitle,
 } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
-import { Divider } from "../components/ui/Divider";
 import { Link } from "react-router-dom";
 import { MapPin, Clock, Mail, Users, Heart, Zap } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
@@ -69,7 +68,7 @@ const About = () => {
         <div className="min-h-screen bg-surface">
             {/* Hero Section */}
             <div className="relative h-[500px] overflow-hidden mt-20">
-                <div className="absolute inset-0 bg-[url('https://i.guim.co.uk/img/static/sys-images/Sport/Pix/pictures/2014/2/8/1391863566865/Rugby-Sevens-Waratahs-blu-018.jpg?width=480&dpr=1&s=none&crop=none')] bg-cover bg-center"></div>
+                <div className="absolute inset-0 bg-[url('src/assets/images/actions/petra_panning_rugby.jpg')] bg-cover bg-center"></div>
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-white leading-[0.85] drop-shadow-lg">
@@ -91,14 +90,12 @@ const About = () => {
                 </div>
             </div>
 
-            <Divider />
-
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Our Story Section */}
                 <AnimatedSection className="mb-8">
                     <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
                         <img
-                            src="/src/assets/images/photos/lucija_rugby.jpg"
+                            src="/src/assets/images/players/lucija_rugby.jpg"
                             alt="Our story"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
@@ -136,7 +133,7 @@ const About = () => {
                         {/* Mission Section */}
                         <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
                             <img
-                                src="/src/assets/images/photos/petra_rugby.jpg"
+                                src="/src/assets/images/players/petra_rugby.jpg"
                                 alt="Our mission"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
@@ -161,7 +158,7 @@ const About = () => {
                         {/* Values Section */}
                         <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
                             <img
-                                src="/src/assets/images/photos/josipa_rugby.jpg"
+                                src="/src/assets/images/players/josipa_rugby.jpg"
                                 alt="Our values"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
@@ -232,7 +229,7 @@ const About = () => {
                                 className="relative h-[500px] overflow-hidden rounded group cursor-pointer"
                             >
                                 <img
-                                    src={`/src/assets/images/photos/${
+                                    src={`/src/assets/images/players/${
                                         [
                                             "teuta_rugby.jpg",
                                             "manuela_rugby.jpg",
@@ -269,7 +266,7 @@ const About = () => {
                     {/* Training Schedule */}
                     <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
                         <img
-                            src="/src/assets/images/photos/petra1_rugby.jpg"
+                            src="/src/assets/images/players/petra1_rugby.jpg"
                             alt="Training schedule"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
@@ -321,7 +318,7 @@ const About = () => {
                     {/* Contact Information */}
                     <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
                         <img
-                            src="/src/assets/images/photos/margaux_rugby.jpg"
+                            src="/src/assets/images/players/margaux_rugby.jpg"
                             alt="Contact us"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
@@ -370,7 +367,7 @@ const About = () => {
                 {/* Call to Action */}
                 <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
                     <img
-                        src="/src/assets/images/photos/teuta_rugby.jpg"
+                        src="/src/assets/images/players/teuta_rugby.jpg"
                         alt="Join our team"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

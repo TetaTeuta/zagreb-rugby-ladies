@@ -5,7 +5,7 @@ const Highlights = ({ highlights, title = "Why Choose Rugby?" }) => {
     return (
         <div className="relative h-[462px] overflow-hidden rounded group cursor-pointer">
             <img
-                src="/src/assets/images/photos/josipa_rugby.jpg"
+                src="/src/assets/images/players/josipa_rugby.jpg"
                 alt="Rugby highlights"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />

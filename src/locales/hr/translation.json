@@ -109,24 +109,6 @@
             "followUs": "Prati nas"
         }
     },
-    "rugby101": {
-        "title": "Rugby 101",
-        "subtitle": "Nov si u rugbiju? Počni ovdje da naučiš osnove",
-        "basics": "Osnove",
-        "positions": "Pozicije",
-        "rules": "Pravila",
-        "equipment": "Oprema"
-    },
-    "gallery": {
-        "title": "Galerija",
-        "subtitle": "Trenuci s našeg putovanja",
-        "categories": {
-            "all": "Sve",
-            "matches": "Utakmice",
-            "training": "Treninzi",
-            "events": "Događaji"
-        }
-    },
     "schedule": {
         "title": "Raspored",
         "subtitle": "Nadolazeće utakmice i treninzi",
@@ -329,164 +311,6 @@
             "meetPlayers": "Upoznaj igračice"
         }
     },
-    "rugby101": {
-        "hero": {
-            "title": "RAGBI 7S 101",
-            "subtitle": "Ovladaj najbržim i najuzbudljivijim formatom ragbija",
-            "startTraining": "Počni trenirati danas"
-        },
-        "basics": {
-            "title": "Osnove ragbija 7s",
-            "subtitle": "Sve što trebaš znati da počneš s najuzbudljivijim ragbi formatom na svijetu",
-            "players": {
-                "title": "7 igračica po momčadi",
-                "description": "Svaka momčad ima 7 igračica na terenu, što stvara brzu akciju s više prostora za trčanje i postizanje poena."
-            },
-            "objective": {
-                "title": "Cilj",
-                "description": "Postići više pokušaja od protivnika nošenjem, dodavanjem ili šutiranjem lopte u protivničku zonu pokušaja."
-            },
-            "time": {
-                "title": "14 minuta",
-                "description": "Utakmica se sastoji od dva poluvremena od 7 minuta s 2-minutnim odmorom u poluvremenu."
-            },
-            "safety": {
-                "title": "Sigurnost na prvom mjestu",
-                "description": "Pravilna tehnika i zaštitna oprema osiguravaju da je ragbi siguran. Brži tempo potiče vještu igru umjesto teškog kontakta."
-            }
-        },
-        "positions": {
-            "title": "Pozicije igračica",
-            "subtitle": "Razumijevanje jedinstvenih uloga koje čine ragbi sedam tako dinamičnim",
-            "forwards": {
-                "title": "Napadačice (1-3)",
-                "description": "Temelj i snaga",
-                "roles": [
-                    "Formiranje guranja",
-                    "Bacanje i hvatanje u aut",
-                    "Sigurnost lopte u prekidu",
-                    "Fizičko nošenje lopte"
-                ]
-            },
-            "backs": {
-                "title": "Bekovi (4-7)",
-                "description": "Brzina, vještina i završetak",
-                "roles": [
-                    "Distribucija lopte i tempo",
-                    "Strateško šutiranje",
-                    "Potpora u igri i dodavanje",
-                    "Prilike za postizanje pokušaja"
-                ]
-            },
-            "learnPosition": "Nauči ovu poziciju"
-        },
-        "scoring": {
-            "title": "Kako postići poene",
-            "subtitle": "Četiri načina da staviš poene na tablu i dominiraš igrom",
-            "try": {
-                "points": "5",
-                "title": "Pokušaj",
-                "description": "Stavljanje lopte u protivničku zonu pokušaja"
-            },
-            "conversion": {
-                "points": "2",
-                "title": "Pretvaranje",
-                "description": "Šut kroz vratnice nakon pokušaja"
-            },
-            "penalty": {
-                "points": "3",
-                "title": "Kazneni udarac",
-                "description": "Šut dodijeljen za protivničke prekršaje"
-            },
-            "dropGoal": {
-                "points": "3",
-                "title": "Drop gol",
-                "description": "Gol iz igre šutiran tijekom regularne igre"
-            }
-        },
-        "safety": {
-            "title": "Sigurnost i oprema",
-            "subtitle": "Sve što trebaš za sigurnu i samouvjerenu igru",
-            "whatYouNeed": {
-                "title": "Što trebaš",
-                "items": [
-                    "Udobnu sportsku odjeću",
-                    "Ragbi kopačke ili tenisice",
-                    "Štitnik za zube (preporučuje se)",
-                    "Bocu za vodu"
-                ]
-            },
-            "safetyMeasures": {
-                "title": "Sigurnosne mjere",
-                "items": [
-                    "Trening pravilne tehnike plakiranja",
-                    "Postupno uvođenje kontakta",
-                    "Kvalificirana prva pomoć na svim treninzima",
-                    "Redovite sigurnosne provjere opreme"
-                ]
-            }
-        },
-        "myths": {
-            "title": "Mitovi protiv stvarnosti",
-            "subtitle": "Rušimo česte zablude o ragbiju sedam",
-            "myth": "MIT",
-            "reality": "STVARNOST",
-            "items": [
-                {
-                    "myth": "Ragbi sedam je samo sprint ragbi",
-                    "reality": "Iako brži, ragbi sedam zahtijeva strateško razmišljanje, vještinu i izdržljivost. Otvoreni prostor stvara prilike za kreativnu igru."
-                },
-                {
-                    "myth": "Mogu igrati samo super fit sportašice",
-                    "reality": "Ragbi sedam dobrodošao je svim razinama kondicije. Kraće vrijeme igre i manje momčadi znače više prilika za sve da doprinose."
-                },
-                {
-                    "myth": "Prebrz je tempo za učenje",
-                    "reality": "Pojednostavljeni format s manje igračica čini ragbi sedam lakšim za razumijevanje. Akcija je uzbudljiva, ali pravila ostaju ista."
-                },
-                {
-                    "myth": "Ženski sedam nije tako uzbudljiv",
-                    "reality": "Ženski ragbi sedam je olimpijski sport koji prikazuje nevjerojatnu vještinu, brzinu i atletizam. To je jedan od najuzbudljivijih formata za gledanje i igranje."
-                }
-            ]
-        },
-        "faq": {
-            "title": "Često postavljana pitanja",
-            "subtitle": "Sve što si htjela znati o početku",
-            "items": [
-                {
-                    "question": "Je li ragbi sedam siguran za početnike?",
-                    "answer": "Apsolutno! Ragbi sedam ima stroge sigurnosne protokole i brži tempo zapravo potiče vještu igru umjesto teškog kontakta. Naši treneri stavljaju sigurnost na prvo mjesto i uče pravilnu tehniku od prvog dana."
-                },
-                {
-                    "question": "Moram li biti super fit da igram sedam?",
-                    "answer": "Ragbi sedam dobrodošao je svim razinama kondicije. Poluvremena od 7 minuta znače da svi dobivaju odmor, a postoje pozicije koje odgovaraju različitim atributima - od brzine do snage. Kondicija se prirodno razvija kroz trening."
-                },
-                {
-                    "question": "Koju opremu trebam?",
-                    "answer": "Za početnike, samo udobnu sportsku odjeću i tenisice ili ragbi kopačke. Klub osigurava lopte i opremu za trening. Dodatna zaštitna oprema poput štitnika za zube dostupna je kako napreduješ."
-                },
-                {
-                    "question": "Mogu li početi igrati sedam bez iskustva?",
-                    "answer": "Da! Mnoge igračice smatraju sedam lakšim za učenje s manje igračica i više prostora. Naši treninzi prilagođeni početnicima uče osnove korak po korak u podržavajućem okruženju."
-                },
-                {
-                    "question": "Kako se ženski sedam razlikuje od muškog?",
-                    "answer": "Pravila su identična, a ženski sedam je olimpijski sport koji prikazuje nevjerojatnu vještinu i atletizam. Igra naglašava brzinu, strategiju i timski rad s jednako natjecateljskom i uzbudljivom igrom."
-                },
-                {
-                    "question": "Što ako nisam prirodno brza?",
-                    "answer": "Ragbi sedam je za sve! Iako brzina pomaže, igra također zahtijeva strategiju, snagu i vještinu. Svaka igračica donosi različite atribute, a naš klub se fokusira na razvoj jedinstvenih snaga svake igračice."
-                }
-            ]
-        },
-        "cta": {
-            "title": "Spreman si se pridružiti akciji?",
-            "description": "Iskusi uzbuđenje ragbija sedam iz prve ruke. Pridruži se našim treninzima prilagođenima početnicima.",
-            "startNow": "Počni trenirati sada",
-            "meetPlayers": "Upoznaj naše igračice"
-        }
-    },
     "gallery": {
         "hero": {
             "title": "HVATAMO TRENUTKE. DIJELIMO PRIČE.",
@@ -495,6 +319,49 @@
         },
         "story": {
             "title": "NAŠA PRIČA U SLIKAMA",
+            "subtitle": "Svaki trening, utakmica i slavlje govori našu priču.",
+            "description1": "Od intenzivnih treninga do trijumfalnih utakmica, ovi trenuci hvataju duh, predanost i radost Zagreb Rugby Ladies.",
+            "description2": "Svaka fotografija govori priču o odlučnosti, prijateljstvu i nevjerojatnom putovanju žena koje su se usudile stati na ragbi teren.",
+            "bePartOfStory": "Budi dio naše priče"
+        },
+        "collections": {
+            "title": "Galerijske kolekcije",
+            "subtitle": "Istraži naše uspomene organizirane po trenucima koji nam najviše znače.",
+            "all": "Sve fotografije",
+            "training": "Treninzi",
+            "matches": "Utakmice",
+            "community": "Zajednica"
+        },
+        "stats": {
+            "collection": "Naša kolekcija",
+            "totalMedia": "Ukupno medija",
+            "photos": "Fotografije",
+            "videos": "Videozapisi",
+            "joinStory": "Pridruži se našoj priči"
+        },
+        "highlights": {
+            "title": "Nedavni vrhunci",
+            "items": [
+                "Pobjeda na prvenstvu 2024",
+                "Akcija regrutiranja novih igračica",
+                "Program društvenog angažmana",
+                "Međunarodna prijateljska utakmica"
+            ]
+        },
+        "noPhotos": "Nema pronađenih fotografija za odabrani album.",
+        "showAll": "Prikaži sve fotografije",
+        "cta": {
+            "title": "Želiš biti dio ovih trenutaka?",
+            "description": "Pridruži se Zagreb Rugby Ladies i stvori svoje nezaboravne uspomene. Svaki trening, svaka utakmica, svako slavlje moglo bi uključiti tebe."
+        }
+    },
+    "rugby101": {
+        "hero": {
+            "title": "Rugby 7s",
+            "titleAccent": "Osnove",
+            "subtitle": "Sve što trebaš znati da počneš s najuzbudljivijim rugby formatom na svijetu"
+        },
+        "basics": {
             "subtitle": "Svaki trening, utakmica i slavlje govori našu priču.",
             "description1": "Od intenzivnih treninga do trijumfalnih utakmica, ovi trenuci hvataju duh, predanost i radost Zagreb Rugby Ladies.",
             "description2": "Svaka fotografija govori priču o odlučnosti, prijateljstvu i nevjerojatnom putovanju žena koje su se usudile stati na ragbi teren.",
@@ -529,6 +396,168 @@
         "cta": {
             "title": "Želiš biti dio ovih trenutaka?",
             "description": "Pridruži se Zagreb Rugby Ladies i stvori svoje nezaboravne uspomene. Svaki trening, svaka utakmica, svako slavlje moglo bi uključiti tebe."
+        }
+    },
+    "rugby101": {
+        "hero": {
+            "title": "Rugby 7s",
+            "titleAccent": "Osnove",
+            "subtitle": "Sve što trebaš znati da počneš s najuzbudljivijim rugby formatom na svijetu"
+        },
+        "basics": {
+            "playersPerTeam": {
+                "title": "7 igrača po momčadi",
+                "description": "Svaka momčad ima 7 igrača na terenu, stvarajući brzu akciju s više prostora za trčanje i postizanje pokušaja."
+            },
+            "objective": {
+                "title": "Cilj",
+                "description": "Postići više pokušaja od protivnika nošenjem, dodavanjem ili šutiranjem lopte u protivničku zonu pokušaja."
+            },
+            "duration": {
+                "title": "14 minuta",
+                "description": "Utakmica se sastoji od dva poluvremena od 7 minuta s pauzom od 2 minute na poluvremenu."
+            },
+            "safety": {
+                "title": "Sigurnost na prvom mjestu",
+                "description": "Pravilna tehnika i zaštitna oprema osiguravaju da je rugby siguran. Brži tempo potiče vještiju igru umjesto teškog kontakta."
+            }
+        },
+        "scoring": {
+            "label": "Sustav bodovanja",
+            "title": "Kako",
+            "titleAccent": "zabiti",
+            "description": "Četiri načina za postizanje bodova i dominaciju u igri",
+            "try": {
+                "title": "Pokušaj",
+                "description": "Polaganje lopte u protivničkoj zoni pokušaja"
+            },
+            "conversion": {
+                "title": "Pretvorba",
+                "description": "Šut kroz vratnice nakon pokušaja"
+            },
+            "penalty": {
+                "title": "Kazneni udarac",
+                "description": "Šut dodijeljen za prekršaje protivnika"
+            },
+            "dropGoal": {
+                "title": "Drop gol",
+                "description": "Šut na gol izveden tijekom regularne igre"
+            }
+        },
+        "positions": {
+            "label": "Struktura momčadi",
+            "title": "Pozicije",
+            "titleAccent": "igrača",
+            "description": "Razumijevanje jedinstvenih uloga koje čine rugby sevens tako dinamičnim",
+            "forwards": {
+                "title": "Napadači (1-3)",
+                "subtitle": "Temelj i snaga",
+                "roles": [
+                    "Formacija škrima",
+                    "Bacanje i hvatanje u lineoutu",
+                    "Sigurnost lopte na breakdownu",
+                    "Fizičko nošenje lopte"
+                ]
+            },
+            "backs": {
+                "title": "Bekovi (4-7)",
+                "subtitle": "Brzina, vještina i završnica",
+                "roles": [
+                    "Distribucija lopte i tempo",
+                    "Strateško šutiranje",
+                    "Potpora u igri i dodavanje",
+                    "Prilike za postizanje pokušaja"
+                ]
+            },
+            "learnPosition": "Nauči ovu poziciju",
+            "keyResponsibilities": "Ključne odgovornosti:"
+        },
+        "safety": {
+            "label": "Sigurnost na prvom mjestu",
+            "title": "Sigurnost i",
+            "titleAccent": "oprema",
+            "description": "Sve što ti treba za sigurnu i samouvjerenu igru",
+            "whatYouNeed": {
+                "title": "Što ti treba",
+                "items": [
+                    "Udobna sportska odjeća",
+                    "Rugby kopačke ili tenisice za trčanje",
+                    "Štitnik za zube (preporučeno)",
+                    "Boca za vodu"
+                ]
+            },
+            "safetyMeasures": {
+                "title": "Sigurnosne mjere",
+                "items": [
+                    "Trening pravilne tehnike plakiranja",
+                    "Postupno uvođenje kontakta",
+                    "Kvalificirana prva pomoć na svim treninzima",
+                    "Redovite sigurnosne provjere opreme"
+                ]
+            }
+        },
+        "myths": {
+            "label": "Provjera istine",
+            "title": "Mitovi vs",
+            "titleAccent": "stvarnost",
+            "description": "Razotkrivanje čestih zabluda o rugby sevensu",
+            "mythLabel": "MIT",
+            "realityLabel": "STVARNOST",
+            "items": [
+                {
+                    "myth": "Rugby sevens je samo sprint rugby",
+                    "reality": "Iako je brži, rugby sevens zahtijeva strateško razmišljanje, vještinu i izdržljivost. Otvoreni prostor stvara prilike za kreativnu igru."
+                },
+                {
+                    "myth": "Samo super fit sportaši mogu igrati",
+                    "reality": "Rugby sevens prihvaća sve razine kondicije. Kraće vrijeme igre i manje momčadi znače više prilika za sve da doprinesu."
+                },
+                {
+                    "myth": "Prebrz je tempo za učenje",
+                    "reality": "Pojednostavljen format s manje igrača čini rugby sevens lakšim za razumijevanje. Akcija je uzbudljiva, ali pravila ostaju ista."
+                },
+                {
+                    "myth": "Ženski sevens nije toliko uzbudljiv",
+                    "reality": "Ženski rugby sevens je olimpijski sport koji prikazuje nevjerojatnu vještinu, brzinu i atletičnost. To je jedan od najuzbudljivijih formata za gledanje i igranje."
+                }
+            ]
+        },
+        "faq": {
+            "label": "Česta pitanja",
+            "title": "Često postavljana pitanja",
+            "description": "Sve što si htjela znati o početku",
+            "items": [
+                {
+                    "question": "Je li rugby sevens siguran za početnike?",
+                    "answer": "Apsolutno! Rugby sevens ima stroge sigurnosne protokole i brži tempo zapravo potiče vještiju igru umjesto teškog kontakta. Naši treneri daju prioritet sigurnosti i poučavaju pravilnu tehniku od prvog dana."
+                },
+                {
+                    "question": "Trebam li biti super fit da igram sevens?",
+                    "answer": "Rugby sevens prihvaća sve razine kondicije. Poluvremena od 7 minuta znače da svi dobivaju odmor, a postoje pozicije koje odgovaraju različitim atributima - od brzine do snage. Kondicija se razvija prirodno kroz trening."
+                },
+                {
+                    "question": "Koja oprema mi treba?",
+                    "answer": "Za početnike, samo udobna sportska odjeća i tenisice za trčanje ili rugby kopačke. Klub osigurava lopte i opremu za trening. Dodatna zaštitna oprema poput štitnika za zube dostupna je kako napreduješ."
+                },
+                {
+                    "question": "Mogu li početi igrati sevens bez iskustva?",
+                    "answer": "Da! Mnogi igrači smatraju sevens lakšim za učenje s manje igrača i više prostora. Naši treninzi prilagođeni početnicima podučavaju osnovama korak po korak u podržavajućem okruženju."
+                },
+                {
+                    "question": "Po čemu se ženski sevens razlikuje od muškog?",
+                    "answer": "Pravila su identična, a ženski sevens je olimpijski sport koji prikazuje nevjerojatnu vještinu i atletičnost. Igra naglašava brzinu, strategiju i timski rad s jednako konkurentnom i uzbudljivom igrom."
+                },
+                {
+                    "question": "Koliko vremena zahtijeva?",
+                    "answer": "Treniramo dva puta tjedno s utakmicama vikendom. Treninzi traju 90 minuta. Možeš dolaziti na onoliko treninga koliko ti raspored dopušta, i primamo igračice koje ne mogu doći na svaki trening."
+                }
+            ]
+        },
+        "cta": {
+            "title": "Spremna započeti svoje rugby putovanje?",
+            "description": "Pridruži se Zagreb Rugby Ladies i postani dio vrhunske hrvatske ženske rugby sevens momčadi",
+            "joinButton": "Pridruži nam se danas",
+            "contactButton": "Kontaktiraj nas"
         }
     }
 }

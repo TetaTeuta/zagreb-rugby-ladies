@@ -18,7 +18,6 @@ const Header = () => {
         { name: t("navigation.schedule"), href: "/schedule" },
         { name: t("navigation.rugby101"), href: "/rugby101" },
         { name: t("navigation.gallery"), href: "/gallery" },
-        // { name: t("navigation.contact"), href: "/contact" },
     ];
 
     useEffect(() => {
@@ -74,26 +73,29 @@ const Header = () => {
                     {t("header.banner")}
                 </div>
 
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="flex h-16 items-center justify-between lg:justify-center">
+                <div className="w-full px-4 sm:px-6 lg:px-8">
+                    <div className="flex h-16 items-center gap-4">
                         <Link
                             to="/"
-                            className="flex items-center space-x-2 focus-visible:outline-none lg:absolute lg:left-4"
+                            className="flex items-center space-x-2 focus-visible:outline-none flex-shrink-0"
                         >
                             <img
                                 src="src/assets/images/logos/logo_vector.png"
                                 alt="Zagreb Rugby Ladies Logo"
-                                className="h-16 w-16 object-contain"
+                                className="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16 object-contain"
                             />
+                            <span className="text-base sm:text-lg font-semibold text-text-contrast tracking-wide hidden sm:block">
+                                Zagreb Rugby Ladies
+                            </span>
                         </Link>
 
-                        <nav className="hidden lg:flex items-center space-x-8">
+                        <nav className="hidden lg:flex items-center space-x-2 xl:space-x-6 flex-1 justify-center">
                             {navigationItems.map((item, index) => (
                                 <Link
                                     key={index}
                                     to={item.href}
                                     className={[
-                                        "relative text-text-contrast font-medium text-sm py-2 px-3 transition-all duration-200 group",
+                                        "relative text-text-contrast font-medium text-sm py-2 px-2 xl:px-3 transition-all duration-200 group whitespace-nowrap",
                                         isActiveRoute(item.href)
                                             ? "font-semibold"
                                             : "",
@@ -101,10 +103,10 @@ const Header = () => {
                                 >
                                     {item.name}
                                     {/* Hover underline */}
-                                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-200 group-hover:w-full"></span>
+                                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-200 group-hover:w-full"></span>
                                     {/* Active underline */}
                                     {isActiveRoute(item.href) && (
-                                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary"></span>
+                                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-accent"></span>
                                     )}
                                 </Link>
                             ))}
@@ -114,24 +116,26 @@ const Header = () => {
                             </Button>
                         </nav>
 
-                        <div className="hidden lg:block absolute right-4">
-                            <LanguageSwitcher variant="header" />
+                        <div className="flex items-center gap-2 flex-shrink-0 ml-auto">
+                            <div className="hidden lg:block">
+                                <LanguageSwitcher variant="header" />
+                            </div>
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setIsMenuOpen(!isMenuOpen);
+                                }}
+                                className="lg:hidden p-2 rounded-lg text-text-contrast hover:bg-muted-light"
+                                aria-label={t("header.toggleMenu")}
+                                aria-expanded={isMenuOpen}
+                            >
+                                {isMenuOpen ? (
+                                    <X className="h-6 w-6" />
+                                ) : (
+                                    <Menu className="h-6 w-6" />
+                                )}
+                            </button>
                         </div>
-                        <button
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                setIsMenuOpen(!isMenuOpen);
-                            }}
-                            className="lg:hidden p-2 rounded-lg text-text-contrast hover:bg-muted-light"
-                            aria-label={t("header.toggleMenu")}
-                            aria-expanded={isMenuOpen}
-                        >
-                            {isMenuOpen ? (
-                                <X className="h-6 w-6" />
-                            ) : (
-                                <Menu className="h-6 w-6" />
-                            )}
-                        </button>
                     </div>
                 </div>
             </header>

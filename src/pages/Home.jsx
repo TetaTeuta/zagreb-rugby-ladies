@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Users, Heart, Zap } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
-import { Divider } from "../components/ui/Divider";
 import { useState, useEffect } from "react";
 import playersData from "../data/players.json";
 import trainingData from "../data/training.json";
@@ -54,14 +53,11 @@ const Home = () => {
         <div className="min-h-screen bg-surface-elevated">
             <div className="relative h-screen overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
-                    <iframe
-                        src="https://www.youtube.com/embed/5w2mBzgmUIo?autoplay=1&mute=1&loop=1&playlist=5w2mBzgmUIo&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
-                        title="Rugby action"
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                    ></iframe>
+                    <img
+                        src="/src/assets/images/actions/josipa_panning_rugby.jpg"
+                        alt="Rugby action"
+                        className="w-full h-full object-cover"
+                    />
                     <div className="absolute inset-0 overlay-cinematic-base"></div>
                     <div className="absolute inset-0 overlay-cinematic-sunset"></div>
                     <div className="absolute inset-0 overlay-cinematic-matte"></div>
@@ -80,15 +76,13 @@ const Home = () => {
                             </Button>
                             <Button size="lg" variant="yellow" asChild>
                                 <Link to="/gallery">
-                                    {t("home.hero.watchVideo")}
+                                    {t("gallery.collections.title")}
                                 </Link>
                             </Button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <Divider />
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 <AnimatedSection divider="wave" className="mb-8">
@@ -124,7 +118,7 @@ const Home = () => {
 
                 <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
                     <img
-                        src="/src/assets/images/photos/petra1_rugby.jpg"
+                        src="/src/assets/images/players/petra1_rugby.jpg"
                         alt="Team photo"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
