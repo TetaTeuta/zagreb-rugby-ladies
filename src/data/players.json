@@ -4,7 +4,8 @@
         "name": "Petra Kušen",
         "position": "Scrum Half",
         "about": "Team captain and strategist. Played for 4 years and leads by example both on and off the field.",
-        "photo": "src/assets/images/players/petra_rugby.jpg",
+        "profilePhoto": "gallery/rugby-woman-player-_7576-petra.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7584-petra.jpg",
         "quote": "In rugby, we don't just play together - we grow together.",
         "socials": {
             "instagram": "https://instagram.com/marijas"
@@ -16,7 +17,8 @@
         "name": "Josipa Farac",
         "position": "Wing",
         "about": "Speed demon on the wing with exceptional footwork and game awareness.",
-        "photo": "src/assets/images/players/josipa_rugby.jpg",
+        "profilePhoto": "gallery/rugby-woman-player-_7571-josipa.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7568-josipa.jpg",
         "quote": "Speed kills, but teamwork wins championships.",
         "socials": {
             "instagram": "https://instagram.com/josipaf"
@@ -28,7 +30,8 @@
         "name": "Margaux Fabre",
         "position": "Fly Half",
         "about": "French playmaker with incredible vision and tactical awareness. The brain of our backline.",
-        "photo": "src/assets/images/players/margaux_rugby.jpg",
+        "profilePhoto": "gallery/rugby-woman-player-_7557-margaux.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7559-margaux.jpg",
         "quote": "Rugby is chess at full speed - you need to think three moves ahead.",
         "socials": {
             "instagram": "https://instagram.com/margauxf"
@@ -40,7 +43,8 @@
         "name": "Dina Madir",
         "position": "Centre",
         "about": "Powerful runner with soft hands and an eye for the gap. Defensive stalwart in midfield.",
-        "photo": "src/assets/images/players/petra_rugby.jpg",
+        "profilePhoto": "gallery/rugby-woman-player-_7613-dina.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7614-dina.jpg",
         "quote": "Attack wins games, but defense wins championships.",
         "socials": {
             "instagram": "https://instagram.com/dinam"
@@ -52,7 +56,8 @@
         "name": "Lucija Zorić",
         "position": "Inside Centre",
         "about": "Creative playmaker with silky skills and perfect game management.",
-        "photo": "src/assets/images/players/lucija_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/lucija_rugby.jpg",
+        "bannerPhoto": "src/assets/images/players/lucija_rugby.jpg",
         "quote": "Rugby is an art, and every play is a brushstroke.",
         "socials": {
             "instagram": "https://instagram.com/lucijaz"
@@ -64,7 +69,8 @@
         "name": "Lea Kolarić",
         "position": "Fullback",
         "about": "Safe under the high ball with lightning speed in counter-attack.",
-        "photo": "src/assets/images/players/manuela_rugby.jpg",
+        "profilePhoto": "gallery/rugby-woman-player-lea.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-lea-pitch.jpg",
         "quote": "Every kick is an opportunity to change the game.",
         "socials": {
             "instagram": "https://instagram.com/leak"
@@ -76,7 +82,8 @@
         "name": "Lora Aladrović",
         "position": "Hooker",
         "about": "Precision thrower and fierce competitor who leads the front row with passion.",
-        "photo": "src/assets/images/players/teuta_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/teuta_rugby.jpg",
+        "bannerPhoto": "src/assets/images/players/teuta_rugby.jpg",
         "quote": "Accuracy under pressure is what separates good players from great ones.",
         "socials": {
             "instagram": "https://instagram.com/loraa"
@@ -88,7 +95,8 @@
         "name": "Teuta Stazić",
         "position": "Loosehead Prop",
         "about": "The oldest, but the goldest",
-        "photo": "src/assets/images/players/teuta_rugby.jpg",
+        "profilePhoto": "gallery/rugby-woman-player-_7672-teuta.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7674-teuta.jpg",
         "quote": "Rugby taught me that strength comes from the team, not just yourself.",
         "socials": {
             "instagram": "https://instagram.com/anak"
@@ -100,7 +108,8 @@
         "name": "Manuela Andrijanan",
         "position": "Lock",
         "about": "Towering presence in the lineout with an unstoppable work ethic in training.",
-        "photo": "src/assets/images/players/petra1_rugby.jpg",
+        "profilePhoto": "gallery/rugby-woman-player-_7631-manuela.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7635-manuela.jpg",
         "quote": "Height gives you reach, but heart gives you strength.",
         "socials": {
             "instagram": "https://instagram.com/manuelaa"
@@ -112,7 +121,8 @@
         "name": "Ivona Šojić",
         "position": "Number 8",
         "about": "Back row powerhouse with leadership qualities and an engine that never stops.",
-        "photo": "src/assets/images/players/lucija_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/lucija_rugby.jpg",
+        "bannerPhoto": "src/assets/images/players/lucija_rugby.jpg",
         "quote": "Lead from the front, support from behind, never give up.",
         "socials": {
             "instagram": "https://instagram.com/ivonas"
@@ -124,7 +134,8 @@
         "name": "Barbara Debeljak",
         "position": "Flanker",
         "about": "Versatile forward who brings energy and intensity to every breakdown.",
-        "photo": "src/assets/images/players/manuela_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/manuela_rugby.jpg",
+        "bannerPhoto": "src/assets/images/players/manuela_rugby.jpg",
         "quote": "Winning starts with attitude and ends with effort.",
         "socials": {
             "instagram": "https://instagram.com/barbarad"
@@ -136,7 +147,8 @@
         "name": "Lara Vuk",
         "position": "Flanker",
         "about": "Aggressive defender with incredible work rate across the pitch.",
-        "photo": "src/assets/images/players/margaux_rugby.jpg",
+        "profilePhoto": "gallery/rugby-woman-player-_7652-lara.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7654-lara.jpg",
         "quote": "Every tackle counts, every ruck matters.",
         "socials": {
             "instagram": "https://instagram.com/larav"
@@ -148,7 +160,8 @@
         "name": "Lana Emanović",
         "position": "Tighthead Prop",
         "about": "Solid scrummager with powerful driving game in open play.",
-        "photo": "src/assets/images/players/petra1_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/petra1_rugby.jpg",
+        "bannerPhoto": "src/assets/images/players/petra1_rugby.jpg",
         "quote": "Scrums are won with heart, not just muscle.",
         "socials": {
             "instagram": "https://instagram.com/lanae"
@@ -160,7 +173,8 @@
         "name": "Morena Ivček",
         "position": "Winger",
         "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
-        "photo": "src/assets/images/players/lucija_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/lucija_rugby.jpg",
+        "bannerPhoto": "src/assets/images/players/lucija_rugby.jpg",
         "quote": "Speed gets you there, but composure gets you over the line.",
         "socials": {
             "instagram": "https://instagram.com/morenai"
@@ -172,7 +186,8 @@
         "name": "Jelena Ivančić",
         "position": "Second Row",
         "about": "Lineout specialist with incredible athleticism. The engine room of our forward pack.",
-        "photo": "src/assets/images/players/petra_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/petra_rugby.jpg",
+        "bannerPhoto": "src/assets/images/players/petra_rugby.jpg",
         "quote": "Every lineout is a chance to show the opposition what we're made of.",
         "socials": {
             "instagram": "https://instagram.com/jelenai"
@@ -184,7 +199,8 @@
         "name": "Gabriell Martinović",
         "position": "Centre",
         "about": "Dynamic runner with powerful carries and defensive presence in midfield.",
-        "photo": "src/assets/images/players/josipa_rugby.jpg",
+        "profilePhoto": "gallery/rugby-woman-player-_7667-gabriell.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7663-gabriell.jpg",
         "quote": "Rugby is about making space for others and taking yours when it comes.",
         "socials": {
             "instagram": "https://instagram.com/gabriellm"
@@ -196,7 +212,8 @@
         "name": "Cvita Seiter",
         "position": "Wing",
         "about": "Explosive winger with great footwork and finishing ability.",
-        "photo": "src/assets/images/players/margaux_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/margaux_rugby.jpg",
+        "bannerPhoto": "src/assets/images/players/margaux_rugby.jpg",
         "quote": "Every time I touch the ball, I'm looking for the try line.",
         "socials": {
             "instagram": "https://instagram.com/cvitas"
@@ -208,7 +225,8 @@
         "name": "Sara Bebić",
         "position": "Scrum Half",
         "about": "Quick service and tactical awareness make her a vital link between forwards and backs.",
-        "photo": "src/assets/images/players/teuta_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/teuta_rugby.jpg",
+        "bannerPhoto": "src/assets/images/players/teuta_rugby.jpg",
         "quote": "The game flows through the nine - control the tempo, control the game.",
         "socials": {
             "instagram": "https://instagram.com/sarab"

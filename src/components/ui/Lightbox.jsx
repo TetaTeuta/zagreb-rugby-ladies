@@ -67,10 +67,12 @@ const Lightbox = ({
         >
             {/* Top bar with close button and counter */}
             <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-6 bg-gradient-to-b from-black/60 to-transparent">
-                <div className="text-text-light text-lg font-medium">
-                    {currentImage.title}
-                </div>
-                <div className="flex items-center gap-4">
+                {currentImage.title && (
+                    <div className="text-text-light text-lg font-medium">
+                        {currentImage.title}
+                    </div>
+                )}
+                <div className="flex items-center gap-4 ml-auto">
                     {images.length > 1 && (
                         <div className="text-text-light/80 text-sm font-medium">
                             {currentIndex + 1} / {images.length}

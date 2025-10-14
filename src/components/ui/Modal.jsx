@@ -103,7 +103,7 @@ const Modal = ({
             <div
                 ref={modalRef}
                 className={[
-                    "relative w-full rounded-sm bg-surface shadow-float border border-white",
+                    "relative w-full rounded-custom bg-surface shadow-float border border-white",
                     sizes[size],
                     className,
                 ].join(" ")}

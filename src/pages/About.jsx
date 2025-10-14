@@ -1,16 +1,10 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Container } from "../components/layout/Container";
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { Link } from "react-router-dom";
-import { MapPin, Clock, Mail, Users, Heart, Zap } from "lucide-react";
+import { Users, Heart, Zap } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { CallToAction } from "../components/ui/CallToAction";
 import trainingData from "../data/training.json";
 
 const About = () => {
@@ -67,8 +61,18 @@ const About = () => {
     return (
         <div className="min-h-screen bg-surface">
             {/* Hero Section */}
-            <div className="relative h-[500px] overflow-hidden mt-20">
-                <div className="absolute inset-0 bg-[url('src/assets/images/actions/petra_panning_rugby.jpg')] bg-cover bg-center"></div>
+            <div className="relative h-[50svh] overflow-hidden mt-20">
+                <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
+                    <img
+                        src="src/assets/images/hero/petra-rugby-action.jpg"
+                        alt="About Us hero image"
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: "50% 25%" }}
+                    />
+                    <div className="absolute inset-0 overlay-cinematic-base opacity-[0.8]"></div>
+                    <div className="absolute inset-0 overlay-cinematic-sunset"></div>
+                    <div className="absolute inset-0 overlay-cinematic-matte"></div>
+                </div>
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-white leading-[0.85] drop-shadow-lg">
@@ -93,7 +97,7 @@ const About = () => {
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Our Story Section */}
                 <AnimatedSection className="mb-8">
-                    <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
+                    <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/lucija_rugby.jpg"
                             alt="Our story"
@@ -131,7 +135,7 @@ const About = () => {
                     </div>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-4">
                         {/* Mission Section */}
-                        <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
+                        <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
                             <img
                                 src="/src/assets/images/players/petra_rugby.jpg"
                                 alt="Our mission"
@@ -156,7 +160,7 @@ const About = () => {
                         </div>
 
                         {/* Values Section */}
-                        <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
+                        <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
                             <img
                                 src="/src/assets/images/players/josipa_rugby.jpg"
                                 alt="Our values"
@@ -181,7 +185,7 @@ const About = () => {
                                                 return (
                                                     <div
                                                         key={index}
-                                                        className="bg-surface/20 backdrop-blur-sm rounded p-4 border border-accent/30"
+                                                        className="bg-surface/20 backdrop-blur-sm rounded-custom p-4 border border-accent/30"
                                                     >
                                                         <div className="flex items-start space-x-4">
                                                             <div className="w-12 h-12 bg-surface/30 backdrop-blur-sm rounded-full flex items-center justify-center text-text-light flex-shrink-0 border border-accent/40">
@@ -226,7 +230,7 @@ const About = () => {
                         {coaches.map((coach, index) => (
                             <div
                                 key={index}
-                                className="relative h-[500px] overflow-hidden rounded group cursor-pointer"
+                                className="relative h-[500px] overflow-hidden rounded-custom group cursor-pointer"
                             >
                                 <img
                                     src={`/src/assets/images/players/${
@@ -264,7 +268,7 @@ const About = () => {
                     delay={3}
                 >
                     {/* Training Schedule */}
-                    <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
+                    <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/petra1_rugby.jpg"
                             alt="Training schedule"
@@ -281,7 +285,7 @@ const About = () => {
                                         (session, index) => (
                                             <div
                                                 key={index}
-                                                className="bg-surface/20 backdrop-blur-sm rounded p-3 text-center border border-accent/30"
+                                                className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 text-center border border-accent/30"
                                             >
                                                 <div className="text-xs text-text-light/80 uppercase tracking-wide mb-1">
                                                     {session.day}
@@ -316,7 +320,7 @@ const About = () => {
                     </div>
 
                     {/* Contact Information */}
-                    <div className="relative h-[420px] overflow-hidden rounded group cursor-pointer">
+                    <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/margaux_rugby.jpg"
                             alt="Contact us"
@@ -329,7 +333,7 @@ const About = () => {
                             </h3>
                             <div className="flex-1 flex flex-col justify-between">
                                 <div className="space-y-4 mb-6">
-                                    <div className="bg-surface/20 backdrop-blur-sm rounded p-4 border border-accent/30">
+                                    <div className="bg-surface/20 backdrop-blur-sm rounded-custom p-4 border border-accent/30">
                                         <h4 className="font-light tracking-wide font-hero text-text-light mb-2 leading-[0.85]">
                                             {t("about.contact.venue")}
                                         </h4>
@@ -340,7 +344,7 @@ const About = () => {
                                             {trainingData.location.address}
                                         </p>
                                     </div>
-                                    <div className="bg-surface/20 backdrop-blur-sm rounded p-4 border border-accent/30">
+                                    <div className="bg-surface/20 backdrop-blur-sm rounded-custom p-4 border border-accent/30">
                                         <h4 className="font-light tracking-wide font-hero text-text-light mb-2 leading-[0.85]">
                                             {t("about.contact.contactInfo")}
                                         </h4>
@@ -365,32 +369,19 @@ const About = () => {
                 </AnimatedSection>
 
                 {/* Call to Action */}
-                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
-                    <img
-                        src="/src/assets/images/players/teuta_rugby.jpg"
-                        alt="Join our team"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-text-contrast/70 via-text-contrast/30 to-transparent"></div>
-                    <div className="absolute inset-0 flex items-center">
-                        <div className="max-w-2xl ml-12 text-text-light">
-                            <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                                {t("about.cta.title")}
-                            </h2>
-                            <p className="text-xl mb-8 opacity-90 leading-relaxed">
-                                {t("about.cta.description")}
-                            </p>
-                            <div className="flex gap-4">
-                                <Button size="lg" variant="blue" asChild>
-                                    <Link to="/contact">Join Training</Link>
-                                </Button>
-                                <Button size="lg" variant="yellow" asChild>
-                                    <Link to="/team">Meet the Team</Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CallToAction
+                    image="src/assets/images/call_to_action/rugby-player-woman-ball.jpg"
+                    titleKey="about.cta.title"
+                    descriptionKey="about.cta.description"
+                    primaryButton={{
+                        to: "/contact",
+                        textKey: "common.joinTraining",
+                    }}
+                    secondaryButton={{
+                        to: "/team",
+                        textKey: "about.hero.meetTeam",
+                    }}
+                />
             </div>
         </div>
     );

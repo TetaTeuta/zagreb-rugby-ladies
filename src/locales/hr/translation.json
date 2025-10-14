@@ -81,7 +81,50 @@
         "about": "O meni",
         "quote": "Citat",
         "funFact": "Zanimljivost",
-        "social": "Prati na Instagramu"
+        "social": "Prati na Instagramu",
+        "hero": {
+            "title": "INSPIRATIVNE PRIČE. NEPOKOLEBLJIV DUH.",
+            "joinTeam": "Pridruži se našoj momčadi",
+            "learnRugby": "Nauči o rugbiju"
+        },
+        "stats": {
+            "title": "NAŠA MOMČAD",
+            "subtitle": "Svaka igračica ima jedinstvenu priču.",
+            "activePlayers": "Aktivne igračice",
+            "yearsStrong": "Godine snage",
+            "teamSpirit": "Timski duh"
+        },
+        "players": {
+            "title": "UPOZNAJ NAŠE IGRAČICE",
+            "subtitle": "Upoznaj nevjerojatne žene koje redefiniraju što znači biti jaka, neustrašiva i nezaustavljiva."
+        },
+        "culture": {
+            "inclusive": {
+                "title": "INKLUZIVNO OKRUŽENJE",
+                "description": "Primamo igračice svih pozadina, razina vještina i iskustva. Bilo da si potpuni početnik ili iskusni sportaš, pronaći ćeš svoje mjesto u našoj momčadi."
+            },
+            "development": {
+                "title": "RAZVOJ IGRAČICA",
+                "description": "Predani smo pomoći svakoj igračici da dosegne svoj puni potencijal, i kao sportašici i kao samopouzdanoj pojedinki."
+            }
+        },
+        "cta": {
+            "title": "ŽELIŠ SE PRIDRUŽITI NAŠOJ MOMČADI?",
+            "description": "Uvijek tražimo nove igračice koje žele izazvati sebe, steći prijateljice i biti dio nečeg posebnog. Iskustvo nije potrebno—samo donesi svoj entuzijazam!"
+        },
+        "playerModal": {
+            "position": "Pozicija",
+            "playerQuote": "Citat igračice",
+            "about": "O {{name}}",
+            "funFact": "Zanimljivost",
+            "connect": "Poveži se",
+            "instagram": "Instagram",
+            "joinTeam": "Pridruži se momčadi",
+            "close": "Zatvori",
+            "clubName": "Zagreb Rugby Ladies",
+            "viewProfile": "Pogledaj profil",
+            "viewPlayerProfile": "Pogledaj profil - {{name}}"
+        }
     },
     "about": {
         "title": "O Zagreb Rugby Ladies",
@@ -330,6 +373,8 @@
             "all": "Sve fotografije",
             "training": "Treninzi",
             "matches": "Utakmice",
+            "players": "Igračice",
+            "team": "Tim",
             "community": "Zajednica"
         },
         "stats": {
@@ -373,6 +418,8 @@
             "all": "Sve fotografije",
             "training": "Treninzi",
             "matches": "Utakmice",
+            "players": "Igračice",
+            "team": "Tim",
             "community": "Zajednica"
         },
         "stats": {

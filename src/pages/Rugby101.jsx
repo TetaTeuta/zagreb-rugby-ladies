@@ -6,6 +6,7 @@ import { Card, CardContent } from "../components/ui/Card";
 import { Link } from "react-router-dom";
 import { Shield, Users, Target, Clock, CheckCircle2 } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { CallToAction } from "../components/ui/CallToAction";
 
 const IconCircle = ({ Icon, color, size = "default", children }) => {
     const sizeClasses = {
@@ -112,21 +113,24 @@ const Rugby101 = () => {
 
     return (
         <div className="min-h-screen bg-surface">
-            <div className="relative h-[500px] overflow-hidden mt-20">
-                <div className="absolute inset-0 bg-[url('/src/assets/images/players/josipa_rugby.jpg')] bg-cover bg-center"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-text-contrast/70 via-text-contrast/50 to-transparent"></div>
+            <div className="relative h-[50svh] overflow-hidden mt-20">
+                <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
+                    <img
+                        src="src/assets/images/hero/zagreb-rugby-ladies-team-running.jpg"
+                        alt="Rugby 101 hero image"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 overlay-cinematic-base opacity-[0.85]"></div>
+                    <div className="absolute inset-0 overlay-cinematic-sunset"></div>
+                    <div className="absolute inset-0 overlay-cinematic-matte"></div>
+                </div>
 
                 <div className="relative z-10 flex items-center justify-center h-full">
                     <div className="text-center max-w-5xl mx-auto px-6">
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                             {t("rugby101.hero.title")}{" "}
-                            <span className="text-accent">
-                                {t("rugby101.hero.titleAccent")}
-                            </span>
                         </h1>
-                        <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
-                            {t("rugby101.hero.subtitle")}
-                        </p>
+
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" variant="blue" asChild>
                                 <Link to="/contact">
@@ -182,10 +186,7 @@ const Rugby101 = () => {
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-12">
                             <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
-                                {t("rugby101.scoring.title")}{" "}
-                                <span className="text-accent">
-                                    {t("rugby101.scoring.titleAccent")}
-                                </span>
+                                {t("rugby101.scoring.title")}
                             </h2>
                             <p className="text-lg text-muted max-w-3xl mx-auto">
                                 {t("rugby101.scoring.description")}
@@ -462,30 +463,21 @@ const Rugby101 = () => {
                         </CardContent>
                     </Card>
                 </AnimatedSection>
-            </div>
 
-            <div className="relative overflow-hidden bg-surface-navy">
-                <div className="absolute inset-0 bg-[url('/src/assets/images/players/petra_rugby.jpg')] bg-cover bg-center opacity-20"></div>
-                <div className="relative z-10 py-24 px-4">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                            {t("rugby101.cta.title")}
-                        </h2>
-
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" variant="yellow" asChild>
-                                <Link to="/contact">
-                                    {t("rugby101.cta.joinButton")}
-                                </Link>
-                            </Button>
-                            <Button size="lg" variant="blue" asChild>
-                                <Link to="/contact">
-                                    {t("rugby101.cta.contactButton")}
-                                </Link>
-                            </Button>
-                        </div>
-                    </div>
-                </div>
+                {/* Call to Action */}
+                <CallToAction
+                    image="src/assets/images/call_to_action/rugby-players-woman-team.jpg"
+                    titleKey="rugby101.cta.title"
+                    descriptionKey="rugby101.cta.description"
+                    primaryButton={{
+                        to: "/contact",
+                        textKey: "rugby101.cta.joinButton",
+                    }}
+                    secondaryButton={{
+                        to: "/contact",
+                        textKey: "rugby101.cta.contactButton",
+                    }}
+                />
             </div>
         </div>
     );

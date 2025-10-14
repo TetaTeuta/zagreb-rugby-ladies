@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 const Card = forwardRef(
     ({ children, className = "", hover = true, ...props }, ref) => {
         const classes = [
-            "bg-surface border border-border rounded-sm overflow-hidden",
+            "bg-surface border border-border rounded-custom overflow-hidden",
             "group relative",
             hover &&
                 "hover:shadow-soft hover:border-border-light transition-all duration-normal",

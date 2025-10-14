@@ -88,7 +88,7 @@
     },
     "about": {
         "hero": {
-            "title": "Breaking Barriers. Building Dreams.",
+            "title": "BREAKING BARRIERS. BUILDING DREAMS.",
             "joinTeam": "Join Our Team",
             "meetTeam": "Meet the Team"
         },
@@ -242,6 +242,19 @@
         "cta": {
             "title": "WANT TO JOIN OUR TEAM?",
             "description": "We're always looking for new players who want to challenge themselves, make friends, and be part of something special. No experience required—just bring your enthusiasm!"
+        },
+        "playerModal": {
+            "position": "Position",
+            "playerQuote": "Player Quote",
+            "about": "About {{name}}",
+            "funFact": "Fun Fact",
+            "connect": "Connect",
+            "instagram": "Instagram",
+            "joinTeam": "Join the Team",
+            "close": "Close",
+            "clubName": "Zagreb Rugby Ladies",
+            "viewProfile": "View Profile",
+            "viewPlayerProfile": "View {{name}}'s profile"
         }
     },
     "schedule": {
@@ -288,6 +301,8 @@
             "all": "All Photos",
             "training": "Training",
             "matches": "Matches",
+            "players": "Players",
+            "team": "Team",
             "community": "Community"
         },
         "stats": {
@@ -309,13 +324,13 @@
         "noPhotos": "No photos found for the selected album.",
         "showAll": "Show All Photos",
         "cta": {
-            "title": "Want to Be Part of These Moments?",
+            "title": "WANT TO BE PART OF THESE MOMENTS?",
             "description": "Join Zagreb Rugby Ladies and create your own unforgettable memories. Every training session, every match, every celebration could include you."
         }
     },
     "rugby101": {
         "hero": {
-            "title": "Rugby 7s",
+            "title": "RUGBY 7S ESSENTIALS",
             "titleAccent": "Essentials",
             "subtitle": "Everything you need to know to get started with the world's most exciting rugby format"
         },

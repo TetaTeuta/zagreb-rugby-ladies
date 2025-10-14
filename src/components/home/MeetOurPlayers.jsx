@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PlayerCard = ({ player, showImage = false }) => {
     return (
-        <div className="flex items-center space-x-4 bg-surface/10 rounded p-4 hover:bg-surface/15 transition-colors duration-200">
+        <div className="flex items-center space-x-4 bg-surface/10 rounded-custom p-4 hover:bg-surface/15 transition-colors duration-200">
             <div className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-text-contrast font-bold text-lg flex-shrink-0">
                 {player.name.charAt(0)}
             </div>
@@ -36,7 +36,7 @@ const MeetOurPlayers = ({ players, title = "Meet Our Players" }) => {
             {players.map((player, index) => (
                 <div
                     key={player.id}
-                    className="relative h-[500px] overflow-hidden rounded group cursor-pointer"
+                    className="relative h-[500px] overflow-hidden rounded-custom group cursor-pointer"
                 >
                     <img
                         src={playerImages[index]}
@@ -53,7 +53,7 @@ const MeetOurPlayers = ({ players, title = "Meet Our Players" }) => {
                         </p>
                         <Button
                             size="sm"
-                            className="bg-surface text-text-contrast hover:bg-muted-light rounded px-6"
+                            className="bg-surface text-text-contrast hover:bg-muted-light rounded-custom px-6"
                             asChild
                         >
                             <Link to="/team">View Profile</Link>

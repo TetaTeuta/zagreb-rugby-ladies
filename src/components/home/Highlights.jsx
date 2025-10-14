@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Highlights = ({ highlights, title = "Why Choose Rugby?" }) => {
     return (
-        <div className="relative h-[462px] overflow-hidden rounded group cursor-pointer">
+        <div className="relative h-[462px] overflow-hidden rounded-custom group cursor-pointer">
             <img
-                src="/src/assets/images/players/josipa_rugby.jpg"
+                src="src/assets/images/players/rugby-woman-training-out-lift.jpg"
                 alt="Rugby highlights"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -21,7 +21,7 @@ const Highlights = ({ highlights, title = "Why Choose Rugby?" }) => {
                             return (
                                 <div
                                     key={index}
-                                    className="flex items-center space-x-4 bg-surface/20 backdrop-blur-sm rounded p-4 border border-accent/30"
+                                    className="flex items-center space-x-4 bg-surface/20 backdrop-blur-sm rounded-custom p-4 border border-accent/30"
                                 >
                                     <div className="w-12 h-12 bg-surface/30 backdrop-blur-sm rounded-full flex items-center justify-center text-accent flex-shrink-0 border border-accent/40">
                                         <Icon className="h-6 w-6" />
@@ -40,7 +40,7 @@ const Highlights = ({ highlights, title = "Why Choose Rugby?" }) => {
                     </div>
                     <div className="text-center">
                         <Button
-                            className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8"
+                            className="bg-surface text-text-contrast hover:bg-muted-light rounded-custom px-8"
                             asChild
                         >
                             <Link to="/rugby101">Learn More</Link>

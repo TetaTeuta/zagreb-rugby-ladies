@@ -1,323 +1,164 @@
-// src/pages/Gallery.jsx
-import {
-    useState,
-    useEffect,
-    useMemo,
-    useCallback,
-    useRef,
-    memo,
-    useDeferredValue,
-    startTransition,
-} from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import { useSearchParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Lightbox } from "../components/ui/Lightbox";
-import { Play } from "lucide-react";
 import { Button } from "../components/ui/Button";
-import { cdn } from "../lib/cdn";
+import { CallToAction } from "../components/ui/CallToAction";
+import { buildR2ImageUrl } from "../lib/cdn";
 
-const VARIANTS = [320, 640, 1280, 1600];
-
-function buildSrc(slug, ext = "jpg", width = 640) {
-    return cdn(`gallery/${slug}_${width}.${ext}`);
-}
-
-function buildSrcSet(slug, ext = "jpg") {
-    return VARIANTS.map(
-        (w) => `${cdn(`gallery/${slug}_${w}.${ext}`)} ${w}w`
-    ).join(", ");
-}
-
-function formatDate(dateISO) {
-    return new Date(dateISO).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-    });
-}
-
-const Thumb = memo(function Thumb({ item, onOpen }) {
-    const imgRef = useRef(null);
-    useEffect(() => {
-        const el = imgRef.current;
-        if (!el) return;
-        const obs = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((e) => {
-                    if (e.isIntersecting) {
-                        const target = e.target;
-                        target.dataset.loaded = "1";
-                        obs.unobserve(target);
-                    }
-                });
-            },
-            { rootMargin: "400px 0px" }
-        );
-        obs.observe(el);
-        return () => obs.disconnect();
-    }, []);
-
-    const isVideo = item.type === "video";
-    const alt = item.alt || item.title;
-    const thumbSlug = isVideo ? item.thumbSlug : item.slug;
+const Thumb = memo(function Thumb({ filename, category, onOpen }) {
+    const imageUrl = buildR2ImageUrl(category, filename);
 
     return (
         <div
             className="gallery-card group"
             role="button"
             tabIndex={0}
-            aria-label={item.title}
-            onClick={() => onOpen(item)}
+            aria-label={`${category} - Zagreb Rugby Ladies`}
+            onClick={() => onOpen({ filename, category })}
             onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    onOpen(item);
+                    onOpen({ filename, category });
                 }
             }}
         >
-            {isVideo ? (
-                <img
-                    ref={imgRef}
-                    src={buildSrc(thumbSlug, "jpg", 640)}
-                    alt={alt}
-                    className="gallery-card-image"
-                    loading="lazy"
-                    decoding="async"
-                    width={item.w}
-                    height={item.h}
-                />
-            ) : (
-                <picture>
-                    <source
-                        media="(min-width: 1024px)"
-                        srcSet={buildSrcSet(item.slug, "avif")}
-                        type="image/avif"
-                    />
-                    <source
-                        media="(min-width: 1024px)"
-                        srcSet={buildSrcSet(item.slug, "webp")}
-                        type="image/webp"
-                    />
-                    <source
-                        srcSet={buildSrcSet(item.slug, "avif")}
-                        type="image/avif"
-                    />
-                    <source
-                        srcSet={buildSrcSet(item.slug, "webp")}
-                        type="image/webp"
-                    />
-                    <img
-                        ref={imgRef}
-                        src={buildSrc(item.slug, "jpg", 640)}
-                        alt={alt}
-                        className="gallery-card-image"
-                        loading="lazy"
-                        decoding="async"
-                        width={item.w}
-                        height={item.h}
-                        sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                    />
-                </picture>
-            )}
+            <img
+                src={imageUrl}
+                alt={`${category} - Zagreb Rugby Ladies`}
+                className="gallery-card-image"
+                loading="lazy"
+                decoding="async"
+            />
             <div className="gallery-card-overlay" />
             <div className="gallery-card-content">
-                <h3 className="gallery-card-title">{item.title}</h3>
-                <p className="gallery-card-date">{formatDate(item.dateISO)}</p>
+                <h3 className="gallery-card-title">{category}</h3>
             </div>
-            {isVideo && (
-                <div className="gallery-card-video-badge" aria-hidden="true">
-                    <Play className="h-5 w-5 text-text-contrast" />
-                </div>
-            )}
         </div>
     );
 });
 
 export default function Gallery() {
-    const [galleryItems, setGalleryItems] = useState([]);
+    const { t } = useTranslation();
+    const [galleryManifest, setGalleryManifest] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [params, setParams] = useSearchParams();
-    const [lightboxOpen, setLightboxOpen] = useState(false);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const gridRef = useRef(null);
-    const yearSectionRefs = useRef({});
+    const [lightbox, setLightbox] = useState({ isOpen: false, index: 0 });
+    const [randomizedAllImages, setRandomizedAllImages] = useState([]);
 
-    // Initializing activeYear and activeCategory based on URL params or defaults
-    const activeYearParam = parseInt(params.get("year") || "0", 10);
-    const activeCategoryParam = params.get("cat") || "all";
+    const activeCategory = params.get("cat") || "all";
 
-    // Fetch gallery items from manifest.json
     useEffect(() => {
-        const fetchGalleryItems = async () => {
-            try {
-                const response = await fetch("/gallery/manifest.json");
-                if (!response.ok) {
+        fetch("/gallery/manifest.json")
+            .then((res) => {
+                if (!res.ok)
                     throw new Error("Failed to fetch gallery manifest");
-                }
-                const data = await response.json();
-                const transformedData = data.map((item) => ({
-                    ...item,
-                    src: `/gallery/${item.slug}.jpg`,
-                    thumbnail: `/gallery/${item.slug}_thumbnail.jpg`,
-                }));
-                setGalleryItems(transformedData);
+                return res.json();
+            })
+            .then((data) => {
+                setGalleryManifest(data);
                 setLoading(false);
-            } catch (err) {
-                console.error("Error loading gallery items:", err);
+            })
+            .catch((err) => {
+                console.error("Error loading gallery manifest:", err);
                 setError(err.message);
                 setLoading(false);
-            }
-        };
-
-        fetchGalleryItems();
+            });
     }, []);
 
-    const availableYears = useMemo(() => {
-        if (galleryItems.length === 0) return [];
-        const years = [...new Set(galleryItems.map((item) => item.year))].sort(
-            (a, b) => b - a
-        );
-        return years;
-    }, [galleryItems]);
-
-    const activeYear = useMemo(() => {
-        if (availableYears.length === 0) return new Date().getFullYear(); // Fallback if no years available
-        return availableYears.includes(activeYearParam)
-            ? activeYearParam
-            : availableYears[0];
-    }, [availableYears, activeYearParam]);
-
-    const [activeCategory, setActiveCategory] = useState(activeCategoryParam);
     useEffect(() => {
-        setActiveCategory(activeCategoryParam);
-    }, [activeCategoryParam]);
+        if (Object.keys(galleryManifest).length === 0) return;
 
-    const deferredCategory = useDeferredValue(activeCategory);
+        const storageKey = "gallery-shuffled-order";
+        const stored = sessionStorage.getItem(storageKey);
 
-    useEffect(() => {
-        const next = new URLSearchParams();
-        next.set("year", String(activeYear));
-        if (deferredCategory !== "all") next.set("cat", deferredCategory);
-        setParams(next, { replace: true });
-    }, [activeYear, deferredCategory, setParams]);
-
-    const filtered = useMemo(() => {
-        return galleryItems.filter(
-            (item) =>
-                (deferredCategory === "all" ||
-                    item.category === deferredCategory) &&
-                item.year === activeYear
-        );
-    }, [galleryItems, deferredCategory, activeYear]);
-
-    const itemsByYear = useMemo(() => {
-        const grouped = {};
-        for (const item of filtered) {
-            if (!grouped[item.year]) {
-                grouped[item.year] = [];
+        if (stored) {
+            try {
+                setRandomizedAllImages(JSON.parse(stored));
+                return;
+            } catch (e) {
+                console.error("Failed to parse stored gallery order:", e);
             }
-            grouped[item.year].push(item);
         }
-        return grouped;
-    }, [filtered]);
+
+        const allImages = Object.entries(galleryManifest).flatMap(
+            ([category, imageFiles]) =>
+                imageFiles.map((filename) => ({ filename, category }))
+        );
+
+        const shuffled = [...allImages];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+
+        setRandomizedAllImages(shuffled);
+        sessionStorage.setItem(storageKey, JSON.stringify(shuffled));
+    }, [galleryManifest]);
 
     const categoryStats = useMemo(() => {
-        const stats = {
-            all: galleryItems.length,
-            training: galleryItems.filter(
-                (item) => item.category === "training"
-            ).length,
-            matches: galleryItems.filter((item) => item.category === "matches")
-                .length,
-            community: galleryItems.filter(
-                (item) => item.category === "community"
-            ).length,
-        };
+        const stats = { all: 0 };
+        Object.entries(galleryManifest).forEach(([category, images]) => {
+            const count = images.length;
+            stats[category.toLowerCase()] = count;
+            stats.all += count;
+        });
         return stats;
-    }, [galleryItems]);
+    }, [galleryManifest]);
 
-    const yearStats = useMemo(() => {
-        return availableYears.map((year) => ({
-            year,
-            count: galleryItems.filter((item) => item.year === year).length,
-        }));
-    }, [availableYears, galleryItems]);
+    const categories = useMemo(() => {
+        const manifestCategories = Object.keys(galleryManifest).map((k) =>
+            k.toLowerCase()
+        );
+        return [
+            { id: "all", label: "All Photos" },
+            ...manifestCategories.map((cat) => ({
+                id: cat,
+                label: cat.charAt(0).toUpperCase() + cat.slice(1),
+            })),
+        ];
+    }, [galleryManifest]);
 
-    useEffect(() => {
-        if (galleryItems.length === 0) return; // Don't observe if no items
+    const filteredImages = useMemo(() => {
+        if (activeCategory === "all") {
+            return randomizedAllImages;
+        }
 
-        const observerOptions = {
-            root: null,
-            rootMargin: "-50% 0px -50% 0px",
-            threshold: 0,
-        };
-
-        const observerCallback = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const year = parseInt(entry.target.dataset.year, 10);
-                    if (!Number.isNaN(year) && year !== activeYear) {
-                        startTransition(() => {
-                            const next = new URLSearchParams(params);
-                            next.set("year", String(year));
-                            setParams(next, { replace: true });
-                        });
-                    }
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(
-            observerCallback,
-            observerOptions
+        const categoryKey = Object.keys(galleryManifest).find(
+            (key) => key.toLowerCase() === activeCategory.toLowerCase()
         );
 
-        Object.values(yearSectionRefs.current).forEach((ref) => {
-            if (ref) observer.observe(ref);
-        });
+        return categoryKey
+            ? galleryManifest[categoryKey].map((filename) => ({
+                  filename,
+                  category: categoryKey,
+              }))
+            : [];
+    }, [randomizedAllImages, galleryManifest, activeCategory]);
 
-        return () => {
-            observer.disconnect();
-        };
-    }, [params, activeYear, setParams, galleryItems]); // Added galleryItems
-
-    const imageItems = useMemo(
-        () => filtered.filter((item) => item.type !== "video"),
-        [filtered]
-    );
-
-    const openItem = useCallback(
-        (item) => {
-            if (item.type === "video") {
-                window.open(item.src, "_blank", "noopener,noreferrer");
-                return;
-            }
-            const idx = imageItems.findIndex((x) => x.id === item.id);
-            if (idx !== -1) {
-                setCurrentIndex(idx);
-                setLightboxOpen(true);
-            }
-        },
-        [imageItems]
-    );
-
-    const closeLightbox = useCallback(() => setLightboxOpen(false), []);
-    const nextImage = useCallback(
-        () => setCurrentIndex((i) => (i + 1) % imageItems.length),
-        [imageItems.length]
-    );
-    const prevImage = useCallback(
+    const lightboxImages = useMemo(
         () =>
-            setCurrentIndex(
-                (i) => (i - 1 + imageItems.length) % imageItems.length
-            ),
-        [imageItems.length]
+            filteredImages.map(({ filename, category }) => ({
+                src: buildR2ImageUrl(category, filename),
+                thumbnail: buildR2ImageUrl(category, filename),
+            })),
+        [filteredImages]
     );
+
+    const openItem = ({ filename, category }) => {
+        const idx = filteredImages.findIndex(
+            (img) => img.filename === filename && img.category === category
+        );
+        if (idx !== -1) {
+            setLightbox({ isOpen: true, index: idx });
+        }
+    };
 
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-surface">
-                <p className="text-muted text-lg">Loading gallery items...</p>
+                <p className="text-muted text-lg">Loading gallery...</p>
             </div>
         );
     }
@@ -332,59 +173,57 @@ export default function Gallery() {
 
     return (
         <div className="min-h-screen bg-surface">
+            {/* Hero Section */}
             <div className="relative h-[50svh] overflow-hidden mt-20">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-                    <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
+                    <img
+                        src="/src/assets/images/hero/josipa-rugby-kick.jpg"
+                        alt="Gallery hero image"
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: "50% 25%" }}
+                    />
+                    <div className="absolute inset-0 overlay-cinematic-base opacity-70"></div>
+                    <div className="absolute inset-0 overlay-cinematic-sunset"></div>
+                    <div className="absolute inset-0 overlay-cinematic-matte"></div>
                 </div>
-                <div
-                    className="absolute inset-0 bg-cover bg-center opacity-30"
-                    style={{
-                        backgroundImage: `url(${buildSrc(
-                            "players/margaux/margaux-rugby",
-                            "jpg",
-                            1280
-                        )})`,
-                    }}
-                />
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide text-text-light leading-tight">
-                            CAPTURING MOMENTS. SHARING STORIES.
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
+                            {t("gallery.hero.title")}
                         </h1>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <Button size="lg" variant="blue" asChild>
-                                <Link to="/contact">Join Our Team</Link>
+                                <Link to="/contact">
+                                    {t("gallery.hero.joinTeam")}
+                                </Link>
                             </Button>
                             <Button size="lg" variant="yellow" asChild>
-                                <Link to="/team">Meet Our Players</Link>
+                                <Link to="/team">
+                                    {t("gallery.hero.meetPlayers")}
+                                </Link>
                             </Button>
                         </div>
                     </div>
                 </div>
             </div>
 
+            {/* Gallery Content */}
             <div className="px-4 py-16 max-w-7xl mx-auto">
+                {/* Category Filters */}
                 <div
                     className="gallery-filters"
                     role="group"
                     aria-label="Photo categories"
                 >
-                    {[
-                        { id: "all", label: "All Photos" },
-                        { id: "training", label: "Training" },
-                        { id: "matches", label: "Matches" },
-                        { id: "community", label: "Community" },
-                    ].map((cat) => (
+                    {categories.map((cat) => (
                         <button
                             key={cat.id}
-                            onClick={() => {
-                                startTransition(() => {
-                                    const next = new URLSearchParams(params);
-                                    if (cat.id === "all") next.delete("cat");
-                                    else next.set("cat", cat.id);
-                                    setParams(next, { replace: true });
-                                });
-                            }}
+                            onClick={() =>
+                                setParams(
+                                    cat.id === "all" ? {} : { cat: cat.id },
+                                    { replace: true }
+                                )
+                            }
                             className={`pill ${
                                 activeCategory === cat.id ? "pill-active" : ""
                             }`}
@@ -392,165 +231,76 @@ export default function Gallery() {
                         >
                             {cat.label}
                             <span className="pill-badge">
-                                {categoryStats[cat.id]}
+                                {categoryStats[cat.id] || 0}
                             </span>
                         </button>
                     ))}
                 </div>
 
-                <div className="gallery-layout" ref={gridRef}>
-                    <nav
-                        aria-label="Years"
-                        className="gallery-timeline hidden lg:flex"
-                    >
-                        <ol role="list">
-                            {yearStats.map(({ year, count }) => (
-                                <li key={year}>
-                                    <button
-                                        onClick={() => {
-                                            startTransition(() => {
-                                                const next =
-                                                    new URLSearchParams(params);
-                                                next.set("year", String(year));
-                                                setParams(next, {
-                                                    replace: true,
-                                                });
-                                                gridRef.current?.scrollIntoView(
-                                                    {
-                                                        behavior: "smooth",
-                                                        block: "start",
-                                                    }
-                                                );
-                                            });
-                                        }}
-                                        className="gallery-timeline-item"
-                                        aria-current={
-                                            activeYear === year
-                                                ? "page"
-                                                : undefined
-                                        }
-                                    >
-                                        <div className="gallery-timeline-dot" />
-                                        <div className="gallery-timeline-label">
-                                            <div className="gallery-timeline-year">
-                                                {year}
-                                            </div>
-                                            <div className="gallery-timeline-count">
-                                                {count} photos
-                                            </div>
-                                        </div>
-                                    </button>
-                                </li>
-                            ))}
-                        </ol>
-                    </nav>
-
-                    <div className="lg:hidden mb-6">
-                        <select
-                            value={activeYear}
-                            onChange={(e) => {
-                                const y = parseInt(e.target.value, 10);
-                                const next = new URLSearchParams(params);
-                                next.set("year", String(y));
-                                setParams(next, { replace: true });
-                                gridRef.current?.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "start",
-                                });
-                            }}
-                            className="gallery-year-select"
-                            aria-label="Select year"
-                        >
-                            {yearStats.map(({ year, count }) => (
-                                <option key={year} value={year}>
-                                    {year} ({count} photos)
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div>
-                        {galleryItems.length > 0 ? (
-                            <div className="space-y-12">
-                                {availableYears.map((year) => (
-                                    <section
-                                        key={year}
-                                        ref={(el) =>
-                                            (yearSectionRefs.current[year] = el)
-                                        }
-                                        data-year={year}
-                                        className="scroll-mt-32"
-                                    >
-                                        <div className="gallery-grid">
-                                            {itemsByYear[year]?.map((item) => (
-                                                <Thumb
-                                                    key={item.id}
-                                                    item={item}
-                                                    onOpen={openItem}
-                                                />
-                                            ))}
-                                        </div>
-                                    </section>
-                                ))}
-                            </div>
-                        ) : (
-                            <div className="text-center py-12">
-                                <p className="text-muted text-lg">
-                                    {loading
-                                        ? "Loading gallery items..."
-                                        : error
-                                        ? `Error: ${error}`
-                                        : "No photos found for this selection."}
-                                </p>
-                            </div>
-                        )}
-                    </div>
+                {/* Gallery Grid */}
+                <div className="mt-12">
+                    {filteredImages.length > 0 ? (
+                        <div className="gallery-grid">
+                            {filteredImages.map(
+                                ({ filename, category }, idx) => (
+                                    <Thumb
+                                        key={`${category}-${filename}-${idx}`}
+                                        filename={filename}
+                                        category={category}
+                                        onOpen={openItem}
+                                    />
+                                )
+                            )}
+                        </div>
+                    ) : (
+                        <div className="text-center py-12">
+                            <p className="text-muted text-lg">
+                                No photos found for this selection.
+                            </p>
+                        </div>
+                    )}
                 </div>
 
-                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer mt-20">
-                    <img
-                        src={buildSrc("players/petra/petra-alt", "jpg", 1280)}
-                        alt="Join our story"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
+                {/* Call to Action */}
+                <div className="mt-20">
+                    <CallToAction
+                        image="/src/assets/images/call_to_action/rugby-team-woman-shot.jpg"
+                        titleKey="gallery.cta.title"
+                        descriptionKey="gallery.cta.description"
+                        primaryButton={{
+                            to: "/contact",
+                            textKey: "common.joinTraining",
+                        }}
+                        secondaryButton={{
+                            to: "/team",
+                            textKey: "gallery.hero.meetPlayers",
+                        }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-text-contrast/70 via-text-contrast/30 to-transparent"></div>
-                    <div className="absolute inset-0 flex items-center">
-                        <div className="max-w-2xl ml-12 text-text-light">
-                            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                                Want to Be Part of These Moments?
-                            </h2>
-                            <p className="text-xl mb-8 opacity-90 leading-relaxed">
-                                Join Zagreb Rugby Ladies and create your own
-                                unforgettable memories. Every training session,
-                                every match, every celebration could include
-                                you.
-                            </p>
-                            <div className="flex gap-4">
-                                <Button size="lg" variant="blue" asChild>
-                                    <Link to="/contact">Join Training</Link>
-                                </Button>
-                                <Button size="lg" variant="yellow" asChild>
-                                    <Link to="/team">Meet Our Players</Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
+            {/* Lightbox */}
             <Lightbox
-                images={imageItems.map((it) => ({
-                    ...it,
-                    src: buildSrc(it.slug, "jpg", 1600),
-                    thumbnail: buildSrc(it.slug, "jpg", 320),
-                }))}
-                isOpen={lightboxOpen}
-                currentIndex={currentIndex}
-                onClose={closeLightbox}
-                onNext={nextImage}
-                onPrev={prevImage}
+                images={lightboxImages}
+                isOpen={lightbox.isOpen}
+                currentIndex={lightbox.index}
+                onClose={() =>
+                    setLightbox((prev) => ({ ...prev, isOpen: false }))
+                }
+                onNext={() =>
+                    setLightbox((prev) => ({
+                        ...prev,
+                        index: (prev.index + 1) % lightboxImages.length,
+                    }))
+                }
+                onPrev={() =>
+                    setLightbox((prev) => ({
+                        ...prev,
+                        index:
+                            (prev.index - 1 + lightboxImages.length) %
+                            lightboxImages.length,
+                    }))
+                }
             />
         </div>
     );

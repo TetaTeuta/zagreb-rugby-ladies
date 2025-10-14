@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, cloneElement, isValidElement } from "react";
 
 const Button = forwardRef(
     (
@@ -9,12 +9,13 @@ const Button = forwardRef(
             className = "",
             disabled = false,
             loading = false,
+            asChild = false,
             ...props
         },
         ref
     ) => {
         const baseClasses =
-            "inline-flex items-center justify-center rounded-sm font-semibold tracking-wide uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden group transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-lg";
+            "inline-flex items-center justify-center rounded-custom font-semibold tracking-wide uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden group transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-lg";
 
         const variants = {
             blue: "btn-blue",
@@ -35,13 +36,8 @@ const Button = forwardRef(
             className,
         ].join(" ");
 
-        return (
-            <button
-                ref={ref}
-                className={classes}
-                disabled={disabled || loading}
-                {...props}
-            >
+        const content = (
+            <>
                 {/* Ripple effect */}
                 <span className="absolute inset-0 overflow-hidden rounded">
                     <span className="absolute inset-0 translate-x-[-100%] bg-surface/20 group-hover:translate-x-[100%]" />
@@ -71,6 +67,27 @@ const Button = forwardRef(
                     </svg>
                 )}
                 <span className="relative z-10">{children}</span>
+            </>
+        );
+
+        if (asChild && isValidElement(children)) {
+            return cloneElement(children, {
+                ...props,
+                ref,
+                className: `${classes} ${
+                    children.props.className || ""
+                }`.trim(),
+            });
+        }
+
+        return (
+            <button
+                ref={ref}
+                className={classes}
+                disabled={disabled || loading}
+                {...props}
+            >
+                {content}
             </button>
         );
     }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, Heart, Zap } from "lucide-react";
+import { Users, Heart, Zap } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
 import { useState, useEffect } from "react";
@@ -11,6 +11,7 @@ import { TrainingSchedule } from "../components/home/TrainingSchedule";
 import { MeetOurPlayers } from "../components/home/MeetOurPlayers";
 import { Highlights } from "../components/home/Highlights";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { CallToAction } from "../components/ui/CallToAction";
 
 const Home = () => {
     const { t } = useTranslation();
@@ -54,7 +55,7 @@ const Home = () => {
             <div className="relative h-screen overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
-                        src="/src/assets/images/actions/josipa_panning_rugby.jpg"
+                        src="src/assets/images/hero/josipa-rugby-action.jpg"
                         alt="Rugby action"
                         className="w-full h-full object-cover"
                     />
@@ -89,6 +90,7 @@ const Home = () => {
                     <NextMatch
                         matchData={nextMatchData.match}
                         opponent={currentOpponent}
+                        src="src/assets/images/players/rugby-woman-dina-kick.jpg"
                     />
                 </AnimatedSection>
 
@@ -116,36 +118,19 @@ const Home = () => {
                     <Highlights highlights={highlights} />
                 </AnimatedSection>
 
-                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
-                    <img
-                        src="/src/assets/images/players/petra1_rugby.jpg"
-                        alt="Team photo"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
-                    <div className="absolute inset-0 flex items-center">
-                        <div className="max-w-2xl ml-12 text-text-light">
-                            <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                                {t("home.cta.title")}
-                            </h2>
-                            <p className="text-xl mb-8 opacity-90 leading-relaxed">
-                                {t("home.cta.description")}
-                            </p>
-                            <div className="flex gap-4">
-                                <Button size="lg" variant="blue" asChild>
-                                    <Link to="/contact">
-                                        {t("common.joinTraining")}
-                                    </Link>
-                                </Button>
-                                <Button size="lg" variant="yellow" asChild>
-                                    <Link to="/rugby101">
-                                        {t("common.learnAboutRugby")}
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CallToAction
+                    image="src/assets/images/call_to_action/rugby-player-scrum.jpg"
+                    titleKey="home.cta.title"
+                    descriptionKey="home.cta.description"
+                    primaryButton={{
+                        to: "/contact",
+                        textKey: "common.joinTraining",
+                    }}
+                    secondaryButton={{
+                        to: "/rugby101",
+                        textKey: "common.learnAboutRugby",
+                    }}
+                />
             </div>
         </div>
     );

@@ -4,6 +4,7 @@ import { Card, CardContent, CardTitle } from "../components/ui/Card";
 import { PlayerCard } from "../components/team/PlayerCard";
 import { PlayerModal } from "../components/team/PlayerModal";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { CallToAction } from "../components/ui/CallToAction";
 import { Users, Trophy, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import playersData from "../data/players.json";
@@ -47,11 +48,17 @@ const Team = () => {
     return (
         <div className="min-h-screen bg-surface">
             {/* Hero Section */}
-            <div className="relative h-[500px] overflow-hidden mt-20">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-                    <div className="absolute inset-0 bg-black/20"></div>
+            <div className="relative h-[50svh] overflow-hidden mt-20">
+                <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
+                    <img
+                        src="src/assets/images/hero/zagreb-rugby-ladies-team-action.jpg"
+                        alt="Team rugby action"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 overlay-cinematic-base opacity-[0.8]"></div>
+                    <div className="absolute inset-0 overlay-cinematic-sunset"></div>
+                    <div className="absolute inset-0 overlay-cinematic-matte"></div>
                 </div>
-                <div className="absolute inset-0 bg-[url('/src/assets/images/players/petra_rugby.jpg')] bg-cover bg-center opacity-30"></div>
 
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
@@ -73,7 +80,7 @@ const Team = () => {
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Team Stats Section */}
                 <AnimatedSection divider="wave" className="mb-8">
-                    <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
+                    <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/teuta_rugby.jpg"
                             alt="Team stats"
@@ -95,7 +102,7 @@ const Team = () => {
                                     return (
                                         <div
                                             key={index}
-                                            className="bg-surface/20 backdrop-blur-sm rounded p-3 text-center border border-accent/30"
+                                            className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 text-center border border-accent/30"
                                         >
                                             <Icon className="h-6 w-6 text-text-light mx-auto mb-1" />
                                             <div className="text-lg font-bold text-text-light mb-1">
@@ -147,7 +154,7 @@ const Team = () => {
                     delay={2}
                 >
                     {/* Inclusive Environment */}
-                    <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
+                    <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/lucija_rugby.jpg"
                             alt="Inclusive environment"
@@ -173,7 +180,7 @@ const Team = () => {
                     </div>
 
                     {/* Player Development */}
-                    <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
+                    <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/manuela_rugby.jpg"
                             alt="Player development"
@@ -199,37 +206,19 @@ const Team = () => {
                 </AnimatedSection>
 
                 {/* Call to Action */}
-                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
-                    <img
-                        src="/src/assets/images/players/margaux_rugby.jpg"
-                        alt="Join our team"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
-                    <div className="absolute inset-0 flex items-center">
-                        <div className="max-w-2xl ml-12 text-text-light">
-                            <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                                WANT TO JOIN OUR TEAM?
-                            </h2>
-                            <p className="text-xl mb-8 opacity-90 leading-relaxed">
-                                We're always looking for new players who want to
-                                challenge themselves, make friends, and be part
-                                of something special. No experience
-                                required—just bring your enthusiasm!
-                            </p>
-                            <div className="flex gap-4">
-                                <Button size="lg" variant="blue" asChild>
-                                    <Link to="/contact">Join Training</Link>
-                                </Button>
-                                <Button size="lg" variant="yellow" asChild>
-                                    <Link to="/rugby101">
-                                        Learn About Rugby
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CallToAction
+                    image="src/assets/images/call_to_action/rugby-player-woman-with-ball.jpg"
+                    titleKey="team.cta.title"
+                    descriptionKey="team.cta.description"
+                    primaryButton={{
+                        to: "/contact",
+                        textKey: "common.joinTraining",
+                    }}
+                    secondaryButton={{
+                        to: "/rugby101",
+                        textKey: "common.learnAboutRugby",
+                    }}
+                />
             </div>
 
             {/* Player Modal */}

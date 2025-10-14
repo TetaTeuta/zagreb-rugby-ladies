@@ -80,7 +80,7 @@ const Header = () => {
                             className="flex items-center space-x-2 focus-visible:outline-none flex-shrink-0"
                         >
                             <img
-                                src="src/assets/images/logos/logo_vector.png"
+                                src="src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png"
                                 alt="Zagreb Rugby Ladies Logo"
                                 className="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16 object-contain"
                             />

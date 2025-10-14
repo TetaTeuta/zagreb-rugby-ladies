@@ -2,12 +2,12 @@ import { Calendar, Clock, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Countdown } from "../ui/Countdown";
 
-const NextMatch = ({ matchData, opponent }) => {
+const NextMatch = ({ matchData, opponent, src }) => {
     const { t, i18n } = useTranslation();
     return (
-        <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
+        <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
             <img
-                src="src/assets/images/actions/poles_score_rugby.jpg"
+                src={src}
                 alt="Match day action"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -52,7 +52,7 @@ const NextMatch = ({ matchData, opponent }) => {
 
                 {/* Match Details - Compact */}
                 <div className="grid grid-cols-3 gap-3 mb-4">
-                    <div className="bg-surface/20 backdrop-blur-sm rounded p-3 text-center border border-accent/30">
+                    <div className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 text-center border border-accent/30">
                         <Calendar className="h-5 w-5 text-accent mx-auto mb-1" />
                         <p className="text-text-light text-sm font-medium">
                             {new Date(matchData.date).toLocaleDateString(
@@ -65,7 +65,7 @@ const NextMatch = ({ matchData, opponent }) => {
                             )}
                         </p>
                     </div>
-                    <div className="bg-surface/20 backdrop-blur-sm rounded p-3 text-center border border-accent/30">
+                    <div className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 text-center border border-accent/30">
                         <Clock className="h-5 w-5 text-accent mx-auto mb-1" />
                         <p className="text-text-light text-sm font-medium">
                             {matchData.time}
@@ -77,7 +77,7 @@ const NextMatch = ({ matchData, opponent }) => {
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-surface/20 backdrop-blur-sm rounded p-3 text-center border border-accent/30 hover:bg-accent/20 hover:border-accent/50 transition-all duration-300 cursor-pointer block"
+                        className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 text-center border border-accent/30 hover:bg-accent/20 hover:border-accent/50 transition-all duration-300 cursor-pointer block"
                     >
                         <MapPin className="h-5 w-5 text-accent mx-auto mb-1" />
                         <p className="text-text-light text-sm font-medium">

@@ -1,18 +1,12 @@
 import { useState, useEffect } from "react";
 import { Calendar, MapPin, Clock, Trophy, Users } from "lucide-react";
 import { Button } from "../components/ui/Button";
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "../components/ui/Card";
-import { Container } from "../components/layout/Container";
+import { Card, CardContent } from "../components/ui/Card";
 import { Link } from "react-router-dom";
-import { Countdown } from "../components/ui/Countdown";
 import { MatchSchedule } from "../components/home/MatchSchedule";
 import { NextMatch } from "../components/home/NextMatch";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { CallToAction } from "../components/ui/CallToAction";
 import scheduleData from "../data/schedule.json";
 import nextMatchData from "../data/nextMatch.json";
 
@@ -195,12 +189,18 @@ const Schedule = () => {
     return (
         <div className="min-h-screen bg-surface">
             {/* Hero Section */}
-            <div className="relative h-[500px] overflow-hidden mt-20">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-                    <div className="absolute inset-0 bg-black/20"></div>
+            <div className="relative h-[50svh] overflow-hidden mt-20">
+                <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
+                    <img
+                        src="src/assets/images/hero/margaux-rugby-action.jpg"
+                        alt="Schedule hero image"
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: "50% 25%" }}
+                    />
+                    <div className="absolute inset-0 overlay-cinematic-base"></div>
+                    <div className="absolute inset-0 overlay-cinematic-sunset"></div>
+                    <div className="absolute inset-0 overlay-cinematic-matte"></div>
                 </div>
-                <div className="absolute inset-0 bg-[url('/src/assets/images/players/josipa_rugby.jpg')] bg-cover bg-center opacity-30"></div>
-
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
                         <h1 className="text-5xl sm:text-6xl md:text-7xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
@@ -251,7 +251,7 @@ const Schedule = () => {
                                     inline-flex items-center justify-center gap-2 
                                     min-h-[44px] px-6 sm:px-8 py-3
                                     font-button font-semibold text-sm sm:text-base uppercase tracking-wide
-                                    rounded-sm border-2 
+                                    rounded-custom border-2 
                                     transition-all duration-300 
                                     hover:scale-[1.02] hover:shadow-md
                                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
@@ -272,7 +272,7 @@ const Schedule = () => {
                                     inline-flex items-center justify-center gap-2 
                                     min-h-[44px] px-6 sm:px-8 py-3
                                     font-button font-semibold text-sm sm:text-base uppercase tracking-wide
-                                    rounded-sm border-2 
+                                    rounded-custom border-2 
                                     transition-all duration-300 
                                     hover:scale-[1.02] hover:shadow-md
                                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
@@ -316,34 +316,19 @@ const Schedule = () => {
                 </AnimatedSection>
 
                 {/* Call to Action */}
-                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
-                    <img
-                        src="src/assets/images/players/manuela_rugby.jpg"
-                        alt="Join our matches"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
-                    <div className="absolute inset-0 flex items-center">
-                        <div className="max-w-2xl ml-12 text-text-light">
-                            <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                                COME SUPPORT OUR TEAM!
-                            </h2>
-                            <p className="text-xl mb-8 opacity-90 leading-relaxed">
-                                Join us at our matches and be part of the Zagreb
-                                Rugby Ladies community. Your support fuels our
-                                passion and drives us to victory.
-                            </p>
-                            <div className="flex gap-4">
-                                <Button size="lg" variant="blue" asChild>
-                                    <Link to="/contact">Get Match Updates</Link>
-                                </Button>
-                                <Button size="lg" variant="yellow" asChild>
-                                    <Link to="/team">Meet the Players</Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CallToAction
+                    image="src/assets/images/call_to_action/rugby-scrum-action.jpg"
+                    titleKey="schedule.cta.title"
+                    descriptionKey="schedule.cta.description"
+                    primaryButton={{
+                        to: "/contact",
+                        textKey: "schedule.cta.getUpdates",
+                    }}
+                    secondaryButton={{
+                        to: "/team",
+                        textKey: "schedule.cta.meetPlayers",
+                    }}
+                />
             </div>
         </div>
     );

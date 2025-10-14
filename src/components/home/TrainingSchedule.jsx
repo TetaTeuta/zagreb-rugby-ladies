@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const TrainingSchedule = ({ trainingData }) => {
     return (
-        <div className="relative h-[462px] overflow-hidden rounded group cursor-pointer">
+        <div className="relative h-[462px] overflow-hidden rounded-custom group cursor-pointer">
             <img
-                src="/src/assets/images/players/margaux_rugby.jpg"
+                src="src/assets/images/players/rugby-woman-dina-free-kick.jpg"
                 alt="Training session"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -19,7 +19,7 @@ const TrainingSchedule = ({ trainingData }) => {
                         {trainingData.schedule.map((session, index) => (
                             <div
                                 key={index}
-                                className="bg-surface/20 backdrop-blur-sm rounded p-3 text-center border border-accent/30"
+                                className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 text-center border border-accent/30"
                             >
                                 <div className="text-xs text-text-light/80 uppercase tracking-wide mb-1">
                                     {session.day}
@@ -43,7 +43,7 @@ const TrainingSchedule = ({ trainingData }) => {
                     </div>
                     <div className="text-center">
                         <Button
-                            className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8"
+                            className="bg-surface text-text-contrast hover:bg-muted-light rounded-custom px-8"
                             asChild
                         >
                             <Link to="/contact">Join Training</Link>

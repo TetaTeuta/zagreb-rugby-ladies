@@ -13,6 +13,7 @@ import { Toast } from "../components/ui/Toast";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import trainingData from "../data/training.json";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { CallToAction } from "../components/ui/CallToAction";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
@@ -38,8 +39,6 @@ const Contact = () => {
         setIsSubmitting(true);
 
         try {
-            // In a real app, this would submit to an API endpoint or EmailJS
-            // For now, we'll simulate a successful submission
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
             console.log("Form submitted:", data);
@@ -68,12 +67,18 @@ const Contact = () => {
     return (
         <div className="min-h-screen bg-surface">
             {/* Hero Section */}
-            <div className="relative h-[500px] overflow-hidden mt-20">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-                    <div className="absolute inset-0 bg-black/20"></div>
+            <div className="relative h-[50svh] overflow-hidden mt-20">
+                <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
+                    <img
+                        src="src/assets/images/hero/zagreb-rugby-ladies-team.jpg"
+                        alt="Contact hero image"
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: "50% 35%" }}
+                    />
+                    <div className="absolute inset-0 overlay-cinematic-base opacity-[0.8]"></div>
+                    <div className="absolute inset-0 overlay-cinematic-sunset"></div>
+                    <div className="absolute inset-0 overlay-cinematic-matte"></div>
                 </div>
-                <div className="absolute inset-0 bg-[url('/src/assets/images/players/manuela_rugby.jpg')] bg-cover bg-center opacity-30"></div>
-
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
@@ -324,7 +329,7 @@ const Contact = () => {
                                             (session, index) => (
                                                 <div
                                                     key={index}
-                                                    className="text-center bg-surface rounded p-3 border border-border"
+                                                    className="text-center bg-surface rounded-custom p-3 border border-border"
                                                 >
                                                     <div className="text-xs text-muted uppercase font-medium">
                                                         {session.day}
@@ -416,38 +421,19 @@ const Contact = () => {
                 </AnimatedSection>
 
                 {/* Call to Action */}
-                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
-                    <img
-                        src="/src/assets/images/players/petra1_rugby.jpg"
-                        alt="Join our team"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-text-contrast/70 via-text-contrast/30 to-transparent"></div>
-                    <div className="absolute inset-0 flex items-center">
-                        <div className="max-w-2xl ml-12 text-text-light">
-                            <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                                STILL HAVE QUESTIONS?
-                            </h2>
-                            <p className="text-xl mb-8 opacity-90 leading-relaxed">
-                                Check out our comprehensive Rugby 101 guide or
-                                don't hesitate to get in touch. We're here to
-                                help you start your rugby journey!
-                            </p>
-                            <div className="flex gap-4">
-                                <Button size="lg" variant="blue" asChild>
-                                    <a
-                                        href={`mailto:${trainingData.contact.email}`}
-                                    >
-                                        Email Us Directly
-                                    </a>
-                                </Button>
-                                <Button size="lg" variant="yellow" asChild>
-                                    <Link to="/rugby101">Rugby 101 Guide</Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CallToAction
+                    image="src/assets/images/call_to_action/rugby-player-woman-panning-running.jpg"
+                    titleKey="contact.cta.title"
+                    descriptionKey="contact.cta.description"
+                    primaryButton={{
+                        href: `mailto:${trainingData.contact.email}`,
+                        textKey: "contact.cta.emailDirect",
+                    }}
+                    secondaryButton={{
+                        to: "/rugby101",
+                        textKey: "contact.info.rugbyGuide",
+                    }}
+                />
             </div>
 
             {/* Toast Notification */}
