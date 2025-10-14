@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { Instagram, Mail, MapPin, Phone, Facebook } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import trainingData from "../../data/training.json";
 
 const Footer = () => {
+    const { t } = useTranslation();
     const currentYear = new Date().getFullYear();
 
     const legalLinks = [
-        { name: "Privacy Policy", href: "/privacy" },
-        { name: "Terms of Sale", href: "/terms" },
+        { name: t("footer.privacyPolicy"), href: "/privacy" },
+        { name: t("footer.termsOfSale"), href: "/terms" },
     ];
 
     return (
@@ -17,7 +19,7 @@ const Footer = () => {
                     {/* Contact Info - Left Side */}
                     <div>
                         <h3 className="text-sm text-text-light/80 font-light font-hero uppercase tracking-wider mb-6 leading-[0.85]">
-                            GET IN TOUCH
+                            {t("footer.getInTouch")}
                         </h3>
                         <div className="space-y-3 mb-6">
                             <div className="flex items-start space-x-3">
@@ -57,7 +59,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 rounded-lg bg-surface/10 hover:bg-primary hover:text-text-light transition-colors"
-                                aria-label="Follow us on Instagram"
+                                aria-label={t("footer.ariaLabels.instagram")}
                             >
                                 <Instagram className="h-5 w-5" />
                             </a>
@@ -66,14 +68,14 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 rounded-lg bg-surface/10 hover:bg-primary hover:text-text-light transition-colors"
-                                aria-label="Follow us on Facebook"
+                                aria-label={t("footer.ariaLabels.facebook")}
                             >
                                 <Facebook className="h-5 w-5" />
                             </a>
                             <a
                                 href="mailto:team@zagreb-rugby-ladies.hr"
                                 className="p-2 rounded-lg bg-surface/10 hover:bg-primary hover:text-text-light transition-colors"
-                                aria-label="Send us an email"
+                                aria-label={t("footer.ariaLabels.email")}
                             >
                                 <Mail className="h-5 w-5" />
                             </a>
@@ -87,18 +89,16 @@ const Footer = () => {
                             className="flex items-center space-x-2 mb-6"
                         >
                             <img
-                                src="src/assets/images/logos/logo_vector.png"
-                                alt="Zagreb Rugby Ladies Logo"
-                                className="h-10 w-10 object-contain"
+                                src="src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png"
+                                alt={t("footer.logoAlt")}
+                                className="h-20 w-20 object-contain"
                             />
                             <span className="text-lg text-text-light/80 font-semibold">
-                                Zagreb Rugby Ladies
+                                {t("footer.teamName")}
                             </span>
                         </Link>
                         <p className="text-sm text-text-light/80 leading-relaxed">
-                            Empowering girls and young women through rugby. Join
-                            our inclusive team where courage meets community,
-                            and every player discovers their strength.
+                            {t("footer.description")}
                         </p>
                     </div>
                 </div>
@@ -107,8 +107,7 @@ const Footer = () => {
                 <div className="mt-8 pt-8 border-t border-text-light/10">
                     <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
                         <div className="text-sm text-text-light/60">
-                            © {currentYear} Zagreb Rugby Ladies. All rights
-                            reserved. Developed by iTee, obrt za programiranje.
+                            {t("footer.copyright", { year: currentYear })}
                         </div>
                         <div className="flex space-x-6">
                             {legalLinks.map((link) => (

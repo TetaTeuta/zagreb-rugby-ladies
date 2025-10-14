@@ -69,13 +69,23 @@ const Home = () => {
                         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 sm:mb-10 tracking-wide font-hero text-text-light leading-[0.85]">
                             {t("home.hero.title")}
                         </h1>
-                        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-                            <Button size="lg" variant="blue" asChild>
+                        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
+                            <Button
+                                size="lg"
+                                variant="blue"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/contact">
                                     {t("home.hero.joinTraining")}
                                 </Link>
                             </Button>
-                            <Button size="lg" variant="yellow" asChild>
+                            <Button
+                                size="lg"
+                                variant="yellow"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/gallery">
                                     {t("gallery.collections.title")}
                                 </Link>

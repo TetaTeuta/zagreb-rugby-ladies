@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Calendar, MapPin, Clock, Trophy, Users } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { Card, CardContent } from "../components/ui/Card";
@@ -11,6 +12,7 @@ import scheduleData from "../data/schedule.json";
 import nextMatchData from "../data/nextMatch.json";
 
 const Schedule = () => {
+    const { t } = useTranslation();
     const [activeTeam, setActiveTeam] = useState("senior");
 
     useEffect(() => {
@@ -84,7 +86,9 @@ const Schedule = () => {
                                         : "bg-error/10 text-error"
                                 }`}
                             >
-                                {result.isWin ? "W" : "L"}
+                                {result.isWin
+                                    ? t("schedule.match.win")
+                                    : t("schedule.match.loss")}
                             </div>
                         )}
                     </div>
@@ -135,7 +139,9 @@ const Schedule = () => {
 
                         <div className="text-center px-4">
                             <div className="text-muted font-medium">
-                                {isHome ? "vs" : "@"}
+                                {isHome
+                                    ? t("schedule.match.vs")
+                                    : t("schedule.match.at")}
                             </div>
                         </div>
 
@@ -171,13 +177,17 @@ const Schedule = () => {
                     </div>
 
                     {match.status === "upcoming" && (
-                        <Button variant="blue" asChild>
+                        <Button
+                            variant="blue"
+                            asChild
+                            className="w-full sm:w-auto"
+                        >
                             <a
                                 href={match.location.mapUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Get Directions
+                                {t("schedule.getDirections")}
                             </a>
                         </Button>
                     )}
@@ -193,7 +203,7 @@ const Schedule = () => {
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="src/assets/images/hero/margaux-rugby-action.jpg"
-                        alt="Schedule hero image"
+                        alt={t("schedule.imageAlts.hero")}
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 25%" }}
                     />
@@ -204,14 +214,28 @@ const Schedule = () => {
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
                         <h1 className="text-5xl sm:text-6xl md:text-7xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                            MATCH SCHEDULE.
+                            {t("schedule.hero.title")}
                         </h1>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" variant="blue" asChild>
-                                <Link to="/contact">Join Our Matches</Link>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
+                            <Button
+                                size="lg"
+                                variant="blue"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
+                                <Link to="/contact">
+                                    {t("schedule.hero.joinMatches")}
+                                </Link>
                             </Button>
-                            <Button size="lg" variant="yellow" asChild>
-                                <Link to="/rugby101">Learn Rugby</Link>
+                            <Button
+                                size="lg"
+                                variant="yellow"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
+                                <Link to="/rugby101">
+                                    {t("schedule.hero.learnRugby")}
+                                </Link>
                             </Button>
                         </div>
                     </div>
@@ -235,10 +259,10 @@ const Schedule = () => {
                 <AnimatedSection className="mb-8" delay={1}>
                     <div className="text-center mb-8">
                         <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
-                            MATCH SCHEDULE
+                            {t("schedule.title")}
                         </h2>
                         <p className="text-lg text-muted max-w-2xl mx-auto">
-                            Follow our teams throughout the season.
+                            {t("schedule.subtitle")}
                         </p>
                     </div>
 
@@ -264,7 +288,7 @@ const Schedule = () => {
                                 `}
                             >
                                 <Users className="h-4 w-4 flex-shrink-0" />
-                                <span>Senior Team</span>
+                                <span>{t("schedule.teams.senior")}</span>
                             </button>
                             <button
                                 onClick={() => setActiveTeam("junior")}
@@ -285,7 +309,7 @@ const Schedule = () => {
                                 `}
                             >
                                 <Users className="h-4 w-4 flex-shrink-0" />
-                                <span>Junior Team (U18)</span>
+                                <span>{t("schedule.teams.junior")}</span>
                             </button>
                         </div>
                     </div>
@@ -300,7 +324,7 @@ const Schedule = () => {
                             </h3>
                             <p className="text-muted mb-8">
                                 {scheduleData.teams[activeTeam].matches.length}{" "}
-                                matches this season
+                                {t("schedule.matchesThisSeason")}
                             </p>
                         </div>
 

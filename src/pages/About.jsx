@@ -16,26 +16,8 @@ const About = () => {
 
     const coaches = [
         {
-            name: "Juraj Ban",
-            role: "Head Coach",
-            credentials: "Level 3 World Rugby Certified",
-            bio: "Former professional player with 15+ years coaching experience. Passionate about developing young talent and promoting inclusive rugby.",
-            image: "/images/coaches/marko.jpg",
-        },
-        {
-            name: "Julije Mirak",
-            role: "Assistant Coach & Player Development",
-            credentials:
-                "Level 2 World Rugby Certified, Sports Psychology Diploma",
-            bio: "Specializes in beginner coaching and mental game development. Believes every player has unique potential waiting to be unlocked.",
-            image: "/images/coaches/ana.jpg",
-        },
-        {
-            name: "Sandi",
-            role: "Fitness & Conditioning Coach",
-            credentials: "Certified Strength & Conditioning Specialist",
-            bio: "Designs training programs that build strength while preventing injury. Makes fitness fun and accessible for all skill levels.",
-            image: "/images/coaches/petra.jpg",
+            name: t("about.coaches.sandi.name"),
+            role: t("about.coaches.sandi.role"),
         },
     ];
 
@@ -65,7 +47,7 @@ const About = () => {
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="src/assets/images/hero/petra-rugby-action.jpg"
-                        alt="About Us hero image"
+                        alt={t("about.imageAlts.hero")}
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 25%" }}
                     />
@@ -78,13 +60,23 @@ const About = () => {
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-white leading-[0.85] drop-shadow-lg">
                             {t("about.hero.title")}
                         </h1>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" variant="blue" asChild>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
+                            <Button
+                                size="lg"
+                                variant="blue"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/contact">
                                     {t("about.hero.joinTeam")}
                                 </Link>
                             </Button>
-                            <Button size="lg" variant="yellow" asChild>
+                            <Button
+                                size="lg"
+                                variant="yellow"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/team">
                                     {t("about.hero.meetTeam")}
                                 </Link>
@@ -97,29 +89,35 @@ const About = () => {
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Our Story Section */}
                 <AnimatedSection className="mb-8">
-                    <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
+                    <div className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/lucija_rugby.jpg"
-                            alt="Our story"
+                            alt={t("about.imageAlts.story")}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                        <div className="absolute inset-0 p-8 sm:p-10 lg:p-12 flex flex-col justify-end text-text-light">
-                            <div className="mb-6">
-                                <h2 className="text-4xl font-light mb-2 tracking-wide font-hero text-text-light leading-[0.85]">
+                        <div className="absolute inset-0 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-start text-text-light">
+                            <div className="mb-4 sm:mb-6">
+                                <h2 className="text-3xl sm:text-4xl font-light mb-2 tracking-wide font-hero text-text-light leading-[0.85]">
                                     {t("about.story.title")}
                                 </h2>
-                                <p className="text-lg text-text-light/80 mb-4">
+                                <p className="text-base sm:text-lg text-text-light/80 mb-3 sm:mb-4">
                                     {t("about.story.subtitle")}
                                 </p>
                             </div>
-                            <div className="space-y-4 text-text-light/90 leading-relaxed max-w-3xl">
+                            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-text-light/90 leading-relaxed max-w-3xl mb-4 sm:mb-0">
                                 <p>{t("about.story.description1")}</p>
                                 <p>{t("about.story.description2")}</p>
                             </div>
-                            <div className="text-center mt-6">
-                                <Button variant="blue" asChild>
-                                    <Link to="/team">Meet the Team</Link>
+                            <div className="text-center mt-4 sm:mt-6">
+                                <Button
+                                    variant="blue"
+                                    asChild
+                                    className="w-full sm:w-auto"
+                                >
+                                    <Link to="/team">
+                                        {t("about.hero.meetTeam")}
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
@@ -133,86 +131,84 @@ const About = () => {
                             {t("about.mission.title")}
                         </h2>
                     </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
                         {/* Mission Section */}
-                        <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
+                        <div className="relative min-h-[350px] overflow-hidden rounded-custom group cursor-pointer">
                             <img
                                 src="/src/assets/images/players/petra_rugby.jpg"
-                                alt="Our mission"
+                                alt={t("about.imageAlts.mission")}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                            <div className="absolute inset-0 p-8 flex flex-col text-text-light">
-                                <h3 className="text-3xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
+                            <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
+                                <h3 className="text-2xl sm:text-3xl font-light mb-4 sm:mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                                     {t("about.mission.missionTitle")}
                                 </h3>
-                                <div className="flex-1 flex flex-col justify-between">
-                                    <p className="text-lg text-text-light/90 leading-relaxed mb-6">
-                                        {t("about.mission.missionText")}
-                                    </p>
-                                    <div className="text-center">
-                                        <Button variant="blue" asChild>
-                                            <Link to="/contact">Join Us</Link>
-                                        </Button>
-                                    </div>
+                                <p className="text-base sm:text-lg text-text-light/90 leading-relaxed mb-6">
+                                    {t("about.mission.missionText")}
+                                </p>
+                                <div className="text-center mt-auto">
+                                    <Button
+                                        variant="blue"
+                                        asChild
+                                        className="w-full sm:w-auto"
+                                    >
+                                        <Link to="/contact">
+                                            {t("common.joinUs")}
+                                        </Link>
+                                    </Button>
                                 </div>
                             </div>
                         </div>
 
                         {/* Values Section */}
-                        <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
+                        <div className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer">
                             <img
                                 src="/src/assets/images/players/josipa_rugby.jpg"
-                                alt="Our values"
+                                alt={t("about.imageAlts.values")}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                            <div className="absolute inset-0 p-8 flex flex-col text-text-light">
-                                <h3 className="text-3xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
+                            <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
+                                <h3 className="text-2xl sm:text-3xl font-light mb-4 sm:mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                                     {t("about.mission.valuesTitle")}
                                 </h3>
-                                <div className="flex-1 flex flex-col justify-between">
-                                    <div className="space-y-3 mb-6">
-                                        {values
-                                            .slice(0, 3)
-                                            .map((value, index) => {
-                                                const icons = [
-                                                    Users,
-                                                    Heart,
-                                                    Zap,
-                                                ];
-                                                const Icon = icons[index];
-                                                return (
-                                                    <div
-                                                        key={index}
-                                                        className="bg-surface/20 backdrop-blur-sm rounded-custom p-4 border border-accent/30"
-                                                    >
-                                                        <div className="flex items-start space-x-4">
-                                                            <div className="w-12 h-12 bg-surface/30 backdrop-blur-sm rounded-full flex items-center justify-center text-text-light flex-shrink-0 border border-accent/40">
-                                                                <Icon className="h-6 w-6" />
-                                                            </div>
-                                                            <div className="flex-1">
-                                                                <h4 className="font-light tracking-wide font-hero text-text-light mb-2 leading-[0.85]">
-                                                                    {value.title.toUpperCase()}
-                                                                </h4>
-                                                                <p className="text-sm text-text-light/80 leading-relaxed">
-                                                                    {
-                                                                        value.description
-                                                                    }
-                                                                </p>
-                                                            </div>
-                                                        </div>
+                                <div className="space-y-3 mb-6">
+                                    {values.slice(0, 3).map((value, index) => {
+                                        const icons = [Users, Heart, Zap];
+                                        const Icon = icons[index];
+                                        return (
+                                            <div
+                                                key={index}
+                                                className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 sm:p-4 border border-accent/30"
+                                            >
+                                                <div className="flex items-start space-x-3 sm:space-x-4">
+                                                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-surface/30 backdrop-blur-sm rounded-full flex items-center justify-center text-text-light flex-shrink-0 border border-accent/40">
+                                                        <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                                                     </div>
-                                                );
-                                            })}
-                                    </div>
-                                    <div className="text-center">
-                                        <Button variant="blue" asChild>
-                                            <Link to="/rugby101">
-                                                Learn More
-                                            </Link>
-                                        </Button>
-                                    </div>
+                                                    <div className="flex-1">
+                                                        <h4 className="font-light tracking-wide font-hero text-text-light mb-1 sm:mb-2 leading-[0.85] text-sm sm:text-base">
+                                                            {value.title.toUpperCase()}
+                                                        </h4>
+                                                        <p className="text-xs sm:text-sm text-text-light/80 leading-relaxed">
+                                                            {value.description}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                <div className="text-center mt-auto">
+                                    <Button
+                                        variant="blue"
+                                        asChild
+                                        className="w-full sm:w-auto"
+                                    >
+                                        <Link to="/rugby101">
+                                            {t("common.learnMore")}
+                                        </Link>
+                                    </Button>
                                 </div>
                             </div>
                         </div>
@@ -226,11 +222,12 @@ const About = () => {
                             {t("about.coaches.title")}
                         </h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    src/assets/images/logos/zagreb-rugby-ladies-logo-vector.pngsrc/assets/images/logos/zagreb-rugby-ladies-logo-vector.png
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {coaches.map((coach, index) => (
                             <div
                                 key={index}
-                                className="relative h-[500px] overflow-hidden rounded-custom group cursor-pointer"
+                                className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer"
                             >
                                 <img
                                     src={`/src/assets/images/players/${
@@ -243,19 +240,28 @@ const About = () => {
                                     alt={coach.name}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/80 via-text-contrast/40 to-transparent"></div>
-                                <div className="absolute bottom-8 left-8 text-text-light">
-                                    <h3 className="text-2xl font-light mb-2 tracking-wide font-hero text-text-light leading-[0.85]">
+                                <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
+                                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
+                                    <h3 className="text-2xl sm:text-3xl font-light mb-2 tracking-wide font-hero text-text-light leading-[0.85]">
                                         {coach.name.toUpperCase()}
                                     </h3>
-                                    <p className="text-lg opacity-90 mb-4">
+                                    <p className="text-base sm:text-lg opacity-90 mb-6">
                                         {coach.role}
                                     </p>
-                                    <Button size="sm" variant="blue" asChild>
-                                        <Link to="/contact">
-                                            {t("about.coaches.contactCoach")}
-                                        </Link>
-                                    </Button>
+                                    <div className="mt-auto">
+                                        <Button
+                                            size="md"
+                                            variant="blue"
+                                            asChild
+                                            className="w-full"
+                                        >
+                                            <Link to="/contact">
+                                                {t(
+                                                    "about.coaches.contactCoach"
+                                                )}
+                                            </Link>
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -264,105 +270,109 @@ const About = () => {
 
                 {/* Training Information Grid */}
                 <AnimatedSection
-                    className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-4"
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4"
                     delay={3}
                 >
                     {/* Training Schedule */}
-                    <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
+                    <div className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/petra1_rugby.jpg"
-                            alt="Training schedule"
+                            alt={t("about.imageAlts.trainingSchedule")}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                        <div className="absolute inset-0 p-8 flex flex-col text-text-light">
-                            <h3 className="text-3xl font-light tracking-wide font-hero text-text-light leading-[0.85] mb-6">
+                        <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
+                            <h3 className="text-2xl sm:text-3xl font-light tracking-wide font-hero text-text-light leading-[0.85] mb-4 sm:mb-6">
                                 {t("about.training.title")}
                             </h3>
-                            <div className="flex-1 flex flex-col justify-between">
-                                <div className="grid grid-cols-2 gap-3 mb-6">
-                                    {trainingData.schedule.map(
-                                        (session, index) => (
-                                            <div
-                                                key={index}
-                                                className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 text-center border border-accent/30"
-                                            >
-                                                <div className="text-xs text-text-light/80 uppercase tracking-wide mb-1">
-                                                    {session.day}
-                                                </div>
-                                                <div className="text-lg font-bold text-text-light mb-1">
-                                                    {session.time}
-                                                </div>
-                                                <div className="text-xs text-text-light/90">
-                                                    {session.type}
-                                                </div>
-                                            </div>
-                                        )
-                                    )}
-                                </div>
-                                <div className="text-center mb-4">
-                                    <p className="text-text-light/90 text-sm mb-2">
-                                        {t("about.training.trainingAt")}{" "}
-                                        <span className="font-semibold text-text-light">
-                                            {trainingData.location.name}
-                                        </span>
-                                    </p>
-                                </div>
-                                <div className="text-center">
-                                    <Button variant="blue" asChild>
-                                        <Link to="/contact">
-                                            {t("about.training.joinTraining")}
-                                        </Link>
-                                    </Button>
-                                </div>
+                            <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
+                                {trainingData.schedule.map((session, index) => (
+                                    <div
+                                        key={index}
+                                        className="bg-surface/20 backdrop-blur-sm rounded-custom p-2 sm:p-3 text-center border border-accent/30"
+                                    >
+                                        <div className="text-xs text-text-light/80 uppercase tracking-wide mb-1">
+                                            {session.day}
+                                        </div>
+                                        <div className="text-base sm:text-lg font-bold text-text-light mb-1">
+                                            {session.time}
+                                        </div>
+                                        <div className="text-xs text-text-light/90">
+                                            {session.type}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="text-center mb-6">
+                                <p className="text-text-light/90 text-xs sm:text-sm mb-2">
+                                    {t("about.training.trainingAt")}{" "}
+                                    <span className="font-semibold text-text-light">
+                                        {trainingData.location.name}
+                                    </span>
+                                </p>
+                            </div>
+                            <div className="text-center mt-auto">
+                                <Button
+                                    variant="blue"
+                                    asChild
+                                    className="w-full sm:w-auto"
+                                >
+                                    <Link to="/contact">
+                                        {t("about.training.joinTraining")}
+                                    </Link>
+                                </Button>
                             </div>
                         </div>
                     </div>
 
                     {/* Contact Information */}
-                    <div className="relative h-[420px] overflow-hidden rounded-custom group cursor-pointer">
+                    <div className="relative min-h-[350px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/margaux_rugby.jpg"
-                            alt="Contact us"
+                            alt={t("about.imageAlts.contactUs")}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                        <div className="absolute inset-0 p-8 flex flex-col text-text-light">
-                            <h3 className="text-3xl font-light tracking-wide font-hero text-text-light leading-[0.85] mb-6">
+                        <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
+                            <h3 className="text-2xl sm:text-3xl font-light tracking-wide font-hero text-text-light leading-[0.85] mb-4 sm:mb-6">
                                 {t("about.contact.title")}
                             </h3>
-                            <div className="flex-1 flex flex-col justify-between">
-                                <div className="space-y-4 mb-6">
-                                    <div className="bg-surface/20 backdrop-blur-sm rounded-custom p-4 border border-accent/30">
-                                        <h4 className="font-light tracking-wide font-hero text-text-light mb-2 leading-[0.85]">
-                                            {t("about.contact.venue")}
-                                        </h4>
-                                        <p className="text-text-light/90 text-sm">
-                                            {trainingData.location.name}
+                            <div className="space-y-3 sm:space-y-4 mb-6">
+                                <div className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 sm:p-4 border border-accent/30">
+                                    <h4 className="font-light tracking-wide font-hero text-text-light mb-2 leading-[0.85] text-sm sm:text-base">
+                                        {t("about.contact.venue")}
+                                    </h4>
+                                    <p className="text-text-light/90 text-xs sm:text-sm">
+                                        {trainingData.location.name}
+                                    </p>
+                                    <p className="text-text-light/80 text-xs sm:text-sm">
+                                        {trainingData.location.address}
+                                    </p>
+                                </div>
+                                <div className="bg-surface/20 backdrop-blur-sm rounded-custom p-3 sm:p-4 border border-accent/30">
+                                    <h4 className="font-light tracking-wide font-hero text-text-light mb-2 leading-[0.85] text-sm sm:text-base">
+                                        {t("about.contact.contactInfo")}
+                                    </h4>
+                                    <div className="space-y-1">
+                                        <p className="text-text-light/90 text-xs sm:text-sm">
+                                            {trainingData.contact.email}
                                         </p>
-                                        <p className="text-text-light/80 text-sm">
-                                            {trainingData.location.address}
+                                        <p className="text-text-light/90 text-xs sm:text-sm">
+                                            {trainingData.contact.phone}
                                         </p>
                                     </div>
-                                    <div className="bg-surface/20 backdrop-blur-sm rounded-custom p-4 border border-accent/30">
-                                        <h4 className="font-light tracking-wide font-hero text-text-light mb-2 leading-[0.85]">
-                                            {t("about.contact.contactInfo")}
-                                        </h4>
-                                        <div className="space-y-1">
-                                            <p className="text-text-light/90 text-sm">
-                                                {trainingData.contact.email}
-                                            </p>
-                                            <p className="text-text-light/90 text-sm">
-                                                {trainingData.contact.phone}
-                                            </p>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div className="text-center">
-                                    <Button variant="blue" asChild>
-                                        <Link to="/contact">Contact Us</Link>
-                                    </Button>
-                                </div>
+                            </div>
+                            <div className="text-center mt-auto">
+                                <Button
+                                    variant="blue"
+                                    asChild
+                                    className="w-full sm:w-auto"
+                                >
+                                    <Link to="/contact">
+                                        {t("navigation.contact")}
+                                    </Link>
+                                </Button>
                             </div>
                         </div>
                     </div>

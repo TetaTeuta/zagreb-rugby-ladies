@@ -75,11 +75,18 @@
         "viewSchedule": "View Full Schedule"
     },
     "footer": {
-        "description": "Zagreb Rugby Ladies - Empowering women through rugby since 2020.",
-        "quickLinks": "Quick Links",
-        "contact": "Contact Info",
-        "followUs": "Follow Us",
-        "copyright": "© 2024 Zagreb Rugby Ladies. All rights reserved."
+        "getInTouch": "GET IN TOUCH",
+        "logoAlt": "Zagreb Rugby Ladies Logo",
+        "teamName": "Zagreb Rugby Ladies",
+        "description": "Empowering girls and young women through rugby. Join our inclusive team where courage meets community, and every player discovers their strength.",
+        "copyright": "© {{year}} Zagreb Rugby Ladies. All rights reserved. Developed by iTee, obrt za programiranje.",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfSale": "Terms of Sale",
+        "ariaLabels": {
+            "instagram": "Follow us on Instagram",
+            "facebook": "Follow us on Facebook",
+            "email": "Send us an email"
+        }
     },
     "language": {
         "english": "English",
@@ -124,7 +131,11 @@
         },
         "coaches": {
             "title": "MEET OUR COACHES",
-            "contactCoach": "Contact Coach"
+            "contactCoach": "Contact Coach",
+            "sandi": {
+                "name": "Sandi",
+                "role": "Fitness & Conditioning Coach"
+            }
         },
         "training": {
             "title": "TRAINING SCHEDULE",
@@ -139,6 +150,14 @@
         "cta": {
             "title": "READY TO JOIN OUR TEAM?",
             "description": "Whether you're a complete beginner or experienced player, we'd love to welcome you to the Zagreb Rugby Ladies family."
+        },
+        "imageAlts": {
+            "hero": "About Us hero image",
+            "story": "Our story",
+            "mission": "Our mission",
+            "values": "Our values",
+            "trainingSchedule": "Training schedule",
+            "contactUs": "Contact us"
         }
     },
     "contact": {
@@ -243,6 +262,12 @@
             "title": "WANT TO JOIN OUR TEAM?",
             "description": "We're always looking for new players who want to challenge themselves, make friends, and be part of something special. No experience required—just bring your enthusiasm!"
         },
+        "imageAlts": {
+            "hero": "Team rugby action",
+            "stats": "Team stats",
+            "inclusive": "Inclusive environment",
+            "development": "Player development"
+        },
         "playerModal": {
             "position": "Position",
             "playerQuote": "Player Quote",
@@ -274,7 +299,18 @@
             "completed": "Completed",
             "upcoming": "Upcoming"
         },
+        "match": {
+            "fullTime": "Full Time",
+            "kickOff": "Kick Off",
+            "vs": "vs",
+            "at": "@",
+            "win": "W",
+            "loss": "L"
+        },
         "getDirections": "Get Directions",
+        "imageAlts": {
+            "hero": "Schedule hero image"
+        },
         "cta": {
             "title": "COME SUPPORT OUR TEAM!",
             "description": "Join us at our matches and be part of the Zagreb Rugby Ladies community. Your support fuels our passion and drives us to victory.",
@@ -321,8 +357,15 @@
                 "International Friendly Match"
             ]
         },
-        "noPhotos": "No photos found for the selected album.",
+        "noPhotos": "No photos found for this selection.",
         "showAll": "Show All Photos",
+        "allPhotos": "All Photos",
+        "loading": "Loading gallery...",
+        "error": "Error",
+        "photoCategories": "Photo categories",
+        "imageAlts": {
+            "hero": "Gallery hero image"
+        },
         "cta": {
             "title": "WANT TO BE PART OF THESE MOMENTS?",
             "description": "Join Zagreb Rugby Ladies and create your own unforgettable memories. Every training session, every match, every celebration could include you."
@@ -489,5 +532,112 @@
             "joinButton": "Join Us Today",
             "contactButton": "Contact Us"
         }
+    },
+    "privacy": {
+        "hero": {
+            "title": "PRIVACY POLICY",
+            "subtitle": "Your privacy is important to us. This policy explains how we collect, use, and protect your personal information.",
+            "lastUpdated": "Last updated"
+        },
+        "introduction": "At Zagreb Rugby Ladies, we are committed to protecting your privacy and personal data. This Privacy Policy explains how we handle any personal information you provide to us through our website or contact forms.",
+        "dataCollection": {
+            "title": "Information We Collect",
+            "description": "We collect personal information that you voluntarily provide to us when you:",
+            "items": {
+                "name": "Name (when you contact us through our contact form)",
+                "email": "Email address (for communication purposes)",
+                "phone": "Phone number (optional, if you choose to provide it)",
+                "message": "Any other information you choose to provide in your message"
+            }
+        },
+        "dataUse": {
+            "title": "How We Use Your Information",
+            "description": "We use the information we collect to:",
+            "items": {
+                "respond": "Respond to your inquiries and requests",
+                "communicate": "Communicate with you about Zagreb Rugby Ladies activities, events, and training sessions",
+                "improve": "Improve our website and services"
+            }
+        },
+        "dataStorage": {
+            "title": "Data Storage and Security",
+            "description": "We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. Your data is stored securely and is only accessible to authorized team members who need it to respond to your inquiries. We do not sell, rent, or share your personal information with third parties for marketing purposes."
+        },
+        "rights": {
+            "title": "Your Rights (GDPR Compliance)",
+            "description": "Under the General Data Protection Regulation (GDPR), you have the right to:",
+            "items": {
+                "access": "Access the personal data we hold about you",
+                "rectification": "Request correction of any inaccurate data",
+                "erasure": "Request deletion of your personal data",
+                "objection": "Object to the processing of your data",
+                "portability": "Request a copy of your data in a portable format"
+            }
+        },
+        "cookies": {
+            "title": "Cookies and Tracking",
+            "description": "Our website does not use cookies or tracking technologies to collect personal information. We may use basic analytics to understand how visitors use our site, but this does not identify individual users."
+        },
+        "contact": {
+            "title": "Contact Us About Privacy",
+            "description": "If you have any questions about this Privacy Policy or wish to exercise your rights regarding your personal data, please contact us at:"
+        },
+        "backToHome": "Back to Home"
+    },
+    "terms": {
+        "hero": {
+            "title": "TERMS OF USE",
+            "subtitle": "Please read these terms carefully before using our website.",
+            "lastUpdated": "Last updated"
+        },
+        "introduction": "Welcome to the Zagreb Rugby Ladies website. By accessing and using this website, you agree to comply with and be bound by the following terms and conditions.",
+        "copyright": {
+            "title": "Intellectual Property & Copyright",
+            "description": "All content on this website, including but not limited to text, images, photographs, graphics, logos, and website design, is the property of Zagreb Rugby Ladies and is protected by Croatian and international copyright laws. This includes:",
+            "items": {
+                "photos": "All photographs of players, matches, and team events",
+                "design": "Website design, layout, and visual elements",
+                "text": "Written content and team information",
+                "logos": "Zagreb Rugby Ladies logos and branding"
+            }
+        },
+        "acceptableUse": {
+            "title": "Acceptable Use",
+            "description": "When using our website, you agree to the following terms:",
+            "permitted": {
+                "title": "You MAY:",
+                "items": {
+                    "view": "View and browse the website for personal, non-commercial use",
+                    "share": "Share links to our website on social media",
+                    "contact": "Use our contact form to inquire about joining the team"
+                }
+            },
+            "prohibited": {
+                "title": "You MAY NOT:",
+                "items": {
+                    "copy": "Download, copy, or reproduce photographs without explicit written permission",
+                    "modify": "Modify, alter, or create derivative works from our website design or content",
+                    "commercial": "Use any content for commercial purposes without authorization",
+                    "scrape": "Use automated tools to extract or scrape data from our website"
+                }
+            }
+        },
+        "photos": {
+            "title": "Photography and Images",
+            "description": "All photographs on this website are owned by Zagreb Rugby Ladies or used with permission. Unauthorized downloading, copying, or use of these images is strictly prohibited. If you wish to use any photographs, please contact us for permission at team@zagreb-rugby-ladies.hr."
+        },
+        "disclaimer": {
+            "title": "Disclaimer",
+            "description": "While we strive to keep the information on our website accurate and up-to-date, we make no warranties or representations about the accuracy or completeness of the content. Zagreb Rugby Ladies reserves the right to modify or remove any content at any time without notice."
+        },
+        "changes": {
+            "title": "Changes to Terms",
+            "description": "We reserve the right to update these Terms of Use at any time. Changes will be effective immediately upon posting to this page. Your continued use of the website after any changes indicates your acceptance of the updated terms."
+        },
+        "contact": {
+            "title": "Questions About Terms",
+            "description": "If you have any questions about these Terms of Use or wish to request permission to use any content, please contact us at:"
+        },
+        "backToHome": "Back to Home"
     }
 }

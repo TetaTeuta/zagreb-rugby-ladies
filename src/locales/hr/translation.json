@@ -160,11 +160,18 @@
         "events": "Događaji"
     },
     "footer": {
-        "description": "Zagreb Rugby Ladies - Osnažujemo žene kroz rugby od 2020.",
-        "quickLinks": "Brze veze",
-        "contact": "Kontakt informacije",
-        "followUs": "Prati nas",
-        "copyright": "© 2024 Zagreb Rugby Ladies. Sva prava pridržana."
+        "getInTouch": "KONTAKTIRAJ NAS",
+        "logoAlt": "Zagreb Rugby Ladies Logo",
+        "teamName": "Zagreb Rugby Ladies",
+        "description": "Osnažujemo djevojke i mlade žene kroz rugby. Pridruži se našoj inkluzivnoj momčadi gdje se hrabrost susreće sa zajednicom, a svaka igračica otkriva svoju snagu.",
+        "copyright": "© {{year}} Zagreb Rugby Ladies. Sva prava pridržana. Razvijeno od strane iTee, obrt za programiranje.",
+        "privacyPolicy": "Pravila privatnosti",
+        "termsOfSale": "Uvjeti prodaje",
+        "ariaLabels": {
+            "instagram": "Prati nas na Instagramu",
+            "facebook": "Prati nas na Facebooku",
+            "email": "Pošalji nam email"
+        }
     },
     "language": {
         "english": "Engleski",
@@ -209,7 +216,11 @@
         },
         "coaches": {
             "title": "UPOZNAJ NAŠE TRENERE",
-            "contactCoach": "Kontaktiraj trenera"
+            "contactCoach": "Kontaktiraj trenera",
+            "sandi": {
+                "name": "Sandi",
+                "role": "Trener kondicije"
+            }
         },
         "training": {
             "title": "RASPORED TRENINGA",
@@ -224,6 +235,14 @@
         "cta": {
             "title": "SPREMAN SI SE PRIDRUŽITI NAŠOJ MOMČADI?",
             "description": "Bilo da si potpuna početnica ili iskusna igračica, voljeli bismo te pozdraviti u obitelji Zagreb Rugby Ladies."
+        },
+        "imageAlts": {
+            "hero": "Naslovna slika o nama",
+            "story": "Naša priča",
+            "mission": "Naša misija",
+            "values": "Naše vrijednosti",
+            "trainingSchedule": "Raspored treninga",
+            "contactUs": "Kontaktirajte nas"
         }
     },
     "contact": {
@@ -327,6 +346,12 @@
         "cta": {
             "title": "ŽELIŠ SE PRIDRUŽITI NAŠOJ MOMČADI?",
             "description": "Uvijek tražimo nove igračice koje se žele izazvati, sklopiti prijateljstva i biti dio nečeg posebnog. Iskustvo nije potrebno—samo donesi svoj entuzijazam!"
+        },
+        "imageAlts": {
+            "hero": "Tim ragbi akcija",
+            "stats": "Statistika tima",
+            "inclusive": "Uključivo okruženje",
+            "development": "Razvoj igračica"
         }
     },
     "schedule": {
@@ -346,7 +371,18 @@
             "completed": "Završeno",
             "upcoming": "Nadolazeće"
         },
+        "match": {
+            "fullTime": "Kraj utakmice",
+            "kickOff": "Početak",
+            "vs": "vs",
+            "at": "@",
+            "win": "P",
+            "loss": "I"
+        },
         "getDirections": "Dobij upute",
+        "imageAlts": {
+            "hero": "Naslovna slika rasporeda"
+        },
         "cta": {
             "title": "DOĐI PODRŽATI NAŠU MOMČAD!",
             "description": "Pridruži nam se na utakmicama i budi dio Zagreb Rugby Ladies zajednice. Tvoja podrška potiče našu strast i gura nas prema pobjedi.",
@@ -438,8 +474,15 @@
                 "Međunarodna prijateljska utakmica"
             ]
         },
-        "noPhotos": "Nema fotografija za odabrani album.",
+        "noPhotos": "Nema fotografija za ovaj odabir.",
         "showAll": "Prikaži sve fotografije",
+        "allPhotos": "Sve fotografije",
+        "loading": "Učitavanje galerije...",
+        "error": "Greška",
+        "photoCategories": "Kategorije fotografija",
+        "imageAlts": {
+            "hero": "Naslovna slika galerije"
+        },
         "cta": {
             "title": "Želiš biti dio ovih trenutaka?",
             "description": "Pridruži se Zagreb Rugby Ladies i stvori svoje nezaboravne uspomene. Svaki trening, svaka utakmica, svako slavlje moglo bi uključiti tebe."
@@ -606,5 +649,112 @@
             "joinButton": "Pridruži nam se danas",
             "contactButton": "Kontaktiraj nas"
         }
+    },
+    "privacy": {
+        "hero": {
+            "title": "PRAVILA PRIVATNOSTI",
+            "subtitle": "Vaša privatnost nam je važna. Ova politika objašnjava kako prikupljamo, koristimo i štitimo vaše osobne podatke.",
+            "lastUpdated": "Zadnje ažurirano"
+        },
+        "introduction": "U Zagreb Rugby Ladies, posvećeni smo zaštiti vaše privatnosti i osobnih podataka. Ova politika privatnosti objašnjava kako rukujemo osobnim informacijama koje nam pružite putem naše web stranice ili kontakt formi.",
+        "dataCollection": {
+            "title": "Informacije koje prikupljamo",
+            "description": "Prikupljamo osobne podatke koje nam dobrovoljno pružite kada:",
+            "items": {
+                "name": "Ime (kada nas kontaktirate putem kontakt forme)",
+                "email": "Email adresa (za potrebe komunikacije)",
+                "phone": "Broj telefona (opcionalno, ako ga želite pružiti)",
+                "message": "Bilo koje druge informacije koje odaberete pružiti u svojoj poruci"
+            }
+        },
+        "dataUse": {
+            "title": "Kako koristimo vaše podatke",
+            "description": "Informacije koje prikupljamo koristimo za:",
+            "items": {
+                "respond": "Odgovaranje na vaše upite i zahtjeve",
+                "communicate": "Komunikaciju s vama o aktivnostima, događajima i treninzima Zagreb Rugby Ladies",
+                "improve": "Poboljšanje naše web stranice i usluga"
+            }
+        },
+        "dataStorage": {
+            "title": "Pohranjivanje i sigurnost podataka",
+            "description": "Poduzimamo razumne mjere za zaštitu vaših osobnih podataka od neovlaštenog pristupa, korištenja ili otkrivanja. Vaši podaci se pohranjuju sigurno i dostupni su samo ovlaštenim članovima tima koji su potrebni za odgovaranje na vaše upite. Ne prodajemo, ne iznajmljujemo niti dijelimo vaše osobne podatke s trećim stranama u marketinške svrhe."
+        },
+        "rights": {
+            "title": "Vaša prava (GDPR usklađenost)",
+            "description": "Pod Općom uredbom o zaštiti podataka (GDPR), imate pravo na:",
+            "items": {
+                "access": "Pristup osobnim podacima koje držimo o vama",
+                "rectification": "Zahtjev za ispravak bilo kojih netočnih podataka",
+                "erasure": "Zahtjev za brisanje vaših osobnih podataka",
+                "objection": "Prigovor na obradu vaših podataka",
+                "portability": "Zahtjev za kopiju vaših podataka u prenosivom formatu"
+            }
+        },
+        "cookies": {
+            "title": "Kolačići i praćenje",
+            "description": "Naša web stranica ne koristi kolačiće ili tehnologije praćenja za prikupljanje osobnih podataka. Možemo koristiti osnovnu analitiku za razumijevanje kako posjetitelji koriste našu stranicu, ali to ne identificira pojedinačne korisnike."
+        },
+        "contact": {
+            "title": "Kontaktirajte nas o privatnosti",
+            "description": "Ako imate bilo kakvih pitanja o ovoj politici privatnosti ili želite ostvariti svoja prava u vezi s vašim osobnim podacima, molimo kontaktirajte nas na:"
+        },
+        "backToHome": "Natrag na početnu"
+    },
+    "terms": {
+        "hero": {
+            "title": "UVJETI KORIŠTENJA",
+            "subtitle": "Molimo pažljivo pročitajte ove uvjete prije korištenja naše web stranice.",
+            "lastUpdated": "Zadnje ažurirano"
+        },
+        "introduction": "Dobrodošli na web stranicu Zagreb Rugby Ladies. Pristupanjem i korištenjem ove web stranice, slažete se da ćete se pridržavati i biti vezani sljedećim uvjetima korištenja.",
+        "copyright": {
+            "title": "Intelektualno vlasništvo i autorska prava",
+            "description": "Sav sadržaj na ovoj web stranici, uključujući ali ne ograničavajući se na tekst, slike, fotografije, grafiku, logotipe i dizajn web stranice, vlasništvo je Zagreb Rugby Ladies i zaštićen je hrvatskim i međunarodnim zakonima o autorskim pravima. Ovo uključuje:",
+            "items": {
+                "photos": "Sve fotografije igračica, utakmica i timskih događaja",
+                "design": "Dizajn web stranice, raspored i vizualni elementi",
+                "text": "Pisani sadržaj i informacije o timu",
+                "logos": "Logotipi i branding Zagreb Rugby Ladies"
+            }
+        },
+        "acceptableUse": {
+            "title": "Prihvatljiva uporaba",
+            "description": "Korištenjem naše web stranice, slažete se sa sljedećim uvjetima:",
+            "permitted": {
+                "title": "SMIJETE:",
+                "items": {
+                    "view": "Pregledavati web stranicu za osobnu, nekomercijalnu upotrebu",
+                    "share": "Dijeliti linkove na našu web stranicu na društvenim mrežama",
+                    "contact": "Koristiti naš kontakt obrazac za upite o pridruživanju timu"
+                }
+            },
+            "prohibited": {
+                "title": "NE SMIJETE:",
+                "items": {
+                    "copy": "Preuzimati, kopirati ili reproducirati fotografije bez izričite pisane dozvole",
+                    "modify": "Mijenjati, preinačavati ili stvarati izvedena djela iz našeg dizajna web stranice ili sadržaja",
+                    "commercial": "Koristiti bilo koji sadržaj u komercijalne svrhe bez odobrenja",
+                    "scrape": "Koristiti automatizirane alate za izvlačenje ili prikupljanje podataka s naše web stranice"
+                }
+            }
+        },
+        "photos": {
+            "title": "Fotografije i slike",
+            "description": "Sve fotografije na ovoj web stranici su u vlasništvu Zagreb Rugby Ladies ili se koriste uz dozvolu. Neovlašteno preuzimanje, kopiranje ili korištenje ovih slika je strogo zabranjeno. Ako želite koristiti bilo koje fotografije, molimo kontaktirajte nas za dozvolu na team@zagreb-rugby-ladies.hr."
+        },
+        "disclaimer": {
+            "title": "Odricanje odgovornosti",
+            "description": "Iako se trudimo održavati informacije na našoj web stranici točnima i ažurnima, ne dajemo jamstva ili izjave o točnosti ili potpunosti sadržaja. Zagreb Rugby Ladies pridržava pravo mijenjati ili ukloniti bilo koji sadržaj u bilo koje vrijeme bez prethodne najave."
+        },
+        "changes": {
+            "title": "Promjene uvjeta",
+            "description": "Pridržavamo pravo ažuriranja ovih uvjeta korištenja u bilo koje vrijeme. Promjene će stupiti na snagu odmah nakon objavljivanja na ovoj stranici. Vaše nastavno korištenje web stranice nakon bilo kakvih promjena ukazuje na vaše prihvaćanje ažuriranih uvjeta."
+        },
+        "contact": {
+            "title": "Pitanja o uvjetima",
+            "description": "Ako imate bilo kakvih pitanja o ovim uvjetima korištenja ili želite zatražiti dozvolu za korištenje bilo kojeg sadržaja, molimo kontaktirajte nas na:"
+        },
+        "backToHome": "Natrag na početnu"
     }
 }

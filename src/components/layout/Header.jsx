@@ -187,7 +187,7 @@ const Header = () => {
 
                         <div className="p-4 border-t border-muted-light mt-auto space-y-3">
                             <LanguageSwitcher variant="mobile" />
-                            <Button variant="yellow" asChild>
+                            <Button variant="yellow" asChild className="w-full">
                                 <Link to="/contact">{t("common.joinUs")}</Link>
                             </Button>
                         </div>

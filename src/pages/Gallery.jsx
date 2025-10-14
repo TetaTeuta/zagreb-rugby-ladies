@@ -111,14 +111,31 @@ export default function Gallery() {
         const manifestCategories = Object.keys(galleryManifest).map((k) =>
             k.toLowerCase()
         );
+
+        // Map category IDs to translation keys
+        const getCategoryLabel = (cat) => {
+            const categoryMap = {
+                training: "gallery.collections.training",
+                matches: "gallery.collections.matches",
+                match: "gallery.collections.matches",
+                players: "gallery.collections.players",
+                team: "gallery.collections.team",
+                community: "gallery.collections.community",
+            };
+
+            return categoryMap[cat]
+                ? t(categoryMap[cat])
+                : cat.charAt(0).toUpperCase() + cat.slice(1);
+        };
+
         return [
-            { id: "all", label: "All Photos" },
+            { id: "all", label: t("gallery.allPhotos") },
             ...manifestCategories.map((cat) => ({
                 id: cat,
-                label: cat.charAt(0).toUpperCase() + cat.slice(1),
+                label: getCategoryLabel(cat),
             })),
         ];
-    }, [galleryManifest]);
+    }, [galleryManifest, t]);
 
     const filteredImages = useMemo(() => {
         if (activeCategory === "all") {
@@ -158,7 +175,7 @@ export default function Gallery() {
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-surface">
-                <p className="text-muted text-lg">Loading gallery...</p>
+                <p className="text-muted text-lg">{t("gallery.loading")}</p>
             </div>
         );
     }
@@ -166,7 +183,9 @@ export default function Gallery() {
     if (error) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-surface">
-                <p className="text-red-500 text-lg">Error: {error}</p>
+                <p className="text-red-500 text-lg">
+                    {t("gallery.error")}: {error}
+                </p>
             </div>
         );
     }
@@ -178,7 +197,7 @@ export default function Gallery() {
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="/src/assets/images/hero/josipa-rugby-kick.jpg"
-                        alt="Gallery hero image"
+                        alt={t("gallery.imageAlts.hero")}
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 25%" }}
                     />
@@ -191,13 +210,23 @@ export default function Gallery() {
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                             {t("gallery.hero.title")}
                         </h1>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" variant="blue" asChild>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
+                            <Button
+                                size="lg"
+                                variant="blue"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/contact">
                                     {t("gallery.hero.joinTeam")}
                                 </Link>
                             </Button>
-                            <Button size="lg" variant="yellow" asChild>
+                            <Button
+                                size="lg"
+                                variant="yellow"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/team">
                                     {t("gallery.hero.meetPlayers")}
                                 </Link>
@@ -213,7 +242,7 @@ export default function Gallery() {
                 <div
                     className="gallery-filters"
                     role="group"
-                    aria-label="Photo categories"
+                    aria-label={t("gallery.photoCategories")}
                 >
                     {categories.map((cat) => (
                         <button
@@ -255,7 +284,7 @@ export default function Gallery() {
                     ) : (
                         <div className="text-center py-12">
                             <p className="text-muted text-lg">
-                                No photos found for this selection.
+                                {t("gallery.noPhotos")}
                             </p>
                         </div>
                     )}

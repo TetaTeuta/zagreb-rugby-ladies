@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 const LanguageSwitcher = ({ className = "", variant = "default" }) => {
     const { i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [shouldRender, setShouldRender] = useState(false);
     const dropdownRef = useRef(null);
 
     const languages = [
@@ -29,6 +31,24 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
         setIsOpen(false);
     };
 
+    // Handle animation state
+    useEffect(() => {
+        if (isOpen) {
+            setShouldRender(true);
+            // Small delay to ensure DOM is ready before animation
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    setIsAnimating(true);
+                });
+            });
+        } else {
+            setIsAnimating(false);
+            // Wait for animation to complete before unmounting
+            const timer = setTimeout(() => setShouldRender(false), 200);
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen]);
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
@@ -48,7 +68,7 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
 
     const getTriggerClasses = () => {
         const base =
-            "inline-flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+            "inline-flex items-center justify-center w-10 h-10 rounded-custom transition-all duration-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
         const variantStyles = {
             default: "hover:bg-primary/10 active:bg-primary/20 active:scale-95",
@@ -76,8 +96,17 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
                 />
             </button>
 
-            {isOpen && (
-                <div className="absolute top-full right-0 mt-2 py-1 min-w-[10rem] bg-surface border border-border rounded-lg shadow-medium overflow-hidden z-50 animate-fade-in">
+            {shouldRender && (
+                <div
+                    className="absolute top-full right-0 mt-2 py-1 min-w-[10rem] bg-surface border border-border rounded-custom shadow-medium overflow-hidden z-50"
+                    style={{
+                        opacity: isAnimating ? 1 : 0,
+                        transform: isAnimating ? "scale(1)" : "scale(0.95)",
+                        transformOrigin: "top right",
+                        transition:
+                            "opacity 200ms ease-out, transform 200ms ease-out",
+                    }}
+                >
                     {languages.map((language) => (
                         <button
                             key={language.code}
@@ -105,7 +134,7 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
                             </span>
                             {language.code === i18n.language && (
                                 <span
-                                    className="w-2 h-2 bg-primary rounded-full flex-shrink-0"
+                                    className="w-2 h-2 bg-primary rounded-custom flex-shrink-0"
                                     aria-hidden="true"
                                 />
                             )}

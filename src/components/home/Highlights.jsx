@@ -40,7 +40,7 @@ const Highlights = ({ highlights, title = "Why Choose Rugby?" }) => {
                     </div>
                     <div className="text-center">
                         <Button
-                            className="bg-surface text-text-contrast hover:bg-muted-light rounded-custom px-8"
+                            className="bg-surface text-text-contrast hover:bg-muted-light rounded-custom px-8 w-full sm:w-auto"
                             asChild
                         >
                             <Link to="/rugby101">Learn More</Link>

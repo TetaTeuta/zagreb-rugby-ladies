@@ -131,13 +131,23 @@ const Rugby101 = () => {
                             {t("rugby101.hero.title")}{" "}
                         </h1>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" variant="blue" asChild>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md sm:max-w-none mx-auto">
+                            <Button
+                                size="lg"
+                                variant="blue"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/contact">
                                     {t("common.joinTraining")}
                                 </Link>
                             </Button>
-                            <Button size="lg" variant="yellow" asChild>
+                            <Button
+                                size="lg"
+                                variant="yellow"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/team">{t("navigation.team")}</Link>
                             </Button>
                         </div>
@@ -299,13 +309,13 @@ const Rugby101 = () => {
                                     </ul>
 
                                     <Button
-                                        className="w-full"
                                         variant={
                                             position.color === "navy"
                                                 ? "blue"
                                                 : "yellow"
                                         }
                                         asChild
+                                        className="w-full"
                                     >
                                         <Link to="/contact">
                                             {t(

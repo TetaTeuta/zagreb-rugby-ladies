@@ -84,13 +84,23 @@ const Contact = () => {
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                             {t("contact.hero.title")}
                         </h1>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" variant="blue" asChild>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
+                            <Button
+                                size="lg"
+                                variant="blue"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/rugby101">
                                     {t("contact.hero.learnRugby")}
                                 </Link>
                             </Button>
-                            <Button size="lg" variant="yellow" asChild>
+                            <Button
+                                size="lg"
+                                variant="yellow"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
                                 <Link to="/team">
                                     {t("contact.hero.meetTeam")}
                                 </Link>
@@ -412,7 +422,11 @@ const Contact = () => {
                             </div>
 
                             <div className="text-center">
-                                <Button variant="blue" asChild>
+                                <Button
+                                    variant="blue"
+                                    asChild
+                                    className="w-full sm:w-auto"
+                                >
                                     <Link to="/rugby101">Rugby 101 Guide</Link>
                                 </Button>
                             </div>

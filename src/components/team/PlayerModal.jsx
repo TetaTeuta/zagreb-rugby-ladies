@@ -54,7 +54,7 @@ const PlayerBanner = ({
                         <PlayerInitials name={player.name} />
                     </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/5 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <h2 className="text-4xl font-bold mb-2">{player.name}</h2>
                     <p className="text-base opacity-90">

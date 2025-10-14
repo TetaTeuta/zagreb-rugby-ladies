@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
 import { Card, CardContent, CardTitle } from "../components/ui/Card";
 import { PlayerCard } from "../components/team/PlayerCard";
@@ -10,6 +11,7 @@ import { Link } from "react-router-dom";
 import playersData from "../data/players.json";
 
 const Team = () => {
+    const { t } = useTranslation();
     const [selectedPlayer, setSelectedPlayer] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -31,17 +33,17 @@ const Team = () => {
         {
             icon: Users,
             number: "30+",
-            label: "Active Players",
+            label: t("team.stats.activePlayers"),
         },
         {
             icon: Trophy,
             number: "5",
-            label: "Years Strong",
+            label: t("team.stats.yearsStrong"),
         },
         {
             icon: Heart,
             number: "100%",
-            label: "Team Spirit",
+            label: t("team.stats.teamSpirit"),
         },
     ];
 
@@ -52,7 +54,7 @@ const Team = () => {
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="src/assets/images/hero/zagreb-rugby-ladies-team-action.jpg"
-                        alt="Team rugby action"
+                        alt={t("team.imageAlts.hero")}
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 overlay-cinematic-base opacity-[0.8]"></div>
@@ -63,14 +65,28 @@ const Team = () => {
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                            INSPIRING STORIES. UNSTOPPABLE SPIRIT.
+                            {t("team.hero.title")}
                         </h1>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" variant="blue" asChild>
-                                <Link to="/contact">Join Our Team</Link>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
+                            <Button
+                                size="lg"
+                                variant="blue"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
+                                <Link to="/contact">
+                                    {t("team.hero.joinTeam")}
+                                </Link>
                             </Button>
-                            <Button size="lg" variant="yellow" asChild>
-                                <Link to="/rugby101">Learn About Rugby</Link>
+                            <Button
+                                size="lg"
+                                variant="yellow"
+                                asChild
+                                className="w-full sm:w-auto"
+                            >
+                                <Link to="/rugby101">
+                                    {t("team.hero.learnRugby")}
+                                </Link>
                             </Button>
                         </div>
                     </div>
@@ -83,17 +99,17 @@ const Team = () => {
                     <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/teuta_rugby.jpg"
-                            alt="Team stats"
+                            alt={t("team.imageAlts.stats")}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                         <div className="absolute inset-0 p-8 sm:p-10 lg:p-12 flex flex-col justify-end text-text-light">
                             <div className="mb-6">
                                 <h2 className="text-4xl font-bold text-text-light mb-2 tracking-wide">
-                                    OUR TEAM
+                                    {t("team.stats.title")}
                                 </h2>
                                 <p className="text-lg text-text-light/80 mb-4">
-                                    Every player has a unique journey.
+                                    {t("team.stats.subtitle")}
                                 </p>
                             </div>
                             <div className="grid grid-cols-3 gap-3 mb-6">
@@ -116,8 +132,14 @@ const Team = () => {
                                 })}
                             </div>
                             <div className="text-center">
-                                <Button variant="blue" asChild>
-                                    <Link to="/contact">Join Training</Link>
+                                <Button
+                                    variant="blue"
+                                    asChild
+                                    className="w-full sm:w-auto"
+                                >
+                                    <Link to="/contact">
+                                        {t("common.joinTraining")}
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
@@ -128,11 +150,10 @@ const Team = () => {
                 <AnimatedSection className="mb-8" delay={1}>
                     <div className="text-center mb-8">
                         <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
-                            MEET OUR PLAYERS
+                            {t("team.players.title")}
                         </h2>
                         <p className="text-lg text-muted max-w-2xl mx-auto">
-                            Meet the incredible women who are redefining what it
-                            means to be strong, fearless, and unstoppable.
+                            {t("team.players.subtitle")}
                         </p>
                     </div>
 
@@ -157,23 +178,26 @@ const Team = () => {
                     <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/lucija_rugby.jpg"
-                            alt="Inclusive environment"
+                            alt={t("team.imageAlts.inclusive")}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                         <div className="absolute inset-0 p-8 flex flex-col justify-end text-text-light">
                             <h3 className="text-3xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                                INCLUSIVE ENVIRONMENT
+                                {t("team.culture.inclusive.title")}
                             </h3>
                             <p className="text-lg text-text-light/90 leading-relaxed mb-4">
-                                We welcome players of all backgrounds, skill
-                                levels, and experience. Whether you're a
-                                complete beginner or seasoned athlete, you'll
-                                find your place on our team.
+                                {t("team.culture.inclusive.description")}
                             </p>
                             <div className="text-center">
-                                <Button variant="blue" asChild>
-                                    <Link to="/contact">Join Us</Link>
+                                <Button
+                                    variant="blue"
+                                    asChild
+                                    className="w-full sm:w-auto"
+                                >
+                                    <Link to="/contact">
+                                        {t("common.joinUs")}
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
@@ -183,22 +207,26 @@ const Team = () => {
                     <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src="/src/assets/images/players/manuela_rugby.jpg"
-                            alt="Player development"
+                            alt={t("team.imageAlts.development")}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                         <div className="absolute inset-0 p-8 flex flex-col justify-end text-text-light">
                             <h3 className="text-3xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                                PLAYER DEVELOPMENT
+                                {t("team.culture.development.title")}
                             </h3>
                             <p className="text-lg text-text-light/90 leading-relaxed mb-4">
-                                We're committed to helping every player reach
-                                their full potential, both as athletes and as
-                                confident individuals.
+                                {t("team.culture.development.description")}
                             </p>
                             <div className="text-center">
-                                <Button variant="blue" asChild>
-                                    <Link to="/rugby101">Learn More</Link>
+                                <Button
+                                    variant="blue"
+                                    asChild
+                                    className="w-full sm:w-auto"
+                                >
+                                    <Link to="/rugby101">
+                                        {t("common.learnMore")}
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
