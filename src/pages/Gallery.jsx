@@ -5,6 +5,7 @@ import { Lightbox } from "../components/ui/Lightbox";
 import { Button } from "../components/ui/Button";
 import { CallToAction } from "../components/ui/CallToAction";
 import { buildR2ImageUrl } from "../lib/cdn";
+import { SEO } from "../components/ui/SEO";
 
 const Thumb = memo(function Thumb({ filename, category, onOpen }) {
     const imageUrl = buildR2ImageUrl(category, filename);
@@ -190,14 +191,41 @@ export default function Gallery() {
         );
     }
 
+    // SEO Configuration
+    const pageTitle = "Photo Gallery | Zagreb Rugby Ladies in Action";
+    const pageDescription =
+        "Browse our photo gallery showcasing Zagreb Rugby Ladies in training, matches, and team events. See women's rugby sevens action shots, team moments, and community events in Croatia.";
+    const keywords =
+        "Zagreb Rugby Ladies photos, women's rugby gallery, rugby action shots Croatia, rugby team photos Zagreb, women athletes photos, rugby sevens images, rugby training photos, rugby match photos Croatia";
+
+    // Image Gallery Structured Data
+    const galleryStructuredData = {
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        name: "Zagreb Rugby Ladies Photo Gallery",
+        description: pageDescription,
+        about: {
+            "@type": "SportsOrganization",
+            name: "Zagreb Rugby Ladies",
+        },
+    };
+
     return (
         <div className="min-h-screen bg-surface">
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/gallery"
+                structuredData={galleryStructuredData}
+            />
+
             {/* Hero Section */}
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="/src/assets/images/hero/josipa-rugby-kick.jpg"
-                        alt={t("gallery.imageAlts.hero")}
+                        alt="Zagreb Rugby Ladies player kicking during match - Women's rugby action photography"
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 25%" }}
                     />
@@ -294,6 +322,7 @@ export default function Gallery() {
                 <div className="mt-20">
                     <CallToAction
                         image="/src/assets/images/call_to_action/rugby-team-woman-shot.jpg"
+                        imageAlt="Zagreb Rugby Ladies team portrait - Join us and be part of our story"
                         titleKey="gallery.cta.title"
                         descriptionKey="gallery.cta.description"
                         primaryButton={{

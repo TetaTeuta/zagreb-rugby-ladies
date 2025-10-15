@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { Link } from "react-router-dom";
 import { Mail } from "lucide-react";
+import { SEO } from "../components/ui/SEO";
 
 const Privacy = () => {
     const { t } = useTranslation();
@@ -11,8 +12,23 @@ const Privacy = () => {
         window.scrollTo(0, 0);
     }, []);
 
+    // SEO Configuration
+    const pageTitle = "Privacy Policy | Zagreb Rugby Ladies";
+    const pageDescription =
+        "Read Zagreb Rugby Ladies privacy policy. Learn how we collect, use, and protect your personal data when you contact us or use our website.";
+    const keywords =
+        "privacy policy, data protection, personal information, GDPR, Zagreb Rugby Ladies privacy, data collection, user rights";
+
     return (
         <div className="min-h-screen bg-surface-elevated">
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/privacy"
+                ogType="website"
+            />
+
             {/* Hero Section */}
             <div className="bg-primary py-16 sm:py-20">
                 <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">

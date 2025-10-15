@@ -9,6 +9,7 @@ import { CallToAction } from "../components/ui/CallToAction";
 import { Users, Trophy, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import playersData from "../data/players.json";
+import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
 
 const Team = () => {
     const { t } = useTranslation();
@@ -47,14 +48,32 @@ const Team = () => {
         },
     ];
 
+    // SEO Configuration
+    const pageTitle = "Meet Zagreb Rugby Ladies Team | Our Players & Culture";
+    const pageDescription =
+        "Meet the Zagreb Rugby Ladies players - a diverse team of women passionate about rugby sevens. Learn about our inclusive culture, player development, and team spirit in Croatia.";
+    const keywords =
+        "Zagreb Rugby Ladies players, women's rugby team members, meet rugby players Zagreb, rugby team roster Croatia, women rugby athletes, rugby player profiles, inclusive rugby team, team culture Zagreb";
+
+    // Structured Data
+    const organizationData = createSportsOrganizationData();
+
     return (
         <div className="min-h-screen bg-surface">
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/team"
+                structuredData={organizationData}
+            />
+
             {/* Hero Section */}
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="src/assets/images/hero/zagreb-rugby-ladies-team-action.jpg"
-                        alt={t("team.imageAlts.hero")}
+                        alt="Zagreb Rugby Ladies full team in action during match - Women's rugby sevens Croatia"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 overlay-cinematic-base opacity-[0.8]"></div>
@@ -236,6 +255,7 @@ const Team = () => {
                 {/* Call to Action */}
                 <CallToAction
                     image="src/assets/images/call_to_action/rugby-player-woman-with-ball.jpg"
+                    imageAlt="Zagreb Rugby Ladies player with ball ready to play - Join our team"
                     titleKey="team.cta.title"
                     descriptionKey="team.cta.description"
                     primaryButton={{

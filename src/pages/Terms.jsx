@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { Link } from "react-router-dom";
 import { Mail } from "lucide-react";
+import { SEO } from "../components/ui/SEO";
 
 const Terms = () => {
     const { t } = useTranslation();
@@ -11,8 +12,23 @@ const Terms = () => {
         window.scrollTo(0, 0);
     }, []);
 
+    // SEO Configuration
+    const pageTitle = "Terms of Service | Zagreb Rugby Ladies";
+    const pageDescription =
+        "Read Zagreb Rugby Ladies terms of service. Understand the terms and conditions for using our website, viewing our content, and contacting our team.";
+    const keywords =
+        "terms of service, terms and conditions, website terms, user agreement, Zagreb Rugby Ladies terms, acceptable use policy, copyright terms";
+
     return (
         <div className="min-h-screen bg-surface-elevated">
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/terms"
+                ogType="website"
+            />
+
             {/* Hero Section */}
             <div className="bg-primary py-16 sm:py-20">
                 <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">

@@ -15,6 +15,7 @@ import trainingData from "../data/training.json";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import { Link } from "react-router-dom";
+import { SEO } from "../components/ui/SEO";
 
 const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -64,14 +65,47 @@ const Contact = () => {
         setShowToast(false);
     };
 
+    // SEO Configuration
+    const pageTitle = "Contact Zagreb Rugby Ladies | Join Our Team";
+    const pageDescription =
+        "Contact Zagreb Rugby Ladies to join our training sessions. Get training schedule, location details, and reach out with questions. All experience levels welcome in Zagreb, Croatia.";
+    const keywords =
+        "contact Zagreb Rugby Ladies, join rugby training Zagreb, rugby training schedule Zagreb, rugby team contact Croatia, women's rugby contact, rugby location Zagreb, join women's rugby Croatia";
+
+    // Contact Page Structured Data
+    const contactStructuredData = {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        mainEntity: {
+            "@type": "SportsOrganization",
+            name: "Zagreb Rugby Ladies",
+            email: trainingData.contact.email,
+            telephone: trainingData.contact.phone,
+            address: {
+                "@type": "PostalAddress",
+                streetAddress: trainingData.location.address,
+                addressLocality: "Zagreb",
+                addressCountry: "HR",
+            },
+        },
+    };
+
     return (
         <div className="min-h-screen bg-surface">
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/contact"
+                structuredData={contactStructuredData}
+            />
+
             {/* Hero Section */}
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="src/assets/images/hero/zagreb-rugby-ladies-team.jpg"
-                        alt="Contact hero image"
+                        alt="Zagreb Rugby Ladies team huddle celebrating - Contact us to join"
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 35%" }}
                     />
@@ -437,6 +471,7 @@ const Contact = () => {
                 {/* Call to Action */}
                 <CallToAction
                     image="src/assets/images/call_to_action/rugby-player-woman-panning-running.jpg"
+                    imageAlt="Zagreb Rugby Ladies player running with ball - Contact us today"
                     titleKey="contact.cta.title"
                     descriptionKey="contact.cta.description"
                     primaryButton={{

@@ -7,6 +7,12 @@ import { Link } from "react-router-dom";
 import { Shield, Users, Target, Clock, CheckCircle2 } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
+import {
+    SEO,
+    createFAQStructuredData,
+    createArticleStructuredData,
+    createHowToStructuredData,
+} from "../components/ui/SEO";
 
 const IconCircle = ({ Icon, color, size = "default", children }) => {
     const sizeClasses = {
@@ -111,13 +117,83 @@ const Rugby101 = () => {
         reality: item.reality,
     }));
 
+    // SEO Configuration
+    const pageTitle =
+        "Rugby 101: Complete Guide to Rugby Sevens Rules & How to Play";
+    const pageDescription =
+        "Learn everything about rugby sevens - rules, positions, scoring, safety tips, and FAQs. Perfect beginner's guide for women interested in playing rugby in Zagreb, Croatia.";
+    const keywords =
+        "rugby rules, rugby sevens, how to play rugby, rugby for beginners, rugby positions, rugby scoring, women's rugby, rugby safety, learn rugby, rugby guide, rugby Croatia, rugby Zagreb";
+
+    // Structured Data for FAQ
+    const faqStructuredData = createFAQStructuredData(faqItems);
+
+    // Structured Data for Article
+    const articleStructuredData = createArticleStructuredData({
+        headline: "Rugby 101: Complete Beginner's Guide to Rugby Sevens",
+        description: pageDescription,
+        image: "/zagreb-rugby-ladies-logo.png",
+        datePublished: "2024-01-01",
+        dateModified: new Date().toISOString().split("T")[0],
+    });
+
+    // Structured Data for HowTo
+    const howToStructuredData = createHowToStructuredData({
+        name: "How to Start Playing Rugby Sevens",
+        description:
+            "A step-by-step guide to getting started with rugby sevens for beginners",
+        image: "/zagreb-rugby-ladies-logo.png",
+        steps: [
+            {
+                name: "Understand the Basics",
+                text: "Learn that rugby sevens has 7 players per team, plays for 14 minutes total (two 7-minute halves), and focuses on scoring tries by carrying the ball into the opponent's try zone.",
+            },
+            {
+                name: "Know the Scoring System",
+                text: "Familiarize yourself with how points are scored: 5 points for a try, 2 for conversion, 3 for penalty kick, and 3 for drop goal.",
+            },
+            {
+                name: "Learn Player Positions",
+                text: "Understand the two main position groups: Forwards (1-3) handle scrums and physical play, while Backs (4-7) focus on speed and finishing.",
+            },
+            {
+                name: "Get the Right Equipment",
+                text: "Start with comfortable athletic clothing, rugby boots or running shoes, a mouth guard, and water bottle. The club provides training equipment.",
+            },
+            {
+                name: "Join Training Sessions",
+                text: "Contact Zagreb Rugby Ladies to join beginner-friendly training sessions where you'll learn proper techniques and safety protocols.",
+                url: window.location.origin + "/contact",
+            },
+        ],
+    });
+
+    // Combine all structured data
+    const combinedStructuredData = {
+        "@context": "https://schema.org",
+        "@graph": [
+            faqStructuredData,
+            articleStructuredData,
+            howToStructuredData,
+        ],
+    };
+
     return (
         <div className="min-h-screen bg-surface">
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/rugby101"
+                ogType="article"
+                structuredData={combinedStructuredData}
+            />
+
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="src/assets/images/hero/zagreb-rugby-ladies-team-running.jpg"
-                        alt="Rugby 101 hero image"
+                        alt="Zagreb Rugby Ladies team running on the field during training - Women's rugby sevens action shot"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 overlay-cinematic-base opacity-[0.85]"></div>
@@ -477,6 +553,7 @@ const Rugby101 = () => {
                 {/* Call to Action */}
                 <CallToAction
                     image="src/assets/images/call_to_action/rugby-players-woman-team.jpg"
+                    imageAlt="Women's rugby team celebrating together on the field - Join Zagreb Rugby Ladies"
                     titleKey="rugby101.cta.title"
                     descriptionKey="rugby101.cta.description"
                     primaryButton={{

@@ -10,6 +10,7 @@ import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import scheduleData from "../data/schedule.json";
 import nextMatchData from "../data/nextMatch.json";
+import { SEO } from "../components/ui/SEO";
 
 const Schedule = () => {
     const { t } = useTranslation();
@@ -54,6 +55,25 @@ const Schedule = () => {
             theirScore,
             isWin: ourScore > theirScore,
         };
+    };
+
+    // SEO Configuration
+    const pageTitle = "Match Schedule & Fixtures | Zagreb Rugby Ladies";
+    const pageDescription =
+        "View Zagreb Rugby Ladies match schedule, upcoming fixtures, past results, and game locations. Follow our senior and junior teams' rugby sevens season in Croatia.";
+    const keywords =
+        "Zagreb Rugby Ladies schedule, rugby match fixtures Croatia, women's rugby games Zagreb, rugby sevens calendar, upcoming rugby matches Croatia, rugby results Zagreb, rugby match dates, rugby game schedule Croatia";
+
+    // Sports Event Structured Data
+    const scheduleStructuredData = {
+        "@context": "https://schema.org",
+        "@type": "SportsEvent",
+        name: "Zagreb Rugby Ladies Match Schedule",
+        description: pageDescription,
+        organizer: {
+            "@type": "SportsOrganization",
+            name: "Zagreb Rugby Ladies",
+        },
     };
 
     const MatchCard = ({ match, teamName }) => {
@@ -198,12 +218,20 @@ const Schedule = () => {
 
     return (
         <div className="min-h-screen bg-surface">
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/schedule"
+                structuredData={scheduleStructuredData}
+            />
+
             {/* Hero Section */}
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="src/assets/images/hero/margaux-rugby-action.jpg"
-                        alt={t("schedule.imageAlts.hero")}
+                        alt="Zagreb Rugby Ladies player in match action - View our schedule"
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 25%" }}
                     />
@@ -342,6 +370,7 @@ const Schedule = () => {
                 {/* Call to Action */}
                 <CallToAction
                     image="src/assets/images/call_to_action/rugby-scrum-action.jpg"
+                    imageAlt="Zagreb Rugby Ladies scrum formation in match - Come watch us play"
                     titleKey="schedule.cta.title"
                     descriptionKey="schedule.cta.description"
                     primaryButton={{

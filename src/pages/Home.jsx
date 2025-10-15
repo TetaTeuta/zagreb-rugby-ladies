@@ -12,6 +12,7 @@ import { MeetOurPlayers } from "../components/home/MeetOurPlayers";
 import { Highlights } from "../components/home/Highlights";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
+import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
 
 const Home = () => {
     const { t } = useTranslation();
@@ -50,13 +51,31 @@ const Home = () => {
 
     const [featuredPlayers] = useState(() => getRandomPlayers());
 
+    // SEO Configuration
+    const pageTitle = "Women's Rugby Sevens Team in Zagreb, Croatia";
+    const pageDescription =
+        "Join Zagreb Rugby Ladies - women's rugby sevens team empowering girls and young women through sport. Beginner-friendly training in Zagreb, Croatia. No experience needed!";
+    const keywords =
+        "women's rugby Zagreb, rugby sevens Croatia, women's sports Zagreb, rugby team Croatia, join rugby Zagreb, women athletes Croatia, rugby training Zagreb, girls rugby Croatia";
+
+    // Structured Data for Sports Organization
+    const organizationData = createSportsOrganizationData();
+
     return (
         <div className="min-h-screen bg-surface-elevated">
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/"
+                structuredData={organizationData}
+            />
+
             <div className="relative h-screen overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="src/assets/images/hero/josipa-rugby-action.jpg"
-                        alt="Rugby action"
+                        alt="Zagreb Rugby Ladies player in action during match - Women's rugby sevens in Croatia"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 overlay-cinematic-base"></div>
@@ -130,6 +149,7 @@ const Home = () => {
 
                 <CallToAction
                     image="src/assets/images/call_to_action/rugby-player-scrum.jpg"
+                    imageAlt="Women's rugby scrum action - Join Zagreb Rugby Ladies training"
                     titleKey="home.cta.title"
                     descriptionKey="home.cta.description"
                     primaryButton={{

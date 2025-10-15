@@ -12,7 +12,10 @@ const getTeamLogo = (teamName) => {
         "Osijek Rugby Club": "src/assets/images/logos/nada-rugby-logo.jpeg",
     };
 
-    return logoMap[teamName] || "/src/assets/images/logos/logo.png";
+    return (
+        logoMap[teamName] ||
+        "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png"
+    );
 };
 
 const MatchItem = ({

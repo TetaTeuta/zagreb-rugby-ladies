@@ -6,6 +6,11 @@ import { Users, Heart, Zap } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import trainingData from "../data/training.json";
+import {
+    SEO,
+    createSportsOrganizationData,
+    createArticleStructuredData,
+} from "../components/ui/SEO";
 
 const About = () => {
     const { t } = useTranslation();
@@ -40,14 +45,44 @@ const About = () => {
         },
     ];
 
+    // SEO Configuration
+    const pageTitle = "About Zagreb Rugby Ladies | Our Story, Mission & Values";
+    const pageDescription =
+        "Learn about Zagreb Rugby Ladies - our story, mission to empower women through rugby, our values of inclusion and courage, meet our coaches, and discover our training program in Croatia.";
+    const keywords =
+        "about Zagreb Rugby Ladies, women's rugby team history, rugby mission Croatia, rugby coaches Zagreb, women empowerment through sport, inclusive rugby team, rugby values, rugby training program Zagreb";
+
+    // Structured Data
+    const organizationData = createSportsOrganizationData();
+    const articleData = createArticleStructuredData({
+        headline: "About Zagreb Rugby Ladies - Empowering Women Through Rugby",
+        description: pageDescription,
+        image: "/zagreb-rugby-ladies-logo.png",
+        datePublished: "2020-01-01",
+        dateModified: new Date().toISOString().split("T")[0],
+    });
+
+    const combinedStructuredData = {
+        "@context": "https://schema.org",
+        "@graph": [organizationData, articleData],
+    };
+
     return (
         <div className="min-h-screen bg-surface">
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/about"
+                structuredData={combinedStructuredData}
+            />
+
             {/* Hero Section */}
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
                         src="src/assets/images/hero/petra-rugby-action.jpg"
-                        alt={t("about.imageAlts.hero")}
+                        alt="Zagreb Rugby Ladies player tackling during match - Women's rugby team in action"
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 25%" }}
                     />
@@ -381,6 +416,7 @@ const About = () => {
                 {/* Call to Action */}
                 <CallToAction
                     image="src/assets/images/call_to_action/rugby-player-woman-ball.jpg"
+                    imageAlt="Zagreb Rugby Ladies player holding rugby ball - Join our inclusive team"
                     titleKey="about.cta.title"
                     descriptionKey="about.cta.description"
                     primaryButton={{
