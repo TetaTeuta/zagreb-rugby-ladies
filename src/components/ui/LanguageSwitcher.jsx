@@ -35,7 +35,6 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
     useEffect(() => {
         if (isOpen) {
             setShouldRender(true);
-            // Small delay to ensure DOM is ready before animation
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
                     setIsAnimating(true);
@@ -43,7 +42,6 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
             });
         } else {
             setIsAnimating(false);
-            // Wait for animation to complete before unmounting
             const timer = setTimeout(() => setShouldRender(false), 200);
             return () => clearTimeout(timer);
         }
@@ -79,6 +77,40 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
         return `${base} ${variantStyles[variant] || variantStyles.default}`;
     };
 
+    // Mobile variant: inline buttons instead of dropdown
+    if (variant === "mobile") {
+        return (
+            <div className="flex gap-2">
+                {languages.map((language) => (
+                    <button
+                        key={language.code}
+                        onClick={() => handleLanguageChange(language.code)}
+                        className={`flex-1 px-4 py-2.5 rounded-custom border transition-all duration-200 flex items-center justify-center gap-2 ${
+                            language.code === i18n.language
+                                ? "bg-primary border-primary text-text-light"
+                                : "bg-surface border-border hover:bg-muted-light/50"
+                        }`}
+                        aria-label={`Switch to ${language.name}`}
+                        aria-current={
+                            language.code === i18n.language ? "true" : undefined
+                        }
+                    >
+                        <img
+                            src={language.flagUrl}
+                            alt={`${language.name} flag`}
+                            className="w-6 h-auto flex-shrink-0"
+                            loading="lazy"
+                        />
+                        <span className="text-sm font-medium">
+                            {language.name}
+                        </span>
+                    </button>
+                ))}
+            </div>
+        );
+    }
+
+    // Default variant: dropdown
     return (
         <div ref={dropdownRef} className="relative">
             <button

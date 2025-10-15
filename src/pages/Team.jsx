@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
-import { Card, CardContent, CardTitle } from "../components/ui/Card";
 import { PlayerCard } from "../components/team/PlayerCard";
 import { PlayerModal } from "../components/team/PlayerModal";
 import { AnimatedSection } from "../components/ui/AnimatedSection";

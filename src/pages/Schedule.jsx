@@ -215,7 +215,8 @@ const Schedule = () => {
             </Card>
         );
     };
-
+    const img =
+        "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/Match/rugby-woman-team-zagreb-match_7503.jpg";
     return (
         <div className="min-h-screen bg-surface">
             <SEO
@@ -274,6 +275,7 @@ const Schedule = () => {
                 {/* Next Match */}
                 <AnimatedSection divider="wave" className="mb-8">
                     <NextMatch
+                        src={img}
                         matchData={nextMatchData.match}
                         opponent={
                             nextMatchData.opponents[

@@ -13,6 +13,7 @@ import { Highlights } from "../components/home/Highlights";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
+import { ScrollIndicator } from "../components/ui/ScrollIndicator";
 
 const Home = () => {
     const { t } = useTranslation();
@@ -60,6 +61,9 @@ const Home = () => {
 
     // Structured Data for Sports Organization
     const organizationData = createSportsOrganizationData();
+
+    const img =
+        "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/Match/rugby-woman-team-zagreb-match_7541.jpg";
 
     return (
         <div className="min-h-screen bg-surface-elevated">
@@ -112,6 +116,9 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* Scroll Indicator */}
+                <ScrollIndicator />
             </div>
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
@@ -119,7 +126,7 @@ const Home = () => {
                     <NextMatch
                         matchData={nextMatchData.match}
                         opponent={currentOpponent}
-                        src="src/assets/images/players/rugby-woman-dina-kick.jpg"
+                        src={img}
                     />
                 </AnimatedSection>
 
