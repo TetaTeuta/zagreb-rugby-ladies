@@ -168,7 +168,7 @@ const PlayerActions = ({ onClose }) => {
     return (
         <div className="flex flex-col sm:flex-row gap-3 pt-4 pb-6">
             <Button variant="blue" className="flex-1" asChild>
-                <a href="mailto:team@zagreb-rugby-ladies.hr?subject=Interest in Joining">
+                <a href="mailto:zrkzagreb@zagreb-rugby.hr?subject=Interest in Joining">
                     {t("team.playerModal.joinTeam")}
                 </a>
             </Button>

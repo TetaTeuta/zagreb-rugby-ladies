@@ -73,7 +73,7 @@ const Footer = () => {
                                 <Facebook className="h-5 w-5" />
                             </a>
                             <a
-                                href="mailto:team@zagreb-rugby-ladies.hr"
+                                href="mailto:zrkzagreb@zagreb-rugby.hr"
                                 className="p-2 rounded-lg bg-surface/10 hover:bg-primary hover:text-text-light transition-colors"
                                 aria-label={t("footer.ariaLabels.email")}
                             >

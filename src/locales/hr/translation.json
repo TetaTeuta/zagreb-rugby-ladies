@@ -164,9 +164,9 @@
         "logoAlt": "Zagreb Rugby Ladies Logo",
         "teamName": "Zagreb Rugby Ladies",
         "description": "Osnažujemo djevojke i mlade žene kroz rugby. Pridruži se našoj inkluzivnoj momčadi gdje se hrabrost susreće sa zajednicom, a svaka igračica otkriva svoju snagu.",
-        "copyright": "© {{year}} Zagreb Rugby Ladies. Sva prava pridržana. Razvijeno od strane iTee, obrt za programiranje.",
+        "copyright": "© {{year}} Zagreb Rugby Ladies. Sva prava pridržana. Razvijeno i dizajnirano od strane iTee, obrt za programiranje.",
         "privacyPolicy": "Pravila privatnosti",
-        "termsOfSale": "Uvjeti prodaje",
+        "termsOfSale": "Uvjeti korištenja",
         "ariaLabels": {
             "instagram": "Prati nas na Instagramu",
             "facebook": "Prati nas na Facebooku",
@@ -218,7 +218,7 @@
             "title": "UPOZNAJ NAŠE TRENERE",
             "contactCoach": "Kontaktiraj trenera",
             "sandi": {
-                "name": "Sandi",
+                "name": "Aleksandar Holjevac",
                 "role": "Trener kondicije"
             }
         },
@@ -274,6 +274,12 @@
             "sendMessage": "Pošalji poruku",
             "successMessage": "Hvala! Javit ćemo ti se u roku od 24 sata.",
             "errorMessage": "Nešto je pošlo po zlu. Molimo pokušaj ponovno ili nam pošalji email direktno.",
+            "sendingStatus": "Šalje se poruka...",
+            "successStatus": "Poruka uspješno poslana!",
+            "errorStatus": "Greška pri slanju poruke. Molimo pokušaj ponovno.",
+            "fullNamePlaceholder": "Tvoje puno ime",
+            "emailPlaceholder": "tvoj.email@example.com",
+            "required": "*",
             "validation": {
                 "nameRequired": "Molimo upiši svoje ime",
                 "emailRequired": "Molimo upiši svoj email",
@@ -656,7 +662,7 @@
             "subtitle": "Vaša privatnost nam je važna. Ova politika objašnjava kako prikupljamo, koristimo i štitimo vaše osobne podatke.",
             "lastUpdated": "Zadnje ažurirano"
         },
-        "introduction": "U Zagreb Rugby Ladies, posvećeni smo zaštiti vaše privatnosti i osobnih podataka. Ova politika privatnosti objašnjava kako rukujemo osobnim informacijama koje nam pružite putem naše web stranice ili kontakt formi.",
+        "introduction": "U Zagreb Rugby Ladies, posvećeni smo zaštiti vaše privatnosti i osobnih podataka. Ova politika privatnosti objašnjava kako rukujemo osobnim informacijama koje nam pružite putem naše web stranice ili kontakt formi. Zagreb Rugby Ladies je voditelj obrade za osobne podatke koje prikupljamo, što znači da smo odgovorni za određivanje kako i zašto se vaši podaci obrađuju.",
         "dataCollection": {
             "title": "Informacije koje prikupljamo",
             "description": "Prikupljamo osobne podatke koje nam dobrovoljno pružite kada:",
@@ -679,6 +685,20 @@
         "dataStorage": {
             "title": "Pohranjivanje i sigurnost podataka",
             "description": "Poduzimamo razumne mjere za zaštitu vaših osobnih podataka od neovlaštenog pristupa, korištenja ili otkrivanja. Vaši podaci se pohranjuju sigurno i dostupni su samo ovlaštenim članovima tima koji su potrebni za odgovaranje na vaše upite. Ne prodajemo, ne iznajmljujemo niti dijelimo vaše osobne podatke s trećim stranama u marketinške svrhe."
+        },
+        "thirdPartyServices": {
+            "title": "Pružatelji usluga treće strane",
+            "description": "Za obradu prijava putem kontakt forme koristimo Basin (usebasin.com), sigurnu uslugu za rukovanje formama. Kada pošaljete našu kontakt formu, vaše informacije se prenose na Basinove servere i zatim se prosljeđuju direktno nama. Basin privremeno pohranjuje kopije prijava na svojim serverima za potrebe obrade formi. Basin djeluje kao izvršitelj obrade prema našim uputama i predan je standardima zaštite podataka. Za više informacija o Basinovim praksama privatnosti, molimo posjetite njihovu politiku privatnosti.",
+            "dataController": "Zagreb Rugby Ladies ostaje voditelj obrade za sve informacije koje podnesete putem naše kontakt forme. Podaci idu direktno nama i mi kontroliramo kako se koriste i pohranjuju."
+        },
+        "dataRetention": {
+            "title": "Čuvanje podataka",
+            "description": "Čuvamo vaše osobne podatke samo onoliko dugo koliko je potrebno za ispunjenje svrha navedenih u ovoj Politici privatnosti:",
+            "items": {
+                "inquiries": "Prijave putem kontakt forme čuvaju se do 2 godine kako bismo odgovorili na vaš upit i održali evidenciju komunikacije",
+                "deleteRequest": "Možete zatražiti brisanje svojih podataka u bilo kojem trenutku kontaktirajući nas",
+                "automatic": "Nakon isteka roka čuvanja, vaši podaci će biti sigurno izbrisani osim ako ne postoji zakonska obveza da se čuvaju duže"
+            }
         },
         "rights": {
             "title": "Vaša prava (GDPR usklađenost)",
@@ -741,7 +761,7 @@
         },
         "photos": {
             "title": "Fotografije i slike",
-            "description": "Sve fotografije na ovoj web stranici su u vlasništvu Zagreb Rugby Ladies ili se koriste uz dozvolu. Neovlašteno preuzimanje, kopiranje ili korištenje ovih slika je strogo zabranjeno. Ako želite koristiti bilo koje fotografije, molimo kontaktirajte nas za dozvolu na team@zagreb-rugby-ladies.hr."
+            "description": "Sve fotografije na ovoj web stranici su u vlasništvu Zagreb Rugby Ladies ili se koriste uz dozvolu. Neovlašteno preuzimanje, kopiranje ili korištenje ovih slika je strogo zabranjeno. Ako želite koristiti bilo koje fotografije, molimo kontaktirajte nas za dozvolu na zrkzagreb@zagreb-rugby.hr."
         },
         "disclaimer": {
             "title": "Odricanje odgovornosti",

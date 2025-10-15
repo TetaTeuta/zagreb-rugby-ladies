@@ -1,12 +1,5 @@
-import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { Input, Textarea, Label, Select } from "../components/ui/Input";
 import { Toast } from "../components/ui/Toast";
@@ -19,7 +12,9 @@ import { SEO } from "../components/ui/SEO";
 
 const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(""); // for aria-live
     const { t } = useTranslation();
+    const formRef = useRef(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -29,33 +24,50 @@ const Contact = () => {
     const [toastType, setToastType] = useState("success");
     const [toastMessage, setToastMessage] = useState("");
 
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors },
-    } = useForm();
+    // Basin endpoint with env override support
+    const BASIN_ENDPOINT =
+        import.meta.env.VITE_BASIN_ENDPOINT ||
+        "https://usebasin.com/f/f286bdaf593f";
 
-    const onSubmit = async (data) => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!formRef.current) return;
+
         setIsSubmitting(true);
+        setSubmitStatus(t("contact.form.sendingStatus"));
 
         try {
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            const formData = new FormData(formRef.current);
+            const urlEncodedData = new URLSearchParams();
 
-            console.log("Form submitted:", data);
+            // Convert FormData to URLSearchParams for application/x-www-form-urlencoded
+            for (const [key, value] of formData.entries()) {
+                urlEncodedData.append(key, value);
+            }
 
-            setToastType("success");
-            setToastMessage(
-                "Thank you! We'll get back to you within 24 hours."
-            );
-            setShowToast(true);
-            reset();
+            const response = await fetch(BASIN_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: urlEncodedData.toString(),
+            });
+
+            if (response.ok) {
+                setToastType("success");
+                setToastMessage(t("contact.form.successMessage"));
+                setShowToast(true);
+                setSubmitStatus(t("contact.form.successStatus"));
+                formRef.current.reset();
+            } else {
+                throw new Error("Submission failed");
+            }
         } catch {
             setToastType("error");
-            setToastMessage(
-                "Something went wrong. Please try again or email us directly."
-            );
+            setToastMessage(t("contact.form.errorMessage"));
             setShowToast(true);
+            setSubmitStatus(t("contact.form.errorStatus"));
         } finally {
             setIsSubmitting(false);
         }
@@ -151,46 +163,70 @@ const Contact = () => {
                 <AnimatedSection>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                         {/* Contact Form */}
-                        <div className="bg-surface rounded-xl p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
+                        <div className="bg-surface rounded-custom p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
                             <div className="mb-6">
-                                <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                                    <Send className="h-8 w-8 text-primary" />
-                                </div>
+                                <Send className="h-10 w-10 text-primary m-6" />
                                 <h3 className="text-2xl font-light mb-2 tracking-wide font-hero text-text-contrast leading-[0.85]">
-                                    SEND US A MESSAGE
+                                    {t("contact.form.title")}
                                 </h3>
                                 <p className="text-muted text-sm">
-                                    Fill out the form below and we'll get back
-                                    to you as soon as possible.
+                                    {t("contact.form.subtitle")}
                                 </p>
                             </div>
 
+                            {/* Screen reader status announcements */}
+                            <div
+                                role="status"
+                                aria-live="polite"
+                                aria-atomic="true"
+                                className="sr-only"
+                            >
+                                {submitStatus}
+                            </div>
+
                             <form
-                                onSubmit={handleSubmit(onSubmit)}
+                                ref={formRef}
+                                action={BASIN_ENDPOINT}
+                                method="POST"
+                                onSubmit={handleSubmit}
                                 className="space-y-4"
                             >
+                                {/* Honeypot field for spam prevention */}
+                                <input
+                                    type="text"
+                                    name="bot-field"
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    style={{
+                                        position: "absolute",
+                                        left: "-9999px",
+                                        width: "1px",
+                                        height: "1px",
+                                        opacity: 0,
+                                        pointerEvents: "none",
+                                    }}
+                                    aria-hidden="true"
+                                />
+
                                 {/* Name */}
                                 <div className="space-y-2">
                                     <Label
                                         htmlFor="name"
                                         className="text-text-contrast"
                                     >
-                                        Full Name *
+                                        {t("contact.form.fullName")}{" "}
+                                        {t("contact.form.required")}
                                     </Label>
                                     <Input
                                         id="name"
-                                        {...register("name", {
-                                            required: "Please enter your name",
-                                        })}
-                                        error={!!errors.name}
-                                        placeholder="Your full name"
-                                        className="border-border focus:border-primary"
+                                        name="name"
+                                        type="text"
+                                        required
+                                        placeholder={t(
+                                            "contact.form.fullNamePlaceholder"
+                                        )}
+                                        className="border-border rounded-custom focus:border-primary"
                                     />
-                                    {errors.name && (
-                                        <p className="text-sm text-error">
-                                            {errors.name.message}
-                                        </p>
-                                    )}
                                 </div>
 
                                 {/* Email */}
@@ -199,28 +235,19 @@ const Contact = () => {
                                         htmlFor="email"
                                         className="text-text-contrast"
                                     >
-                                        Email Address *
+                                        {t("contact.form.emailAddress")}{" "}
+                                        {t("contact.form.required")}
                                     </Label>
                                     <Input
                                         id="email"
+                                        name="email"
                                         type="email"
-                                        {...register("email", {
-                                            required: "Please enter your email",
-                                            pattern: {
-                                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                                message:
-                                                    "Please enter a valid email address",
-                                            },
-                                        })}
-                                        error={!!errors.email}
-                                        placeholder="your.email@example.com"
-                                        className="border-border focus:border-primary"
+                                        required
+                                        placeholder={t(
+                                            "contact.form.emailPlaceholder"
+                                        )}
+                                        className="border-border rounded-custom focus:border-primary"
                                     />
-                                    {errors.email && (
-                                        <p className="text-sm text-error">
-                                            {errors.email.message}
-                                        </p>
-                                    )}
                                 </div>
 
                                 {/* Phone */}
@@ -229,14 +256,16 @@ const Contact = () => {
                                         htmlFor="phone"
                                         className="text-text-contrast"
                                     >
-                                        Phone Number
+                                        {t("contact.form.phoneNumber")}
                                     </Label>
                                     <Input
                                         id="phone"
+                                        name="phone"
                                         type="tel"
-                                        {...register("phone")}
-                                        placeholder="+385 99 123 4567 (optional)"
-                                        className="border-border focus:border-primary"
+                                        placeholder={t(
+                                            "contact.form.phoneOptional"
+                                        )}
+                                        className="border-border rounded-custom focus:border-primary"
                                     />
                                 </div>
 
@@ -246,38 +275,36 @@ const Contact = () => {
                                         htmlFor="reason"
                                         className="text-text-contrast"
                                     >
-                                        Reason for Contact *
+                                        {t("contact.form.reasonForContact")}{" "}
+                                        {t("contact.form.required")}
                                     </Label>
                                     <Select
                                         id="reason"
-                                        {...register("reason", {
-                                            required: "Please select a reason",
-                                        })}
-                                        error={!!errors.reason}
-                                        className="border-border focus:border-primary"
+                                        name="reason"
+                                        required
+                                        className="border-border rounded-custom focus:border-primary"
                                     >
                                         <option value="">
-                                            Choose a reason...
+                                            {t("contact.form.chooseReason")}
                                         </option>
                                         <option value="join">
-                                            I want to join training
+                                            {t("contact.form.reasons.join")}
                                         </option>
                                         <option value="information">
-                                            I need more information
+                                            {t(
+                                                "contact.form.reasons.information"
+                                            )}
                                         </option>
                                         <option value="sponsor">
-                                            Sponsorship inquiry
+                                            {t("contact.form.reasons.sponsor")}
                                         </option>
                                         <option value="press">
-                                            Press/Media
+                                            {t("contact.form.reasons.press")}
                                         </option>
-                                        <option value="other">Other</option>
+                                        <option value="other">
+                                            {t("contact.form.reasons.other")}
+                                        </option>
                                     </Select>
-                                    {errors.reason && (
-                                        <p className="text-sm text-error">
-                                            {errors.reason.message}
-                                        </p>
-                                    )}
                                 </div>
 
                                 {/* Message */}
@@ -286,23 +313,19 @@ const Contact = () => {
                                         htmlFor="message"
                                         className="text-text-contrast"
                                     >
-                                        Message *
+                                        {t("contact.form.message")}{" "}
+                                        {t("contact.form.required")}
                                     </Label>
                                     <Textarea
                                         id="message"
+                                        name="message"
                                         rows={4}
-                                        {...register("message", {
-                                            required: "Please enter a message",
-                                        })}
-                                        error={!!errors.message}
-                                        placeholder="Tell us about yourself, your experience level, questions you have..."
-                                        className="border-border focus:border-primary"
+                                        required
+                                        placeholder={t(
+                                            "contact.form.messagePlaceholder"
+                                        )}
+                                        className="border-border rounded-custom focus:border-primary"
                                     />
-                                    {errors.message && (
-                                        <p className="text-sm text-error">
-                                            {errors.message.message}
-                                        </p>
-                                    )}
                                 </div>
 
                                 {/* Consent */}
@@ -310,27 +333,18 @@ const Contact = () => {
                                     <input
                                         type="checkbox"
                                         id="consent"
-                                        className="mt-1 h-4 w-4 rounded border-border text-primary focus:ring-primary"
-                                        {...register("consent", {
-                                            required:
-                                                "Please agree to our privacy policy",
-                                        })}
+                                        name="consent"
+                                        required
+                                        className="mt-1 h-4 w-4 rounded border-border rounded-custom text-primary focus:ring-primary"
                                     />
                                     <div className="space-y-1">
                                         <Label
                                             htmlFor="consent"
                                             className="text-sm text-muted"
                                         >
-                                            I agree to the privacy policy and
-                                            consent to my data being processed
-                                            for the purpose of responding to my
-                                            inquiry. *
+                                            {t("contact.form.consent")}{" "}
+                                            {t("contact.form.required")}
                                         </Label>
-                                        {errors.consent && (
-                                            <p className="text-sm text-error">
-                                                {errors.consent.message}
-                                            </p>
-                                        )}
                                     </div>
                                 </div>
 
@@ -340,23 +354,22 @@ const Contact = () => {
                                     size="lg"
                                     variant="blue"
                                     className="w-full"
-                                    loading={isSubmitting}
                                     disabled={isSubmitting}
                                 >
                                     {isSubmitting
-                                        ? "Sending..."
-                                        : "Send Message"}
+                                        ? t("contact.form.sending")
+                                        : t("contact.form.sendMessage")}
                                 </Button>
                             </form>
                         </div>
 
                         {/* Contact Information */}
-                        <div className="bg-surface rounded-xl p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
+                        <div className="bg-surface rounded-custom p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
                             <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
                                 <Phone className="h-8 w-8 text-accent" />
                             </div>
                             <h3 className="text-2xl font-light mb-6 tracking-wide font-hero text-text-contrast leading-[0.85]">
-                                GET IN TOUCH
+                                {t("contact.info.title")}
                             </h3>
 
                             {/* Training Schedule */}
@@ -365,7 +378,7 @@ const Contact = () => {
                                     <div className="flex items-center mb-4">
                                         <Clock className="h-5 w-5 text-primary mr-2" />
                                         <h4 className="font-light tracking-wide font-hero text-text-contrast leading-[0.85]">
-                                            TRAINING SCHEDULE
+                                            {t("contact.info.trainingSchedule")}
                                         </h4>
                                     </div>
                                     <div className="grid grid-cols-2 gap-3">
@@ -373,7 +386,7 @@ const Contact = () => {
                                             (session, index) => (
                                                 <div
                                                     key={index}
-                                                    className="text-center bg-surface rounded-custom p-3 border border-border"
+                                                    className="text-center bg-surface rounded-custom p-3 border border-border rounded-custom"
                                                 >
                                                     <div className="text-xs text-muted uppercase font-medium">
                                                         {session.day}
@@ -394,7 +407,7 @@ const Contact = () => {
                                     <div className="flex items-center mb-4">
                                         <MapPin className="h-5 w-5 text-primary mr-2" />
                                         <h4 className="font-light tracking-wide font-hero text-text-contrast leading-[0.85]">
-                                            LOCATION
+                                            {t("contact.info.location")}
                                         </h4>
                                     </div>
                                     <p className="font-medium text-text-contrast mb-1">
@@ -407,7 +420,7 @@ const Contact = () => {
 
                                 <div className="bg-muted-light/50 rounded-lg p-4">
                                     <h4 className="font-light tracking-wide font-hero text-text-contrast mb-4 leading-[0.85]">
-                                        DIRECT CONTACT
+                                        {t("contact.info.directContact")}
                                     </h4>
                                     <div className="space-y-3">
                                         <div className="flex items-center">
@@ -427,29 +440,38 @@ const Contact = () => {
 
                                 <div className="bg-muted-light/50 rounded-lg p-4">
                                     <h4 className="font-bold text-text-contrast mb-3">
-                                        What to Expect
+                                        {t("contact.info.whatToExpect")}
                                     </h4>
                                     <ul className="space-y-2 text-sm text-muted">
                                         <li className="flex items-center">
                                             <span className="w-1.5 h-1.5 bg-success rounded-full mr-3"></span>
-                                            Response within 24 hours
+                                            {t(
+                                                "contact.info.expectations.response"
+                                            )}
                                         </li>
                                         <li className="flex items-center">
                                             <span className="w-1.5 h-1.5 bg-success rounded-full mr-3"></span>
-                                            Invitation to attend a trial
-                                            training
+                                            {t(
+                                                "contact.info.expectations.invitation"
+                                            )}
                                         </li>
                                         <li className="flex items-center">
                                             <span className="w-1.5 h-1.5 bg-success rounded-full mr-3"></span>
-                                            Information about what to bring
+                                            {t(
+                                                "contact.info.expectations.information"
+                                            )}
                                         </li>
                                         <li className="flex items-center">
                                             <span className="w-1.5 h-1.5 bg-success rounded-full mr-3"></span>
-                                            Answers to all your questions
+                                            {t(
+                                                "contact.info.expectations.answers"
+                                            )}
                                         </li>
                                         <li className="flex items-center">
                                             <span className="w-1.5 h-1.5 bg-success rounded-full mr-3"></span>
-                                            No pressure—just friendly advice!
+                                            {t(
+                                                "contact.info.expectations.noPressure"
+                                            )}
                                         </li>
                                     </ul>
                                 </div>
@@ -461,7 +483,9 @@ const Contact = () => {
                                     asChild
                                     className="w-full sm:w-auto"
                                 >
-                                    <Link to="/rugby101">Rugby 101 Guide</Link>
+                                    <Link to="/rugby101">
+                                        {t("contact.info.rugbyGuide")}
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
@@ -488,7 +512,11 @@ const Contact = () => {
             {/* Toast Notification */}
             <Toast
                 type={toastType}
-                title={toastType === "success" ? "Message Sent!" : "Error"}
+                title={
+                    toastType === "success"
+                        ? t("common.success")
+                        : t("common.error")
+                }
                 message={toastMessage}
                 isVisible={showToast}
                 onClose={handleToastClose}

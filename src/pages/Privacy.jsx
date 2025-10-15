@@ -30,7 +30,7 @@ const Privacy = () => {
             />
 
             {/* Hero Section */}
-            <div className="bg-primary py-16 sm:py-20">
+            <div className="bg-primary py-16 sm:py-20 mt-20">
                 <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-text-light mb-4 tracking-wide font-hero leading-[0.85]">
                         {t("privacy.hero.title")}
@@ -96,6 +96,42 @@ const Privacy = () => {
                         </p>
                     </section>
 
+                    {/* Third-Party Services */}
+                    <section className="bg-surface rounded-custom p-6 border border-border">
+                        <h2 className="text-2xl font-light text-primary mb-4 tracking-wide">
+                            {t("privacy.thirdPartyServices.title")}
+                        </h2>
+                        <p className="text-muted mb-4">
+                            {t("privacy.thirdPartyServices.description")}
+                        </p>
+                        <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-primary">
+                            <p className="text-muted font-medium">
+                                {t("privacy.thirdPartyServices.dataController")}
+                            </p>
+                        </div>
+                    </section>
+
+                    {/* Data Retention */}
+                    <section className="bg-surface rounded-custom p-6 border border-border">
+                        <h2 className="text-2xl font-light text-primary mb-4 tracking-wide">
+                            {t("privacy.dataRetention.title")}
+                        </h2>
+                        <p className="text-muted mb-4">
+                            {t("privacy.dataRetention.description")}
+                        </p>
+                        <ul className="list-disc list-inside space-y-2 text-muted">
+                            <li>
+                                {t("privacy.dataRetention.items.inquiries")}
+                            </li>
+                            <li>
+                                {t("privacy.dataRetention.items.deleteRequest")}
+                            </li>
+                            <li>
+                                {t("privacy.dataRetention.items.automatic")}
+                            </li>
+                        </ul>
+                    </section>
+
                     {/* Your Rights */}
                     <section className="bg-surface rounded-custom p-6 border border-border">
                         <h2 className="text-2xl font-light text-primary mb-4 tracking-wide">
@@ -134,10 +170,10 @@ const Privacy = () => {
                         <div className="flex items-center gap-2 text-primary">
                             <Mail className="h-5 w-5" />
                             <a
-                                href="mailto:team@zagreb-rugby-ladies.hr"
+                                href="mailto:zrkzagreb@zagreb-rugby.hr"
                                 className="hover:underline"
                             >
-                                team@zagreb-rugby-ladies.hr
+                                zrkzagreb@zagreb-rugby.hr
                             </a>
                         </div>
                     </section>

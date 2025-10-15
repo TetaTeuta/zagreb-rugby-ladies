@@ -20,17 +20,17 @@ const Toast = ({
     };
 
     const styles = {
-        success: "border-success bg-success/10 text-success",
-        error: "border-error bg-error/10 text-error",
-        warning: "border-warning bg-warning/10 text-warning",
-        info: "border-info bg-info/10 text-info",
+        success: "border-success bg-success text-white",
+        error: "border-error bg-error text-white",
+        warning: "border-warning bg-warning text-white",
+        info: "border-primary bg-primary text-white",
     };
 
     const iconStyles = {
-        success: "text-success",
-        error: "text-error",
-        warning: "text-warning",
-        info: "text-info",
+        success: "text-white",
+        error: "text-white",
+        warning: "text-white",
+        info: "text-white",
     };
 
     const Icon = icons[type];
@@ -68,7 +68,7 @@ const Toast = ({
         >
             <div
                 className={[
-                    "rounded-xl border p-4 shadow-lg",
+                    "rounded-xl border-2 p-4 shadow-2xl backdrop-blur-sm",
                     styles[type],
                 ].join(" ")}
             >
@@ -96,7 +96,7 @@ const Toast = ({
                     <div className="ml-4 flex-shrink-0">
                         <button
                             onClick={handleClose}
-                            className="inline-flex rounded-md p-1.5 transition-colors hover:bg-text-contrast/5 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                            className="inline-flex rounded-md p-1.5 transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white"
                             aria-label="Close notification"
                         >
                             <X className="h-4 w-4" />
