@@ -57,7 +57,7 @@ const About = () => {
     const articleData = createArticleStructuredData({
         headline: "About Zagreb Rugby Ladies - Empowering Women Through Rugby",
         description: pageDescription,
-        image: "/zagreb-rugby-ladies-logo.png",
+        image: "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
         datePublished: "2020-01-01",
         dateModified: new Date().toISOString().split("T")[0],
     });
@@ -257,7 +257,6 @@ const About = () => {
                             {t("about.coaches.title")}
                         </h2>
                     </div>
-                    src/assets/images/logos/zagreb-rugby-ladies-logo-vector.pngsrc/assets/images/logos/zagreb-rugby-ladies-logo-vector.png
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {coaches.map((coach, index) => (
                             <div

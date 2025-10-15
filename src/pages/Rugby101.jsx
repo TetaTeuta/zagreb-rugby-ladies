@@ -132,7 +132,7 @@ const Rugby101 = () => {
     const articleStructuredData = createArticleStructuredData({
         headline: "Rugby 101: Complete Beginner's Guide to Rugby Sevens",
         description: pageDescription,
-        image: "/zagreb-rugby-ladies-logo.png",
+        image: "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
         datePublished: "2024-01-01",
         dateModified: new Date().toISOString().split("T")[0],
     });
@@ -142,7 +142,7 @@ const Rugby101 = () => {
         name: "How to Start Playing Rugby Sevens",
         description:
             "A step-by-step guide to getting started with rugby sevens for beginners",
-        image: "/zagreb-rugby-ladies-logo.png",
+        image: "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
         steps: [
             {
                 name: "Understand the Basics",

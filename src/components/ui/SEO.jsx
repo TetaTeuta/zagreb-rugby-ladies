@@ -31,7 +31,8 @@ export const SEO = ({
     const siteName = "Zagreb Rugby Ladies";
     const defaultDescription =
         "Learn rugby with Zagreb Rugby Ladies. Comprehensive guide to rugby rules, positions, scoring, and safety. Perfect for beginners wanting to start their rugby journey.";
-    const defaultImage = "/zagreb-rugby-ladies-logo.png";
+    const defaultImage =
+        "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png";
 
     const fullTitle = title ? `${title} | ${siteName}` : siteName;
     const metaDescription = description || defaultDescription;
@@ -174,7 +175,7 @@ export const createArticleStructuredData = ({
     dateModified,
     authorName = "Zagreb Rugby Ladies",
     publisherName = "Zagreb Rugby Ladies",
-    publisherLogo = "/zagreb-rugby-ladies-logo.png",
+    publisherLogo = "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
 }) => {
     const baseUrl = window.location.origin;
     return {
@@ -214,7 +215,7 @@ export const createSportsOrganizationData = () => {
         description:
             "Women's rugby team in Zagreb, Croatia. Empowering girls and young women through rugby sevens.",
         url: baseUrl,
-        logo: `${baseUrl}/zagreb-rugby-ladies-logo.png`,
+        logo: `${baseUrl}/src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png`,
         sport: "Rugby Sevens",
         address: {
             "@type": "PostalAddress",
