@@ -14,6 +14,7 @@ import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
 import { ScrollIndicator } from "../components/ui/ScrollIndicator";
+import { Sponsors } from "../components/layout/Sponsors";
 
 const Home = () => {
     const { t } = useTranslation();
@@ -166,6 +167,9 @@ const Home = () => {
                     }}
                 />
             </div>
+
+            {/* Sponsors Section */}
+            <Sponsors />
         </div>
     );
 };

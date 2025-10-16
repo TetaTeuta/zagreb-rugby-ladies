@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
-import { Sponsors } from "./components/layout/Sponsors";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Team from "./pages/Team";
@@ -30,7 +29,6 @@ function App() {
                         <Route path="/terms" element={<Terms />} />
                     </Routes>
                 </main>
-                <Sponsors />
                 <Footer />
             </div>
         </Router>
