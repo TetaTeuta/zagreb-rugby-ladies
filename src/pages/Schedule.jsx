@@ -291,7 +291,7 @@ const Schedule = () => {
                 {/* Team Selection */}
                 <AnimatedSection className="mb-8" delay={1}>
                     <div className="text-center mb-8">
-                        <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                        <h2 className="text-4xl md:text-5xl font-light text-primary mb-4 tracking-wide">
                             {t("schedule.title")}
                         </h2>
                         <p className="text-lg text-muted max-w-2xl mx-auto">

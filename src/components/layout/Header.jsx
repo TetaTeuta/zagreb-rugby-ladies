@@ -85,7 +85,7 @@ const Header = () => {
                                 alt="Zagreb Rugby Ladies Logo"
                                 className="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16 object-contain"
                             />
-                            <span className="text-base sm:text-lg font-semibold text-text-contrast tracking-wide hidden sm:block">
+                            <span className="text-sm sm:text-base lg:text-lg font-semibold text-text-contrast tracking-wide">
                                 Zagreb Rugby Ladies
                             </span>
                         </Link>
@@ -96,7 +96,7 @@ const Header = () => {
                                     key={index}
                                     to={item.href}
                                     className={[
-                                        "relative text-text-contrast font-medium text-sm py-2 px-2 xl:px-3 transition-all duration-200 group whitespace-nowrap",
+                                        "relative text-primary font-medium text-sm py-2 px-2 xl:px-3 transition-all duration-200 group whitespace-nowrap",
                                         isActiveRoute(item.href)
                                             ? "font-semibold"
                                             : "",

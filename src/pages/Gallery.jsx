@@ -7,8 +7,13 @@ import { CallToAction } from "../components/ui/CallToAction";
 import { buildR2ImageUrl } from "../lib/cdn";
 import { SEO } from "../components/ui/SEO";
 
-const Thumb = memo(function Thumb({ filename, category, onOpen }) {
+const Thumb = memo(function Thumb({ filename, category, onOpen, index }) {
     const imageUrl = buildR2ImageUrl(category, filename);
+    const [imageError, setImageError] = useState(false);
+
+    const handleImageError = () => {
+        setImageError(true);
+    };
 
     return (
         <div
@@ -24,13 +29,20 @@ const Thumb = memo(function Thumb({ filename, category, onOpen }) {
                 }
             }}
         >
-            <img
-                src={imageUrl}
-                alt={`${category} - Zagreb Rugby Ladies`}
-                className="gallery-card-image"
-                loading="lazy"
-                decoding="async"
-            />
+            {!imageError ? (
+                <img
+                    src={imageUrl}
+                    alt={`${category} - Zagreb Rugby Ladies`}
+                    className="gallery-card-image"
+                    loading={index < 8 ? "eager" : "lazy"}
+                    decoding="async"
+                    onError={handleImageError}
+                />
+            ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-surface-elevated">
+                    <span className="text-muted text-sm">Failed to load</span>
+                </div>
+            )}
             <div className="gallery-card-overlay" />
             <div className="gallery-card-content">
                 <h3 className="gallery-card-title">{category}</h3>
@@ -49,6 +61,11 @@ export default function Gallery() {
     const [randomizedAllImages, setRandomizedAllImages] = useState([]);
 
     const activeCategory = params.get("cat") || "all";
+
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         fetch("/gallery/manifest.json")
@@ -304,6 +321,7 @@ export default function Gallery() {
                                         key={`${category}-${filename}-${idx}`}
                                         filename={filename}
                                         category={category}
+                                        index={idx}
                                         onOpen={openItem}
                                     />
                                 )

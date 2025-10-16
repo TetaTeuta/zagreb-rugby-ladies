@@ -1,16 +1,25 @@
 import { Button } from "../ui/Button";
 import { Link } from "react-router-dom";
+import { buildR2ImageUrl } from "../../lib/cdn";
+import "../../styles/split-bg.css";
 
 const TrainingSchedule = ({ trainingData }) => {
+    const splitImage = buildR2ImageUrl(
+        "Training",
+        "rugby-woman-team-zagreb-training_7749.jpg"
+    );
+
     return (
-        <div className="relative h-[462px] overflow-hidden rounded-custom group cursor-pointer">
-            <img
-                src="src/assets/images/players/rugby-woman-dina-free-kick.jpg"
-                alt="Training session"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-            <div className="absolute inset-0 p-8 flex flex-col text-text-light">
+        <div
+            className="relative h-[462px] overflow-hidden rounded-custom group cursor-pointer splitBg-left"
+            style={{
+                backgroundImage: `url(${splitImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+            }}
+        >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
+            <div className="relative p-8 flex flex-col h-full text-text-light z-10">
                 <h3 className="text-3xl font-light tracking-wide font-hero text-text-light leading-[0.85] uppercase mb-6">
                     TRAINING SCHEDULE
                 </h3>

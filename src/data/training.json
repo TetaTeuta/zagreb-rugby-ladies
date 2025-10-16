@@ -1,7 +1,7 @@
 {
     "location": {
-        "name": "Rugby Center Rudes",
-        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+        "name": "Rugby Center Rudeš",
+        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
         "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8",
         "coordinates": {
             "lat": 45.7888,
@@ -36,8 +36,8 @@
     ],
     "contact": {
         "email": "zrkzagreb@zagreb-rugby.hr",
-        "phone": "+385 99 123 4567",
-        "whatsapp": "+385 99 123 4567"
+        "phone": "+385 91 404 2005",
+        "whatsapp": "+385 91 404 2005"
     },
     "gettingStarted": {
         "whatToBring": [

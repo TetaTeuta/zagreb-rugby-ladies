@@ -12,8 +12,8 @@
                     "homeTeam": "Zagreb Rugby Ladies",
                     "awayTeam": "Split Rugby Club",
                     "location": {
-                        "name": "Rugby Center Rudes",
-                        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+                        "name": "Rugby Center Rudeš",
+                        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
                         "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
                     },
                     "matchType": "Championship",
@@ -48,8 +48,8 @@
                     "homeTeam": "Zagreb Rugby Ladies",
                     "awayTeam": "Rugby Nada Split",
                     "location": {
-                        "name": "Rugby Center Rudes",
-                        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+                        "name": "Rugby Center Rudeš",
+                        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
                         "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
                     },
                     "matchType": "Championship",
@@ -82,8 +82,8 @@
                     "homeTeam": "Zagreb Rugby Ladies U18",
                     "awayTeam": "Split Rugby U18",
                     "location": {
-                        "name": "Rugby Center Rudes",
-                        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+                        "name": "Rugby Center Rudeš",
+                        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
                         "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
                     },
                     "matchType": "Youth Championship",
@@ -118,8 +118,8 @@
                     "homeTeam": "Zagreb Rugby Ladies U18",
                     "awayTeam": "Pula Pirates U18",
                     "location": {
-                        "name": "Rugby Center Rudes",
-                        "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
+                        "name": "Rugby Center Rudeš",
+                        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
                         "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
                     },
                     "matchType": "Youth Championship",

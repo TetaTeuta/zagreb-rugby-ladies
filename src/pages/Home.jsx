@@ -14,7 +14,6 @@ import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
 import { ScrollIndicator } from "../components/ui/ScrollIndicator";
-import { buildR2ImageUrl } from "../lib/cdn";
 
 const Home = () => {
     const { t } = useTranslation();
@@ -45,9 +44,9 @@ const Home = () => {
         },
     ];
 
-    // Get 3 random players on each render
     const getRandomPlayers = () => {
-        const shuffled = [...playersData].sort(() => 0.5 - Math.random());
+        const firstNine = playersData.slice(0, 9);
+        const shuffled = [...firstNine].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, 3);
     };
 
@@ -62,11 +61,6 @@ const Home = () => {
 
     // Structured Data for Sports Organization
     const organizationData = createSportsOrganizationData();
-
-    const img = buildR2ImageUrl(
-        "Match",
-        "rugby-woman-team-zagreb-match_7541.jpg"
-    );
 
     return (
         <div className="min-h-screen bg-surface-elevated">
@@ -129,7 +123,7 @@ const Home = () => {
                     <NextMatch
                         matchData={nextMatchData.match}
                         opponent={currentOpponent}
-                        src={img}
+                        homeVenue={nextMatchData.homeVenue}
                     />
                 </AnimatedSection>
 

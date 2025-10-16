@@ -1,12 +1,15 @@
 {
+    "homeVenue": {
+        "name": "Rugby Center Rudeš",
+        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
+        "city": "Zagreb",
+        "country": "Croatia",
+        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
+    },
     "match": {
-        "date": "2025-10-15",
-        "time": "15:00",
-        "location": {
-            "name": "Rugby Center Rudes",
-            "address": "Sošićka ul. 55, 10110, Zagreb, Croatia",
-            "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
-        },
+        "date": "2025-11-08",
+        "time": "16:00",
+        "isHome": false,
         "opponentKey": "rugby-nada-split",
         "homeTeam": {
             "name": "Zagreb Rugby Ladies",
@@ -19,8 +22,13 @@
         "rugby-nada-split": {
             "name": "Rugby Nada Split",
             "logo": "src/assets/images/logos/nada-rugby-logo.jpeg",
-            "address": "Zrinsko-Frankopanska 17, 21000 Split, Hrvatska",
-            "mapUrl": "https://maps.app.goo.gl/Wy62TxiJ5cuJ9g6V8"
+            "location": {
+                "name": "Rugby Club Nada",
+                "address": "Zrinsko-Frankopanska 17, 21000 Split, Hrvatska",
+                "city": "Split",
+                "country": "Croatia",
+                "mapUrl": "https://maps.app.goo.gl/Wy62TxiJ5cuJ9g6V8"
+            }
         }
     }
 }

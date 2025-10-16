@@ -1,0 +1,21 @@
+/* Split Background Effect for Mission & Values Cards */
+@media (min-width: 1024px) {
+    .splitBg-left {
+        background-size: 200% auto !important;
+        background-position: left center !important;
+    }
+
+    .splitBg-right {
+        background-size: 200% auto !important;
+        background-position: right center !important;
+    }
+}
+
+/* Mobile - use cover for each card */
+@media (max-width: 1023px) {
+    .splitBg-left,
+    .splitBg-right {
+        background-size: cover !important;
+        background-position: center !important;
+    }
+}

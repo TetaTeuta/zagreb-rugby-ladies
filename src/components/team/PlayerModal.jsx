@@ -103,9 +103,6 @@ const PlayerFunFact = ({ funFact }) => {
         <div className="bg-white rounded-xl border border-gray-200">
             <div className="p-4">
                 <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
-                        <Zap className="w-6 h-6 text-yellow-600" />
-                    </div>
                     <div className="flex-1">
                         <h3 className="text-sm font-semibold text-text mb-1">
                             {t("team.playerModal.funFact")}
@@ -115,50 +112,6 @@ const PlayerFunFact = ({ funFact }) => {
                 </div>
             </div>
         </div>
-    );
-};
-
-const SocialLink = ({ url, children }) => (
-    <Button variant="blue" size="sm" asChild>
-        <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2"
-        >
-            {children}
-        </a>
-    </Button>
-);
-
-const PlayerSocials = ({ socials }) => {
-    const { t } = useTranslation();
-    const socialEntries = Object.entries(socials);
-
-    if (socialEntries.length === 0) return null;
-
-    return (
-        <InfoSection title={t("team.playerModal.connect")}>
-            <div className="flex gap-2">
-                {socials.instagram && (
-                    <SocialLink url={socials.instagram}>
-                        <Instagram className="h-4 w-4" />
-                        {t("team.playerModal.instagram")}
-                    </SocialLink>
-                )}
-                {socialEntries.map(([platform, url]) => {
-                    if (platform === "instagram") return null;
-
-                    return (
-                        <SocialLink key={platform} url={url}>
-                            <ExternalLink className="h-4 w-4" />
-                            {platform.charAt(0).toUpperCase() +
-                                platform.slice(1)}
-                        </SocialLink>
-                    );
-                })}
-            </div>
-        </InfoSection>
     );
 };
 
@@ -211,11 +164,6 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
                     {player.funFact && (
                         <PlayerFunFact funFact={player.funFact} />
                     )}
-
-                    {player.socials && (
-                        <PlayerSocials socials={player.socials} />
-                    )}
-
                     <PlayerActions onClose={onClose} />
                 </div>
             </div>

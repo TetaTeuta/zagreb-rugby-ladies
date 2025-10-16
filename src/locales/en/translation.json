@@ -2,7 +2,7 @@
     "navigation": {
         "home": "Home",
         "about": "About Us",
-        "team": "Team",
+        "team": "Players",
         "schedule": "Schedule",
         "rugby101": "Rugby 101",
         "gallery": "Gallery",
@@ -131,13 +131,13 @@
         },
         "coaches": {
             "title": "MEET OUR STAFF",
-            "contactCoach": "Contact Coach",
+            "contactCoach": "Contact",
             "sandi": {
                 "name": "Aleksandar Holjevac",
                 "role": "Fitness & Conditioning Coach"
             },
             "kuca": {
-                "name": "Marija Kuča",
+                "name": "Marija Kuća",
                 "role": "Physiotherapist"
             },
             "petra": {
@@ -180,7 +180,7 @@
             "fullName": "Full Name",
             "emailAddress": "Email Address",
             "phoneNumber": "Phone Number",
-            "phoneOptional": "+385 99 123 4567 (optional)",
+            "phoneOptional": "+385 91 404 2005 (optional)",
             "reasonForContact": "Reason for Contact",
             "chooseReason": "Choose a reason...",
             "reasons": {
@@ -217,7 +217,7 @@
             "trainingSchedule": "TRAINING SCHEDULE",
             "location": "LOCATION",
             "directContact": "DIRECT CONTACT",
-            "whatToExpect": "What to Expect",
+            "whatToExpect": "WHAT TO EXPECT",
             "expectations": {
                 "response": "Response within 24 hours",
                 "invitation": "Invitation to attend a trial training",
@@ -242,7 +242,7 @@
         "stats": {
             "title": "OUR TEAM",
             "subtitle": "Every player has a unique journey.",
-            "activePlayers": "Active Players",
+            "activePlayers": "Active Members",
             "yearsStrong": "Years Strong",
             "teamSpirit": "Team Spirit"
         },
@@ -274,7 +274,7 @@
         },
         "cta": {
             "title": "WANT TO JOIN OUR TEAM?",
-            "description": "We're always looking for new players who want to challenge themselves, make friends, and be part of something special. No experience required—just bring your enthusiasm!"
+            "description": "We're always looking for new players who want to challenge themselves, make friends, and be part of something special. No experience required - just bring your enthusiasm!"
         },
         "imageAlts": {
             "hero": "Team rugby action",

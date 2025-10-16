@@ -2,7 +2,7 @@
     "navigation": {
         "home": "Početna",
         "about": "O nama",
-        "team": "Ekipa",
+        "team": "Igračice",
         "schedule": "Raspored",
         "rugby101": "Rugby 101",
         "gallery": "Galerija",
@@ -257,7 +257,7 @@
             "fullName": "Puno ime",
             "emailAddress": "Email adresa",
             "phoneNumber": "Broj telefona",
-            "phoneOptional": "+385 99 123 4567 (neobavezno)",
+            "phoneOptional": "+385 91 404 2005 (neobavezno)",
             "reasonForContact": "Razlog kontakta",
             "chooseReason": "Odaberi razlog...",
             "reasons": {

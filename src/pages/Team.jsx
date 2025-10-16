@@ -9,6 +9,8 @@ import { Users, Trophy, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import playersData from "../data/players.json";
 import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
+import { buildR2ImageUrl } from "../lib/cdn";
+import "../styles/split-bg.css";
 
 const Team = () => {
     const { t } = useTranslation();
@@ -37,7 +39,7 @@ const Team = () => {
         },
         {
             icon: Trophy,
-            number: "5",
+            number: `${new Date().getFullYear() - 2017}`,
             label: t("team.stats.yearsStrong"),
         },
         {
@@ -46,6 +48,11 @@ const Team = () => {
             label: t("team.stats.teamSpirit"),
         },
     ];
+
+    const cultureSplitImage = buildR2ImageUrl(
+        "Training",
+        "rugby-woman-team-zagreb-training_7749.jpg"
+    );
 
     // SEO Configuration
     const pageTitle = "Meet Zagreb Rugby Ladies Team | Our Players & Culture";
@@ -116,14 +123,17 @@ const Team = () => {
                 <AnimatedSection divider="wave" className="mb-8">
                     <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
-                            src="/src/assets/images/players/teuta_rugby.jpg"
+                            src={buildR2ImageUrl(
+                                "Team",
+                                "rugby-woman-team-zagreb_7726.jpg"
+                            )}
                             alt={t("team.imageAlts.stats")}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                         <div className="absolute inset-0 p-8 sm:p-10 lg:p-12 flex flex-col justify-end text-text-light">
                             <div className="mb-6">
-                                <h2 className="text-4xl font-bold text-text-light mb-2 tracking-wide">
+                                <h2 className="text-4xl text-text-light mb-2 tracking-wide">
                                     {t("team.stats.title")}
                                 </h2>
                                 <p className="text-lg text-text-light/80 mb-4">
@@ -167,7 +177,7 @@ const Team = () => {
                 {/* Players Section */}
                 <AnimatedSection className="mb-8" delay={1}>
                     <div className="text-center mb-8">
-                        <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                        <h2 className="text-4xl md:text-5xl font-light text-primary mb-4 tracking-wide">
                             {t("team.players.title")}
                         </h2>
                         <p className="text-lg text-muted max-w-2xl mx-auto">
@@ -193,14 +203,16 @@ const Team = () => {
                     delay={2}
                 >
                     {/* Inclusive Environment */}
-                    <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
-                        <img
-                            src="/src/assets/images/players/lucija_rugby.jpg"
-                            alt={t("team.imageAlts.inclusive")}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                        <div className="absolute inset-0 p-8 flex flex-col justify-end text-text-light">
+                    <div
+                        className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer splitBg-left"
+                        style={{
+                            backgroundImage: `url(${cultureSplitImage})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                        }}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
+                        <div className="relative p-8 flex flex-col justify-end h-full text-text-light z-10">
                             <h3 className="text-3xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                                 {t("team.culture.inclusive.title")}
                             </h3>
@@ -222,14 +234,16 @@ const Team = () => {
                     </div>
 
                     {/* Player Development */}
-                    <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
-                        <img
-                            src="/src/assets/images/players/manuela_rugby.jpg"
-                            alt={t("team.imageAlts.development")}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                        <div className="absolute inset-0 p-8 flex flex-col justify-end text-text-light">
+                    <div
+                        className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer splitBg-right"
+                        style={{
+                            backgroundImage: `url(${cultureSplitImage})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                        }}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
+                        <div className="relative p-8 flex flex-col justify-end h-full text-text-light z-10">
                             <h3 className="text-3xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                                 {t("team.culture.development.title")}
                             </h3>

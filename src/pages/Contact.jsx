@@ -166,7 +166,7 @@ const Contact = () => {
                         <div className="bg-surface rounded-custom p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
                             <div className="mb-6">
                                 <Send className="h-10 w-10 text-primary m-6" />
-                                <h3 className="text-2xl font-light mb-2 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                                <h3 className="text-2xl font-light mb-2 tracking-wide font-hero text-primary text-text-contrast leading-[0.85]">
                                     {t("contact.form.title")}
                                 </h3>
                                 <p className="text-muted text-sm">
@@ -368,7 +368,7 @@ const Contact = () => {
                             <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
                                 <Phone className="h-8 w-8 text-accent" />
                             </div>
-                            <h3 className="text-2xl font-light mb-6 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                            <h3 className="text-2xl font-light mb-6 tracking-wide text-primary font-hero text-text-contrast leading-[0.85]">
                                 {t("contact.info.title")}
                             </h3>
 
@@ -377,7 +377,7 @@ const Contact = () => {
                                 <div className="bg-muted-light/50 rounded-lg p-4">
                                     <div className="flex items-center mb-4">
                                         <Clock className="h-5 w-5 text-primary mr-2" />
-                                        <h4 className="font-light tracking-wide font-hero text-text-contrast leading-[0.85]">
+                                        <h4 className="font-light tracking-wide text-primary font-hero text-text-contrast leading-[0.85]">
                                             {t("contact.info.trainingSchedule")}
                                         </h4>
                                     </div>
@@ -405,8 +405,8 @@ const Contact = () => {
 
                                 <div className="bg-muted-light/50 rounded-lg p-4">
                                     <div className="flex items-center mb-4">
-                                        <MapPin className="h-5 w-5 text-primary mr-2" />
-                                        <h4 className="font-light tracking-wide font-hero text-text-contrast leading-[0.85]">
+                                        <MapPin className="h-5 w-5 mr-2" />
+                                        <h4 className="font-light tracking-wide text-primary font-hero text-text-contrast leading-[0.85]">
                                             {t("contact.info.location")}
                                         </h4>
                                     </div>
@@ -419,7 +419,7 @@ const Contact = () => {
                                 </div>
 
                                 <div className="bg-muted-light/50 rounded-lg p-4">
-                                    <h4 className="font-light tracking-wide font-hero text-text-contrast mb-4 leading-[0.85]">
+                                    <h4 className="font-light tracking-wide text-primary font-hero text-text-contrast mb-4 leading-[0.85]">
                                         {t("contact.info.directContact")}
                                     </h4>
                                     <div className="space-y-3">
@@ -439,7 +439,7 @@ const Contact = () => {
                                 </div>
 
                                 <div className="bg-muted-light/50 rounded-lg p-4">
-                                    <h4 className="font-bold text-text-contrast mb-3">
+                                    <h4 className="text-primary font-light tracking-wide text-text-contrast mb-3">
                                         {t("contact.info.whatToExpect")}
                                     </h4>
                                     <ul className="space-y-2 text-sm text-muted">

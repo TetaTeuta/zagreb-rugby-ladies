@@ -12,6 +12,7 @@ import {
     createSportsOrganizationData,
     createArticleStructuredData,
 } from "../components/ui/SEO";
+import "../styles/split-bg.css";
 
 const About = () => {
     const { t } = useTranslation();
@@ -24,6 +25,20 @@ const About = () => {
         {
             name: t("about.coaches.sandi.name"),
             role: t("about.coaches.sandi.role"),
+            img: buildR2ImageUrl("Team", "rugby-woman-team-zagreb_7731.jpg"),
+        },
+        {
+            name: t("about.coaches.kuca.name"),
+            role: t("about.coaches.kuca.role"),
+            img: buildR2ImageUrl("Team", "rugby-woman-team-zagreb_7731.jpg"),
+        },
+        {
+            name: t("about.coaches.petra.name"),
+            role: t("about.coaches.petra.role"),
+            img: buildR2ImageUrl(
+                "Players",
+                "rugby-woman-player-_7576-petra.jpg"
+            ),
         },
     ];
 
@@ -67,6 +82,16 @@ const About = () => {
         "@context": "https://schema.org",
         "@graph": [organizationData, articleData],
     };
+
+    const splitImageMission = buildR2ImageUrl(
+        "Training",
+        "rugby-woman-team-zagreb-training_7750.jpg"
+    );
+
+    const splitImageTraining = buildR2ImageUrl(
+        "Match",
+        "rugby-woman-team-zagreb-match_7471.jpg"
+    );
 
     return (
         <div className="min-h-screen bg-surface">
@@ -167,20 +192,22 @@ const About = () => {
                 {/* Mission & Values Grid */}
                 <AnimatedSection className="mb-8" delay={1}>
                     <div className="text-center mb-8">
-                        <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                        <h2 className="text-4xl md:text-5xl font-light text-primary mb-4 tracking-wide">
                             {t("about.mission.title")}
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
                         {/* Mission Section */}
-                        <div className="relative min-h-[350px] overflow-hidden rounded-custom group cursor-pointer">
-                            <img
-                                src="/src/assets/images/players/petra_rugby.jpg"
-                                alt={t("about.imageAlts.mission")}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                            <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
+                        <div
+                            className="relative min-h-[350px] overflow-hidden rounded-custom group cursor-pointer splitBg-left"
+                            style={{
+                                backgroundImage: `url(${splitImageMission})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                            }}
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
+                            <div className="relative p-6 sm:p-8 flex flex-col h-full text-text-light z-10">
                                 <h3 className="text-2xl sm:text-3xl font-light mb-4 sm:mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                                     {t("about.mission.missionTitle")}
                                 </h3>
@@ -202,14 +229,16 @@ const About = () => {
                         </div>
 
                         {/* Values Section */}
-                        <div className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer">
-                            <img
-                                src="/src/assets/images/players/josipa_rugby.jpg"
-                                alt={t("about.imageAlts.values")}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                            <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
+                        <div
+                            className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer splitBg-right"
+                            style={{
+                                backgroundImage: `url(${splitImageMission})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                            }}
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
+                            <div className="relative p-6 sm:p-8 flex flex-col h-full text-text-light z-10">
                                 <h3 className="text-2xl sm:text-3xl font-light mb-4 sm:mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                                     {t("about.mission.valuesTitle")}
                                 </h3>
@@ -258,7 +287,7 @@ const About = () => {
                 {/* Coaching Staff */}
                 <AnimatedSection className="mb-8" delay={2}>
                     <div className="text-center mb-8">
-                        <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-wide font-hero text-text-contrast leading-[0.85]">
+                        <h2 className="text-4xl md:text-5xl font-light text-primary mb-4 tracking-wide">
                             {t("about.coaches.title")}
                         </h2>
                     </div>
@@ -269,17 +298,11 @@ const About = () => {
                                 className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer"
                             >
                                 <img
-                                    src={`/src/assets/images/players/${
-                                        [
-                                            "teuta_rugby.jpg",
-                                            "manuela_rugby.jpg",
-                                            "margaux_rugby.jpg",
-                                        ][index]
-                                    }`}
+                                    src={coach.img}
                                     alt={coach.name}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/30 via-text-contrast/20 to-transparent"></div>
                                 <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
                                     <h3 className="text-2xl sm:text-3xl font-light mb-2 tracking-wide font-hero text-text-light leading-[0.85]">
                                         {coach.name.toUpperCase()}
@@ -313,14 +336,16 @@ const About = () => {
                     delay={3}
                 >
                     {/* Training Schedule */}
-                    <div className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer">
-                        <img
-                            src="/src/assets/images/players/petra1_rugby.jpg"
-                            alt={t("about.imageAlts.trainingSchedule")}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                        <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
+                    <div
+                        className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer splitBg-left"
+                        style={{
+                            backgroundImage: `url(${splitImageTraining})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                        }}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
+                        <div className="relative p-6 sm:p-8 flex flex-col h-full text-text-light z-10">
                             <h3 className="text-2xl sm:text-3xl font-light tracking-wide font-hero text-text-light leading-[0.85] mb-4 sm:mb-6">
                                 {t("about.training.title")}
                             </h3>
@@ -365,14 +390,16 @@ const About = () => {
                     </div>
 
                     {/* Contact Information */}
-                    <div className="relative min-h-[350px] overflow-hidden rounded-custom group cursor-pointer">
-                        <img
-                            src="/src/assets/images/players/margaux_rugby.jpg"
-                            alt={t("about.imageAlts.contactUs")}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                        <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
+                    <div
+                        className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer splitBg-right"
+                        style={{
+                            backgroundImage: `url(${splitImageTraining})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                        }}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
+                        <div className="relative p-6 sm:p-8 flex flex-col h-full text-text-light z-10">
                             <h3 className="text-2xl sm:text-3xl font-light tracking-wide font-hero text-text-light leading-[0.85] mb-4 sm:mb-6">
                                 {t("about.contact.title")}
                             </h3>
