@@ -14,6 +14,7 @@ import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
 import { ScrollIndicator } from "../components/ui/ScrollIndicator";
+import { buildR2ImageUrl } from "../lib/cdn";
 
 const Home = () => {
     const { t } = useTranslation();
@@ -62,8 +63,10 @@ const Home = () => {
     // Structured Data for Sports Organization
     const organizationData = createSportsOrganizationData();
 
-    const img =
-        "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/Match/rugby-woman-team-zagreb-match_7541.jpg";
+    const img = buildR2ImageUrl(
+        "Match",
+        "rugby-woman-team-zagreb-match_7541.jpg"
+    );
 
     return (
         <div className="min-h-screen bg-surface-elevated">

@@ -11,6 +11,7 @@ import { CallToAction } from "../components/ui/CallToAction";
 import scheduleData from "../data/schedule.json";
 import nextMatchData from "../data/nextMatch.json";
 import { SEO } from "../components/ui/SEO";
+import { buildR2ImageUrl } from "../lib/cdn";
 
 const Schedule = () => {
     const { t } = useTranslation();
@@ -215,8 +216,10 @@ const Schedule = () => {
             </Card>
         );
     };
-    const img =
-        "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/Match/rugby-woman-team-zagreb-match_7503.jpg";
+    const img = buildR2ImageUrl(
+        "Match",
+        "rugby-woman-team-zagreb-match_7503.jpg"
+    );
     return (
         <div className="min-h-screen bg-surface">
             <SEO

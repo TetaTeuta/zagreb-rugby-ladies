@@ -4,6 +4,7 @@ import { Button } from "../components/ui/Button";
 import { Link } from "react-router-dom";
 import { Users, Heart, Zap } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { buildR2ImageUrl } from "../lib/cdn";
 import { CallToAction } from "../components/ui/CallToAction";
 import trainingData from "../data/training.json";
 import {
@@ -124,11 +125,15 @@ const About = () => {
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Our Story Section */}
                 <AnimatedSection className="mb-8">
-                    <div className="relative min-h-[400px] overflow-hidden rounded-custom group cursor-pointer">
+                    <div className="relative h-[400px] md:h-[500px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
-                            src="/src/assets/images/players/lucija_rugby.jpg"
+                            src={buildR2ImageUrl(
+                                "Team",
+                                "rugby-woman-team-zagreb_7731.jpg"
+                            )}
                             alt={t("about.imageAlts.story")}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            style={{ objectPosition: "50% 20%" }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
                         <div className="absolute inset-0 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-start text-text-light">

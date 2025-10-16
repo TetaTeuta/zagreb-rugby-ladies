@@ -101,8 +101,8 @@
         },
         "story": {
             "title": "OUR STORY",
-            "subtitle": "Founded in 2020, Zagreb Rugby Ladies emerged from a simple belief.",
-            "description1": "Today, we're proud members of the Croatian Rugby Federation, with over 30 active players ranging from complete beginners to experienced athletes. Our club has become a cornerstone of women's rugby in Croatia, inspiring other cities to start their own teams.",
+            "subtitle": "Founded in 2017, Zagreb Rugby Ladies emerged from a simple belief.",
+            "description1": "Today, we're proud members of the Croatian Rugby Union, with over 30 active members ranging from complete beginners to experienced athletes and national team players. Our club has become a cornerstone of women's rugby in Croatia.",
             "description2": "But our greatest achievement isn't our wins on the field—it's the confidence, friendships, and personal growth our players develop."
         },
         "mission": {
@@ -130,11 +130,19 @@
             }
         },
         "coaches": {
-            "title": "MEET OUR COACHES",
+            "title": "MEET OUR STAFF",
             "contactCoach": "Contact Coach",
             "sandi": {
                 "name": "Aleksandar Holjevac",
                 "role": "Fitness & Conditioning Coach"
+            },
+            "kuca": {
+                "name": "Marija Kuča",
+                "role": "Physiotherapist"
+            },
+            "petra": {
+                "name": "Petra Kušen",
+                "role": "Team Captain"
             }
         },
         "training": {
