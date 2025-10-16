@@ -196,11 +196,8 @@ const Lightbox = ({
                         maxHeight: "85vh",
                         transform: `translateX(${swipeOffset}px)`,
                         transition: isTransitioning
-                            ? "transform 0.3s ease-out, opacity 0.3s ease-out"
+                            ? "transform 0.3s ease-out"
                             : "none",
-                        opacity: isTransitioning
-                            ? 0.7
-                            : 1 - Math.abs(swipeOffset) / 1000,
                     }}
                     onClick={(e) => e.stopPropagation()}
                     onError={(e) => {

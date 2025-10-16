@@ -12,6 +12,7 @@ import {
     createSportsOrganizationData,
     createArticleStructuredData,
 } from "../components/ui/SEO";
+import { contactConfig } from "../config/contact";
 import "../styles/split-bg.css";
 
 const About = () => {
@@ -421,10 +422,10 @@ const About = () => {
                                     </h4>
                                     <div className="space-y-1">
                                         <p className="text-text-light/90 text-xs sm:text-sm">
-                                            {trainingData.contact.email}
+                                            {contactConfig.email}
                                         </p>
                                         <p className="text-text-light/90 text-xs sm:text-sm">
-                                            {trainingData.contact.phone}
+                                            {contactConfig.phone}
                                         </p>
                                     </div>
                                 </div>

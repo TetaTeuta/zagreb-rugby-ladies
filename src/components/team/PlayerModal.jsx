@@ -100,7 +100,7 @@ const PlayerFunFact = ({ funFact }) => {
     const { t } = useTranslation();
 
     return (
-        <div className="bg-white rounded-xl border border-gray-200">
+        <div className="bg-white rounded-custom border border-gray-200">
             <div className="p-4">
                 <div className="flex items-start gap-3">
                     <div className="flex-1">

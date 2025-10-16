@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 import { Instagram, Mail, MapPin, Phone, Facebook } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import trainingData from "../../data/training.json";
+import {
+    contactConfig,
+    getEmailLink,
+    getPhoneLink,
+} from "../../config/contact";
 
 const Footer = () => {
     const { t } = useTranslation();
@@ -36,19 +41,19 @@ const Footer = () => {
                             <div className="flex items-center space-x-3">
                                 <Mail className="h-4 w-4 text-text-light/60 flex-shrink-0" />
                                 <a
-                                    href={`mailto:${trainingData.contact.email}`}
+                                    href={getEmailLink()}
                                     className="text-sm text-text-light/80 hover:text-text-light transition-colors"
                                 >
-                                    {trainingData.contact.email}
+                                    {contactConfig.email}
                                 </a>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <Phone className="h-4 w-4 text-text-light/60 flex-shrink-0" />
                                 <a
-                                    href={`tel:${trainingData.contact.phone}`}
+                                    href={getPhoneLink()}
                                     className="text-sm text-text-light/80 hover:text-text-light transition-colors"
                                 >
-                                    {trainingData.contact.phone}
+                                    {contactConfig.phone}
                                 </a>
                             </div>
                         </div>
@@ -73,7 +78,7 @@ const Footer = () => {
                                 <Facebook className="h-5 w-5" />
                             </a>
                             <a
-                                href="mailto:zrkzagreb@zagreb-rugby.hr"
+                                href={getEmailLink()}
                                 className="p-2 rounded-lg bg-surface/10 hover:bg-primary hover:text-text-light transition-colors"
                                 aria-label={t("footer.ariaLabels.email")}
                             >

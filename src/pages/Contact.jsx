@@ -9,6 +9,7 @@ import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import { Link } from "react-router-dom";
 import { SEO } from "../components/ui/SEO";
+import { contactConfig, getEmailLink } from "../config/contact";
 
 const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -91,8 +92,8 @@ const Contact = () => {
         mainEntity: {
             "@type": "SportsOrganization",
             name: "Zagreb Rugby Ladies",
-            email: trainingData.contact.email,
-            telephone: trainingData.contact.phone,
+            email: contactConfig.email,
+            telephone: contactConfig.phone,
             address: {
                 "@type": "PostalAddress",
                 streetAddress: trainingData.location.address,
@@ -426,13 +427,13 @@ const Contact = () => {
                                         <div className="flex items-center">
                                             <Mail className="h-4 w-4 text-primary mr-3" />
                                             <span className="text-muted font-medium">
-                                                {trainingData.contact.email}
+                                                {contactConfig.email}
                                             </span>
                                         </div>
                                         <div className="flex items-center">
                                             <Phone className="h-4 w-4 text-primary mr-3" />
                                             <span className="text-muted font-medium">
-                                                {trainingData.contact.phone}
+                                                {contactConfig.phone}
                                             </span>
                                         </div>
                                     </div>
@@ -499,7 +500,7 @@ const Contact = () => {
                     titleKey="contact.cta.title"
                     descriptionKey="contact.cta.description"
                     primaryButton={{
-                        href: `mailto:${trainingData.contact.email}`,
+                        href: getEmailLink(),
                         textKey: "contact.cta.emailDirect",
                     }}
                     secondaryButton={{

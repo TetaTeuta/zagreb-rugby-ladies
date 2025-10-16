@@ -15,15 +15,15 @@
     {
         "id": "josipa-farac",
         "name": "Josipa Farac",
-        "position": "Wing",
-        "about": "Speed demon on the wing with exceptional footwork and game awareness.",
+        "position": "Prop",
+        "about": "An islander from Korčula, she's known as the team's main entertainer - nicknamed 'Živiđuboks' (the live jukebox). She graduated from the stone-carving school on Brač and works in restoration. Her hobbies include photography, video production, cooking, and drawing. Rugby is the perfect sport for her—it has taught her a lot, helped her grow, and she's grateful to be part of this community.",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/josipa_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7568-josipa.jpg",
-        "quote": "Speed kills, but teamwork wins championships.",
+        "quote": "Art fills my soul, rugby fills my heart, and the people around me give meaning to everything.",
         "socials": {
             "instagram": "https://instagram.com/josipaf"
         },
-        "funFact": "Holds the team record for most tries scored in a single season!"
+        "funFact": "She can do an impressive Donald Duck voice."
     },
     {
         "id": "teuta-stazic",
@@ -49,7 +49,7 @@
         "socials": {
             "instagram": "https://instagram.com/margauxf"
         },
-        "funFact": "I come from France, a land where rugby runs deep but it was in Croatia that I first laced up my cleats."
+        "funFact": "She comes from France, a land where rugby runs deep, but it was in Croatia that she first laced up her cleats."
     },
     {
         "id": "manuela-andrijanan",
@@ -88,20 +88,20 @@
         "socials": {
             "instagram": "https://instagram.com/leak"
         },
-        "funFact": "I keep saying I don’t feel like doing anything, yet I still get everything done"
+        "funFact": "She keeps saying she doesn't feel like doing anything, yet she still gets everything done."
     },
     {
         "id": "lara-vuk",
         "name": "Lara Vuk",
         "position": "Flanker",
-        "about": "High school student, artist",
+        "about": "High school student and artist",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/lara_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7654-lara.jpg",
         "quote": "Rugby taught me more about life than school ever could.",
         "socials": {
             "instagram": "https://instagram.com/larav"
         },
-        "funFact": "Before rugby, I trained kickboxing, and in my free time, I go on adventures with my dogs."
+        "funFact": "Before rugby, she trained kickboxing, and in her free time, she goes on adventures with her dogs."
     },
     {
         "id": "gabriell-martinovic",
