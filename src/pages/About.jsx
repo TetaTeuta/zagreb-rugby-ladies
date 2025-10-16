@@ -151,7 +151,7 @@ const About = () => {
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Our Story Section */}
                 <AnimatedSection className="mb-8">
-                    <div className="relative h-[580px] md:h-[680px] overflow-hidden rounded-custom group cursor-pointer">
+                    <div className="relative h-[580px] md:h-[500px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src={buildR2ImageUrl(
                                 "Team",

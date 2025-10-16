@@ -13,7 +13,7 @@ const Highlights = ({ highlights }) => {
 
     return (
         <div
-            className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer splitBg-right"
+            className="relative h-[600px] md:h-[462px] overflow-hidden rounded-custom group cursor-pointer splitBg-right"
             style={{
                 backgroundImage: `url(${splitImage})`,
                 backgroundSize: "cover",
