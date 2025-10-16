@@ -14,7 +14,7 @@ import { SEO } from "../components/ui/SEO";
 import { buildR2ImageUrl } from "../lib/cdn";
 
 const Schedule = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [activeTeam, setActiveTeam] = useState("senior");
 
     useEffect(() => {
@@ -120,7 +120,9 @@ const Schedule = () => {
                                 <Calendar className="h-4 w-4 text-primary" />
                                 <span className="text-text-contrast font-medium">
                                     {new Date(match.date).toLocaleDateString(
-                                        "en-US",
+                                        i18n.language === "hr"
+                                            ? "hr-HR"
+                                            : "en-US",
                                         {
                                             weekday: "long",
                                             month: "long",

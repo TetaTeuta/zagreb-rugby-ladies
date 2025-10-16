@@ -10,28 +10,28 @@
     },
     "schedule": [
         {
-            "day": "Monday",
+            "dayKey": "Monday",
             "time": "20:00",
             "duration": "90 minutes",
-            "type": "Skills & Fitness"
+            "typeKey": "skillsFitness"
         },
         {
-            "day": "Tuesday",
+            "dayKey": "Tuesday",
             "time": "20:00",
             "duration": "90 minutes",
-            "type": "Team Training"
+            "typeKey": "teamTraining"
         },
         {
-            "day": "Thursday",
+            "dayKey": "Thursday",
             "time": "20:00",
             "duration": "90 minutes",
-            "type": "Team Training"
+            "typeKey": "teamTraining"
         },
         {
-            "day": "Saturday",
+            "dayKey": "Saturday",
             "time": "10:00",
             "duration": "Variable",
-            "type": "Match Day"
+            "typeKey": "matchDay"
         }
     ],
     "contact": {
@@ -40,18 +40,13 @@
         "whatsapp": "+385 91 404 2005"
     },
     "gettingStarted": {
-        "whatToBring": [
-            "Comfortable athletic wear",
-            "Running shoes or rugby boots",
-            "Water bottle",
-            "Positive attitude"
-        ],
+        "whatToBring": ["athleticWear", "shoes", "waterBottle", "attitude"],
         "providedByClub": [
-            "Rugby balls",
-            "Training equipment",
-            "First aid support",
-            "Beginner coaching",
-            "Rugby boots"
+            "balls",
+            "equipment",
+            "firstAid",
+            "coaching",
+            "boots"
         ]
     },
     "seasonInfo": {

@@ -37,6 +37,28 @@ const PlayerCard = ({ player, onPlayerClick, imagePath }) => {
         [imagePath, player.profilePhoto, player.photo, player.id]
     );
 
+    // Map position to translation key
+    const getPositionTranslationKey = (position) => {
+        const positionMap = {
+            "Scrum Half": "team.positions.scrumHalf",
+            Prop: "team.positions.prop",
+            "Loosehead Prop": "team.positions.looseheadProp",
+            "Tighthead Prop": "team.positions.tightheadProp",
+            "Fly Half": "team.positions.flyHalf",
+            Lock: "team.positions.lock",
+            Centre: "team.positions.centre",
+            "Inside Centre": "team.positions.insideCentre",
+            Fullback: "team.positions.fullback",
+            Flanker: "team.positions.flanker",
+            Winger: "team.positions.winger",
+            Wing: "team.positions.wing",
+            "Number 8": "team.positions.number8",
+            Hooker: "team.positions.hooker",
+            "Second Row": "team.positions.secondRow",
+        };
+        return positionMap[position] || position;
+    };
+
     return (
         <div
             className="relative h-[400px] overflow-hidden rounded-custom group cursor-pointer"
@@ -65,7 +87,7 @@ const PlayerCard = ({ player, onPlayerClick, imagePath }) => {
                     {player.name}
                 </h3>
                 <p className="text-sm opacity-90 mb-3 font-light">
-                    {player.position}
+                    {t(getPositionTranslationKey(player.position))}
                 </p>
                 <Button
                     size="sm"

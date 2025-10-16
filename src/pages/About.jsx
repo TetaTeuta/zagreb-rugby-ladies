@@ -26,12 +26,12 @@ const About = () => {
         {
             name: t("about.coaches.sandi.name"),
             role: t("about.coaches.sandi.role"),
-            img: buildR2ImageUrl("Team", "rugby-woman-team-zagreb_7731.jpg"),
+            img: "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         },
         {
             name: t("about.coaches.kuca.name"),
             role: t("about.coaches.kuca.role"),
-            img: buildR2ImageUrl("Team", "rugby-woman-team-zagreb_7731.jpg"),
+            img: "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         },
         {
             name: t("about.coaches.petra.name"),
@@ -151,7 +151,7 @@ const About = () => {
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Our Story Section */}
                 <AnimatedSection className="mb-8">
-                    <div className="relative h-[400px] md:h-[500px] overflow-hidden rounded-custom group cursor-pointer">
+                    <div className="relative h-[580px] md:h-[680px] overflow-hidden rounded-custom group cursor-pointer">
                         <img
                             src={buildR2ImageUrl(
                                 "Team",
@@ -357,13 +357,17 @@ const About = () => {
                                         className="bg-surface/20 backdrop-blur-sm rounded-custom p-2 sm:p-3 text-center border border-accent/30"
                                     >
                                         <div className="text-xs text-text-light/80 uppercase tracking-wide mb-1">
-                                            {session.day}
+                                            {t(
+                                                `training.days.${session.dayKey}`
+                                            )}
                                         </div>
                                         <div className="text-base sm:text-lg font-bold text-text-light mb-1">
                                             {session.time}
                                         </div>
                                         <div className="text-xs text-text-light/90">
-                                            {session.type}
+                                            {t(
+                                                `training.types.${session.typeKey}`
+                                            )}
                                         </div>
                                     </div>
                                 ))}

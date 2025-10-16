@@ -390,13 +390,17 @@ const Contact = () => {
                                                     className="text-center bg-surface rounded-custom p-3 border border-border rounded-custom"
                                                 >
                                                     <div className="text-xs text-muted uppercase font-medium">
-                                                        {session.day}
+                                                        {t(
+                                                            `training.days.${session.dayKey}`
+                                                        )}
                                                     </div>
                                                     <div className="text-sm font-bold text-primary">
                                                         {session.time}
                                                     </div>
                                                     <div className="text-xs text-muted">
-                                                        {session.type}
+                                                        {t(
+                                                            `training.types.${session.typeKey}`
+                                                        )}
                                                     </div>
                                                 </div>
                                             )

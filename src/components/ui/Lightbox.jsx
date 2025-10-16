@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Lightbox = ({
     images,
@@ -9,6 +10,7 @@ const Lightbox = ({
     onNext,
     onPrev,
 }) => {
+    const { i18n } = useTranslation();
     const lightboxRef = useRef(null);
     const previousActiveElement = useRef(null);
     const touchStartX = useRef(null);
@@ -212,7 +214,7 @@ const Lightbox = ({
                     <div className="px-8 py-6">
                         <p className="text-text-light/80 text-sm">
                             {new Date(currentImage.dateISO).toLocaleDateString(
-                                "en-US",
+                                i18n.language === "hr" ? "hr-HR" : "en-US",
                                 {
                                     year: "numeric",
                                     month: "long",

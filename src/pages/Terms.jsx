@@ -6,7 +6,7 @@ import { Mail } from "lucide-react";
 import { SEO } from "../components/ui/SEO";
 
 const Terms = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -40,7 +40,9 @@ const Terms = () => {
                     </p>
                     <p className="text-sm text-text-light/60 mt-4">
                         {t("terms.hero.lastUpdated")}:{" "}
-                        {new Date().toLocaleDateString()}
+                        {new Date().toLocaleDateString(
+                            i18n.language === "hr" ? "hr-HR" : "en-US"
+                        )}
                     </p>
                 </div>
             </div>

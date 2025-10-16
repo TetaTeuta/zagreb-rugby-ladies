@@ -27,6 +27,28 @@ const PlayerBanner = ({
 }) => {
     const { t } = useTranslation();
 
+    // Map position to translation key (same as PlayerCard)
+    const getPositionTranslationKey = (position) => {
+        const positionMap = {
+            "Scrum Half": "team.positions.scrumHalf",
+            Prop: "team.positions.prop",
+            "Loosehead Prop": "team.positions.looseheadProp",
+            "Tighthead Prop": "team.positions.tightheadProp",
+            "Fly Half": "team.positions.flyHalf",
+            Lock: "team.positions.lock",
+            Centre: "team.positions.centre",
+            "Inside Centre": "team.positions.insideCentre",
+            Fullback: "team.positions.fullback",
+            Flanker: "team.positions.flanker",
+            Winger: "team.positions.winger",
+            Wing: "team.positions.wing",
+            "Number 8": "team.positions.number8",
+            Hooker: "team.positions.hooker",
+            "Second Row": "team.positions.secondRow",
+        };
+        return positionMap[position] || position;
+    };
+
     return (
         <div className="relative mb-6 border border-white">
             <div className="relative h-64 bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
@@ -58,7 +80,8 @@ const PlayerBanner = ({
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <h2 className="text-4xl font-bold mb-2">{player.name}</h2>
                     <p className="text-base opacity-90">
-                        {player.position} • {t("team.playerModal.clubName")}
+                        {t(getPositionTranslationKey(player.position))} •{" "}
+                        {t("team.playerModal.clubName")}
                     </p>
                 </div>
             </div>
@@ -73,8 +96,10 @@ const InfoSection = ({ title, children }) => (
     </div>
 );
 
-const PlayerQuote = ({ quote }) => {
+const PlayerQuote = ({ player }) => {
     const { t } = useTranslation();
+    const translationKey = `team.players.${player.id}.quote`;
+    const quote = t(translationKey, { defaultValue: player.quote });
 
     return (
         <InfoSection title={t("team.playerModal.playerQuote")}>
@@ -88,16 +113,20 @@ const PlayerQuote = ({ quote }) => {
 const PlayerAbout = ({ player }) => {
     const { t } = useTranslation();
     const firstName = player.name.split(" ")[0];
+    const translationKey = `team.players.${player.id}.about`;
+    const about = t(translationKey, { defaultValue: player.about });
 
     return (
         <InfoSection title={t("team.playerModal.about", { name: firstName })}>
-            <p className="text-text leading-relaxed">{player.about}</p>
+            <p className="text-text leading-relaxed">{about}</p>
         </InfoSection>
     );
 };
 
-const PlayerFunFact = ({ funFact }) => {
+const PlayerFunFact = ({ player }) => {
     const { t } = useTranslation();
+    const translationKey = `team.players.${player.id}.funFact`;
+    const funFact = t(translationKey, { defaultValue: player.funFact });
 
     return (
         <div className="bg-white rounded-custom border border-gray-200">
@@ -138,6 +167,28 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
 
     if (!player) return null;
 
+    // Map position to translation key (same as PlayerCard)
+    const getPositionTranslationKey = (position) => {
+        const positionMap = {
+            "Scrum Half": "team.positions.scrumHalf",
+            Prop: "team.positions.prop",
+            "Loosehead Prop": "team.positions.looseheadProp",
+            "Tighthead Prop": "team.positions.tightheadProp",
+            "Fly Half": "team.positions.flyHalf",
+            Lock: "team.positions.lock",
+            Centre: "team.positions.centre",
+            "Inside Centre": "team.positions.insideCentre",
+            Fullback: "team.positions.fullback",
+            Flanker: "team.positions.flanker",
+            Winger: "team.positions.winger",
+            Wing: "team.positions.wing",
+            "Number 8": "team.positions.number8",
+            Hooker: "team.positions.hooker",
+            "Second Row": "team.positions.secondRow",
+        };
+        return positionMap[position] || position;
+    };
+
     return (
         <Modal
             isOpen={isOpen}
@@ -153,17 +204,15 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
                 <div className="px-6 space-y-6">
                     <InfoSection title={t("team.playerModal.position")}>
                         <p className="text-lg text-text font-medium">
-                            {player.position}
+                            {t(getPositionTranslationKey(player.position))}
                         </p>
                     </InfoSection>
 
-                    {player.quote && <PlayerQuote quote={player.quote} />}
+                    {player.quote && <PlayerQuote player={player} />}
 
                     <PlayerAbout player={player} />
 
-                    {player.funFact && (
-                        <PlayerFunFact funFact={player.funFact} />
-                    )}
+                    {player.funFact && <PlayerFunFact player={player} />}
                     <PlayerActions onClose={onClose} />
                 </div>
             </div>

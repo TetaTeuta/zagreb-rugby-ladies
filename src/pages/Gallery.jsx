@@ -119,24 +119,25 @@ export default function Gallery() {
         const stats = { all: 0 };
         Object.entries(galleryManifest).forEach(([category, images]) => {
             const count = images.length;
-            stats[category.toLowerCase()] = count;
+            const catKey = category.toLowerCase();
+            const mergedKey = catKey === "players" ? "team" : catKey;
+            stats[mergedKey] = (stats[mergedKey] || 0) + count;
             stats.all += count;
         });
         return stats;
     }, [galleryManifest]);
 
     const categories = useMemo(() => {
-        const manifestCategories = Object.keys(galleryManifest).map((k) =>
-            k.toLowerCase()
-        );
+        const manifestCategories = Object.keys(galleryManifest)
+            .map((k) => k.toLowerCase())
+            .map((cat) => (cat === "players" ? "team" : cat))
+            .filter((cat, index, self) => self.indexOf(cat) === index);
 
-        // Map category IDs to translation keys
         const getCategoryLabel = (cat) => {
             const categoryMap = {
                 training: "gallery.collections.training",
                 matches: "gallery.collections.matches",
                 match: "gallery.collections.matches",
-                players: "gallery.collections.players",
                 team: "gallery.collections.team",
                 community: "gallery.collections.community",
             };
@@ -158,6 +159,55 @@ export default function Gallery() {
     const filteredImages = useMemo(() => {
         if (activeCategory === "all") {
             return randomizedAllImages;
+        }
+
+        // For 'team' category, include both 'team' and 'players' images and shuffle them
+        if (activeCategory.toLowerCase() === "team") {
+            const storageKey = "gallery-shuffled-team-order";
+            const stored = sessionStorage.getItem(storageKey);
+
+            if (stored) {
+                try {
+                    const parsedImages = JSON.parse(stored);
+                    // Verify the stored data matches current manifest
+                    const currentCount =
+                        (galleryManifest.team?.length || 0) +
+                        (galleryManifest.Team?.length || 0) +
+                        (galleryManifest.players?.length || 0) +
+                        (galleryManifest.Players?.length || 0);
+
+                    if (parsedImages.length === currentCount) {
+                        return parsedImages;
+                    }
+                } catch (e) {
+                    console.error(
+                        "Failed to parse stored team gallery order:",
+                        e
+                    );
+                }
+            }
+
+            const images = [];
+            ["team", "Team", "players", "Players"].forEach((catKey) => {
+                if (galleryManifest[catKey]) {
+                    images.push(
+                        ...galleryManifest[catKey].map((filename) => ({
+                            filename,
+                            category: catKey,
+                        }))
+                    );
+                }
+            });
+
+            // Shuffle the team images
+            const shuffled = [...images];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            sessionStorage.setItem(storageKey, JSON.stringify(shuffled));
+            return shuffled;
         }
 
         const categoryKey = Object.keys(galleryManifest).find(

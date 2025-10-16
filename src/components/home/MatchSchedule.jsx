@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../ui/Button";
 
 const getTeamLogo = (teamName) => {
-    // Map team names to their logos
     const logoMap = {
         "Zagreb Rugby Ladies":
             "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
@@ -25,17 +24,19 @@ const MatchItem = ({
     formatMatchResult,
     isHomeMatch,
 }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const isHome = isHomeMatch(match, teamName);
     const opponent = getOpponent(match, teamName);
     const result = formatMatchResult(match, teamName);
+
+    const dateLocale = i18n.language === "hr" ? "hr-HR" : "en-US";
 
     return (
         <div className="py-4 sm:py-6 border border-border hover:bg-primary/5 transition-colors duration-normal">
             {/* Date and Location */}
             <div className="text-center mb-4">
                 <div className="text-xs sm:text-sm text-muted mb-1">
-                    {new Date(match.date).toLocaleDateString("en-US", {
+                    {new Date(match.date).toLocaleDateString(dateLocale, {
                         weekday: "short",
                         day: "numeric",
                         month: "short",
@@ -46,7 +47,6 @@ const MatchItem = ({
                 </div>
             </div>
 
-            {/* Teams and Score - Responsive Layout */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0 mb-4">
                 {/* Home Team */}
                 <div className="flex-1 flex flex-col items-center min-w-0 px-2">

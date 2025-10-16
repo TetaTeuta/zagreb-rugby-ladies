@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const Countdown = ({ targetDate, className = "" }) => {
+    const { t } = useTranslation();
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
@@ -31,16 +33,16 @@ const Countdown = ({ targetDate, className = "" }) => {
     }, [targetDate]);
 
     const timeUnits = [
-        { label: "Days", value: timeLeft.days },
-        { label: "Hours", value: timeLeft.hours },
-        { label: "Minutes", value: timeLeft.minutes },
-        { label: "Seconds", value: timeLeft.seconds },
+        { label: t("countdown.days"), value: timeLeft.days },
+        { label: t("countdown.hours"), value: timeLeft.hours },
+        { label: t("countdown.minutes"), value: timeLeft.minutes },
+        { label: t("countdown.seconds"), value: timeLeft.seconds },
     ];
 
     return (
         <div className={`flex justify-center ${className}`}>
             <div className="flex gap-4 sm:gap-6 lg:gap-8">
-                {timeUnits.map((unit, index) => (
+                {timeUnits.map((unit) => (
                     <div key={unit.label} className="text-center">
                         <div className="text-2xl sm:text-3xl lg:text-4xl font-light text-text-light font-mono tracking-wide">
                             {String(unit.value).padStart(2, "0")}
