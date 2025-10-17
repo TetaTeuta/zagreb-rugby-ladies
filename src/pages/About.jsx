@@ -4,7 +4,7 @@ import { Button } from "../components/ui/Button";
 import { Link } from "react-router-dom";
 import { Users, Heart, Zap } from "lucide-react";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
-import { buildR2ImageUrl } from "../lib/cdn";
+import { buildR2ImageUrl, cdn } from "../lib/cdn";
 import { CallToAction } from "../components/ui/CallToAction";
 import trainingData from "../data/training.json";
 import {
@@ -26,12 +26,16 @@ const About = () => {
         {
             name: t("about.coaches.sandi.name"),
             role: t("about.coaches.sandi.role"),
-            img: "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+            img: cdn(
+                "players_background/siluette_placeholder_rugby_ladies.png"
+            ),
         },
         {
             name: t("about.coaches.kuca.name"),
             role: t("about.coaches.kuca.role"),
-            img: "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+            img: cdn(
+                "players_background/siluette_placeholder_rugby_ladies.png"
+            ),
         },
         {
             name: t("about.coaches.petra.name"),
@@ -74,7 +78,7 @@ const About = () => {
     const articleData = createArticleStructuredData({
         headline: "About Zagreb Rugby Ladies - Empowering Women Through Rugby",
         description: pageDescription,
-        image: "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
+        image: cdn("logos/zagreb-rugby-ladies-logo-vector.png"),
         datePublished: "2020-01-01",
         dateModified: new Date().toISOString().split("T")[0],
     });
@@ -108,7 +112,7 @@ const About = () => {
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
-                        src="src/assets/images/hero/petra-rugby-action.jpg"
+                        src={cdn("hero/petra-rugby-action.jpg")}
                         alt="Zagreb Rugby Ladies player tackling during match - Women's rugby team in action"
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 25%" }}
@@ -451,7 +455,7 @@ const About = () => {
 
                 {/* Call to Action */}
                 <CallToAction
-                    image="src/assets/images/call_to_action/rugby-player-woman-ball.jpg"
+                    image={cdn("call_to_action/rugby-player-woman-ball.jpg")}
                     imageAlt="Zagreb Rugby Ladies player holding rugby ball - Join our inclusive team"
                     titleKey="about.cta.title"
                     descriptionKey="about.cta.description"

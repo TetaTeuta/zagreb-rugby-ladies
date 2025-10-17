@@ -15,6 +15,7 @@ import { CallToAction } from "../components/ui/CallToAction";
 import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
 import { ScrollIndicator } from "../components/ui/ScrollIndicator";
 import { Sponsors } from "../components/layout/Sponsors";
+import { cdn } from "../lib/cdn";
 
 const Home = () => {
     const { t } = useTranslation();
@@ -76,7 +77,7 @@ const Home = () => {
             <div className="relative h-screen overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
-                        src="src/assets/images/hero/josipa-rugby-action.jpg"
+                        src={cdn("hero/josipa-rugby-action.jpg")}
                         alt="Zagreb Rugby Ladies player in action during match - Women's rugby sevens in Croatia"
                         className="w-full h-full object-cover"
                     />
@@ -153,7 +154,7 @@ const Home = () => {
                 </AnimatedSection>
 
                 <CallToAction
-                    image="src/assets/images/call_to_action/rugby-player-scrum.jpg"
+                    image={cdn("call_to_action/rugby-player-scrum.jpg")}
                     imageAlt="Women's rugby scrum action - Join Zagreb Rugby Ladies training"
                     titleKey="home.cta.title"
                     descriptionKey="home.cta.description"

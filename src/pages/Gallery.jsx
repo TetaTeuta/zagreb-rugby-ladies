@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Lightbox } from "../components/ui/Lightbox";
 import { Button } from "../components/ui/Button";
 import { CallToAction } from "../components/ui/CallToAction";
-import { buildR2ImageUrl } from "../lib/cdn";
+import { buildR2ImageUrl, cdn } from "../lib/cdn";
 import { SEO } from "../components/ui/SEO";
 
 const Thumb = memo(function Thumb({ filename, category, onOpen, index }) {
@@ -291,7 +291,7 @@ export default function Gallery() {
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
-                        src="/src/assets/images/hero/josipa-rugby-kick.jpg"
+                        src={cdn("hero/josipa-rugby-kick.jpg")}
                         alt="Zagreb Rugby Ladies player kicking during match - Women's rugby action photography"
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 25%" }}
@@ -389,7 +389,7 @@ export default function Gallery() {
                 {/* Call to Action */}
                 <div className="mt-20">
                     <CallToAction
-                        image="/src/assets/images/call_to_action/rugby-team-woman-shot.jpg"
+                        image={cdn("call_to_action/rugby-team-woman-shot.jpg")}
                         imageAlt="Zagreb Rugby Ladies team portrait - Join us and be part of our story"
                         titleKey="gallery.cta.title"
                         descriptionKey="gallery.cta.description"

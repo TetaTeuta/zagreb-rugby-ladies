@@ -3,7 +3,7 @@
     "teams": {
         "senior": {
             "name": "Zagreb Rugby Ladies",
-            "logo": "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
+            "logo": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/zagreb-rugby-ladies-logo-vector.png",
             "matches": [
                 {
                     "id": "sr-001",
@@ -73,7 +73,7 @@
         },
         "junior": {
             "name": "Zagreb Rugby Ladies U18",
-            "logo": "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
+            "logo": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/zagreb-rugby-ladies-logo-vector.png",
             "matches": [
                 {
                     "id": "jr-001",

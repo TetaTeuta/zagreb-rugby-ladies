@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../ui/Button";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 import { useState, useEffect } from "react";
+import { cdn } from "../../lib/cdn";
 
 const MobileSidebar = ({ isOpen, onClose, navigationItems, isActiveRoute }) => {
     const { t } = useTranslation();
@@ -60,7 +61,9 @@ const MobileSidebar = ({ isOpen, onClose, navigationItems, isActiveRoute }) => {
                 <div className="flex items-center justify-between p-4 border-b border-muted-light">
                     <div className="flex items-center space-x-2">
                         <img
-                            src="src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png"
+                            src={cdn(
+                                "logos/zagreb-rugby-ladies-logo-vector.png"
+                            )}
                             alt="Zagreb Rugby Ladies Logo"
                             className="h-8 w-8 object-contain"
                         />

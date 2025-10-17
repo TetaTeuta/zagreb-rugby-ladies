@@ -9,7 +9,7 @@ import { Users, Trophy, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import playersData from "../data/players.json";
 import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
-import { buildR2ImageUrl } from "../lib/cdn";
+import { buildR2ImageUrl, cdn } from "../lib/cdn";
 import "../styles/split-bg.css";
 
 const Team = () => {
@@ -78,7 +78,7 @@ const Team = () => {
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
-                        src="src/assets/images/hero/zagreb-rugby-ladies-team-action.jpg"
+                        src={cdn("hero/zagreb-rugby-ladies-team-action.jpg")}
                         alt="Zagreb Rugby Ladies full team in action during match - Women's rugby sevens Croatia"
                         className="w-full h-full object-cover"
                     />
@@ -267,7 +267,9 @@ const Team = () => {
 
                 {/* Call to Action */}
                 <CallToAction
-                    image="src/assets/images/call_to_action/rugby-player-woman-with-ball.jpg"
+                    image={cdn(
+                        "call_to_action/rugby-player-woman-with-ball.jpg"
+                    )}
                     imageAlt="Zagreb Rugby Ladies player with ball ready to play - Join our team"
                     titleKey="team.cta.title"
                     descriptionKey="team.cta.description"

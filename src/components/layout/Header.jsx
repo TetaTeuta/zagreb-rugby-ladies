@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../ui/Button";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 import { MobileSidebar } from "./MobileSidebar";
+import { cdn } from "../../lib/cdn";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -81,7 +82,9 @@ const Header = () => {
                             className="flex items-center space-x-2 focus-visible:outline-none flex-shrink-0"
                         >
                             <img
-                                src="src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png"
+                                src={cdn(
+                                    "logos/zagreb-rugby-ladies-logo-vector.png"
+                                )}
                                 alt="Zagreb Rugby Ladies Logo"
                                 className="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16 object-contain"
                             />

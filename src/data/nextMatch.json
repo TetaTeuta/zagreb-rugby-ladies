@@ -13,7 +13,7 @@
         "opponentKey": "rugby-nada-split",
         "homeTeam": {
             "name": "Zagreb Rugby Ladies",
-            "logo": "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png"
+            "logo": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/zagreb-rugby-ladies-logo-vector.png"
         },
         "matchType": "Championship Match",
         "season": "2025/2026"
@@ -21,7 +21,7 @@
     "opponents": {
         "rugby-nada-split": {
             "name": "Rugby Nada Split",
-            "logo": "src/assets/images/logos/nada-rugby-logo.jpeg",
+            "logo": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/nada-rugby-logo.jpeg",
             "location": {
                 "name": "Rugby Club Nada",
                 "address": "Zrinsko-Frankopanska 17, 21000 Split, Hrvatska",

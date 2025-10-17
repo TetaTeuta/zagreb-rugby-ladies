@@ -1,19 +1,18 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/Button";
+import { cdn } from "../../lib/cdn";
 
 const getTeamLogo = (teamName) => {
     const logoMap = {
-        "Zagreb Rugby Ladies":
-            "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
-        "Rugby Nada Split": "src/assets/images/logos/nada-rugby-logo.jpeg",
-        "Split Rugby Club": "src/assets/images/logos/nada-rugby-logo.jpeg",
-        "Rijeka Rugby": "src/assets/images/logos/nada-rugby-logo.jpeg",
-        "Osijek Rugby Club": "src/assets/images/logos/nada-rugby-logo.jpeg",
+        "Zagreb Rugby Ladies": cdn("logos/zagreb-rugby-ladies-logo-vector.png"),
+        "Rugby Nada Split": cdn("logos/nada-rugby-logo.jpeg"),
+        "Split Rugby Club": cdn("logos/nada-rugby-logo.jpeg"),
+        "Rijeka Rugby": cdn("logos/nada-rugby-logo.jpeg"),
+        "Osijek Rugby Club": cdn("logos/nada-rugby-logo.jpeg"),
     };
 
     return (
-        logoMap[teamName] ||
-        "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png"
+        logoMap[teamName] || cdn("logos/zagreb-rugby-ladies-logo-vector.png")
     );
 };
 
