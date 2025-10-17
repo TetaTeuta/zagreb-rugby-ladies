@@ -110,39 +110,6 @@
             "boots": "Ragbi kopačke"
         }
     },
-    "about": {
-        "title": "O Zagreb Rugby Ladies",
-        "subtitle": "Gradimo snagu, karakter i zajednicu kroz ragbi",
-        "mission": "Naša misija",
-        "values": "Naše vrijednosti",
-        "history": "Naša povijest"
-    },
-    "contact": {
-        "title": "Kontaktiraj nas",
-        "subtitle": "Želiš se pridružiti ili imaš pitanje? Javi nam se, tu smo za tebe!",
-        "form": {
-            "name": "Ime",
-            "email": "Email",
-            "message": "Poruka",
-            "send": "Pošalji",
-            "sending": "Šalje se...",
-            "success": "Poruka je uspješno poslana!",
-            "error": "Slanje poruke nije uspjelo. Molimo pokušajte ponovno."
-        },
-        "info": {
-            "address": "Adresa",
-            "phone": "Telefon",
-            "email": "Email",
-            "followUs": "Prati nas"
-        }
-    },
-    "schedule": {
-        "title": "Raspored",
-        "subtitle": "Nadolazeće utakmice i treninzi",
-        "matches": "Utakmice",
-        "trainings": "Treninzi",
-        "events": "Događaji"
-    },
     "footer": {
         "getInTouch": "KONTAKTIRAJ NAS",
         "logoAlt": "Zagreb Rugby Ladies Logo",
@@ -382,100 +349,8 @@
             "winger": "Krilo",
             "wing": "Krilo",
             "number8": "Broj 8",
-            "hooker": "Haker",
+            "hooker": "Spojka",
             "secondRow": "Druga linija"
-        },
-        "players": {
-            "petra-kusen": {
-                "about": "Kapetanica tima i strateg. Igra 4 godine i vodi primjerom kako na terenu tako i izvan njega.",
-                "quote": "U ragbiju ne samo da igramo zajedno - rastemo zajedno.",
-                "funFact": "Govori četiri jezika i koristi ragbi termine kako bi učila hrvatski međunarodne igračice!"
-            },
-            "josipa-farac": {
-                "about": "Otočanka s Korčule, poznata kao glavni zabavljač tima - nadimak 'Živiđuboks'. Zarsila je školu klesarstva na Braču i radi u restauraciji. Hobiji su joj fotografija, video produkcija, kuhanje i crtanje. Ragbi je savršen sport za nju - naučio ju je puno, pomogao joj rasti i zahvalna je što je dio ove zajednice.",
-                "quote": "Umjetnost ispunjava moju dušu, ragbi moje srce, a ljudi oko mene daju smisao svemu.",
-                "funFact": "Vrlo realno imitira glas Paje Patka."
-            },
-            "teuta-stazic": {
-                "about": "Najstarija, ali najbolja",
-                "quote": "Ragbi me naučio da snaga dolazi od tima, a ne samo od tebe.",
-                "funFact": "Počela je igrati kako bi prevladala strah od kontaktnih sportova - sada je nezaustavljiva!"
-            },
-            "margaux-fabre": {
-                "about": "Međunarodna studentica veterine",
-                "quote": "Svako dodavanje nosi više od lopte - nosi povjerenje, hrabrost i volju za naprijed.",
-                "funFact": "Dolazi iz Francuske, zemlje gdje je ragbi duboko ukorijenjen, ali je u Hrvatskoj prvi put obula kopačke."
-            },
-            "manuela-andrijanan": {
-                "about": "Bosanska mašina za scorove",
-                "quote": "Kad postane teško, jaki krenu.",
-                "funFact": "Nikad nije promašila bacanje u aut tijekom svoje dvije godine s timom!"
-            },
-            "dina-madir": {
-                "about": "Moćna trkačica s mekim rukama i okom za prazninu. Obrambeni stub u sredini terena.",
-                "quote": "Napad osvaja utakmice, ali obrana osvaja prvenstva.",
-                "funFact": "Bivša rukometašica koja donosi nevjerojatnu koordinaciju oko-ruka u ragbi!"
-            },
-            "lea-kolaric": {
-                "about": "Barberica koja uljepsava svaki dan.",
-                "quote": "Ništa u životu se nije dogodilo slučajno.",
-                "funFact": "Stalno govori da joj se ništa ne da, a opet sve obavi."
-            },
-            "lara-vuk": {
-                "about": "Srednjoškolka i umjetnica",
-                "quote": "Ragbi me naučio više o životu nego škola ikad.",
-                "funFact": "Prije ragbija trenirala je kickboxing, a u slobodno vrijeme ide u avanture sa svojim psima."
-            },
-            "gabriell-martinovic": {
-                "about": "Dinamična trkačica s moćnim naletima i obrambenom prisutnošću u sredini terena.",
-                "quote": "Ragbi je o stvaranju prostora za druge i uzimanju svog kada dođe.",
-                "funFact": "Višejezična igračica koja pomaže integraciji međunarodnih suigračica."
-            },
-            "macarena-camara": {
-                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
-                "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
-                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
-            },
-            "morena-ivcek": {
-                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
-                "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
-                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
-            },
-            "ivona-sojic": {
-                "about": "Snaga zadnjeg reda s vodstvenim kvalitetama i motorom koji nikad ne prestaje.",
-                "quote": "Vodi s prednje strane, podržavaj s leđa, nikad ne odustaj.",
-                "funFact": "Trči 10km svako jutro prije treninga - njena kondicija je legendarna!"
-            },
-            "lana-emanovic": {
-                "about": "Čvrsta u škorpijama s moćnom igrom u otvorenom prostoru.",
-                "quote": "Škorpije se osvajaju srcem, ne samo mišićima.",
-                "funFact": "Bivša powerlifterica koja donosi nevjerojatnu snagu u škorpije."
-            },
-            "cvita-seiter": {
-                "about": "Eksplozivno krilo s odličnom tehnikom stopala i sposobnošću finaliziranja.",
-                "quote": "Svaki put kad dodirnem loptu, gledam liniju pokušaja.",
-                "funFact": "Postigla hat-trick na svom debitantskom meču!"
-            },
-            "lucija-zoric": {
-                "about": "Kreativna organizatorica igre s svilenim vještinama i savršenim upravljanjem igrom.",
-                "quote": "Ragbi je umjetnost, a svaki potez je potez kista.",
-                "funFact": "Poznata po svojoj izvanrednoj igri dodavanja i sposobnosti čitanja obrane."
-            },
-            "lora-aladrovic": {
-                "about": "Precizna bacačica i žestoka natjecateljica koja vodi prvu liniju sa strašću.",
-                "quote": "Preciznost pod pritiskom je ono što razlikuje dobre igračice od izvrsnih.",
-                "funFact": "Ima 95% preciznosti bacanja u aut - najvišu u ligi!"
-            },
-            "barbara-debeljak": {
-                "about": "Svestrana napadačica koja donosi energiju i intenzitet na svaku situaciju.",
-                "quote": "Pobjeda počinje s stavom i završava s naporom.",
-                "funFact": "Bivša košarkašica koja donosi iznimnu atletičnost u ragbi."
-            },
-            "jelena-ivancic": {
-                "about": "Stručnjakinja za aut s nevjerojatnom atletičnošću. Srce našeg napada.",
-                "quote": "Svaki aut je prilika da pokažemo protivniku od čega smo napravljene.",
-                "funFact": "Bivša odbojkašica čiji skok je nenadmašen u ligi!"
-            }
         }
     },
     "schedule": {
@@ -554,45 +429,6 @@
         },
         "noPhotos": "Nema pronađenih fotografija za odabrani album.",
         "showAll": "Prikaži sve fotografije",
-        "cta": {
-            "title": "Želiš biti dio ovih trenutaka?",
-            "description": "Pridruži se Zagreb Rugby Ladies i stvori svoje nezaboravne uspomene. Svaki trening, svaka utakmica, svako slavlje moglo bi uključiti tebe."
-        }
-    },
-    "rugby101": {
-        "hero": {
-            "title": "Rugby 7s",
-            "titleAccent": "Osnove",
-            "subtitle": "Sve što trebaš znati da počneš s najuzbudljivijim rugby formatom na svijetu"
-        },
-        "basics": {
-            "subtitle": "Svaki trening, utakmica i slavlje govori našu priču.",
-            "description1": "Od intenzivnih treninga do trijumfalnih utakmica, ovi trenuci hvataju duh, predanost i radost Zagreb Rugby Ladies.",
-            "description2": "Svaka fotografija govori priču o odlučnosti, prijateljstvu i nevjerojatnom putovanju žena koje su se usudile stati na ragbi teren.",
-            "bePartOfStory": "Budi dio naše priče"
-        },
-        "stats": {
-            "collection": "Naša kolekcija",
-            "totalMedia": "Ukupno medija",
-            "photos": "Fotografije",
-            "videos": "Videozapisi",
-            "joinStory": "Pridruži se našoj priči"
-        },
-        "highlights": {
-            "title": "Nedavni vrhunci",
-            "items": [
-                "Prvenstvena pobjeda 2024",
-                "Akcija regrutiranja novih igračica",
-                "Program rada sa zajednicom",
-                "Međunarodna prijateljska utakmica"
-            ]
-        },
-        "noPhotos": "Nema fotografija za odabrani album.",
-        "showAll": "Prikaži sve fotografije",
-        "allPhotos": "Sve fotografije",
-        "loading": "Učitavanje galerije...",
-        "error": "Greška",
-        "photoCategories": "Kategorije fotografija",
         "imageAlts": {
             "hero": "Naslovna slika galerije"
         },

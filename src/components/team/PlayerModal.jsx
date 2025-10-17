@@ -97,9 +97,12 @@ const InfoSection = ({ title, children }) => (
 );
 
 const PlayerQuote = ({ player }) => {
-    const { t } = useTranslation();
-    const translationKey = `team.players.${player.id}.quote`;
-    const quote = t(translationKey, { defaultValue: player.quote });
+    const { t, i18n } = useTranslation();
+    const currentLanguage = i18n.language || "en";
+    const quote =
+        player.translations?.[currentLanguage]?.quote ||
+        player.translations?.en?.quote ||
+        "";
 
     return (
         <InfoSection title={t("team.playerModal.playerQuote")}>
@@ -111,10 +114,13 @@ const PlayerQuote = ({ player }) => {
 };
 
 const PlayerAbout = ({ player }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const firstName = player.name.split(" ")[0];
-    const translationKey = `team.players.${player.id}.about`;
-    const about = t(translationKey, { defaultValue: player.about });
+    const currentLanguage = i18n.language || "en";
+    const about =
+        player.translations?.[currentLanguage]?.about ||
+        player.translations?.en?.about ||
+        "";
 
     return (
         <InfoSection title={t("team.playerModal.about", { name: firstName })}>
@@ -124,9 +130,12 @@ const PlayerAbout = ({ player }) => {
 };
 
 const PlayerFunFact = ({ player }) => {
-    const { t } = useTranslation();
-    const translationKey = `team.players.${player.id}.funFact`;
-    const funFact = t(translationKey, { defaultValue: player.funFact });
+    const { t, i18n } = useTranslation();
+    const currentLanguage = i18n.language || "en";
+    const funFact =
+        player.translations?.[currentLanguage]?.funFact ||
+        player.translations?.en?.funFact ||
+        "";
 
     return (
         <div className="bg-white rounded-custom border border-gray-200">
@@ -162,10 +171,19 @@ const PlayerActions = ({ onClose }) => {
 };
 
 const PlayerModal = ({ player, isOpen, onClose }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const imageState = usePlayerImage(player, isOpen);
+    const currentLanguage = i18n.language || "en";
 
     if (!player) return null;
+
+    // Helper function to check if translation exists
+    const hasTranslation = (key) => {
+        return (
+            player.translations?.[currentLanguage]?.[key] ||
+            player.translations?.en?.[key]
+        );
+    };
 
     // Map position to translation key (same as PlayerCard)
     const getPositionTranslationKey = (position) => {
@@ -208,11 +226,13 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
                         </p>
                     </InfoSection>
 
-                    {player.quote && <PlayerQuote player={player} />}
+                    {hasTranslation("quote") && <PlayerQuote player={player} />}
 
                     <PlayerAbout player={player} />
 
-                    {player.funFact && <PlayerFunFact player={player} />}
+                    {hasTranslation("funFact") && (
+                        <PlayerFunFact player={player} />
+                    )}
                     <PlayerActions onClose={onClose} />
                 </div>
             </div>
