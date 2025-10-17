@@ -1,536 +1,433 @@
-import { useState, useEffect } from "react";
-import { Button } from "../components/ui/Button";
-import { Card, CardContent } from "../components/ui/Card";
+import { useState, useEffect, useMemo, memo } from "react";
+import { useSearchParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Lightbox } from "../components/ui/Lightbox";
-import { Play, Calendar, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
-import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { Button } from "../components/ui/Button";
+import { CallToAction } from "../components/ui/CallToAction";
+import { buildR2ImageUrl } from "../lib/cdn";
+import { SEO } from "../components/ui/SEO";
 
-const Gallery = () => {
-    const [selectedAlbum, setSelectedAlbum] = useState("all");
-    const [isHeroVisible, setIsHeroVisible] = useState(true);
+const Thumb = memo(function Thumb({ filename, category, onOpen, index }) {
+    const imageUrl = buildR2ImageUrl(category, filename);
+    const [imageError, setImageError] = useState(false);
 
+    const handleImageError = () => {
+        setImageError(true);
+    };
+
+    return (
+        <div
+            className="gallery-card group"
+            role="button"
+            tabIndex={0}
+            aria-label={`${category} - Zagreb Rugby Ladies`}
+            onClick={() => onOpen({ filename, category })}
+            onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onOpen({ filename, category });
+                }
+            }}
+        >
+            {!imageError ? (
+                <img
+                    src={imageUrl}
+                    alt={`${category} - Zagreb Rugby Ladies`}
+                    className="gallery-card-image"
+                    loading={index < 8 ? "eager" : "lazy"}
+                    decoding="async"
+                    onError={handleImageError}
+                />
+            ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-surface-elevated">
+                    <span className="text-muted text-sm">Failed to load</span>
+                </div>
+            )}
+            <div className="gallery-card-overlay" />
+            <div className="gallery-card-content">
+                <h3 className="gallery-card-title">{category}</h3>
+            </div>
+        </div>
+    );
+});
+
+export default function Gallery() {
+    const { t } = useTranslation();
+    const [galleryManifest, setGalleryManifest] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [params, setParams] = useSearchParams();
+    const [lightbox, setLightbox] = useState({ isOpen: false, index: 0 });
+    const [randomizedAllImages, setRandomizedAllImages] = useState([]);
+
+    const activeCategory = params.get("cat") || "all";
+
+    // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            setIsHeroVisible(scrollPosition < window.innerHeight * 0.5);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        fetch("/gallery/manifest.json")
+            .then((res) => {
+                if (!res.ok)
+                    throw new Error("Failed to fetch gallery manifest");
+                return res.json();
+            })
+            .then((data) => {
+                setGalleryManifest(data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error("Error loading gallery manifest:", err);
+                setError(err.message);
+                setLoading(false);
+            });
     }, []);
 
-    const [lightboxOpen, setLightboxOpen] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    useEffect(() => {
+        if (Object.keys(galleryManifest).length === 0) return;
 
-    // Sample gallery data using local images
-    const albums = [
-        { id: "all", name: "All Photos", count: 12 },
-        { id: "training", name: "Training", count: 5 },
-        { id: "matches", name: "Matches", count: 4 },
-        { id: "community", name: "Community", count: 3 },
-    ];
+        const storageKey = "gallery-shuffled-order";
+        const stored = sessionStorage.getItem(storageKey);
 
-    const galleryItems = [
-        {
-            id: 1,
-            type: "image",
-            src: "/src/assets/images/photos/teuta_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/teuta_rugby.jpg",
-            alt: "Team training session",
-            title: "Weekly Training Session",
-            description: "Players practicing rucking and mauling techniques",
-            album: "training",
-            date: "2024-03-15",
-        },
-        {
-            id: 2,
-            type: "image",
-            src: "/src/assets/images/photos/manuela_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/manuela_rugby.jpg",
-            alt: "Match action shot",
-            title: "Zagreb vs Rijeka",
-            description: "Intense match action from our league game",
-            album: "matches",
-            date: "2024-03-10",
-        },
-        {
-            id: 3,
-            type: "image",
-            src: "/src/assets/images/photos/margaux_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/margaux_rugby.jpg",
-            alt: "Team celebration",
-            title: "Post-Match Celebration",
-            description: "Celebrating another great game with the team",
-            album: "community",
-            date: "2024-03-10",
-        },
-        {
-            id: 4,
-            type: "image",
-            src: "/src/assets/images/photos/petra_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/petra_rugby.jpg",
-            alt: "Fitness training",
-            title: "Fitness & Conditioning",
-            description: "Building strength and endurance",
-            album: "training",
-            date: "2024-03-08",
-        },
-        {
-            id: 5,
-            type: "video",
-            src: "https://www.youtube.com/embed/5w2mBzgmUIo",
-            thumbnail: "/src/assets/images/photos/lucija_rugby.jpg",
-            alt: "Training highlights video",
-            title: "Training Highlights",
-            description: "Best moments from this week's training sessions",
-            album: "training",
-            date: "2024-03-05",
-        },
-        {
-            id: 6,
-            type: "image",
-            src: "/src/assets/images/photos/josipa_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/josipa_rugby.jpg",
-            alt: "Try scoring moment",
-            title: "Winning Try",
-            description: "The moment that sealed our victory",
-            album: "matches",
-            date: "2024-02-28",
-        },
-        {
-            id: 7,
-            type: "image",
-            src: "/src/assets/images/photos/petra1_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/petra1_rugby.jpg",
-            alt: "Team huddle",
-            title: "Team Strategy Meeting",
-            description: "Planning our next move during halftime",
-            album: "training",
-            date: "2024-03-12",
-        },
-        {
-            id: 8,
-            type: "image",
-            src: "/src/assets/images/photos/teuta_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/teuta_rugby.jpg",
-            alt: "Team group photo",
-            title: "Season Opener",
-            description: "Ready for another amazing season",
-            album: "community",
-            date: "2024-02-20",
-        },
-        {
-            id: 9,
-            type: "image",
-            src: "/src/assets/images/photos/manuela_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/manuela_rugby.jpg",
-            alt: "Action shot during match",
-            title: "Championship Quarter-Final",
-            description: "Fighting for every meter in the championship",
-            album: "matches",
-            date: "2024-02-25",
-        },
-        {
-            id: 10,
-            type: "image",
-            src: "/src/assets/images/photos/margaux_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/margaux_rugby.jpg",
-            alt: "Training equipment",
-            title: "Equipment Check",
-            description: "Making sure everything is ready for the big game",
-            album: "training",
-            date: "2024-02-18",
-        },
-        {
-            id: 11,
-            type: "image",
-            src: "/src/assets/images/photos/petra_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/petra_rugby.jpg",
-            alt: "Community event",
-            title: "Youth Rugby Workshop",
-            description: "Teaching the next generation about rugby",
-            album: "community",
-            date: "2024-02-15",
-        },
-        {
-            id: 12,
-            type: "image",
-            src: "/src/assets/images/photos/lucija_rugby.jpg",
-            thumbnail: "/src/assets/images/photos/lucija_rugby.jpg",
-            alt: "Victory celebration",
-            title: "Tournament Champions",
-            description: "Our biggest victory of the season",
-            album: "matches",
-            date: "2024-02-10",
-        },
-    ];
+        if (stored) {
+            try {
+                setRandomizedAllImages(JSON.parse(stored));
+                return;
+            } catch (e) {
+                console.error("Failed to parse stored gallery order:", e);
+            }
+        }
 
-    const filteredItems =
-        selectedAlbum === "all"
-            ? galleryItems
-            : galleryItems.filter((item) => item.album === selectedAlbum);
+        const allImages = Object.entries(galleryManifest).flatMap(
+            ([category, imageFiles]) =>
+                imageFiles.map((filename) => ({ filename, category }))
+        );
 
-    const imageItems = filteredItems.filter((item) => item.type === "image");
+        const shuffled = [...allImages];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
 
-    const openLightbox = (imageId) => {
-        const imageIndex = imageItems.findIndex((item) => item.id === imageId);
-        if (imageIndex !== -1) {
-            setCurrentImageIndex(imageIndex);
-            setLightboxOpen(true);
+        setRandomizedAllImages(shuffled);
+        sessionStorage.setItem(storageKey, JSON.stringify(shuffled));
+    }, [galleryManifest]);
+
+    const categoryStats = useMemo(() => {
+        const stats = { all: 0 };
+        Object.entries(galleryManifest).forEach(([category, images]) => {
+            const count = images.length;
+            const catKey = category.toLowerCase();
+            const mergedKey = catKey === "players" ? "team" : catKey;
+            stats[mergedKey] = (stats[mergedKey] || 0) + count;
+            stats.all += count;
+        });
+        return stats;
+    }, [galleryManifest]);
+
+    const categories = useMemo(() => {
+        const manifestCategories = Object.keys(galleryManifest)
+            .map((k) => k.toLowerCase())
+            .map((cat) => (cat === "players" ? "team" : cat))
+            .filter((cat, index, self) => self.indexOf(cat) === index);
+
+        const getCategoryLabel = (cat) => {
+            const categoryMap = {
+                training: "gallery.collections.training",
+                matches: "gallery.collections.matches",
+                match: "gallery.collections.matches",
+                team: "gallery.collections.team",
+                community: "gallery.collections.community",
+            };
+
+            return categoryMap[cat]
+                ? t(categoryMap[cat])
+                : cat.charAt(0).toUpperCase() + cat.slice(1);
+        };
+
+        return [
+            { id: "all", label: t("gallery.allPhotos") },
+            ...manifestCategories.map((cat) => ({
+                id: cat,
+                label: getCategoryLabel(cat),
+            })),
+        ];
+    }, [galleryManifest, t]);
+
+    const filteredImages = useMemo(() => {
+        if (activeCategory === "all") {
+            return randomizedAllImages;
+        }
+
+        // For 'team' category, include both 'team' and 'players' images and shuffle them
+        if (activeCategory.toLowerCase() === "team") {
+            const storageKey = "gallery-shuffled-team-order";
+            const stored = sessionStorage.getItem(storageKey);
+
+            if (stored) {
+                try {
+                    const parsedImages = JSON.parse(stored);
+                    // Verify the stored data matches current manifest
+                    const currentCount =
+                        (galleryManifest.team?.length || 0) +
+                        (galleryManifest.Team?.length || 0) +
+                        (galleryManifest.players?.length || 0) +
+                        (galleryManifest.Players?.length || 0);
+
+                    if (parsedImages.length === currentCount) {
+                        return parsedImages;
+                    }
+                } catch (e) {
+                    console.error(
+                        "Failed to parse stored team gallery order:",
+                        e
+                    );
+                }
+            }
+
+            const images = [];
+            ["team", "Team", "players", "Players"].forEach((catKey) => {
+                if (galleryManifest[catKey]) {
+                    images.push(
+                        ...galleryManifest[catKey].map((filename) => ({
+                            filename,
+                            category: catKey,
+                        }))
+                    );
+                }
+            });
+
+            // Shuffle the team images
+            const shuffled = [...images];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            sessionStorage.setItem(storageKey, JSON.stringify(shuffled));
+            return shuffled;
+        }
+
+        const categoryKey = Object.keys(galleryManifest).find(
+            (key) => key.toLowerCase() === activeCategory.toLowerCase()
+        );
+
+        return categoryKey
+            ? galleryManifest[categoryKey].map((filename) => ({
+                  filename,
+                  category: categoryKey,
+              }))
+            : [];
+    }, [randomizedAllImages, galleryManifest, activeCategory]);
+
+    const lightboxImages = useMemo(
+        () =>
+            filteredImages.map(({ filename, category }) => ({
+                src: buildR2ImageUrl(category, filename),
+                thumbnail: buildR2ImageUrl(category, filename),
+            })),
+        [filteredImages]
+    );
+
+    const openItem = ({ filename, category }) => {
+        const idx = filteredImages.findIndex(
+            (img) => img.filename === filename && img.category === category
+        );
+        if (idx !== -1) {
+            setLightbox({ isOpen: true, index: idx });
         }
     };
 
-    const closeLightbox = () => {
-        setLightboxOpen(false);
-    };
-
-    const nextImage = () => {
-        setCurrentImageIndex((prev) =>
-            prev === imageItems.length - 1 ? 0 : prev + 1
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-surface">
+                <p className="text-muted text-lg">{t("gallery.loading")}</p>
+            </div>
         );
-    };
+    }
 
-    const prevImage = () => {
-        setCurrentImageIndex((prev) =>
-            prev === 0 ? imageItems.length - 1 : prev - 1
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-surface">
+                <p className="text-red-500 text-lg">
+                    {t("gallery.error")}: {error}
+                </p>
+            </div>
         );
-    };
+    }
 
-    const formatDate = (dateString) => {
-        return new Date(dateString).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-        });
+    // SEO Configuration
+    const pageTitle = "Photo Gallery | Zagreb Rugby Ladies in Action";
+    const pageDescription =
+        "Browse our photo gallery showcasing Zagreb Rugby Ladies in training, matches, and team events. See women's rugby sevens action shots, team moments, and community events in Croatia.";
+    const keywords =
+        "Zagreb Rugby Ladies photos, women's rugby gallery, rugby action shots Croatia, rugby team photos Zagreb, women athletes photos, rugby sevens images, rugby training photos, rugby match photos Croatia";
+
+    // Image Gallery Structured Data
+    const galleryStructuredData = {
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        name: "Zagreb Rugby Ladies Photo Gallery",
+        description: pageDescription,
+        about: {
+            "@type": "SportsOrganization",
+            name: "Zagreb Rugby Ladies",
+        },
     };
 
     return (
         <div className="min-h-screen bg-surface">
-            {/* Hero Section */}
-            <div className="relative h-[500px] overflow-hidden mt-20">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-                    <div className="absolute inset-0 bg-black/20"></div>
-                </div>
-                <div className="absolute inset-0 bg-[url('/src/assets/images/photos/margaux_rugby.jpg')] bg-cover bg-center opacity-30"></div>
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/gallery"
+                structuredData={galleryStructuredData}
+            />
 
+            {/* Hero Section */}
+            <div className="relative h-[50svh] overflow-hidden mt-20">
+                <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
+                    <img
+                        src="/src/assets/images/hero/josipa-rugby-kick.jpg"
+                        alt="Zagreb Rugby Ladies player kicking during match - Women's rugby action photography"
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: "50% 25%" }}
+                    />
+                    <div className="absolute inset-0 overlay-cinematic-base opacity-70"></div>
+                    <div className="absolute inset-0 overlay-cinematic-sunset"></div>
+                    <div className="absolute inset-0 overlay-cinematic-matte"></div>
+                </div>
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="text-center max-w-4xl mx-auto px-6 sm:px-8">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide text-text-light leading-tight">
-                            CAPTURING MOMENTS. SHARING STORIES.
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
+                            {t("gallery.hero.title")}
                         </h1>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
                             <Button
                                 size="lg"
-                                className="bg-surface/95 backdrop-blur-sm text-text-contrast hover:bg-surface hover:scale-105 px-8 py-3 text-base font-medium rounded transition-all duration-300 shadow-lg hover:shadow-xl"
+                                variant="blue"
                                 asChild
+                                className="w-full sm:w-auto"
                             >
-                                <Link to="/contact">Join Our Team</Link>
+                                <Link to="/contact">
+                                    {t("gallery.hero.joinTeam")}
+                                </Link>
                             </Button>
                             <Button
                                 size="lg"
-                                variant="outline"
-                                className="border-2 border-text-light/80 bg-surface/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast px-8 py-3 text-base font-medium rounded transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                                variant="yellow"
                                 asChild
+                                className="w-full sm:w-auto"
                             >
-                                <Link to="/team">Meet Our Players</Link>
+                                <Link to="/team">
+                                    {t("gallery.hero.meetPlayers")}
+                                </Link>
                             </Button>
                         </div>
                     </div>
                 </div>
             </div>
 
+            {/* Gallery Content */}
             <div className="px-4 py-16 max-w-7xl mx-auto">
-                {/* Intro Section */}
-                <AnimatedSection divider="wave" className="mb-8">
-                    <div className="relative h-[600px] overflow-hidden rounded group cursor-pointer">
-                        <img
-                            src="/src/assets/images/photos/teuta_rugby.jpg"
-                            alt="Our story in pictures"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/90 via-text-contrast/50 to-transparent"></div>
-                        <div className="absolute inset-0 p-8 sm:p-10 lg:p-12 flex flex-col justify-end text-text-light">
-                            <div className="mb-6">
-                                <h2 className="text-4xl font-bold text-text-light mb-2 tracking-wide">
-                                    OUR STORY IN PICTURES
-                                </h2>
-                                <p className="text-lg text-text-light/80 mb-4">
-                                    Every training session, match, and
-                                    celebration tells our story.
-                                </p>
-                            </div>
-                            <div className="space-y-4 text-text-light/90 leading-relaxed max-w-3xl">
-                                <p>
-                                    From intense training sessions to triumphant
-                                    matches, these moments capture the spirit,
-                                    dedication, and joy of Zagreb Rugby Ladies.
-                                </p>
-                                <p>
-                                    Each photo tells a story of determination,
-                                    friendship, and the incredible journey of
-                                    women who dared to step onto the rugby
-                                    field.
-                                </p>
-                            </div>
-                            <div className="text-center mt-6">
-                                <Button
-                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8"
-                                    asChild
-                                >
-                                    <Link to="/contact">
-                                        Be Part of Our Story
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </AnimatedSection>
-
-                {/* Album Filter */}
-                <div className="mb-8">
-                    <div className="text-center mb-8">
-                        <h2 className="text-4xl md:text-5xl font-bold text-text-contrast mb-4 tracking-tight">
-                            Gallery Collections
-                        </h2>
-                        <p className="text-lg text-muted max-w-2xl mx-auto">
-                            Explore our memories organized by moments that
-                            matter most to us.
-                        </p>
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-3">
-                        {albums.map((album) => (
-                            <Button
-                                key={album.id}
-                                variant={
-                                    selectedAlbum === album.id
-                                        ? "default"
-                                        : "outline"
-                                }
-                                size="sm"
-                                onClick={() => setSelectedAlbum(album.id)}
-                                className="flex items-center gap-2"
-                            >
-                                {album.name}
-                                <span className="text-xs opacity-75">
-                                    ({album.count})
-                                </span>
-                            </Button>
-                        ))}
-                    </div>
+                {/* Category Filters */}
+                <div
+                    className="gallery-filters"
+                    role="group"
+                    aria-label={t("gallery.photoCategories")}
+                >
+                    {categories.map((cat) => (
+                        <button
+                            key={cat.id}
+                            onClick={() =>
+                                setParams(
+                                    cat.id === "all" ? {} : { cat: cat.id },
+                                    { replace: true }
+                                )
+                            }
+                            className={`pill ${
+                                activeCategory === cat.id ? "pill-active" : ""
+                            }`}
+                            aria-pressed={activeCategory === cat.id}
+                        >
+                            {cat.label}
+                            <span className="pill-badge">
+                                {categoryStats[cat.id] || 0}
+                            </span>
+                        </button>
+                    ))}
                 </div>
 
                 {/* Gallery Grid */}
-                <div className="mb-8">
-                    {filteredItems.length > 0 ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
-                            {filteredItems.map((item) => (
-                                <div
-                                    key={item.id}
-                                    className="relative h-[350px] overflow-hidden rounded group cursor-pointer"
-                                    onClick={() => {
-                                        if (item.type === "image") {
-                                            openLightbox(item.id);
-                                        } else if (item.type === "video") {
-                                            window.open(item.src, "_blank");
-                                        }
-                                    }}
-                                >
-                                    <img
-                                        src={item.thumbnail || item.src}
-                                        alt={item.alt}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                <div className="mt-12">
+                    {filteredImages.length > 0 ? (
+                        <div className="gallery-grid">
+                            {filteredImages.map(
+                                ({ filename, category }, idx) => (
+                                    <Thumb
+                                        key={`${category}-${filename}-${idx}`}
+                                        filename={filename}
+                                        category={category}
+                                        index={idx}
+                                        onOpen={openItem}
                                     />
-
-                                    {/* Overlay */}
-                                    <div className="absolute inset-0 bg-text-contrast/0 group-hover:bg-text-contrast/20 transition-colors duration-300" />
-
-                                    {/* Title overlay */}
-                                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                                        <h3 className="text-text-light font-medium text-sm mb-1 line-clamp-1">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-text-light/80 text-xs line-clamp-1">
-                                            {formatDate(item.date)}
-                                        </p>
-                                    </div>
-
-                                    {/* Video indicator */}
-                                    {item.type === "video" && (
-                                        <div className="absolute top-3 right-3 p-2 rounded-full bg-text-contrast/70">
-                                            <Play className="h-4 w-4 text-text-light" />
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
+                                )
+                            )}
                         </div>
                     ) : (
                         <div className="text-center py-12">
                             <p className="text-muted text-lg">
-                                No photos found for the selected album.
+                                {t("gallery.noPhotos")}
                             </p>
-                            <Button
-                                variant="outline"
-                                onClick={() => setSelectedAlbum("all")}
-                                className="mt-4"
-                            >
-                                Show All Photos
-                            </Button>
                         </div>
                     )}
                 </div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                    {/* Gallery Stats */}
-                    <div className="bg-surface rounded-xl p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
-                        <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                            <Calendar className="h-8 w-8 text-primary" />
-                        </div>
-                        <h3 className="text-2xl font-bold mb-6 text-text-contrast">
-                            Our Collection
-                        </h3>
-                        <div className="grid grid-cols-3 gap-4 mb-8">
-                            <div className="bg-muted-light/50 rounded-lg p-4 text-center">
-                                <div className="text-2xl font-bold text-primary mb-1">
-                                    {galleryItems.length}
-                                </div>
-                                <div className="text-xs text-muted font-medium">
-                                    Total Media
-                                </div>
-                            </div>
-                            <div className="bg-muted-light/50 rounded-lg p-4 text-center">
-                                <div className="text-2xl font-bold text-primary mb-1">
-                                    {
-                                        galleryItems.filter(
-                                            (item) => item.type === "image"
-                                        ).length
-                                    }
-                                </div>
-                                <div className="text-xs text-muted font-medium">
-                                    Photos
-                                </div>
-                            </div>
-                            <div className="bg-muted-light/50 rounded-lg p-4 text-center">
-                                <div className="text-2xl font-bold text-primary mb-1">
-                                    {
-                                        galleryItems.filter(
-                                            (item) => item.type === "video"
-                                        ).length
-                                    }
-                                </div>
-                                <div className="text-xs text-muted font-medium">
-                                    Videos
-                                </div>
-                            </div>
-                        </div>
-                        <div className="text-center">
-                            <Button
-                                className="bg-primary text-text-light hover:bg-primary-dark rounded-lg px-8 py-3"
-                                asChild
-                            >
-                                <Link to="/contact">Join Our Story</Link>
-                            </Button>
-                        </div>
-                    </div>
-
-                    {/* Recent Highlights */}
-                    <div className="bg-surface rounded-xl p-8 border border-muted-light hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
-                        <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
-                            <Play className="h-8 w-8 text-accent" />
-                        </div>
-                        <h3 className="text-2xl font-bold mb-6 text-text-contrast">
-                            Recent Highlights
-                        </h3>
-                        <div className="space-y-4 mb-8">
-                            {[
-                                "Championship Victory 2024",
-                                "New Player Recruitment Drive",
-                                "Community Outreach Program",
-                                "International Friendly Match",
-                            ].map((highlight, idx) => (
-                                <div
-                                    key={idx}
-                                    className="flex items-center p-3 bg-muted-light/50 rounded-lg"
-                                >
-                                    <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center mr-3">
-                                        <span className="text-accent text-sm font-bold">
-                                            •
-                                        </span>
-                                    </div>
-                                    <p className="text-muted font-medium">
-                                        {highlight}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="text-center">
-                            <Button
-                                className="bg-primary text-text-light hover:bg-primary-dark rounded-lg px-8 py-3"
-                                asChild
-                            >
-                                <Link to="/team">Meet Our Team</Link>
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-
                 {/* Call to Action */}
-                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
-                    <img
-                        src="/src/assets/images/photos/petra1_rugby.jpg"
-                        alt="Join our story"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                <div className="mt-20">
+                    <CallToAction
+                        image="/src/assets/images/call_to_action/rugby-team-woman-shot.jpg"
+                        imageAlt="Zagreb Rugby Ladies team portrait - Join us and be part of our story"
+                        titleKey="gallery.cta.title"
+                        descriptionKey="gallery.cta.description"
+                        primaryButton={{
+                            to: "/contact",
+                            textKey: "common.joinTraining",
+                        }}
+                        secondaryButton={{
+                            to: "/team",
+                            textKey: "gallery.hero.meetPlayers",
+                        }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-text-contrast/70 via-text-contrast/30 to-transparent"></div>
-                    <div className="absolute inset-0 flex items-center">
-                        <div className="max-w-2xl ml-12 text-text-light">
-                            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                                Want to Be Part of These Moments?
-                            </h2>
-                            <p className="text-xl mb-8 opacity-90 leading-relaxed">
-                                Join Zagreb Rugby Ladies and create your own
-                                unforgettable memories. Every training session,
-                                every match, every celebration could include
-                                you.
-                            </p>
-                            <div className="flex gap-4">
-                                <Button
-                                    size="lg"
-                                    className="bg-surface text-text-contrast hover:bg-muted-light rounded px-8 py-4 text-lg font-semibold"
-                                    asChild
-                                >
-                                    <Link to="/contact">Join Training</Link>
-                                </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="border-2 border-text-light text-text-light hover:bg-surface hover:text-text-contrast rounded px-8 py-4 text-lg font-semibold flex items-center gap-2"
-                                    asChild
-                                >
-                                    <Link to="/team">Meet Our Players</Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
             {/* Lightbox */}
             <Lightbox
-                images={imageItems}
-                isOpen={lightboxOpen}
-                currentIndex={currentImageIndex}
-                onClose={closeLightbox}
-                onNext={nextImage}
-                onPrev={prevImage}
+                images={lightboxImages}
+                isOpen={lightbox.isOpen}
+                currentIndex={lightbox.index}
+                onClose={() =>
+                    setLightbox((prev) => ({ ...prev, isOpen: false }))
+                }
+                onNext={() =>
+                    setLightbox((prev) => ({
+                        ...prev,
+                        index: (prev.index + 1) % lightboxImages.length,
+                    }))
+                }
+                onPrev={() =>
+                    setLightbox((prev) => ({
+                        ...prev,
+                        index:
+                            (prev.index - 1 + lightboxImages.length) %
+                            lightboxImages.length,
+                    }))
+                }
             />
         </div>
     );
-};
-
-export default Gallery;
+}

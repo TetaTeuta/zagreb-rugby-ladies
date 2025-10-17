@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Lightbox = ({
     images,
@@ -9,8 +10,13 @@ const Lightbox = ({
     onNext,
     onPrev,
 }) => {
+    const { i18n } = useTranslation();
     const lightboxRef = useRef(null);
     const previousActiveElement = useRef(null);
+    const touchStartX = useRef(null);
+    const touchEndX = useRef(null);
+    const [swipeOffset, setSwipeOffset] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
     // Focus management and accessibility
     useEffect(() => {
@@ -54,93 +60,171 @@ const Lightbox = ({
         return () => document.removeEventListener("keydown", handleKeyDown);
     }, [isOpen, onClose, onNext, onPrev]);
 
+    // Reset swipe state when image changes
+    useEffect(() => {
+        setSwipeOffset(0);
+        setIsTransitioning(true);
+
+        const timer = setTimeout(() => {
+            setIsTransitioning(false);
+        }, 300);
+
+        return () => clearTimeout(timer);
+    }, [currentIndex]);
+
+    // Touch swipe handlers
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+        touchEndX.current = null;
+        setIsTransitioning(false);
+    };
+
+    const handleTouchMove = (e) => {
+        if (!touchStartX.current) return;
+
+        touchEndX.current = e.touches[0].clientX;
+        const diff = touchEndX.current - touchStartX.current;
+
+        // Apply resistance at boundaries
+        const resistance = 0.5;
+        setSwipeOffset(diff * resistance);
+    };
+
+    const handleTouchEnd = () => {
+        if (!touchStartX.current || !touchEndX.current) {
+            setSwipeOffset(0);
+            return;
+        }
+
+        const swipeDistance = touchStartX.current - touchEndX.current;
+        const minSwipeDistance = 50; // minimum distance for a swipe to register
+
+        setIsTransitioning(true);
+
+        if (Math.abs(swipeDistance) > minSwipeDistance) {
+            if (swipeDistance > 0) {
+                // Swiped left - show next image
+                onNext();
+            } else {
+                // Swiped right - show previous image
+                onPrev();
+            }
+        }
+
+        // Reset values with a small delay for transition
+        setTimeout(() => {
+            setSwipeOffset(0);
+            setIsTransitioning(false);
+        }, 50);
+
+        touchStartX.current = null;
+        touchEndX.current = null;
+    };
+
     if (!isOpen || !images.length) return null;
 
     const currentImage = images[currentIndex];
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-text-contrast/90"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm"
             role="dialog"
             aria-modal="true"
             aria-label="Image gallery"
         >
-            {/* Close button */}
-            <button
-                onClick={onClose}
-                className="absolute top-4 right-4 z-10 p-2 rounded-lg bg-text-contrast/50 text-text-light hover:bg-text-contrast/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                aria-label="Close gallery"
-            >
-                <X className="h-6 w-6" />
-            </button>
+            {/* Top bar with close button and counter */}
+            <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-6 bg-gradient-to-b from-black/60 to-transparent">
+                {currentImage.title && (
+                    <div className="text-text-light text-lg font-medium">
+                        {currentImage.title}
+                    </div>
+                )}
+                <div className="flex items-center gap-4 ml-auto">
+                    {images.length > 1 && (
+                        <div className="text-text-light/80 text-sm font-medium">
+                            {currentIndex + 1} / {images.length}
+                        </div>
+                    )}
+                    <button
+                        onClick={onClose}
+                        className="p-2 rounded-lg bg-white/10 text-text-light hover:bg-white/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                        aria-label="Close gallery"
+                    >
+                        <X className="h-6 w-6" />
+                    </button>
+                </div>
+            </div>
 
-            {/* Previous button */}
+            {/* Navigation buttons - positioned at bottom */}
             {images.length > 1 && (
-                <button
-                    onClick={onPrev}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-lg bg-text-contrast/50 text-text-light hover:bg-text-contrast/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                    aria-label="Previous image"
-                >
-                    <ChevronLeft className="h-8 w-8" />
-                </button>
+                <div className="absolute bottom-20 left-0 right-0 z-20 flex items-center justify-center gap-6 pb-4">
+                    <button
+                        onClick={onPrev}
+                        className="p-4 rounded-full bg-white/10 text-text-light hover:bg-white/20 hover:scale-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white backdrop-blur-sm"
+                        aria-label="Previous image"
+                    >
+                        <ChevronLeft className="h-8 w-8" />
+                    </button>
+                    <button
+                        onClick={onNext}
+                        className="p-4 rounded-full bg-white/10 text-text-light hover:bg-white/20 hover:scale-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white backdrop-blur-sm"
+                        aria-label="Next image"
+                    >
+                        <ChevronRight className="h-8 w-8" />
+                    </button>
+                </div>
             )}
 
-            {/* Next button */}
-            {images.length > 1 && (
-                <button
-                    onClick={onNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-lg bg-text-contrast/50 text-text-light hover:bg-text-contrast/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                    aria-label="Next image"
-                >
-                    <ChevronRight className="h-8 w-8" />
-                </button>
-            )}
-
-            {/* Main image */}
+            {/* Main image container */}
             <div
                 ref={lightboxRef}
-                className="relative max-w-7xl max-h-full w-full h-full flex items-center justify-center p-4"
+                className="w-full h-full flex items-center justify-center p-8 pt-24 pb-32"
                 tabIndex={-1}
+                onClick={onClose}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
             >
                 <img
                     src={currentImage.src}
-                    alt={currentImage.alt || `Image ${currentIndex + 1}`}
-                    className="max-w-full max-h-full object-contain"
+                    alt={
+                        currentImage.alt ||
+                        currentImage.title ||
+                        `Image ${currentIndex + 1}`
+                    }
+                    className="max-w-full max-h-full w-auto h-auto object-contain shadow-2xl"
+                    style={{
+                        maxWidth: "95vw",
+                        maxHeight: "85vh",
+                        transform: `translateX(${swipeOffset}px)`,
+                        transition: isTransitioning
+                            ? "transform 0.3s ease-out"
+                            : "none",
+                    }}
+                    onClick={(e) => e.stopPropagation()}
                     onError={(e) => {
                         e.target.src = "/images/placeholder-image.jpg";
                     }}
                 />
+            </div>
 
-                {/* Image info */}
-                {(currentImage.title || currentImage.description) && (
-                    <div className="absolute bottom-4 left-4 right-4 bg-text-contrast/70 text-text-light p-4 rounded-lg">
-                        {currentImage.title && (
-                            <h3 className="text-lg font-semibold mb-1">
-                                {currentImage.title}
-                            </h3>
-                        )}
-                        {currentImage.description && (
-                            <p className="text-sm opacity-90">
-                                {currentImage.description}
-                            </p>
-                        )}
+            {/* Bottom info bar */}
+            <div className="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-black/60 to-transparent">
+                {currentImage.dateISO && (
+                    <div className="px-8 py-6">
+                        <p className="text-text-light/80 text-sm">
+                            {new Date(currentImage.dateISO).toLocaleDateString(
+                                i18n.language === "hr" ? "hr-HR" : "en-US",
+                                {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                }
+                            )}
+                        </p>
                     </div>
                 )}
             </div>
-
-            {/* Image counter */}
-            {images.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-text-contrast/70 text-text-light text-sm rounded-full">
-                    {currentIndex + 1} / {images.length}
-                </div>
-            )}
-
-            {/* Backdrop click to close */}
-            <div
-                className="absolute inset-0 -z-10"
-                onClick={onClose}
-                aria-hidden="true"
-            />
         </div>
     );
 };

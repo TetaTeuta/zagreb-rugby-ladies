@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://www.zagrebrugbyladies.com/</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.zagrebrugbyladies.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="hr" href="https://www.zagrebrugbyladies.com/hr/"/>
+    </url>
+    
+    <!-- Rugby 101 - High Priority for SEO -->
+    <url>
+        <loc>https://www.zagrebrugbyladies.com/rugby101</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.zagrebrugbyladies.com/en/rugby101"/>
+        <xhtml:link rel="alternate" hreflang="hr" href="https://www.zagrebrugbyladies.com/hr/rugby101"/>
+        <image:image>
+            <image:loc>https://www.zagrebrugbyladies.com/zagreb-rugby-ladies-logo.png</image:loc>
+            <image:title>Rugby 101 - Complete Guide to Rugby Sevens</image:title>
+        </image:image>
+    </url>
+    
+    <!-- About Us -->
+    <url>
+        <loc>https://www.zagrebrugbyladies.com/about</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.zagrebrugbyladies.com/en/about"/>
+        <xhtml:link rel="alternate" hreflang="hr" href="https://www.zagrebrugbyladies.com/hr/about"/>
+    </url>
+    
+    <!-- Team -->
+    <url>
+        <loc>https://www.zagrebrugbyladies.com/team</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.zagrebrugbyladies.com/en/team"/>
+        <xhtml:link rel="alternate" hreflang="hr" href="https://www.zagrebrugbyladies.com/hr/team"/>
+    </url>
+    
+    <!-- Schedule -->
+    <url>
+        <loc>https://www.zagrebrugbyladies.com/schedule</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.zagrebrugbyladies.com/en/schedule"/>
+        <xhtml:link rel="alternate" hreflang="hr" href="https://www.zagrebrugbyladies.com/hr/schedule"/>
+    </url>
+    
+    <!-- Gallery -->
+    <url>
+        <loc>https://www.zagrebrugbyladies.com/gallery</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.zagrebrugbyladies.com/en/gallery"/>
+        <xhtml:link rel="alternate" hreflang="hr" href="https://www.zagrebrugbyladies.com/hr/gallery"/>
+    </url>
+    
+    <!-- Contact -->
+    <url>
+        <loc>https://www.zagrebrugbyladies.com/contact</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.zagrebrugbyladies.com/en/contact"/>
+        <xhtml:link rel="alternate" hreflang="hr" href="https://www.zagrebrugbyladies.com/hr/contact"/>
+    </url>
+    
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://www.zagrebrugbyladies.com/privacy</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <!-- Terms of Use -->
+    <url>
+        <loc>https://www.zagrebrugbyladies.com/terms</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+</urlset>
+

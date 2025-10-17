@@ -2,7 +2,7 @@
     "navigation": {
         "home": "Home",
         "about": "About Us",
-        "team": "Team",
+        "team": "Players",
         "schedule": "Schedule",
         "rugby101": "Rugby 101",
         "gallery": "Gallery",
@@ -21,6 +21,12 @@
         "error": "Error",
         "success": "Success"
     },
+    "countdown": {
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds"
+    },
     "header": {
         "banner": "The future of women's rugby starts here.",
         "toggleMenu": "Toggle menu",
@@ -37,6 +43,7 @@
             "subtitle": "The champions behind the team."
         },
         "highlights": {
+            "title": "WHY CHOOSE RUGBY?",
             "inclusive": {
                 "title": "Inclusive Team",
                 "description": "Every background. Every story. One team."
@@ -72,74 +79,51 @@
         "title": "Training Schedule",
         "subtitle": "Join us on the field",
         "description": "Regular training sessions for all skill levels. Come as you are, leave stronger.",
-        "viewSchedule": "View Full Schedule"
-    },
-    "team": {
-        "title": "Our Team",
-        "subtitle": "Meet the incredible women who make Zagreb Rugby Ladies special",
-        "position": "Position",
-        "about": "About",
-        "quote": "Quote",
-        "funFact": "Fun Fact",
-        "social": "Follow on Instagram"
-    },
-    "about": {
-        "title": "About Zagreb Rugby Ladies",
-        "subtitle": "Building strength, character, and community through rugby",
-        "mission": "Our Mission",
-        "values": "Our Values",
-        "history": "Our History"
-    },
-    "contact": {
-        "title": "Get in Touch",
-        "subtitle": "Ready to join us? Have questions? We'd love to hear from you.",
-        "form": {
-            "name": "Name",
-            "email": "Email",
-            "message": "Message",
-            "send": "Send Message",
-            "sending": "Sending...",
-            "success": "Message sent successfully!",
-            "error": "Failed to send message. Please try again."
+        "viewSchedule": "View Full Schedule",
+        "days": {
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+            "Saturday": "Saturday",
+            "Sunday": "Sunday"
         },
-        "info": {
-            "address": "Address",
-            "phone": "Phone",
-            "email": "Email",
-            "followUs": "Follow Us"
+        "types": {
+            "skillsFitness": "Skills & Fitness",
+            "teamTraining": "Team Training",
+            "matchDay": "Match Day"
+        },
+        "whatToBring": {
+            "title": "What to Bring",
+            "athleticWear": "Comfortable athletic wear",
+            "shoes": "Running shoes or rugby boots",
+            "waterBottle": "Water bottle",
+            "attitude": "Positive attitude"
+        },
+        "providedByClub": {
+            "title": "Provided by Club",
+            "balls": "Rugby balls",
+            "equipment": "Training equipment",
+            "firstAid": "First aid support",
+            "coaching": "Beginner coaching",
+            "boots": "Rugby boots"
         }
-    },
-    "rugby101": {
-        "title": "Rugby 101",
-        "subtitle": "New to rugby? Start here to learn the basics",
-        "basics": "The Basics",
-        "positions": "Positions",
-        "rules": "Rules",
-        "equipment": "Equipment"
-    },
-    "gallery": {
-        "title": "Gallery",
-        "subtitle": "Moments from our journey",
-        "categories": {
-            "all": "All",
-            "matches": "Matches",
-            "training": "Training",
-            "events": "Events"
-        }
-    },
-    "schedule": {
-        "title": "Schedule",
-        "subtitle": "Upcoming matches and training sessions",
-        "matches": "Matches",
-        "trainings": "Training Sessions",
-        "events": "Events"
     },
     "footer": {
-        "description": "Zagreb Rugby Ladies - Empowering women through rugby since 2020.",
-        "quickLinks": "Quick Links",
-        "contact": "Contact Info",
-        "followUs": "Follow Us",
-        "copyright": "© 2024 Zagreb Rugby Ladies. All rights reserved."
+        "getInTouch": "GET IN TOUCH",
+        "logoAlt": "Zagreb Rugby Ladies Logo",
+        "teamName": "Zagreb Rugby Ladies",
+        "description": "Empowering girls and young women through rugby. Join our inclusive team where courage meets community, and every player discovers their strength.",
+        "ourSponsors": "OUR SPONSORS",
+        "copyright": "© {{year}} Zagreb Rugby Ladies. All rights reserved. Developed and designed by iTee, obrt za programiranje.",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfSale": "Terms of Use",
+        "ariaLabels": {
+            "instagram": "Follow us on Instagram",
+            "facebook": "Follow us on Facebook",
+            "email": "Send us an email"
+        }
     },
     "language": {
         "english": "English",
@@ -148,14 +132,14 @@
     },
     "about": {
         "hero": {
-            "title": "Breaking Barriers. Building Dreams.",
+            "title": "BREAKING BARRIERS. BUILDING DREAMS.",
             "joinTeam": "Join Our Team",
             "meetTeam": "Meet the Team"
         },
         "story": {
             "title": "OUR STORY",
-            "subtitle": "Founded in 2020, Zagreb Rugby Ladies emerged from a simple belief.",
-            "description1": "Today, we're proud members of the Croatian Rugby Federation, with over 30 active players ranging from complete beginners to experienced athletes. Our club has become a cornerstone of women's rugby in Croatia, inspiring other cities to start their own teams.",
+            "subtitle": "Founded in 2017, Zagreb Rugby Ladies emerged from a simple belief.",
+            "description1": "Today, we're proud members of the Croatian Rugby Union, with over 30 active members ranging from complete beginners to experienced athletes and national team players. Our club has become a cornerstone of women's rugby in Croatia.",
             "description2": "But our greatest achievement isn't our wins on the field—it's the confidence, friendships, and personal growth our players develop."
         },
         "mission": {
@@ -183,8 +167,20 @@
             }
         },
         "coaches": {
-            "title": "MEET OUR COACHES",
-            "contactCoach": "Contact Coach"
+            "title": "MEET OUR STAFF",
+            "contactCoach": "Contact",
+            "sandi": {
+                "name": "Aleksandar Holjevac",
+                "role": "Coach"
+            },
+            "kuca": {
+                "name": "Marija Kuća",
+                "role": "Physiotherapist"
+            },
+            "petra": {
+                "name": "Petra Kušen",
+                "role": "Team Captain"
+            }
         },
         "training": {
             "title": "TRAINING SCHEDULE",
@@ -199,6 +195,14 @@
         "cta": {
             "title": "READY TO JOIN OUR TEAM?",
             "description": "Whether you're a complete beginner or experienced player, we'd love to welcome you to the Zagreb Rugby Ladies family."
+        },
+        "imageAlts": {
+            "hero": "About Us hero image",
+            "story": "Our story",
+            "mission": "Our mission",
+            "values": "Our values",
+            "trainingSchedule": "Training schedule",
+            "contactUs": "Contact us"
         }
     },
     "contact": {
@@ -213,7 +217,7 @@
             "fullName": "Full Name",
             "emailAddress": "Email Address",
             "phoneNumber": "Phone Number",
-            "phoneOptional": "+385 99 123 4567 (optional)",
+            "phoneOptional": "+385 91 404 2005 (optional)",
             "reasonForContact": "Reason for Contact",
             "chooseReason": "Choose a reason...",
             "reasons": {
@@ -230,6 +234,12 @@
             "sendMessage": "Send Message",
             "successMessage": "Thank you! We'll get back to you within 24 hours.",
             "errorMessage": "Something went wrong. Please try again or email us directly.",
+            "sendingStatus": "Sending message...",
+            "successStatus": "Message sent successfully!",
+            "errorStatus": "Error sending message. Please try again.",
+            "fullNamePlaceholder": "Your full name",
+            "emailPlaceholder": "your.email@example.com",
+            "required": "*",
             "validation": {
                 "nameRequired": "Please enter your name",
                 "emailRequired": "Please enter your email",
@@ -244,7 +254,7 @@
             "trainingSchedule": "TRAINING SCHEDULE",
             "location": "LOCATION",
             "directContact": "DIRECT CONTACT",
-            "whatToExpect": "What to Expect",
+            "whatToExpect": "WHAT TO EXPECT",
             "expectations": {
                 "response": "Response within 24 hours",
                 "invitation": "Invitation to attend a trial training",
@@ -269,7 +279,7 @@
         "stats": {
             "title": "OUR TEAM",
             "subtitle": "Every player has a unique journey.",
-            "activePlayers": "Active Players",
+            "activePlayers": "Active Members",
             "yearsStrong": "Years Strong",
             "teamSpirit": "Team Spirit"
         },
@@ -301,7 +311,135 @@
         },
         "cta": {
             "title": "WANT TO JOIN OUR TEAM?",
-            "description": "We're always looking for new players who want to challenge themselves, make friends, and be part of something special. No experience required—just bring your enthusiasm!"
+            "description": "We're always looking for new players who want to challenge themselves, make friends, and be part of something special. No experience required - just bring your enthusiasm!"
+        },
+        "imageAlts": {
+            "hero": "Team rugby action",
+            "stats": "Team stats",
+            "inclusive": "Inclusive environment",
+            "development": "Player development"
+        },
+        "playerModal": {
+            "position": "Position",
+            "playerQuote": "Player Quote",
+            "about": "About {{name}}",
+            "funFact": "Fun Fact",
+            "connect": "Connect",
+            "instagram": "Instagram",
+            "joinTeam": "Join the Team",
+            "close": "Close",
+            "clubName": "Zagreb Rugby Ladies",
+            "viewProfile": "View Profile",
+            "viewPlayerProfile": "View {{name}}'s profile"
+        },
+        "positions": {
+            "scrumHalf": "Scrum Half",
+            "prop": "Prop",
+            "looseheadProp": "Loosehead Prop",
+            "tightheadProp": "Tighthead Prop",
+            "flyHalf": "Fly Half",
+            "lock": "Lock",
+            "centre": "Centre",
+            "insideCentre": "Inside Centre",
+            "fullback": "Fullback",
+            "flanker": "Flanker",
+            "winger": "Winger",
+            "wing": "Wing",
+            "number8": "Number 8",
+            "hooker": "Hooker",
+            "secondRow": "Second Row"
+        },
+        "players": {
+            "petra-kusen": {
+                "about": "Team captain and strategist. Played for 4 years and leads by example both on and off the field.",
+                "quote": "In rugby, we don't just play together - we grow together.",
+                "funFact": "Speaks four languages and uses rugby terms to teach Croatian to international players!"
+            },
+            "josipa-farac": {
+                "about": "An islander from Korčula, she's known as the team's main entertainer - nicknamed 'Živiđuboks' (the live jukebox). She graduated from the stone-carving school on Brač and works in restoration. Her hobbies include photography, video production, cooking, and drawing. Rugby is the perfect sport for her—it has taught her a lot, helped her grow, and she's grateful to be part of this community.",
+                "quote": "Art fills my soul, rugby fills my heart, and the people around me give meaning to everything.",
+                "funFact": "She can do an impressive Donald Duck voice."
+            },
+            "teuta-stazic": {
+                "about": "The oldest, but the goldest",
+                "quote": "Rugby taught me that strength comes from the team, not just yourself.",
+                "funFact": "Started playing to overcome her fear of contact sports - now she's unstoppable!"
+            },
+            "margaux-fabre": {
+                "about": "International veterinary student",
+                "quote": "Each pass carries more than a ball - it carries trust, courage, and the will to move forward.",
+                "funFact": "She comes from France, a land where rugby runs deep, but it was in Croatia that she first laced up her cleats."
+            },
+            "manuela-andrijanan": {
+                "about": "Bosnian try machine",
+                "quote": "When the going gets tough, the tough get going.",
+                "funFact": "Never missed a lineout throw in her two years with the team!"
+            },
+            "dina-madir": {
+                "about": "Powerful runner with soft hands and an eye for the gap. Defensive stalwart in midfield.",
+                "quote": "Attack wins games, but defense wins championships.",
+                "funFact": "Former handball player who brings incredible hand-eye coordination to rugby!"
+            },
+            "lea-kolaric": {
+                "about": "Barber with a heart of gold and a smile that will light up your day.",
+                "quote": "Nothing in life has happened by accident.",
+                "funFact": "She keeps saying she doesn't feel like doing anything, yet she still gets everything done."
+            },
+            "lara-vuk": {
+                "about": "High school student and artist",
+                "quote": "Rugby taught me more about life than school ever could.",
+                "funFact": "Before rugby, she trained kickboxing, and in her free time, she goes on adventures with her dogs."
+            },
+            "gabriell-martinovic": {
+                "about": "Dynamic runner with powerful carries and defensive presence in midfield.",
+                "quote": "Rugby is about making space for others and taking yours when it comes.",
+                "funFact": "Multilingual player who helps integrate international teammates."
+            },
+            "macarena-camara": {
+                "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
+                "quote": "Speed gets you there, but composure gets you over the line.",
+                "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+            },
+            "morena-ivcek": {
+                "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
+                "quote": "Speed gets you there, but composure gets you over the line.",
+                "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+            },
+            "ivona-sojic": {
+                "about": "Back row powerhouse with leadership qualities and an engine that never stops.",
+                "quote": "Lead from the front, support from behind, never give up.",
+                "funFact": "Runs 10km every morning before training - her fitness is legendary!"
+            },
+            "lana-emanovic": {
+                "about": "Solid scrummager with powerful driving game in open play.",
+                "quote": "Scrums are won with heart, not just muscle.",
+                "funFact": "Former powerlifter who brings incredible strength to the scrum."
+            },
+            "cvita-seiter": {
+                "about": "Explosive winger with great footwork and finishing ability.",
+                "quote": "Every time I touch the ball, I'm looking for the try line.",
+                "funFact": "Scored a hat-trick in her debut match!"
+            },
+            "lucija-zoric": {
+                "about": "Creative playmaker with silky skills and perfect game management.",
+                "quote": "Rugby is an art, and every play is a brushstroke.",
+                "funFact": "Known for her exceptional passing game and ability to read defenses."
+            },
+            "lora-aladrovic": {
+                "about": "Precision thrower and fierce competitor who leads the front row with passion.",
+                "quote": "Accuracy under pressure is what separates good players from great ones.",
+                "funFact": "Has a 95% lineout throwing accuracy - the highest in the league!"
+            },
+            "barbara-debeljak": {
+                "about": "Versatile forward who brings energy and intensity to every breakdown.",
+                "quote": "Winning starts with attitude and ends with effort.",
+                "funFact": "Former basketball player who brings exceptional athleticism to rugby."
+            },
+            "jelena-ivancic": {
+                "about": "Lineout specialist with incredible athleticism. The engine room of our forward pack.",
+                "quote": "Every lineout is a chance to show the opposition what we're made of.",
+                "funFact": "Former volleyball player whose jumping reach is unmatched in the league!"
+            }
         }
     },
     "schedule": {
@@ -321,7 +459,18 @@
             "completed": "Completed",
             "upcoming": "Upcoming"
         },
+        "match": {
+            "fullTime": "Full Time",
+            "kickOff": "Kick Off",
+            "vs": "vs",
+            "at": "@",
+            "win": "W",
+            "loss": "L"
+        },
         "getDirections": "Get Directions",
+        "imageAlts": {
+            "hero": "Schedule hero image"
+        },
         "cta": {
             "title": "COME SUPPORT OUR TEAM!",
             "description": "Join us at our matches and be part of the Zagreb Rugby Ladies community. Your support fuels our passion and drives us to victory.",
@@ -329,16 +478,66 @@
             "meetPlayers": "Meet the Players"
         }
     },
+    "gallery": {
+        "hero": {
+            "title": "CAPTURING MOMENTS. SHARING STORIES.",
+            "joinTeam": "Join Our Team",
+            "meetPlayers": "Meet Our Players"
+        },
+        "story": {
+            "title": "OUR STORY IN PICTURES",
+            "subtitle": "Every training session, match, and celebration tells our story.",
+            "description1": "From intense training sessions to triumphant matches, these moments capture the spirit, dedication, and joy of Zagreb Rugby Ladies.",
+            "description2": "Each photo tells a story of determination, friendship, and the incredible journey of women who dared to step onto the rugby field.",
+            "bePartOfStory": "Be Part of Our Story"
+        },
+        "collections": {
+            "title": "Gallery",
+            "subtitle": "Explore our memories organized by moments that matter most to us.",
+            "all": "All Photos",
+            "training": "Training",
+            "matches": "Matches",
+            "team": "Team",
+            "community": "Community"
+        },
+        "stats": {
+            "collection": "Our Collection",
+            "totalMedia": "Total Media",
+            "photos": "Photos",
+            "videos": "Videos",
+            "joinStory": "Join Our Story"
+        },
+        "highlights": {
+            "title": "Recent Highlights",
+            "items": [
+                "Championship Victory 2024",
+                "New Player Recruitment Drive",
+                "Community Outreach Program",
+                "International Friendly Match"
+            ]
+        },
+        "noPhotos": "No photos found for this selection.",
+        "showAll": "Show All Photos",
+        "allPhotos": "All Photos",
+        "loading": "Loading gallery...",
+        "error": "Error",
+        "photoCategories": "Photo categories",
+        "imageAlts": {
+            "hero": "Gallery hero image"
+        },
+        "cta": {
+            "title": "WANT TO BE PART OF THESE MOMENTS?",
+            "description": "Join Zagreb Rugby Ladies and create your own unforgettable memories. Every training session, every match, every celebration could include you."
+        }
+    },
     "rugby101": {
         "hero": {
-            "title": "RUGBY 7S 101",
-            "subtitle": "Master the fastest, most exciting format in rugby",
-            "startTraining": "Start Training Today"
+            "title": "RUGBY 7S ESSENTIALS",
+            "titleAccent": "Essentials",
+            "subtitle": "Everything you need to know to get started with the world's most exciting rugby format"
         },
         "basics": {
-            "title": "Rugby 7s Essentials",
-            "subtitle": "Everything you need to know to get started with the world's most exciting rugby format",
-            "players": {
+            "playersPerTeam": {
                 "title": "7 Players Per Team",
                 "description": "Each team has 7 players on the field, creating fast-paced action with more space to run and score."
             },
@@ -346,7 +545,7 @@
                 "title": "Objective",
                 "description": "Score more tries than the opposition by carrying, passing, or kicking the ball into the opponent's try zone."
             },
-            "time": {
+            "duration": {
                 "title": "14 Minutes",
                 "description": "A match consists of two 7-minute halves with a 2-minute break at halftime."
             },
@@ -355,12 +554,36 @@
                 "description": "Proper technique and protective gear ensure rugby is safe. The faster pace promotes skillful play over heavy contact."
             }
         },
+        "scoring": {
+            "label": "Points System",
+            "title": "How to",
+            "titleAccent": "Score",
+            "description": "Four ways to put points on the board and dominate the game",
+            "try": {
+                "title": "Try",
+                "description": "Grounding the ball in the opponent's try zone"
+            },
+            "conversion": {
+                "title": "Conversion",
+                "description": "Kick through the posts after a try"
+            },
+            "penalty": {
+                "title": "Penalty",
+                "description": "Kick awarded for opponent infractions"
+            },
+            "dropGoal": {
+                "title": "Drop Goal",
+                "description": "Field goal kicked during regular play"
+            }
+        },
         "positions": {
-            "title": "Player Positions",
-            "subtitle": "Understanding the unique roles that make rugby sevens so dynamic",
+            "label": "Team Structure",
+            "title": "Player",
+            "titleAccent": "Positions",
+            "description": "Understanding the unique roles that make rugby sevens so dynamic",
             "forwards": {
                 "title": "Forwards (1-3)",
-                "description": "The foundation and power",
+                "subtitle": "The foundation and power",
                 "roles": [
                     "Scrum formation",
                     "Lineout throwing and catching",
@@ -370,7 +593,7 @@
             },
             "backs": {
                 "title": "Backs (4-7)",
-                "description": "Speed, skill and finishing",
+                "subtitle": "Speed, skill and finishing",
                 "roles": [
                     "Ball distribution and pace",
                     "Strategic kicking",
@@ -378,35 +601,14 @@
                     "Try-scoring opportunities"
                 ]
             },
-            "learnPosition": "Learn This Position"
-        },
-        "scoring": {
-            "title": "How to Score",
-            "subtitle": "Four ways to put points on the board and dominate the game",
-            "try": {
-                "points": "5",
-                "title": "Try",
-                "description": "Grounding the ball in the opponent's try zone"
-            },
-            "conversion": {
-                "points": "2",
-                "title": "Conversion",
-                "description": "Kick through the posts after a try"
-            },
-            "penalty": {
-                "points": "3",
-                "title": "Penalty",
-                "description": "Kick awarded for opponent infractions"
-            },
-            "dropGoal": {
-                "points": "3",
-                "title": "Drop Goal",
-                "description": "Field goal kicked during regular play"
-            }
+            "learnPosition": "Learn This Position",
+            "keyResponsibilities": "Key Responsibilities:"
         },
         "safety": {
-            "title": "Safety & Equipment",
-            "subtitle": "Everything you need to play safely and confidently",
+            "label": "Safety First",
+            "title": "Safety &",
+            "titleAccent": "Equipment",
+            "description": "Everything you need to play safely and confidently",
             "whatYouNeed": {
                 "title": "What You Need",
                 "items": [
@@ -427,10 +629,12 @@
             }
         },
         "myths": {
-            "title": "Myths vs Reality",
-            "subtitle": "Debunking common misconceptions about rugby sevens",
-            "myth": "MYTH",
-            "reality": "REALITY",
+            "label": "Truth Check",
+            "title": "Myths vs",
+            "titleAccent": "Reality",
+            "description": "Debunking common misconceptions about rugby sevens",
+            "mythLabel": "MYTH",
+            "realityLabel": "REALITY",
             "items": [
                 {
                     "myth": "Rugby sevens is just sprint rugby",
@@ -451,8 +655,9 @@
             ]
         },
         "faq": {
+            "label": "Common Questions",
             "title": "FAQ",
-            "subtitle": "Everything you wanted to know about getting started",
+            "description": "Everything you wanted to know about getting started",
             "items": [
                 {
                     "question": "Is rugby sevens safe for beginners?",
@@ -475,60 +680,137 @@
                     "answer": "The rules are identical, and women's sevens is an Olympic sport showcasing incredible skill and athleticism. The game emphasizes speed, strategy, and teamwork with equally competitive and exciting play."
                 },
                 {
-                    "question": "What if I'm not naturally fast?",
-                    "answer": "Rugby sevens is for everyone! While speed helps, the game also requires strategy, strength, and skill. Every player brings different attributes, and our club focuses on developing each player's unique strengths."
+                    "question": "What's the time commitment?",
+                    "answer": "We train three times a week with matches on weekends. Training sessions are 90 minutes. You can attend as many sessions as your schedule allows, and we welcome players who can't make every session."
                 }
             ]
         },
         "cta": {
-            "title": "Ready to Join the Action?",
-            "description": "Experience the thrill of rugby sevens firsthand. Join our beginner-friendly training sessions.",
-            "startNow": "Start Training Now",
-            "meetPlayers": "Meet Our Players"
+            "title": "Ready to Start Your Rugby Journey?",
+            "description": "Join Zagreb Rugby Ladies and become part of Croatia's premier women's rugby sevens team",
+            "joinButton": "Join Us Today",
+            "contactButton": "Contact Us"
         }
     },
-    "gallery": {
+    "privacy": {
         "hero": {
-            "title": "CAPTURING MOMENTS. SHARING STORIES.",
-            "joinTeam": "Join Our Team",
-            "meetPlayers": "Meet Our Players"
+            "title": "PRIVACY POLICY",
+            "subtitle": "Your privacy is important to us. This policy explains how we collect, use, and protect your personal information.",
+            "lastUpdated": "Last updated"
         },
-        "story": {
-            "title": "OUR STORY IN PICTURES",
-            "subtitle": "Every training session, match, and celebration tells our story.",
-            "description1": "From intense training sessions to triumphant matches, these moments capture the spirit, dedication, and joy of Zagreb Rugby Ladies.",
-            "description2": "Each photo tells a story of determination, friendship, and the incredible journey of women who dared to step onto the rugby field.",
-            "bePartOfStory": "Be Part of Our Story"
+        "introduction": "At Zagreb Rugby Ladies, we are committed to protecting your privacy and personal data. This Privacy Policy explains how we handle any personal information you provide to us through our website or contact forms. Zagreb Rugby Ladies is the data controller for the personal information we collect, meaning we are responsible for determining how and why your data is processed.",
+        "dataCollection": {
+            "title": "Information We Collect",
+            "description": "We collect personal information that you voluntarily provide to us when you:",
+            "items": {
+                "name": "Name (when you contact us through our contact form)",
+                "email": "Email address (for communication purposes)",
+                "phone": "Phone number (optional, if you choose to provide it)",
+                "message": "Any other information you choose to provide in your message"
+            }
         },
-        "collections": {
-            "title": "Gallery Collections",
-            "subtitle": "Explore our memories organized by moments that matter most to us.",
-            "all": "All Photos",
-            "training": "Training",
-            "matches": "Matches",
-            "community": "Community"
+        "dataUse": {
+            "title": "How We Use Your Information",
+            "description": "We use the information we collect to:",
+            "items": {
+                "respond": "Respond to your inquiries and requests",
+                "communicate": "Communicate with you about Zagreb Rugby Ladies activities, events, and training sessions",
+                "improve": "Improve our website and services"
+            }
         },
-        "stats": {
-            "collection": "Our Collection",
-            "totalMedia": "Total Media",
-            "photos": "Photos",
-            "videos": "Videos",
-            "joinStory": "Join Our Story"
+        "dataStorage": {
+            "title": "Data Storage and Security",
+            "description": "We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. Your data is stored securely and is only accessible to authorized team members who need it to respond to your inquiries. We do not sell, rent, or share your personal information with third parties for marketing purposes."
         },
-        "highlights": {
-            "title": "Recent Highlights",
-            "items": [
-                "Championship Victory 2024",
-                "New Player Recruitment Drive",
-                "Community Outreach Program",
-                "International Friendly Match"
-            ]
+        "thirdPartyServices": {
+            "title": "Third-Party Service Providers",
+            "description": "To process contact form submissions, we use Basin (usebasin.com), a secure form handling service. When you submit our contact form, your information is transmitted to Basin's servers and then forwarded directly to us. Basin temporarily stores copies of submissions on their servers for form processing purposes. Basin acts as a data processor under our instruction and is committed to data protection standards. For more information about Basin's privacy practices, please visit their privacy policy.",
+            "dataController": "Zagreb Rugby Ladies remains the data controller for all information you submit through our contact form. The data goes directly to us, and we control how it is used and stored."
         },
-        "noPhotos": "No photos found for the selected album.",
-        "showAll": "Show All Photos",
-        "cta": {
-            "title": "Want to Be Part of These Moments?",
-            "description": "Join Zagreb Rugby Ladies and create your own unforgettable memories. Every training session, every match, every celebration could include you."
-        }
+        "dataRetention": {
+            "title": "Data Retention",
+            "description": "We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy:",
+            "items": {
+                "inquiries": "Contact form submissions are retained for up to 2 years to respond to your inquiry and maintain communication records",
+                "deleteRequest": "You may request deletion of your data at any time by contacting us",
+                "automatic": "After the retention period expires, your data will be securely deleted unless there is a legal requirement to retain it longer"
+            }
+        },
+        "rights": {
+            "title": "Your Rights (GDPR Compliance)",
+            "description": "Under the General Data Protection Regulation (GDPR), you have the right to:",
+            "items": {
+                "access": "Access the personal data we hold about you",
+                "rectification": "Request correction of any inaccurate data",
+                "erasure": "Request deletion of your personal data",
+                "objection": "Object to the processing of your data",
+                "portability": "Request a copy of your data in a portable format"
+            }
+        },
+        "cookies": {
+            "title": "Cookies and Tracking",
+            "description": "Our website does not use cookies or tracking technologies to collect personal information. We may use basic analytics to understand how visitors use our site, but this does not identify individual users."
+        },
+        "contact": {
+            "title": "Contact Us About Privacy",
+            "description": "If you have any questions about this Privacy Policy or wish to exercise your rights regarding your personal data, please contact us at:"
+        },
+        "backToHome": "Back to Home"
+    },
+    "terms": {
+        "hero": {
+            "title": "TERMS OF USE",
+            "subtitle": "Please read these terms carefully before using our website.",
+            "lastUpdated": "Last updated"
+        },
+        "introduction": "Welcome to the Zagreb Rugby Ladies website. By accessing and using this website, you agree to comply with and be bound by the following terms and conditions.",
+        "copyright": {
+            "title": "Intellectual Property & Copyright",
+            "description": "All content on this website, including but not limited to text, images, photographs, graphics, logos, and website design, is the property of Zagreb Rugby Ladies and is protected by Croatian and international copyright laws. This includes:",
+            "items": {
+                "photos": "All photographs of players, matches, and team events",
+                "design": "Website design, layout, and visual elements",
+                "text": "Written content and team information",
+                "logos": "Zagreb Rugby Ladies logos and branding"
+            }
+        },
+        "acceptableUse": {
+            "title": "Acceptable Use",
+            "description": "When using our website, you agree to the following terms:",
+            "permitted": {
+                "title": "You MAY:",
+                "items": {
+                    "view": "View and browse the website for personal, non-commercial use",
+                    "share": "Share links to our website on social media",
+                    "contact": "Use our contact form to inquire about joining the team"
+                }
+            },
+            "prohibited": {
+                "title": "You MAY NOT:",
+                "items": {
+                    "copy": "Download, copy, or reproduce photographs without explicit written permission",
+                    "modify": "Modify, alter, or create derivative works from our website design or content",
+                    "commercial": "Use any content for commercial purposes without authorization",
+                    "scrape": "Use automated tools to extract or scrape data from our website"
+                }
+            }
+        },
+        "photos": {
+            "title": "Photography and Images",
+            "description": "All photographs on this website are owned by Zagreb Rugby Ladies or used with permission. Unauthorized downloading, copying, or use of these images is strictly prohibited. If you wish to use any photographs, please contact us for permission at zrkzagreb@zagreb-rugby.hr."
+        },
+        "disclaimer": {
+            "title": "Disclaimer",
+            "description": "While we strive to keep the information on our website accurate and up-to-date, we make no warranties or representations about the accuracy or completeness of the content. Zagreb Rugby Ladies reserves the right to modify or remove any content at any time without notice."
+        },
+        "changes": {
+            "title": "Changes to Terms",
+            "description": "We reserve the right to update these Terms of Use at any time. Changes will be effective immediately upon posting to this page. Your continued use of the website after any changes indicates your acceptance of the updated terms."
+        },
+        "contact": {
+            "title": "Questions About Terms",
+            "description": "If you have any questions about these Terms of Use or wish to request permission to use any content, please contact us at:"
+        },
+        "backToHome": "Back to Home"
     }
 }

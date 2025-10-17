@@ -1,15 +1,26 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Globe, ChevronDown } from "lucide-react";
 
 const LanguageSwitcher = ({ className = "", variant = "default" }) => {
-    const { i18n, t } = useTranslation();
+    const { i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [shouldRender, setShouldRender] = useState(false);
     const dropdownRef = useRef(null);
 
     const languages = [
-        { code: "en", name: t("language.english"), flag: "🇺🇸" },
-        { code: "hr", name: t("language.croatian"), flag: "🇭🇷" },
+        {
+            code: "en",
+            name: "English",
+            countryCode: "gb",
+            flagUrl: "https://flagcdn.com/w40/gb.png",
+        },
+        {
+            code: "hr",
+            name: "Croatian",
+            countryCode: "hr",
+            flagUrl: "https://flagcdn.com/w40/hr.png",
+        },
     ];
 
     const currentLanguage =
@@ -20,7 +31,22 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
         setIsOpen(false);
     };
 
-    // Close dropdown when clicking outside
+    // Handle animation state
+    useEffect(() => {
+        if (isOpen) {
+            setShouldRender(true);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    setIsAnimating(true);
+                });
+            });
+        } else {
+            setIsAnimating(false);
+            const timer = setTimeout(() => setShouldRender(false), 200);
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen]);
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
@@ -31,66 +57,118 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
             }
         };
 
-        document.addEventListener("mousedown", handleClickOutside);
-        return () =>
-            document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
+        if (isOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+            return () =>
+                document.removeEventListener("mousedown", handleClickOutside);
+        }
+    }, [isOpen]);
 
-    const baseClasses =
-        "relative inline-flex items-center justify-center transition-all duration-normal";
+    const getTriggerClasses = () => {
+        const base =
+            "inline-flex items-center justify-center w-10 h-10 rounded-custom transition-all duration-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
-    const variants = {
-        default:
-            "bg-surface border border-border rounded-lg hover:bg-muted-light/20 hover:border-border-focus",
-        header: "bg-surface/10 backdrop-blur-sm border border-text-light/20 rounded-lg hover:bg-surface/20 text-text-light",
-        mobile: "w-full bg-surface border border-border rounded-lg hover:bg-muted-light/20",
+        const variantStyles = {
+            default: "hover:bg-primary/10 active:bg-primary/20 active:scale-95",
+            header: "hover:bg-text-light/10 active:bg-text-light/20 active:scale-95",
+            mobile: "hover:bg-primary/10 active:bg-primary/20 active:scale-95",
+        };
+
+        return `${base} ${variantStyles[variant] || variantStyles.default}`;
     };
 
-    const buttonClasses = [
-        baseClasses,
-        variants[variant],
-        "px-3 py-2 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2",
-        className,
-    ].join(" ");
+    // Mobile variant: inline buttons instead of dropdown
+    if (variant === "mobile") {
+        return (
+            <div className="flex gap-2">
+                {languages.map((language) => (
+                    <button
+                        key={language.code}
+                        onClick={() => handleLanguageChange(language.code)}
+                        className={`flex-1 px-4 py-2.5 rounded-custom border transition-all duration-200 flex items-center justify-center gap-2 ${
+                            language.code === i18n.language
+                                ? "bg-primary border-primary text-text-light"
+                                : "bg-surface border-border hover:bg-muted-light/50"
+                        }`}
+                        aria-label={`Switch to ${language.name}`}
+                        aria-current={
+                            language.code === i18n.language ? "true" : undefined
+                        }
+                    >
+                        <img
+                            src={language.flagUrl}
+                            alt={`${language.name} flag`}
+                            className="w-6 h-auto flex-shrink-0"
+                            loading="lazy"
+                        />
+                        <span className="text-sm font-medium">
+                            {language.name}
+                        </span>
+                    </button>
+                ))}
+            </div>
+        );
+    }
 
+    // Default variant: dropdown
     return (
         <div ref={dropdownRef} className="relative">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={buttonClasses}
-                aria-label={t("language.switchTo", {
-                    language: currentLanguage.name,
-                })}
+                className={`${getTriggerClasses()} ${className}`}
+                aria-label={`Change language - Current: ${currentLanguage.name}`}
                 aria-expanded={isOpen}
+                aria-haspopup="true"
             >
-                <Globe className="h-4 w-4 mr-2" />
-                <span className="hidden sm:inline">{currentLanguage.name}</span>
-                <span className="sm:hidden">{currentLanguage.flag}</span>
-                <ChevronDown
-                    className={`h-4 w-4 ml-1 transition-transform duration-normal ${
-                        isOpen ? "rotate-180" : ""
-                    }`}
+                <img
+                    src={currentLanguage.flagUrl}
+                    alt={`${currentLanguage.name} flag`}
+                    className="w-9 h-auto"
+                    loading="lazy"
                 />
             </button>
 
-            {isOpen && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-surface border border-border rounded-lg shadow-medium overflow-hidden z-50 animate-fade-in">
+            {shouldRender && (
+                <div
+                    className="absolute top-full right-0 mt-2 py-1 min-w-[10rem] bg-surface border border-border rounded-custom shadow-medium overflow-hidden z-50"
+                    style={{
+                        opacity: isAnimating ? 1 : 0,
+                        transform: isAnimating ? "scale(1)" : "scale(0.95)",
+                        transformOrigin: "top right",
+                        transition:
+                            "opacity 200ms ease-out, transform 200ms ease-out",
+                    }}
+                >
                     {languages.map((language) => (
                         <button
                             key={language.code}
                             onClick={() => handleLanguageChange(language.code)}
-                            className={`w-full px-4 py-3 text-left text-sm hover:bg-muted-light/20 transition-colors duration-normal flex items-center space-x-3 ${
+                            className={`w-full px-4 py-2.5 transition-colors duration-normal flex items-center gap-3 text-left ${
                                 language.code === i18n.language
-                                    ? "bg-primary/10 text-primary font-medium"
-                                    : "text-text-contrast"
+                                    ? "bg-primary/10"
+                                    : "hover:bg-primary/5 active:bg-primary/10"
                             }`}
+                            aria-label={`Switch to ${language.name}`}
+                            aria-current={
+                                language.code === i18n.language
+                                    ? "true"
+                                    : undefined
+                            }
                         >
-                            <span className="text-lg">{language.flag}</span>
-                            <span>{language.name}</span>
+                            <img
+                                src={language.flagUrl}
+                                alt={`${language.name} flag`}
+                                className="w-9 h-auto flex-shrink-0"
+                                loading="lazy"
+                            />
+                            <span className="text-sm font-body font-medium text-text-contrast flex-1">
+                                {language.name}
+                            </span>
                             {language.code === i18n.language && (
-                                <span className="ml-auto text-xs text-primary">
-                                    ✓
-                                </span>
+                                <span
+                                    className="w-2 h-2 bg-primary rounded-custom flex-shrink-0"
+                                    aria-hidden="true"
+                                />
                             )}
                         </button>
                     ))}

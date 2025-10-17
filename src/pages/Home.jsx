@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, Heart, Zap } from "lucide-react";
+import { Users, Heart, Zap } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
 import { useState, useEffect } from "react";
@@ -11,9 +11,12 @@ import { TrainingSchedule } from "../components/home/TrainingSchedule";
 import { MeetOurPlayers } from "../components/home/MeetOurPlayers";
 import { Highlights } from "../components/home/Highlights";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
+import { CallToAction } from "../components/ui/CallToAction";
+import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
+import { ScrollIndicator } from "../components/ui/ScrollIndicator";
+import { Sponsors } from "../components/layout/Sponsors";
 
 const Home = () => {
-    const [isHeroVisible, setIsHeroVisible] = useState(true);
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -42,42 +45,41 @@ const Home = () => {
         },
     ];
 
-    // Get 3 random players on each render
     const getRandomPlayers = () => {
-        const shuffled = [...playersData].sort(() => 0.5 - Math.random());
+        const firstNine = playersData.slice(0, 9);
+        const shuffled = [...firstNine].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, 3);
     };
 
     const [featuredPlayers] = useState(() => getRandomPlayers());
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            setIsHeroVisible(scrollPosition < window.innerHeight * 0.5);
-        };
+    // SEO Configuration
+    const pageTitle = "Women's Rugby Sevens Team in Zagreb, Croatia";
+    const pageDescription =
+        "Join Zagreb Rugby Ladies - women's rugby sevens team empowering girls and young women through sport. Beginner-friendly training in Zagreb, Croatia. No experience needed!";
+    const keywords =
+        "women's rugby Zagreb, rugby sevens Croatia, women's sports Zagreb, rugby team Croatia, join rugby Zagreb, women athletes Croatia, rugby training Zagreb, girls rugby Croatia";
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    // Structured Data for Sports Organization
+    const organizationData = createSportsOrganizationData();
 
     return (
         <div className="min-h-screen bg-surface-elevated">
-            <div
-                className={`relative h-screen overflow-hidden transition-all duration-1000 ${
-                    isHeroVisible
-                        ? "translate-y-0"
-                        : "-translate-y-20 opacity-95"
-                }`}
-            >
-                <div className="absolute inset-0">
-                    <iframe
-                        src="https://www.youtube.com/embed/5w2mBzgmUIo?autoplay=1&mute=1&loop=1&playlist=5w2mBzgmUIo&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
-                        title="Rugby action"
-                        className="w-full h-full object-cover scale-105"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                    ></iframe>
+            <SEO
+                title={pageTitle}
+                description={pageDescription}
+                keywords={keywords}
+                canonicalUrl="/"
+                structuredData={organizationData}
+            />
+
+            <div className="relative h-screen overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
+                    <img
+                        src="src/assets/images/hero/josipa-rugby-action.jpg"
+                        alt="Zagreb Rugby Ladies player in action during match - Women's rugby sevens in Croatia"
+                        className="w-full h-full object-cover"
+                    />
                     <div className="absolute inset-0 overlay-cinematic-base"></div>
                     <div className="absolute inset-0 overlay-cinematic-sunset"></div>
                     <div className="absolute inset-0 overlay-cinematic-matte"></div>
@@ -85,14 +87,15 @@ const Home = () => {
 
                 <div className="absolute inset-0 flex items-end justify-center z-10">
                     <div className="text-center max-w-5xl mx-auto pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-8">
-                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 sm:mb-10 tracking-wide font-hero text-text-light leading-[0.85] transition-all duration-1000 ease-out animate-slide-in-up">
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 sm:mb-10 tracking-wide font-hero text-text-light leading-[0.85]">
                             {t("home.hero.title")}
                         </h1>
-                        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
                             <Button
                                 size="lg"
-                                className="bg-surface/95 backdrop-blur-sm text-text-contrast hover:bg-surface"
+                                variant="blue"
                                 asChild
+                                className="w-full sm:w-auto"
                             >
                                 <Link to="/contact">
                                     {t("home.hero.joinTraining")}
@@ -100,17 +103,20 @@ const Home = () => {
                             </Button>
                             <Button
                                 size="lg"
-                                variant="outline"
-                                className="border-text-light/80 bg-text-light/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast"
+                                variant="yellow"
                                 asChild
+                                className="w-full sm:w-auto"
                             >
                                 <Link to="/gallery">
-                                    {t("home.hero.watchVideo")}
+                                    {t("gallery.collections.title")}
                                 </Link>
                             </Button>
                         </div>
                     </div>
                 </div>
+
+                {/* Scroll Indicator */}
+                <ScrollIndicator />
             </div>
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
@@ -118,6 +124,7 @@ const Home = () => {
                     <NextMatch
                         matchData={nextMatchData.match}
                         opponent={currentOpponent}
+                        homeVenue={nextMatchData.homeVenue}
                     />
                 </AnimatedSection>
 
@@ -145,46 +152,24 @@ const Home = () => {
                     <Highlights highlights={highlights} />
                 </AnimatedSection>
 
-                <div className="relative h-[700px] overflow-hidden rounded group cursor-pointer">
-                    <img
-                        src="/src/assets/images/photos/petra1_rugby.jpg"
-                        alt="Team photo"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
-                    <div className="absolute inset-0 flex items-center">
-                        <div className="max-w-2xl ml-12 text-text-light">
-                            <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
-                                {t("home.cta.title")}
-                            </h2>
-                            <p className="text-xl mb-8 opacity-90 leading-relaxed">
-                                {t("home.cta.description")}
-                            </p>
-                            <div className="flex gap-4">
-                                <Button
-                                    size="lg"
-                                    className="bg-surface text-text-contrast hover:bg-muted-light"
-                                    asChild
-                                >
-                                    <Link to="/contact">
-                                        {t("common.joinTraining")}
-                                    </Link>
-                                </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="border-text-light/80 bg-text-light/10 backdrop-blur-sm text-text-light hover:bg-surface hover:text-text-contrast"
-                                    asChild
-                                >
-                                    <Link to="/rugby101">
-                                        {t("common.learnAboutRugby")}
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CallToAction
+                    image="src/assets/images/call_to_action/rugby-player-scrum.jpg"
+                    imageAlt="Women's rugby scrum action - Join Zagreb Rugby Ladies training"
+                    titleKey="home.cta.title"
+                    descriptionKey="home.cta.description"
+                    primaryButton={{
+                        to: "/contact",
+                        textKey: "common.joinTraining",
+                    }}
+                    secondaryButton={{
+                        to: "/rugby101",
+                        textKey: "common.learnAboutRugby",
+                    }}
+                />
             </div>
+
+            {/* Sponsors Section */}
+            <Sponsors />
         </div>
     );
 };

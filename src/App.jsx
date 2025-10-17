@@ -8,6 +8,8 @@ import Schedule from "./pages/Schedule";
 import Rugby101 from "./pages/Rugby101";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 function App() {
     return (
@@ -23,6 +25,8 @@ function App() {
                         <Route path="/rugby101" element={<Rugby101 />} />
                         <Route path="/gallery" element={<Gallery />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/privacy" element={<Privacy />} />
+                        <Route path="/terms" element={<Terms />} />
                     </Routes>
                 </main>
                 <Footer />

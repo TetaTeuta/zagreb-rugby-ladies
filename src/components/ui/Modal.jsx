@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
 const Modal = ({
@@ -12,6 +12,8 @@ const Modal = ({
 }) => {
     const modalRef = useRef(null);
     const previousActiveElement = useRef(null);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [shouldRender, setShouldRender] = useState(false);
 
     const sizes = {
         sm: "max-w-md",
@@ -20,6 +22,24 @@ const Modal = ({
         xl: "max-w-4xl",
         full: "max-w-7xl",
     };
+
+    // Handle animation state
+    useEffect(() => {
+        if (isOpen) {
+            setShouldRender(true);
+            // Small delay to ensure DOM is ready before animation
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    setIsAnimating(true);
+                });
+            });
+        } else {
+            setIsAnimating(false);
+            // Wait for animation to complete before unmounting
+            const timer = setTimeout(() => setShouldRender(false), 300);
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen]);
 
     // Focus trap and accessibility
     useEffect(() => {
@@ -82,7 +102,7 @@ const Modal = ({
         return () => document.removeEventListener("keydown", handleTab);
     }, [isOpen]);
 
-    if (!isOpen) return null;
+    if (!shouldRender) return null;
 
     return (
         <div
@@ -91,28 +111,43 @@ const Modal = ({
             aria-modal="true"
             aria-labelledby={title ? "modal-title" : undefined}
             aria-describedby={description ? "modal-description" : undefined}
+            style={{
+                opacity: isAnimating ? 1 : 0,
+                transition: "opacity 300ms ease-out",
+            }}
         >
             {/* Backdrop */}
             <div
                 className="absolute inset-0 bg-text-contrast/50 backdrop-blur-sm"
                 onClick={onClose}
                 aria-hidden="true"
+                style={{
+                    opacity: isAnimating ? 1 : 0,
+                    transition: "opacity 300ms ease-out",
+                }}
             />
 
             {/* Modal */}
             <div
                 ref={modalRef}
                 className={[
-                    "relative w-full rounded-2xl bg-surface shadow-float border border-accent/10 p-6",
+                    "relative w-full rounded-custom bg-surface shadow-float border border-white",
                     sizes[size],
                     className,
                 ].join(" ")}
                 tabIndex={-1}
+                style={{
+                    opacity: isAnimating ? 1 : 0,
+                    transform: isAnimating ? "scale(1)" : "scale(0.95)",
+                    transformOrigin: "center center",
+                    transition:
+                        "opacity 300ms ease-out, transform 300ms ease-out",
+                }}
             >
                 {/* Close button */}
                 <button
                     onClick={onClose}
-                    className="absolute right-4 top-4 rounded-lg p-1 text-muted transition-colors hover:bg-primary/10 hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    className="absolute right-4 top-4 z-10 rounded-lg p-1 bg-white/90 text-text transition-colors hover:bg-white hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-md"
                     aria-label="Close modal"
                 >
                     <X className="h-5 w-5" />

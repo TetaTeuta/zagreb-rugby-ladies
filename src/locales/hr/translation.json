@@ -4,59 +4,66 @@
         "about": "O nama",
         "team": "Ekipa",
         "schedule": "Raspored",
-        "rugby101": "Rugby 101",
+        "rugby101": "Ragbi osnove",
         "gallery": "Galerija",
         "contact": "Kontakt",
         "menu": "Izbornik"
     },
     "common": {
-        "joinUs": "Pridruži nam se danas",
-        "joinTraining": "Pridruži se treningu",
+        "joinUs": "Pridruži nam se",
+        "joinTraining": "Dođi na trening",
         "learnMore": "Saznaj više",
         "watchVideo": "Pogledaj cijeli video",
-        "learnAboutRugby": "Nauči o rugbiju",
-        "readMore": "Čitaj više",
+        "learnAboutRugby": "Saznaj više o ragbiju",
+        "readMore": "Pročitaj više",
         "close": "Zatvori",
         "loading": "Učitavanje...",
         "error": "Greška",
-        "success": "Uspjeh"
+        "success": "Uspješno"
+    },
+    "countdown": {
+        "days": "Dani",
+        "hours": "Sati",
+        "minutes": "Minute",
+        "seconds": "Sekunde"
     },
     "header": {
-        "banner": "Budućnost ženskog rugbija počinje ovdje.",
+        "banner": "Budućnost ženskog ragbija počinje ovdje.",
         "toggleMenu": "Otvori izbornik",
         "closeMenu": "Zatvori izbornik"
     },
     "home": {
         "hero": {
-            "title": "OSNAŽI SVOJU IGRU.",
-            "joinTraining": "Pridruži se treningu",
+            "title": "OTKRIJ SVOJU SNAGU.",
+            "joinTraining": "Dođi na trening",
             "watchVideo": "Pogledaj cijeli video"
         },
         "meetTeam": {
-            "title": "UPOZNAJ MOMČAD",
-            "subtitle": "Prvakinje koje čine našu momčad."
+            "title": "UPOZNAJ NAŠ TIM",
+            "subtitle": "Lavice koje pokreću našu ekipu."
         },
         "highlights": {
+            "title": "ZAŠTO ODABRATI RAGBI?",
             "inclusive": {
-                "title": "Inkluzivna momčad",
-                "description": "Svaka pozadina. Svaka priča. Jedna momčad."
+                "title": "Tim u kojem su svi dobrodošli",
+                "description": "Različite pozadine. Različita iskustva. Isti cilj. \nBez obzira na iskustvo, dob ili pozadinu – ovdje imaš svoje mjesto."
             },
             "beginner": {
-                "title": "Prijateljski prema početnicima",
+                "title": "Prilagođeno početnicima",
                 "description": "Nemaš iskustva? Nema problema. Počni ovdje."
             },
             "strength": {
                 "title": "Snaga i samopouzdanje",
-                "description": "Postani jača. Ostani hrabra. Pobijedi svugdje."
+                "description": "Postani jača. Budi neustrašiva. Otkrij svoju moć."
             }
         },
         "cta": {
-            "title": "SPREMAN SI POČETI SVOJE RUGBY PUTOVANJE?",
-            "description": "Pridruži nam se na treningu i otkrij što rugby može učiniti za tebe. Iskustvo nije potrebno—samo donesi svoju hrabrost, a mi ćemo te naučiti ostalo."
+            "title": "SPREMNA SI ZAPOČETI SVOJU RAGBI PRIČU?",
+            "description": "Pridruži nam se na treningu i otkrij što ti ragbi može pružiti. Iskustvo nije potrebno – samo donesi dobru volju, a mi ćemo te naučiti sve ostalo."
         }
     },
     "match": {
-        "vs": "PROTIV",
+        "vs": "VS",
         "nextMatch": "Sljedeća utakmica",
         "matchDay": "Dan utakmice",
         "time": "Vrijeme",
@@ -71,60 +78,62 @@
     "training": {
         "title": "Raspored treninga",
         "subtitle": "Pridruži nam se na terenu",
-        "description": "Redoviti treninzi za sve razine vještina. Dođi kakav jesi, odi jači.",
-        "viewSchedule": "Pogledaj cijeli raspored"
-    },
-    "team": {
-        "title": "Naša momčad",
-        "subtitle": "Upoznaj nevjerojatne žene koje čine Zagreb Rugby Ladies posebnima",
-        "position": "Pozicija",
-        "about": "O meni",
-        "quote": "Citat",
-        "funFact": "Zanimljivost",
-        "social": "Prati na Instagramu"
+        "description": "Redovni treninzi za sve razine vještina. Dođi kakva jesi, otiđi jača. ili Postani jača sa svakim treningom.",
+        "viewSchedule": "Pogledaj cijeli raspored",
+        "days": {
+            "Monday": "Ponedjeljak",
+            "Tuesday": "Utorak",
+            "Wednesday": "Srijeda",
+            "Thursday": "Četvrtak",
+            "Friday": "Petak",
+            "Saturday": "Subota",
+            "Sunday": "Nedjelja"
+        },
+        "types": {
+            "skillsFitness": "Vještine i kondicija",
+            "teamTraining": "Timski trening",
+            "matchDay": "Dan utakmice"
+        },
+        "whatToBring": {
+            "title": "Što ponijeti",
+            "athleticWear": "Udobna sportska odjeća",
+            "shoes": "Tenisice za trčanje ili ragbi kopačke",
+            "waterBottle": "Boca za vodu",
+            "attitude": "Pozitivan stav"
+        },
+        "providedByClub": {
+            "title": "Osigurava klub",
+            "balls": "Ragbi lopte",
+            "equipment": "Oprema za trening",
+            "firstAid": "Prva pomoć",
+            "coaching": "Trening za početnike",
+            "boots": "Ragbi kopačke"
+        }
     },
     "about": {
         "title": "O Zagreb Rugby Ladies",
-        "subtitle": "Gradimo snagu, karakter i zajednicu kroz rugby",
+        "subtitle": "Gradimo snagu, karakter i zajednicu kroz ragbi",
         "mission": "Naša misija",
         "values": "Naše vrijednosti",
         "history": "Naša povijest"
     },
     "contact": {
         "title": "Kontaktiraj nas",
-        "subtitle": "Spreman si nam se pridružiti? Imaš pitanja? Volimo čuti od tebe.",
+        "subtitle": "Želiš se pridružiti ili imaš pitanje? Javi nam se, tu smo za tebe!",
         "form": {
             "name": "Ime",
             "email": "Email",
             "message": "Poruka",
-            "send": "Pošalji poruku",
+            "send": "Pošalji",
             "sending": "Šalje se...",
-            "success": "Poruka uspješno poslana!",
-            "error": "Slanje poruke neuspješno. Molimo pokušaj ponovno."
+            "success": "Poruka je uspješno poslana!",
+            "error": "Slanje poruke nije uspjelo. Molimo pokušajte ponovno."
         },
         "info": {
             "address": "Adresa",
             "phone": "Telefon",
             "email": "Email",
             "followUs": "Prati nas"
-        }
-    },
-    "rugby101": {
-        "title": "Rugby 101",
-        "subtitle": "Nov si u rugbiju? Počni ovdje da naučiš osnove",
-        "basics": "Osnove",
-        "positions": "Pozicije",
-        "rules": "Pravila",
-        "equipment": "Oprema"
-    },
-    "gallery": {
-        "title": "Galerija",
-        "subtitle": "Trenuci s našeg putovanja",
-        "categories": {
-            "all": "Sve",
-            "matches": "Utakmice",
-            "training": "Treninzi",
-            "events": "Događaji"
         }
     },
     "schedule": {
@@ -135,11 +144,22 @@
         "events": "Događaji"
     },
     "footer": {
-        "description": "Zagreb Rugby Ladies - Osnažujemo žene kroz rugby od 2020.",
-        "quickLinks": "Brze veze",
+        "getInTouch": "KONTAKTIRAJ NAS",
+        "logoAlt": "Zagreb Rugby Ladies Logo",
+        "teamName": "Zagreb Rugby Ladies",
+        "description": "Zagreb Rugby Ladies – Osnažujemo žene kroz ragbi od 2017.",
+        "ourSponsors": "NAŠI SPONZORI",
+        "copyright": "© 2024 Zagreb Rugby Ladies. Sva prava pridržana.",
+        "quickLinks": "Korisne poveznice",
         "contact": "Kontakt informacije",
         "followUs": "Prati nas",
-        "copyright": "© 2024 Zagreb Rugby Ladies. Sva prava pridržana."
+        "privacyPolicy": "Pravila privatnosti",
+        "termsOfSale": "Uvjeti korištenja",
+        "ariaLabels": {
+            "instagram": "Prati nas na Instagramu",
+            "facebook": "Prati nas na Facebooku",
+            "email": "Pošalji nam email"
+        }
     },
     "language": {
         "english": "Engleski",
@@ -148,29 +168,29 @@
     },
     "about": {
         "hero": {
-            "title": "Rušimo barijere. Gradimo snove.",
-            "joinTeam": "Pridruži se našoj momčadi",
-            "meetTeam": "Upoznaj momčad"
+            "title": "RUŠIMO PREPREKE. GRADIMO SNOVE.",
+            "joinTeam": "Pridruži se našem timu",
+            "meetTeam": "Upoznaj ekipu"
         },
         "story": {
             "title": "NAŠA PRIČA",
-            "subtitle": "Osnovane 2020. godine, Zagreb Rugby Ladies nastale su iz jednostavnog uvjerenja.",
-            "description1": "Danas smo ponosni članovi Hrvatskog ragbi saveza, s preko 30 aktivnih igračica od potpunih početnica do iskusnih sportašica. Naš klub postao je kamen temeljac ženskog ragbija u Hrvatskoj, inspirirajući druge gradove da pokrenu svoje momčadi.",
-            "description2": "Ali naše najveće postignuće nisu pobjede na terenu—to su samopouzdanje, prijateljstva i osobni rast koje naše igračice razvijaju."
+            "subtitle": "Osnovane 2017. godine, Zagreb Rugby Ladies nastale su iz jednostavnog, ali snažnog uvjerenja – stvoriti siguran i poticajan prostor u kojem svaka žena može pronaći svoje mjesto, izgraditi snagu i samopouzdanje te postati dio zajednice koja slavi različitost i timski duh.",
+            "description1": "Danas smo ponosni članovi Hrvatskog ragbi saveza, s preko 30 aktivnih igračica – od potpunih početnica do iskusnih sportašica. Naš klub aktivno doprinosi razvoju ženskog ragbija u Hrvatskoj i nadahnjuje druge gradove i klubove da pokrenu vlastite ekipe i pruže ženama prostor u ovom sportu.",
+            "description2": "No, naše najveće pobjede ne mjere se rezultatima, već samopouzdanjem, prijateljstvima i osobnim rastom naših igračica."
         },
         "mission": {
             "title": "NAŠA MISIJA I VRIJEDNOSTI",
             "missionTitle": "NAŠA MISIJA",
-            "missionText": "Osnažiti djevojke i mlade žene kroz ragbi, potičući samopouzdanje, otpornost i doživotna prijateljstva dok promičemo sport koji volimo diljem Hrvatske.",
+            "missionText": "Osnažiti žene kroz ragbi potičući samopouzdanje, hrabrost i prijateljstva, dok istovremeno promičemo sport koji volimo diljem Hrvatske.",
             "valuesTitle": "NAŠE VRIJEDNOSTI",
             "values": {
                 "inclusion": {
-                    "title": "UKLJUČIVOST",
-                    "description": "Ragbi je za sve. Slavimo raznolikost u svim oblicima i stvaramo prostor gdje se svaka igračica osjeća cijenjeno i podržano."
+                    "title": "INKLUZIVNOST",
+                    "description": "Ragbi je za sve. Slavimo različitost u svim oblicima i stvaramo prostor gdje se svaka igračica osjeća cijenjeno i podržano."
                 },
                 "resilience": {
-                    "title": "OTPORNOST",
-                    "description": "Ragbi nas uči da se dignemo kad padnemo. Gradimo mentalnu i fizičku čvrstoću koja nam služi na terenu i izvan njega."
+                    "title": "UPORNOST",
+                    "description": "Ragbi nas uči da se podignemo nakon svakog pada. Gradimo mentalnu i fizičku snagu koja nam služi na terenu i izvan njega."
                 },
                 "teamwork": {
                     "title": "TIMSKI RAD",
@@ -178,38 +198,58 @@
                 },
                 "courage": {
                     "title": "HRABROST",
-                    "description": "Potičemo naše igračice da izađu iz zone udobnosti, prihvate izazove i otkriju na što su stvarno sposobne."
+                    "description": "Potičemo naše igračice da izađu iz zone komfora, prihvate izazove i otkriju za što su sve sposobne."
                 }
             }
         },
         "coaches": {
-            "title": "UPOZNAJ NAŠE TRENERE",
-            "contactCoach": "Kontaktiraj trenera"
+            "title": "TIM KOJI NAS POKREĆE",
+            "contactCoach": "NAZOVI",
+            "sandi": {
+                "name": "Aleksandar Holjevac",
+                "role": "Trener"
+            },
+            "kuca": {
+                "name": "Marija Kuća",
+                "role": "Fizioterapeut"
+            },
+            "petra": {
+                "name": "Petra Kušen",
+                "role": "Kapetanica"
+            }
         },
         "training": {
             "title": "RASPORED TRENINGA",
-            "trainingAt": "Trening na",
-            "joinTraining": "Pridruži se treningu"
+            "trainingAt": "Lokacija treninga",
+            "joinTraining": "Dođi na trening"
         },
         "contact": {
             "title": "KONTAKTIRAJ NAS",
-            "venue": "MJESTO TRENINGA",
+            "venue": "LOKACIJA TRENINGA",
             "contactInfo": "KONTAKT"
         },
         "cta": {
-            "title": "SPREMAN SI SE PRIDRUŽITI NAŠOJ MOMČADI?",
-            "description": "Bilo da si potpuna početnica ili iskusna igračica, voljeli bismo te pozdraviti u obitelji Zagreb Rugby Ladies."
+            "title": "SPREMNA SI PRIDRUŽITI SE?",
+            "description": "Bilo da si početnica ili iskusna igračica, pridruži nam se i postani dio obitelji Zagreb Rugby Ladies."
+        },
+        "imageAlts": {
+            "hero": "Naslovna slika o nama",
+            "story": "Naša priča",
+            "mission": "Naša misija",
+            "values": "Naše vrijednosti",
+            "trainingSchedule": "Raspored treninga",
+            "contactUs": "Kontaktirajte nas"
         }
     },
     "contact": {
         "hero": {
-            "title": "SPREMAN SI POČETI SVOJE PUTOVANJE?",
-            "learnRugby": "Nauči o ragbiju",
-            "meetTeam": "Upoznaj našu momčad"
+            "title": "SPREMNA SI ZAPOČETI SVOJU RAGBI PRIČU?",
+            "learnRugby": "Nauči više o ragbiju",
+            "meetTeam": "Upoznaj naš tim"
         },
         "form": {
             "title": "POŠALJI NAM PORUKU",
-            "subtitle": "Ispuni formu ispod i javit ćemo ti se što prije.",
+            "subtitle": "Ispuni formu ispod i javit ćemo ti se u što kraćem roku.",
             "fullName": "Puno ime",
             "emailAddress": "Email adresa",
             "phoneNumber": "Broj telefona",
@@ -229,269 +269,256 @@
             "sending": "Šalje se...",
             "sendMessage": "Pošalji poruku",
             "successMessage": "Hvala! Javit ćemo ti se u roku od 24 sata.",
-            "errorMessage": "Nešto je pošlo po zlu. Molimo pokušaj ponovno ili nam pošalji email direktno.",
+            "errorMessage": "Nešto je pošlo po zlu. Molimo pokušajte ponovno ili nam pošaljite email direktno.",
+            "sendingStatus": "Šalje se poruka...",
+            "successStatus": "Poruka uspješno poslana!",
+            "errorStatus": "Greška pri slanju poruke. Molimo pokušaj ponovno.",
+            "fullNamePlaceholder": "Tvoje puno ime",
+            "emailPlaceholder": "tvoj.email@example.com",
+            "required": "*",
             "validation": {
-                "nameRequired": "Molimo upiši svoje ime",
-                "emailRequired": "Molimo upiši svoj email",
-                "emailInvalid": "Molimo upiši valjanu email adresu",
-                "reasonRequired": "Molimo odaberi razlog",
-                "messageRequired": "Molimo upiši poruku",
-                "consentRequired": "Molimo pristani na naša pravila privatnosti"
+                "nameRequired": "Molimo upišite svoje ime",
+                "emailRequired": "Molimo upišite svoj email",
+                "emailInvalid": "Molimo upišite valjanu email adresu",
+                "reasonRequired": "Molimo odaberite razlog",
+                "messageRequired": "Molimo upišite poruku",
+                "consentRequired": "Slažem se s pravilima privatnosti"
             }
         },
         "info": {
             "title": "KONTAKTIRAJ NAS",
             "trainingSchedule": "RASPORED TRENINGA",
             "location": "LOKACIJA",
-            "directContact": "DIREKTNI KONTAKT",
+            "directContact": "Kontaktiraj nas izravno",
             "whatToExpect": "Što možeš očekivati",
             "expectations": {
                 "response": "Odgovor u roku od 24 sata",
                 "invitation": "Poziv na probni trening",
-                "information": "Informacije o tome što ponijeti",
+                "information": "Informacije o tome što ponijeti na trening",
                 "answers": "Odgovore na sva tvoja pitanja",
-                "noPressure": "Bez pritiska—samo prijateljski savjeti!"
+                "noPressure": "Bez pritiska - samo prijateljski savjeti!"
             },
-            "rugbyGuide": "Ragbi 101 vodič"
+            "rugbyGuide": "Ragbi osnove - vodič"
         },
         "cta": {
             "title": "IMAŠ JOŠ PITANJA?",
-            "description": "Pogledaj naš sveobuhvatan Ragbi 101 vodič ili ne ustručavaj se kontaktirati nas. Tu smo da ti pomognemo početi tvoje ragbi putovanje!",
-            "emailDirect": "Pošalji nam email direktno"
+            "description": "Pogledaj naš sveobuhvatan \"Ragbi osnove - vodič\" i ne ustručavaj se kontaktirati nas. Tu smo da ti pomognemo započeti tvoje ragbi putovanje!",
+            "emailDirect": "Pošalji nam email"
         }
     },
     "team": {
         "hero": {
-            "title": "INSPIRATIVNE PRIČE. NEZAUSTAVLJIV DUH.",
-            "joinTeam": "Pridruži se našoj momčadi",
-            "learnRugby": "Nauči o ragbiju"
+            "title": "ŽENE KOJE POMIČU GRANICE.",
+            "joinTeam": "Zaigraj kao lavica!",
+            "learnRugby": "Nauči više o ragbiju"
         },
         "stats": {
-            "title": "NAŠA MOMČAD",
+            "title": "NAŠA EKIPA",
             "subtitle": "Svaka igračica ima jedinstveno putovanje.",
             "activePlayers": "Aktivne igračice",
-            "yearsStrong": "Godina snage",
+            "yearsStrong": "Godine postojanja",
             "teamSpirit": "Timski duh"
         },
         "players": {
             "title": "UPOZNAJ NAŠE IGRAČICE",
-            "subtitle": "Upoznaj nevjerojatne žene koje redefiniraju što znači biti jaka, neustrašiva i nezaustavljiva."
+            "subtitle": "Upoznaj naše lavice koje redefiniraju što znači biti jaka, neustrašiva i nezaustavljiva."
         },
         "culture": {
             "inclusive": {
-                "title": "UKLJUČIVO OKRUŽENJE",
-                "description": "Dobrodošle su igračice svih pozadina, razina vještina i iskustva. Bilo da si potpuna početnica ili iskusna sportašica, naći ćeš svoje mjesto u našoj momčadi.",
+                "title": "INKLUZIVNO OKRUŽENJE",
+                "description": "Dobrodošle su igračice svih pozadina, iskustava i razina vještina. Bilo da si potpuna početnica ili iskusna sportašica, naći ćeš svoje mjesto u našoj ekipi.",
                 "points": [
                     "• Pristup treniranja prilagođen početnicima",
                     "• Program mentorstva za nove igračice",
-                    "• Slavimo raznolikost i individualne snage",
-                    "• Stvaramo trajna prijateljstva izvan ragbija"
+                    "• Slavimo različitost i individualne snage",
+                    "• Stvaramo trajna prijateljstva i izvan terena"
                 ]
             },
             "development": {
                 "title": "RAZVOJ IGRAČICA",
-                "description": "Posvećeni smo pomaganju svakoj igračici da dosegne svoj puni potencijal, i kao sportašica i kao samouvjerena osoba.",
+                "description": "Posvećeni smo pomaganju svakoj igračici da dosegne svoj puni potencijal, i kao sportašica i kao samouvjerena osoba. ili Naš cilj je pomoći svakoj igračici da otkrije svoj puni potencijal - na terenu i izvan njega.",
                 "points": [
-                    "• Personalizirani planovi razvoja vještina",
-                    "• Prilike za vodstvo za sve igračice",
-                    "• Podrška za mentalno zdravlje i dobrobit",
+                    "• Personalizirani planovi napretka",
+                    "• Razvoj liderskog duha i zajedništva",
+                    "• Podrška za mentalno zdravlje.",
                     "• Put prema natjecateljskim ragbi prilikama"
                 ]
             }
         },
         "cta": {
-            "title": "ŽELIŠ SE PRIDRUŽITI NAŠOJ MOMČADI?",
+            "title": "ŽELIŠ SE PRIDRUŽITI NAŠOJ EKIPI?",
             "description": "Uvijek tražimo nove igračice koje se žele izazvati, sklopiti prijateljstva i biti dio nečeg posebnog. Iskustvo nije potrebno—samo donesi svoj entuzijazam!"
+        },
+        "imageAlts": {
+            "hero": "Tim ragbi akcija",
+            "stats": "Statistika tima",
+            "inclusive": "Uključivo okruženje",
+            "development": "Razvoj igračica"
+        },
+        "playerModal": {
+            "position": "Pozicija",
+            "playerQuote": "Citat igračice",
+            "about": "O {{name}}",
+            "funFact": "Zanimljivost",
+            "connect": "Poveži se",
+            "instagram": "Instagram",
+            "joinTeam": "Pridruži se ekipi",
+            "close": "Zatvori",
+            "clubName": "Zagreb Rugby Ladies",
+            "viewProfile": "Pogledaj profil",
+            "viewPlayerProfile": "Pogledaj profil - {{name}}"
+        },
+        "positions": {
+            "scrumHalf": "Polubek",
+            "prop": "Prop",
+            "looseheadProp": "Lijevi prop",
+            "tightheadProp": "Desni prop",
+            "flyHalf": "Otvarač",
+            "lock": "Druga linija",
+            "centre": "Centar",
+            "insideCentre": "Unutarnji centar",
+            "fullback": "Zadnji igrač",
+            "flanker": "Bočni napadač",
+            "winger": "Krilo",
+            "wing": "Krilo",
+            "number8": "Broj 8",
+            "hooker": "Haker",
+            "secondRow": "Druga linija"
+        },
+        "players": {
+            "petra-kusen": {
+                "about": "Kapetanica tima i strateg. Igra 4 godine i vodi primjerom kako na terenu tako i izvan njega.",
+                "quote": "U ragbiju ne samo da igramo zajedno - rastemo zajedno.",
+                "funFact": "Govori četiri jezika i koristi ragbi termine kako bi učila hrvatski međunarodne igračice!"
+            },
+            "josipa-farac": {
+                "about": "Otočanka s Korčule, poznata kao glavni zabavljač tima - nadimak 'Živiđuboks'. Zarsila je školu klesarstva na Braču i radi u restauraciji. Hobiji su joj fotografija, video produkcija, kuhanje i crtanje. Ragbi je savršen sport za nju - naučio ju je puno, pomogao joj rasti i zahvalna je što je dio ove zajednice.",
+                "quote": "Umjetnost ispunjava moju dušu, ragbi moje srce, a ljudi oko mene daju smisao svemu.",
+                "funFact": "Vrlo realno imitira glas Paje Patka."
+            },
+            "teuta-stazic": {
+                "about": "Najstarija, ali najbolja",
+                "quote": "Ragbi me naučio da snaga dolazi od tima, a ne samo od tebe.",
+                "funFact": "Počela je igrati kako bi prevladala strah od kontaktnih sportova - sada je nezaustavljiva!"
+            },
+            "margaux-fabre": {
+                "about": "Međunarodna studentica veterine",
+                "quote": "Svako dodavanje nosi više od lopte - nosi povjerenje, hrabrost i volju za naprijed.",
+                "funFact": "Dolazi iz Francuske, zemlje gdje je ragbi duboko ukorijenjen, ali je u Hrvatskoj prvi put obula kopačke."
+            },
+            "manuela-andrijanan": {
+                "about": "Bosanska mašina za scorove",
+                "quote": "Kad postane teško, jaki krenu.",
+                "funFact": "Nikad nije promašila bacanje u aut tijekom svoje dvije godine s timom!"
+            },
+            "dina-madir": {
+                "about": "Moćna trkačica s mekim rukama i okom za prazninu. Obrambeni stub u sredini terena.",
+                "quote": "Napad osvaja utakmice, ali obrana osvaja prvenstva.",
+                "funFact": "Bivša rukometašica koja donosi nevjerojatnu koordinaciju oko-ruka u ragbi!"
+            },
+            "lea-kolaric": {
+                "about": "Barberica koja uljepsava svaki dan.",
+                "quote": "Ništa u životu se nije dogodilo slučajno.",
+                "funFact": "Stalno govori da joj se ništa ne da, a opet sve obavi."
+            },
+            "lara-vuk": {
+                "about": "Srednjoškolka i umjetnica",
+                "quote": "Ragbi me naučio više o životu nego škola ikad.",
+                "funFact": "Prije ragbija trenirala je kickboxing, a u slobodno vrijeme ide u avanture sa svojim psima."
+            },
+            "gabriell-martinovic": {
+                "about": "Dinamična trkačica s moćnim naletima i obrambenom prisutnošću u sredini terena.",
+                "quote": "Ragbi je o stvaranju prostora za druge i uzimanju svog kada dođe.",
+                "funFact": "Višejezična igračica koja pomaže integraciji međunarodnih suigračica."
+            },
+            "macarena-camara": {
+                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
+                "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
+                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
+            },
+            "morena-ivcek": {
+                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
+                "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
+                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
+            },
+            "ivona-sojic": {
+                "about": "Snaga zadnjeg reda s vodstvenim kvalitetama i motorom koji nikad ne prestaje.",
+                "quote": "Vodi s prednje strane, podržavaj s leđa, nikad ne odustaj.",
+                "funFact": "Trči 10km svako jutro prije treninga - njena kondicija je legendarna!"
+            },
+            "lana-emanovic": {
+                "about": "Čvrsta u škorpijama s moćnom igrom u otvorenom prostoru.",
+                "quote": "Škorpije se osvajaju srcem, ne samo mišićima.",
+                "funFact": "Bivša powerlifterica koja donosi nevjerojatnu snagu u škorpije."
+            },
+            "cvita-seiter": {
+                "about": "Eksplozivno krilo s odličnom tehnikom stopala i sposobnošću finaliziranja.",
+                "quote": "Svaki put kad dodirnem loptu, gledam liniju pokušaja.",
+                "funFact": "Postigla hat-trick na svom debitantskom meču!"
+            },
+            "lucija-zoric": {
+                "about": "Kreativna organizatorica igre s svilenim vještinama i savršenim upravljanjem igrom.",
+                "quote": "Ragbi je umjetnost, a svaki potez je potez kista.",
+                "funFact": "Poznata po svojoj izvanrednoj igri dodavanja i sposobnosti čitanja obrane."
+            },
+            "lora-aladrovic": {
+                "about": "Precizna bacačica i žestoka natjecateljica koja vodi prvu liniju sa strašću.",
+                "quote": "Preciznost pod pritiskom je ono što razlikuje dobre igračice od izvrsnih.",
+                "funFact": "Ima 95% preciznosti bacanja u aut - najvišu u ligi!"
+            },
+            "barbara-debeljak": {
+                "about": "Svestrana napadačica koja donosi energiju i intenzitet na svaku situaciju.",
+                "quote": "Pobjeda počinje s stavom i završava s naporom.",
+                "funFact": "Bivša košarkašica koja donosi iznimnu atletičnost u ragbi."
+            },
+            "jelena-ivancic": {
+                "about": "Stručnjakinja za aut s nevjerojatnom atletičnošću. Srce našeg napada.",
+                "quote": "Svaki aut je prilika da pokažemo protivniku od čega smo napravljene.",
+                "funFact": "Bivša odbojkašica čiji skok je nenadmašen u ligi!"
+            }
         }
     },
     "schedule": {
         "hero": {
             "title": "RASPORED UTAKMICA.",
-            "joinMatches": "Pridruži se našim utakmicama",
-            "learnRugby": "Nauči ragbi"
+            "joinMatches": "Dođi na utakmicu",
+            "learnRugby": "Nauči igrati ragbi"
         },
         "title": "RASPORED UTAKMICA",
-        "subtitle": "Prati naše momčadi tijekom sezone.",
+        "subtitle": "Prati našu ekipu tijekom sezone.",
         "teams": {
-            "senior": "Seniorska momčad",
-            "junior": "Juniorska momčad (U18)"
+            "senior": "Seniorska ekipa",
+            "junior": "Juniorska ekipa (U18)"
         },
-        "matchesThisSeason": "utakmica ove sezone",
+        "matchesThisSeason": "utakmice ove sezone",
         "status": {
             "completed": "Završeno",
             "upcoming": "Nadolazeće"
         },
-        "getDirections": "Dobij upute",
+        "match": {
+            "fullTime": "Kraj utakmice",
+            "kickOff": "Početak",
+            "vs": "vs",
+            "at": "@",
+            "win": "P",
+            "loss": "I"
+        },
+        "getDirections": "Lokacija",
+        "imageAlts": {
+            "hero": "Naslovna slika rasporeda"
+        },
         "cta": {
-            "title": "DOĐI PODRŽATI NAŠU MOMČAD!",
+            "title": "DOĐI PODRŽATI NAŠU EKIPU!",
             "description": "Pridruži nam se na utakmicama i budi dio Zagreb Rugby Ladies zajednice. Tvoja podrška potiče našu strast i gura nas prema pobjedi.",
-            "getUpdates": "Dobij obavijesti o utakmicama",
+            "getUpdates": "Primaj obavijesti o utakmicama",
             "meetPlayers": "Upoznaj igračice"
-        }
-    },
-    "rugby101": {
-        "hero": {
-            "title": "RAGBI 7S 101",
-            "subtitle": "Ovladaj najbržim i najuzbudljivijim formatom ragbija",
-            "startTraining": "Počni trenirati danas"
-        },
-        "basics": {
-            "title": "Osnove ragbija 7s",
-            "subtitle": "Sve što trebaš znati da počneš s najuzbudljivijim ragbi formatom na svijetu",
-            "players": {
-                "title": "7 igračica po momčadi",
-                "description": "Svaka momčad ima 7 igračica na terenu, što stvara brzu akciju s više prostora za trčanje i postizanje poena."
-            },
-            "objective": {
-                "title": "Cilj",
-                "description": "Postići više pokušaja od protivnika nošenjem, dodavanjem ili šutiranjem lopte u protivničku zonu pokušaja."
-            },
-            "time": {
-                "title": "14 minuta",
-                "description": "Utakmica se sastoji od dva poluvremena od 7 minuta s 2-minutnim odmorom u poluvremenu."
-            },
-            "safety": {
-                "title": "Sigurnost na prvom mjestu",
-                "description": "Pravilna tehnika i zaštitna oprema osiguravaju da je ragbi siguran. Brži tempo potiče vještu igru umjesto teškog kontakta."
-            }
-        },
-        "positions": {
-            "title": "Pozicije igračica",
-            "subtitle": "Razumijevanje jedinstvenih uloga koje čine ragbi sedam tako dinamičnim",
-            "forwards": {
-                "title": "Napadačice (1-3)",
-                "description": "Temelj i snaga",
-                "roles": [
-                    "Formiranje guranja",
-                    "Bacanje i hvatanje u aut",
-                    "Sigurnost lopte u prekidu",
-                    "Fizičko nošenje lopte"
-                ]
-            },
-            "backs": {
-                "title": "Bekovi (4-7)",
-                "description": "Brzina, vještina i završetak",
-                "roles": [
-                    "Distribucija lopte i tempo",
-                    "Strateško šutiranje",
-                    "Potpora u igri i dodavanje",
-                    "Prilike za postizanje pokušaja"
-                ]
-            },
-            "learnPosition": "Nauči ovu poziciju"
-        },
-        "scoring": {
-            "title": "Kako postići poene",
-            "subtitle": "Četiri načina da staviš poene na tablu i dominiraš igrom",
-            "try": {
-                "points": "5",
-                "title": "Pokušaj",
-                "description": "Stavljanje lopte u protivničku zonu pokušaja"
-            },
-            "conversion": {
-                "points": "2",
-                "title": "Pretvaranje",
-                "description": "Šut kroz vratnice nakon pokušaja"
-            },
-            "penalty": {
-                "points": "3",
-                "title": "Kazneni udarac",
-                "description": "Šut dodijeljen za protivničke prekršaje"
-            },
-            "dropGoal": {
-                "points": "3",
-                "title": "Drop gol",
-                "description": "Gol iz igre šutiran tijekom regularne igre"
-            }
-        },
-        "safety": {
-            "title": "Sigurnost i oprema",
-            "subtitle": "Sve što trebaš za sigurnu i samouvjerenu igru",
-            "whatYouNeed": {
-                "title": "Što trebaš",
-                "items": [
-                    "Udobnu sportsku odjeću",
-                    "Ragbi kopačke ili tenisice",
-                    "Štitnik za zube (preporučuje se)",
-                    "Bocu za vodu"
-                ]
-            },
-            "safetyMeasures": {
-                "title": "Sigurnosne mjere",
-                "items": [
-                    "Trening pravilne tehnike plakiranja",
-                    "Postupno uvođenje kontakta",
-                    "Kvalificirana prva pomoć na svim treninzima",
-                    "Redovite sigurnosne provjere opreme"
-                ]
-            }
-        },
-        "myths": {
-            "title": "Mitovi protiv stvarnosti",
-            "subtitle": "Rušimo česte zablude o ragbiju sedam",
-            "myth": "MIT",
-            "reality": "STVARNOST",
-            "items": [
-                {
-                    "myth": "Ragbi sedam je samo sprint ragbi",
-                    "reality": "Iako brži, ragbi sedam zahtijeva strateško razmišljanje, vještinu i izdržljivost. Otvoreni prostor stvara prilike za kreativnu igru."
-                },
-                {
-                    "myth": "Mogu igrati samo super fit sportašice",
-                    "reality": "Ragbi sedam dobrodošao je svim razinama kondicije. Kraće vrijeme igre i manje momčadi znače više prilika za sve da doprinose."
-                },
-                {
-                    "myth": "Prebrz je tempo za učenje",
-                    "reality": "Pojednostavljeni format s manje igračica čini ragbi sedam lakšim za razumijevanje. Akcija je uzbudljiva, ali pravila ostaju ista."
-                },
-                {
-                    "myth": "Ženski sedam nije tako uzbudljiv",
-                    "reality": "Ženski ragbi sedam je olimpijski sport koji prikazuje nevjerojatnu vještinu, brzinu i atletizam. To je jedan od najuzbudljivijih formata za gledanje i igranje."
-                }
-            ]
-        },
-        "faq": {
-            "title": "Često postavljana pitanja",
-            "subtitle": "Sve što si htjela znati o početku",
-            "items": [
-                {
-                    "question": "Je li ragbi sedam siguran za početnike?",
-                    "answer": "Apsolutno! Ragbi sedam ima stroge sigurnosne protokole i brži tempo zapravo potiče vještu igru umjesto teškog kontakta. Naši treneri stavljaju sigurnost na prvo mjesto i uče pravilnu tehniku od prvog dana."
-                },
-                {
-                    "question": "Moram li biti super fit da igram sedam?",
-                    "answer": "Ragbi sedam dobrodošao je svim razinama kondicije. Poluvremena od 7 minuta znače da svi dobivaju odmor, a postoje pozicije koje odgovaraju različitim atributima - od brzine do snage. Kondicija se prirodno razvija kroz trening."
-                },
-                {
-                    "question": "Koju opremu trebam?",
-                    "answer": "Za početnike, samo udobnu sportsku odjeću i tenisice ili ragbi kopačke. Klub osigurava lopte i opremu za trening. Dodatna zaštitna oprema poput štitnika za zube dostupna je kako napreduješ."
-                },
-                {
-                    "question": "Mogu li početi igrati sedam bez iskustva?",
-                    "answer": "Da! Mnoge igračice smatraju sedam lakšim za učenje s manje igračica i više prostora. Naši treninzi prilagođeni početnicima uče osnove korak po korak u podržavajućem okruženju."
-                },
-                {
-                    "question": "Kako se ženski sedam razlikuje od muškog?",
-                    "answer": "Pravila su identična, a ženski sedam je olimpijski sport koji prikazuje nevjerojatnu vještinu i atletizam. Igra naglašava brzinu, strategiju i timski rad s jednako natjecateljskom i uzbudljivom igrom."
-                },
-                {
-                    "question": "Što ako nisam prirodno brza?",
-                    "answer": "Ragbi sedam je za sve! Iako brzina pomaže, igra također zahtijeva strategiju, snagu i vještinu. Svaka igračica donosi različite atribute, a naš klub se fokusira na razvoj jedinstvenih snaga svake igračice."
-                }
-            ]
-        },
-        "cta": {
-            "title": "Spreman si se pridružiti akciji?",
-            "description": "Iskusi uzbuđenje ragbija sedam iz prve ruke. Pridruži se našim treninzima prilagođenima početnicima.",
-            "startNow": "Počni trenirati sada",
-            "meetPlayers": "Upoznaj naše igračice"
         }
     },
     "gallery": {
         "hero": {
             "title": "HVATAMO TRENUTKE. DIJELIMO PRIČE.",
-            "joinTeam": "Pridruži se našoj momčadi",
-            "meetPlayers": "Upoznaj naše igračice"
+            "joinTeam": "Pridruži se našoj ekipi",
+            "meetPlayers": "Upoznaj igračice"
         },
         "story": {
             "title": "NAŠA PRIČA U SLIKAMA",
@@ -501,12 +528,48 @@
             "bePartOfStory": "Budi dio naše priče"
         },
         "collections": {
-            "title": "Galerijske kolekcije",
+            "title": "Fotografije",
             "subtitle": "Istraži naše uspomene organizirane po trenucima koji nam najviše znače.",
             "all": "Sve fotografije",
             "training": "Treninzi",
             "matches": "Utakmice",
+            "team": "Ekipa",
             "community": "Zajednica"
+        },
+        "stats": {
+            "collection": "Naša kolekcija",
+            "totalMedia": "Ukupno medija",
+            "photos": "Fotografije",
+            "videos": "Videozapisi",
+            "joinStory": "Pridruži se našoj priči"
+        },
+        "highlights": {
+            "title": "Nedavni vrhunci",
+            "items": [
+                "Pobjeda na prvenstvu 2024",
+                "Akcija regrutiranja novih igračica",
+                "Program društvenog angažmana",
+                "Međunarodna prijateljska utakmica"
+            ]
+        },
+        "noPhotos": "Nema pronađenih fotografija za odabrani album.",
+        "showAll": "Prikaži sve fotografije",
+        "cta": {
+            "title": "Želiš biti dio ovih trenutaka?",
+            "description": "Pridruži se Zagreb Rugby Ladies i stvori svoje nezaboravne uspomene. Svaki trening, svaka utakmica, svako slavlje moglo bi uključiti tebe."
+        }
+    },
+    "rugby101": {
+        "hero": {
+            "title": "Rugby 7s",
+            "titleAccent": "Osnove",
+            "subtitle": "Sve što trebaš znati da počneš s najuzbudljivijim rugby formatom na svijetu"
+        },
+        "basics": {
+            "subtitle": "Svaki trening, utakmica i slavlje govori našu priču.",
+            "description1": "Od intenzivnih treninga do trijumfalnih utakmica, ovi trenuci hvataju duh, predanost i radost Zagreb Rugby Ladies.",
+            "description2": "Svaka fotografija govori priču o odlučnosti, prijateljstvu i nevjerojatnom putovanju žena koje su se usudile stati na ragbi teren.",
+            "bePartOfStory": "Budi dio naše priče"
         },
         "stats": {
             "collection": "Naša kolekcija",
@@ -526,9 +589,299 @@
         },
         "noPhotos": "Nema fotografija za odabrani album.",
         "showAll": "Prikaži sve fotografije",
+        "allPhotos": "Sve fotografije",
+        "loading": "Učitavanje galerije...",
+        "error": "Greška",
+        "photoCategories": "Kategorije fotografija",
+        "imageAlts": {
+            "hero": "Naslovna slika galerije"
+        },
         "cta": {
             "title": "Želiš biti dio ovih trenutaka?",
             "description": "Pridruži se Zagreb Rugby Ladies i stvori svoje nezaboravne uspomene. Svaki trening, svaka utakmica, svako slavlje moglo bi uključiti tebe."
         }
+    },
+    "rugby101": {
+        "hero": {
+            "title": "Rugby 7s",
+            "titleAccent": "Osnove",
+            "subtitle": "Sve što trebaš znati da počneš s najuzbudljivijim rugby formatom na svijetu"
+        },
+        "basics": {
+            "playersPerTeam": {
+                "title": "7 igrača po momčadi",
+                "description": "Svaka momčad ima 7 igrača na terenu, stvarajući brzu akciju s više prostora za trčanje i postizanje pokušaja."
+            },
+            "objective": {
+                "title": "Cilj",
+                "description": "Postići više pokušaja od protivnika nošenjem, dodavanjem ili šutiranjem lopte u protivničku zonu pokušaja."
+            },
+            "duration": {
+                "title": "14 minuta",
+                "description": "Utakmica se sastoji od dva poluvremena od 7 minuta s pauzom od 2 minute na poluvremenu."
+            },
+            "safety": {
+                "title": "Sigurnost na prvom mjestu",
+                "description": "Pravilna tehnika i zaštitna oprema osiguravaju da je rugby siguran. Brži tempo potiče vještiju igru umjesto teškog kontakta."
+            }
+        },
+        "scoring": {
+            "label": "Sustav bodovanja",
+            "title": "Kako",
+            "titleAccent": "zabiti",
+            "description": "Četiri načina za postizanje bodova i dominaciju u igri",
+            "try": {
+                "title": "Pokušaj",
+                "description": "Polaganje lopte u protivničkoj zoni pokušaja"
+            },
+            "conversion": {
+                "title": "Pretvorba",
+                "description": "Šut kroz vratnice nakon pokušaja"
+            },
+            "penalty": {
+                "title": "Kazneni udarac",
+                "description": "Šut dodijeljen za prekršaje protivnika"
+            },
+            "dropGoal": {
+                "title": "Drop gol",
+                "description": "Šut na gol izveden tijekom regularne igre"
+            }
+        },
+        "positions": {
+            "label": "Struktura momčadi",
+            "title": "Pozicije",
+            "titleAccent": "igrača",
+            "description": "Razumijevanje jedinstvenih uloga koje čine rugby sevens tako dinamičnim",
+            "forwards": {
+                "title": "Napadači (1-3)",
+                "subtitle": "Temelj i snaga",
+                "roles": [
+                    "Formacija skupa",
+                    "Bacanje i hvatanje u lineoutu",
+                    "Sigurnost lopte na breakdownu",
+                    "Fizičko nošenje lopte"
+                ]
+            },
+            "backs": {
+                "title": "Bekovi (4-7)",
+                "subtitle": "Brzina, vještina i završnica",
+                "roles": [
+                    "Distribucija lopte i tempo",
+                    "Strateško šutiranje",
+                    "Potpora u igri i dodavanje",
+                    "Prilike za postizanje pokušaja"
+                ]
+            },
+            "learnPosition": "Nauči ovu poziciju",
+            "keyResponsibilities": "Ključne odgovornosti:"
+        },
+        "safety": {
+            "label": "Sigurnost na prvom mjestu",
+            "title": "Sigurnost i",
+            "titleAccent": "oprema",
+            "description": "Sve što ti treba za sigurnu i samouvjerenu igru",
+            "whatYouNeed": {
+                "title": "Što ti treba",
+                "items": [
+                    "Udobna sportska odjeća",
+                    "Rugby kopačke ili tenisice za trčanje",
+                    "Štitnik za zube (preporučeno)",
+                    "Boca za vodu"
+                ]
+            },
+            "safetyMeasures": {
+                "title": "Sigurnosne mjere",
+                "items": [
+                    "Trening pravilne tehnike plakiranja",
+                    "Postupno uvođenje kontakta",
+                    "Kvalificirana prva pomoć na svim treninzima",
+                    "Redovite sigurnosne provjere opreme"
+                ]
+            }
+        },
+        "myths": {
+            "label": "Provjera istine",
+            "title": "Mitovi vs",
+            "titleAccent": "stvarnost",
+            "description": "Razotkrivanje čestih zabluda o rugby sevensu",
+            "mythLabel": "MIT",
+            "realityLabel": "STVARNOST",
+            "items": [
+                {
+                    "myth": "Rugby sevens je samo sprint rugby",
+                    "reality": "Iako je brži, rugby sevens zahtijeva strateško razmišljanje, vještinu i izdržljivost. Otvoreni prostor stvara prilike za kreativnu igru."
+                },
+                {
+                    "myth": "Samo super fit sportaši mogu igrati",
+                    "reality": "Rugby sevens prihvaća sve razine kondicije. Kraće vrijeme igre i manje momčadi znače više prilika za sve da doprinesu."
+                },
+                {
+                    "myth": "Prebrz je tempo za učenje",
+                    "reality": "Pojednostavljen format s manje igrača čini rugby sevens lakšim za razumijevanje. Akcija je uzbudljiva, ali pravila ostaju ista."
+                },
+                {
+                    "myth": "Ženski sevens nije toliko uzbudljiv",
+                    "reality": "Ženski rugby sevens je olimpijski sport koji prikazuje nevjerojatnu vještinu, brzinu i atletičnost. To je jedan od najuzbudljivijih formata za gledanje i igranje."
+                }
+            ]
+        },
+        "faq": {
+            "label": "Česta pitanja",
+            "title": "Često postavljana pitanja",
+            "description": "Sve što si htjela znati o početku",
+            "items": [
+                {
+                    "question": "Je li rugby sevens siguran za početnike?",
+                    "answer": "Apsolutno! Rugby sevens ima stroge sigurnosne protokole i brži tempo zapravo potiče vještiju igru umjesto teškog kontakta. Naši treneri daju prioritet sigurnosti i poučavaju pravilnu tehniku od prvog dana."
+                },
+                {
+                    "question": "Trebam li biti super fit da igram sevens?",
+                    "answer": "Rugby sevens prihvaća sve razine kondicije. Poluvremena od 7 minuta znače da svi dobivaju odmor, a postoje pozicije koje odgovaraju različitim atributima - od brzine do snage. Kondicija se razvija prirodno kroz trening."
+                },
+                {
+                    "question": "Koja oprema mi treba?",
+                    "answer": "Za početnike, samo udobna sportska odjeća i tenisice za trčanje ili rugby kopačke. Klub osigurava lopte i opremu za trening. Dodatna zaštitna oprema poput štitnika za zube dostupna je kako napreduješ."
+                },
+                {
+                    "question": "Mogu li početi igrati sevens bez iskustva?",
+                    "answer": "Da! Mnogi igrači smatraju sevens lakšim za učenje s manje igrača i više prostora. Naši treninzi prilagođeni početnicima podučavaju osnovama korak po korak u podržavajućem okruženju."
+                },
+                {
+                    "question": "Po čemu se ženski sevens razlikuje od muškog?",
+                    "answer": "Pravila su identična, a ženski sevens je olimpijski sport koji prikazuje nevjerojatnu vještinu i atletičnost. Igra naglašava brzinu, strategiju i timski rad s jednako konkurentnom i uzbudljivom igrom."
+                },
+                {
+                    "question": "Koliko vremena zahtijeva?",
+                    "answer": "Treniramo tri puta puta tjedno s utakmicama vikendom. Treninzi traju 90 minuta. Možeš dolaziti na onoliko treninga koliko ti raspored dopušta, i primamo igračice koje ne mogu doći na svaki trening."
+                }
+            ]
+        },
+        "cta": {
+            "title": "Spremna započeti svoje rugby putovanje?",
+            "description": "Pridruži se Zagreb Rugby Ladies i postani dio vrhunske hrvatske ženske rugby sevens momčadi",
+            "joinButton": "Pridruži nam se danas",
+            "contactButton": "Kontaktiraj nas"
+        }
+    },
+    "privacy": {
+        "hero": {
+            "title": "PRAVILA PRIVATNOSTI",
+            "subtitle": "Vaša privatnost nam je važna. Ova politika objašnjava kako prikupljamo, koristimo i štitimo vaše osobne podatke.",
+            "lastUpdated": "Zadnje ažurirano"
+        },
+        "introduction": "U Zagreb Rugby Ladies, posvećeni smo zaštiti vaše privatnosti i osobnih podataka. Ova politika privatnosti objašnjava kako rukujemo osobnim informacijama koje nam pružite putem naše web stranice ili kontakt formi. Zagreb Rugby Ladies je voditelj obrade za osobne podatke koje prikupljamo, što znači da smo odgovorni za određivanje kako i zašto se vaši podaci obrađuju.",
+        "dataCollection": {
+            "title": "Informacije koje prikupljamo",
+            "description": "Prikupljamo osobne podatke koje nam dobrovoljno pružite kada:",
+            "items": {
+                "name": "Ime (kada nas kontaktirate putem kontakt forme)",
+                "email": "Email adresa (za potrebe komunikacije)",
+                "phone": "Broj telefona (opcionalno, ako ga želite pružiti)",
+                "message": "Bilo koje druge informacije koje odaberete pružiti u svojoj poruci"
+            }
+        },
+        "dataUse": {
+            "title": "Kako koristimo vaše podatke",
+            "description": "Informacije koje prikupljamo koristimo za:",
+            "items": {
+                "respond": "Odgovaranje na vaše upite i zahtjeve",
+                "communicate": "Komunikaciju s vama o aktivnostima, događajima i treninzima Zagreb Rugby Ladies",
+                "improve": "Poboljšanje naše web stranice i usluga"
+            }
+        },
+        "dataStorage": {
+            "title": "Pohranjivanje i sigurnost podataka",
+            "description": "Poduzimamo razumne mjere za zaštitu vaših osobnih podataka od neovlaštenog pristupa, korištenja ili otkrivanja. Vaši podaci se pohranjuju sigurno i dostupni su samo ovlaštenim članovima tima koji su potrebni za odgovaranje na vaše upite. Ne prodajemo, ne iznajmljujemo niti dijelimo vaše osobne podatke s trećim stranama u marketinške svrhe."
+        },
+        "thirdPartyServices": {
+            "title": "Pružatelji usluga treće strane",
+            "description": "Za obradu prijava putem kontakt forme koristimo Basin (usebasin.com), sigurnu uslugu za rukovanje formama. Kada pošaljete našu kontakt formu, vaše informacije se prenose na Basinove servere i zatim se prosljeđuju direktno nama. Basin privremeno pohranjuje kopije prijava na svojim serverima za potrebe obrade formi. Basin djeluje kao izvršitelj obrade prema našim uputama i predan je standardima zaštite podataka. Za više informacija o Basinovim praksama privatnosti, molimo posjetite njihovu politiku privatnosti.",
+            "dataController": "Zagreb Rugby Ladies ostaje voditelj obrade za sve informacije koje podnesete putem naše kontakt forme. Podaci idu direktno nama i mi kontroliramo kako se koriste i pohranjuju."
+        },
+        "dataRetention": {
+            "title": "Čuvanje podataka",
+            "description": "Čuvamo vaše osobne podatke samo onoliko dugo koliko je potrebno za ispunjenje svrha navedenih u ovoj Politici privatnosti:",
+            "items": {
+                "inquiries": "Prijave putem kontakt forme čuvaju se do 2 godine kako bismo odgovorili na vaš upit i održali evidenciju komunikacije",
+                "deleteRequest": "Možete zatražiti brisanje svojih podataka u bilo kojem trenutku kontaktirajući nas",
+                "automatic": "Nakon isteka roka čuvanja, vaši podaci će biti sigurno izbrisani osim ako ne postoji zakonska obveza da se čuvaju duže"
+            }
+        },
+        "rights": {
+            "title": "Vaša prava (GDPR usklađenost)",
+            "description": "Pod Općom uredbom o zaštiti podataka (GDPR), imate pravo na:",
+            "items": {
+                "access": "Pristup osobnim podacima koje držimo o vama",
+                "rectification": "Zahtjev za ispravak bilo kojih netočnih podataka",
+                "erasure": "Zahtjev za brisanje vaših osobnih podataka",
+                "objection": "Prigovor na obradu vaših podataka",
+                "portability": "Zahtjev za kopiju vaših podataka u prenosivom formatu"
+            }
+        },
+        "cookies": {
+            "title": "Kolačići i praćenje",
+            "description": "Naša web stranica ne koristi kolačiće ili tehnologije praćenja za prikupljanje osobnih podataka. Možemo koristiti osnovnu analitiku za razumijevanje kako posjetitelji koriste našu stranicu, ali to ne identificira pojedinačne korisnike."
+        },
+        "contact": {
+            "title": "Kontaktirajte nas o privatnosti",
+            "description": "Ako imate bilo kakvih pitanja o ovoj politici privatnosti ili želite ostvariti svoja prava u vezi s vašim osobnim podacima, molimo kontaktirajte nas na:"
+        },
+        "backToHome": "Natrag na početnu"
+    },
+    "terms": {
+        "hero": {
+            "title": "UVJETI KORIŠTENJA",
+            "subtitle": "Molimo pažljivo pročitajte ove uvjete prije korištenja naše web stranice.",
+            "lastUpdated": "Zadnje ažurirano"
+        },
+        "introduction": "Dobrodošli na web stranicu Zagreb Rugby Ladies. Pristupanjem i korištenjem ove web stranice, slažete se da ćete se pridržavati i biti vezani sljedećim uvjetima korištenja.",
+        "copyright": {
+            "title": "Intelektualno vlasništvo i autorska prava",
+            "description": "Sav sadržaj na ovoj web stranici, uključujući ali ne ograničavajući se na tekst, slike, fotografije, grafiku, logotipe i dizajn web stranice, vlasništvo je Zagreb Rugby Ladies i zaštićen je hrvatskim i međunarodnim zakonima o autorskim pravima. Ovo uključuje:",
+            "items": {
+                "photos": "Sve fotografije igračica, utakmica i timskih događaja",
+                "design": "Dizajn web stranice, raspored i vizualni elementi",
+                "text": "Pisani sadržaj i informacije o timu",
+                "logos": "Logotipi i branding Zagreb Rugby Ladies"
+            }
+        },
+        "acceptableUse": {
+            "title": "Prihvatljiva uporaba",
+            "description": "Korištenjem naše web stranice, slažete se sa sljedećim uvjetima:",
+            "permitted": {
+                "title": "SMIJETE:",
+                "items": {
+                    "view": "Pregledavati web stranicu za osobnu, nekomercijalnu upotrebu",
+                    "share": "Dijeliti linkove na našu web stranicu na društvenim mrežama",
+                    "contact": "Koristiti naš kontakt obrazac za upite o pridruživanju timu"
+                }
+            },
+            "prohibited": {
+                "title": "NE SMIJETE:",
+                "items": {
+                    "copy": "Preuzimati, kopirati ili reproducirati fotografije bez izričite pisane dozvole",
+                    "modify": "Mijenjati, preinačavati ili stvarati izvedena djela iz našeg dizajna web stranice ili sadržaja",
+                    "commercial": "Koristiti bilo koji sadržaj u komercijalne svrhe bez odobrenja",
+                    "scrape": "Koristiti automatizirane alate za izvlačenje ili prikupljanje podataka s naše web stranice"
+                }
+            }
+        },
+        "photos": {
+            "title": "Fotografije i slike",
+            "description": "Sve fotografije na ovoj web stranici su u vlasništvu Zagreb Rugby Ladies ili se koriste uz dozvolu. Neovlašteno preuzimanje, kopiranje ili korištenje ovih slika je strogo zabranjeno. Ako želite koristiti bilo koje fotografije, molimo kontaktirajte nas za dozvolu na zrkzagreb@zagreb-rugby.hr."
+        },
+        "disclaimer": {
+            "title": "Odricanje odgovornosti",
+            "description": "Iako se trudimo održavati informacije na našoj web stranici točnima i ažurnima, ne dajemo jamstva ili izjave o točnosti ili potpunosti sadržaja. Zagreb Rugby Ladies pridržava pravo mijenjati ili ukloniti bilo koji sadržaj u bilo koje vrijeme bez prethodne najave."
+        },
+        "changes": {
+            "title": "Promjene uvjeta",
+            "description": "Pridržavamo pravo ažuriranja ovih uvjeta korištenja u bilo koje vrijeme. Promjene će stupiti na snagu odmah nakon objavljivanja na ovoj stranici. Vaše nastavno korištenje web stranice nakon bilo kakvih promjena ukazuje na vaše prihvaćanje ažuriranih uvjeta."
+        },
+        "contact": {
+            "title": "Pitanja o uvjetima",
+            "description": "Ako imate bilo kakvih pitanja o ovim uvjetima korištenja ili želite zatražiti dozvolu za korištenje bilo kojeg sadržaja, molimo kontaktirajte nas na:"
+        },
+        "backToHome": "Natrag na početnu"
     }
 }

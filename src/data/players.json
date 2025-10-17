@@ -1,22 +1,11 @@
 [
     {
-        "id": "teuta-stazic",
-        "name": "Teuta Stazić",
-        "position": "Loosehead Prop",
-        "about": "The oldest, but the goldest",
-        "photo": "src/assets/images/photos/teuta_rugby.jpg",
-        "quote": "Rugby taught me that strength comes from the team, not just yourself.",
-        "socials": {
-            "instagram": "https://instagram.com/anak"
-        },
-        "funFact": "Started playing to overcome her fear of contact sports - now she's unstoppable!"
-    },
-    {
         "id": "petra-kusen",
-        "name": "Petra Kusen",
+        "name": "Petra Kušen",
         "position": "Scrum Half",
         "about": "Team captain and strategist. Played for 4 years and leads by example both on and off the field.",
-        "photo": "src/assets/images/photos/petra_rugby.jpg",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/petra_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7584-petra.jpg",
         "quote": "In rugby, we don't just play together - we grow together.",
         "socials": {
             "instagram": "https://instagram.com/marijas"
@@ -24,83 +13,64 @@
         "funFact": "Speaks four languages and uses rugby terms to teach Croatian to international players!"
     },
     {
-        "id": "petra-n",
-        "name": "Petra Novak",
-        "position": "Forward",
-        "about": "Powerhouse in the pack who joined the team straight from university. Known for her incredible work ethic.",
-        "photo": "src/assets/images/photos/lucija_rugby.jpg",
-        "quote": "Every training session is a chance to become stronger than yesterday.",
-        "socials": {
-            "instagram": "https://instagram.com/petran"
-        },
-        "funFact": "Holds the team record for most training sessions attended - hasn't missed one in 2 years!"
-    },
-    {
-        "id": "lea-m",
-        "name": "Lea Matić",
-        "position": "Fullback",
-        "about": "Newcomer with natural talent and infectious enthusiasm. Proves that it's never too late to start.",
-        "photo": "src/assets/images/photos/manuela_rugby.jpg",
-        "quote": "I wish I had started rugby years ago - this team is my second family.",
-        "socials": {
-            "instagram": "https://instagram.com/leam"
-        },
-        "funFact": "Started playing at 28 and scored her first try in just her third match!"
-    },
-    {
         "id": "josipa-farac",
         "name": "Josipa Farac",
-        "position": "Wing",
-        "about": "Speed demon on the wing with exceptional footwork and game awareness.",
-        "photo": "src/assets/images/photos/josipa_rugby.jpg",
-        "quote": "Speed kills, but teamwork wins championships.",
+        "position": "Prop",
+        "about": "An islander from Korčula, she's known as the team's main entertainer - nicknamed 'Živiđuboks' (the live jukebox). She graduated from the stone-carving school on Brač and works in restoration. Her hobbies include photography, video production, cooking, and drawing. Rugby is the perfect sport for her—it has taught her a lot, helped her grow, and she's grateful to be part of this community.",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/josipa_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7568-josipa.jpg",
+        "quote": "Art fills my soul, rugby fills my heart, and the people around me give meaning to everything.",
         "socials": {
             "instagram": "https://instagram.com/josipaf"
         },
-        "funFact": "Holds the team record for most tries scored in a single season!"
+        "funFact": "She can do an impressive Donald Duck voice."
+    },
+    {
+        "id": "teuta-stazic",
+        "name": "Teuta Stazić",
+        "position": "Loosehead Prop",
+        "about": "The oldest, but the goldest",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/teuta_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7674-teuta.jpg",
+        "quote": "Rugby taught me that strength comes from the team, not just yourself.",
+        "socials": {
+            "instagram": "https://instagram.com/anak"
+        },
+        "funFact": "Started playing to overcome her fear of contact sports - now she's unstoppable!"
     },
     {
         "id": "margaux-fabre",
         "name": "Margaux Fabre",
         "position": "Fly Half",
-        "about": "French playmaker with incredible vision and tactical awareness. The brain of our backline.",
-        "photo": "src/assets/images/photos/margaux_rugby.jpg",
-        "quote": "Rugby is chess at full speed - you need to think three moves ahead.",
+        "about": "International veterinary student",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/margaux_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7559-margaux.jpg",
+        "quote": "Each pass carries more than a ball - it carries trust, courage, and the will to move forward.",
         "socials": {
             "instagram": "https://instagram.com/margauxf"
         },
-        "funFact": "Speaks three languages fluently and calls plays in French when the opposition is listening!"
+        "funFact": "She comes from France, a land where rugby runs deep, but it was in Croatia that she first laced up her cleats."
     },
     {
-        "id": "manuela-andrijanic",
-        "name": "Manuela Andrijanic",
+        "id": "manuela-andrijanan",
+        "name": "Manuela Andrijanić",
         "position": "Lock",
-        "about": "Towering presence in the lineout with an unstoppable work ethic in training.",
-        "photo": "src/assets/images/photos/petra1_rugby.jpg",
-        "quote": "Height gives you reach, but heart gives you strength.",
+        "about": "Bosnian try machine",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/manuela_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7635-manuela.jpg",
+        "quote": "When the going gets tough, the tough get going.",
         "socials": {
             "instagram": "https://instagram.com/manuelaa"
         },
         "funFact": "Never missed a lineout throw in her two years with the team!"
     },
     {
-        "id": "lora-aldramovic",
-        "name": "Lora Aldramovic",
-        "position": "Hooker",
-        "about": "Precision thrower and fierce competitor who leads the front row with passion.",
-        "photo": "src/assets/images/photos/teuta_rugby.jpg",
-        "quote": "Accuracy under pressure is what separates good players from great ones.",
-        "socials": {
-            "instagram": "https://instagram.com/loraa"
-        },
-        "funFact": "Has a 95% lineout throwing accuracy - the highest in the league!"
-    },
-    {
         "id": "dina-madir",
         "name": "Dina Madir",
         "position": "Centre",
         "about": "Powerful runner with soft hands and an eye for the gap. Defensive stalwart in midfield.",
-        "photo": "src/assets/images/photos/petra_rugby.jpg",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/dina_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7614-dina.jpg",
         "quote": "Attack wins games, but defense wins championships.",
         "socials": {
             "instagram": "https://instagram.com/dinam"
@@ -108,11 +78,77 @@
         "funFact": "Former handball player who brings incredible hand-eye coordination to rugby!"
     },
     {
+        "id": "lea-kolaric",
+        "name": "Lea Kolarić",
+        "position": "Fullback",
+        "about": "Barber with a heart of gold and a smile that will light up your day.",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/lea_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-lea-pitch.jpg",
+        "quote": "Nothing in life has happened by accident.",
+        "socials": {
+            "instagram": "https://instagram.com/leak"
+        },
+        "funFact": "She keeps saying she doesn't feel like doing anything, yet she still gets everything done."
+    },
+    {
+        "id": "lara-vuk",
+        "name": "Lara Vuk",
+        "position": "Flanker",
+        "about": "High school student and artist",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/lara_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7654-lara.jpg",
+        "quote": "Rugby taught me more about life than school ever could.",
+        "socials": {
+            "instagram": "https://instagram.com/larav"
+        },
+        "funFact": "Before rugby, she trained kickboxing, and in her free time, she goes on adventures with her dogs."
+    },
+    {
+        "id": "gabriell-martinovic",
+        "name": "Gabriell Martinović",
+        "position": "Centre",
+        "about": "Dynamic runner with powerful carries and defensive presence in midfield.",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/gabriell_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7663-gabriell.jpg",
+        "quote": "Rugby is about making space for others and taking yours when it comes.",
+        "socials": {
+            "instagram": "https://instagram.com/gabriellm"
+        },
+        "funFact": "Multilingual player who helps integrate international teammates."
+    },
+    {
+        "id": "macarena-camara",
+        "name": "Macarena Cámara",
+        "position": "Winger",
+        "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/macarena_profile_cropped.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7623-maca.jpg",
+        "quote": "Speed gets you there, but composure gets you over the line.",
+        "socials": {
+            "instagram": "https://instagram.com/morenai"
+        },
+        "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+    },
+    {
+        "id": "morena-ivcek",
+        "name": "Morena Ivček",
+        "position": "Winger",
+        "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
+        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "quote": "Speed gets you there, but composure gets you over the line.",
+        "socials": {
+            "instagram": "https://instagram.com/morenai"
+        },
+        "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+    },
+    {
         "id": "ivona-sojic",
-        "name": "Ivona Sojic",
+        "name": "Ivona Šojić",
         "position": "Number 8",
         "about": "Back row powerhouse with leadership qualities and an engine that never stops.",
-        "photo": "src/assets/images/photos/lucija_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "quote": "Lead from the front, support from behind, never give up.",
         "socials": {
             "instagram": "https://instagram.com/ivonas"
@@ -120,87 +156,81 @@
         "funFact": "Runs 10km every morning before training - her fitness is legendary!"
     },
     {
-        "id": "lara-prezime",
-        "name": "Lara Prezime",
-        "position": "Flanker",
-        "about": "Versatile forward who can play anywhere in the pack. Known for her incredible rugby IQ.",
-        "photo": "src/assets/images/photos/manuela_rugby.jpg",
-        "quote": "Adaptability is the key to survival in rugby and in life.",
-        "socials": {
-            "instagram": "https://instagram.com/larap"
-        },
-        "funFact": "Can play every position in the forward pack and has done so in matches!"
-    },
-    {
-        "id": "lea-prezime",
-        "name": "Lea Prezime",
-        "position": "Outside Centre",
-        "about": "Dynamic centre with explosive pace and devastating side-step. Creates opportunities out of nothing.",
-        "photo": "src/assets/images/photos/josipa_rugby.jpg",
-        "quote": "Sometimes the best path forward is sideways.",
-        "socials": {
-            "instagram": "https://instagram.com/leapr"
-        },
-        "funFact": "Former track and field sprinter who holds the team's 100m record!"
-    },
-    {
-        "id": "lana-prezime",
-        "name": "Lana Prezime",
+        "id": "lana-emanovic",
+        "name": "Lana Emanović",
         "position": "Tighthead Prop",
-        "about": "Immovable object in the scrum with technique that's poetry in motion. Anchor of the front row.",
-        "photo": "src/assets/images/photos/margaux_rugby.jpg",
+        "about": "Solid scrummager with powerful driving game in open play.",
+        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "quote": "Scrums are won with heart, not just muscle.",
         "socials": {
-            "instagram": "https://instagram.com/lanapr"
+            "instagram": "https://instagram.com/lanae"
         },
-        "funFact": "Former powerlifter who can deadlift twice her body weight!"
+        "funFact": "Former powerlifter who brings incredible strength to the scrum."
     },
     {
-        "id": "lucija-prezime",
-        "name": "Lucija Prezime",
+        "id": "cvita-seiter",
+        "name": "Cvita Seiter",
+        "position": "Wing",
+        "about": "Explosive winger with great footwork and finishing ability.",
+        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "quote": "Every time I touch the ball, I'm looking for the try line.",
+        "socials": {
+            "instagram": "https://instagram.com/cvitas"
+        },
+        "funFact": "Scored a hat-trick in her debut match!"
+    },
+    {
+        "id": "lucija-zoric",
+        "name": "Lucija Zorić",
         "position": "Inside Centre",
-        "about": "Creative playmaker with silky skills and perfect game management. The link between forwards and backs.",
-        "photo": "src/assets/images/photos/petra1_rugby.jpg",
+        "about": "Creative playmaker with silky skills and perfect game management.",
+        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "quote": "Rugby is an art, and every play is a brushstroke.",
         "socials": {
-            "instagram": "https://instagram.com/lucijapr"
+            "instagram": "https://instagram.com/lucijaz"
         },
-        "funFact": "Art student who designs the team's custom training gear in her spare time!"
+        "funFact": "Known for her exceptional passing game and ability to read defenses."
     },
     {
-        "id": "marina-prezime",
-        "name": "Marina Prezime",
-        "position": "Blindside Flanker",
-        "about": "Fearless defender with an uncanny ability to read the game. First to every breakdown.",
-        "photo": "src/assets/images/photos/teuta_rugby.jpg",
-        "quote": "Defense is not about size, it's about timing and heart.",
+        "id": "lora-aladrovic",
+        "name": "Lora Aladrović",
+        "position": "Hooker",
+        "about": "Precision thrower and fierce competitor who leads the front row with passion.",
+        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "quote": "Accuracy under pressure is what separates good players from great ones.",
         "socials": {
-            "instagram": "https://instagram.com/marinapr"
+            "instagram": "https://instagram.com/loraa"
         },
-        "funFact": "Studies marine biology and says understanding ocean currents helps her read rugby flow!"
+        "funFact": "Has a 95% lineout throwing accuracy - the highest in the league!"
     },
     {
-        "id": "jelena-prezime",
-        "name": "Jelena Prezime",
+        "id": "barbara-debeljak",
+        "name": "Barbara Debeljak",
+        "position": "Flanker",
+        "about": "Versatile forward who brings energy and intensity to every breakdown.",
+        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "quote": "Winning starts with attitude and ends with effort.",
+        "socials": {
+            "instagram": "https://instagram.com/barbarad"
+        },
+        "funFact": "Former basketball player who brings exceptional athleticism to rugby."
+    },
+    {
+        "id": "jelena-ivancic",
+        "name": "Jelena Ivančić",
         "position": "Second Row",
         "about": "Lineout specialist with incredible athleticism. The engine room of our forward pack.",
-        "photo": "src/assets/images/photos/petra_rugby.jpg",
+        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "quote": "Every lineout is a chance to show the opposition what we're made of.",
         "socials": {
-            "instagram": "https://instagram.com/jelenapr"
+            "instagram": "https://instagram.com/jelenai"
         },
         "funFact": "Former volleyball player whose jumping reach is unmatched in the league!"
-    },
-    {
-        "id": "morena-prezime",
-        "name": "Morena Prezime",
-        "position": "Winger",
-        "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
-        "photo": "src/assets/images/photos/lucija_rugby.jpg",
-        "quote": "Speed gets you there, but composure gets you over the line.",
-        "socials": {
-            "instagram": "https://instagram.com/morenapr"
-        },
-        "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
     }
 ]
