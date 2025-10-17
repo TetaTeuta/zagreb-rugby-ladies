@@ -56,7 +56,7 @@
             "en": {
                 "about": "A software engineer and photographer with encyclopedic knowledge of aviation and the British royal family.",
                 "quote": "Everything is possible if you want it enough.",
-                "funFact": "She photographed king Charles III and queen Camilla"
+                "funFact": "She photographed king Charles III and queen Camilla."
             },
             "hr": {
                 "about": "Programerka i fotografkinja s enciklopedijskim znanjem o zrakoplovstvu i britanskoj kraljevskoj obitelji.",
@@ -76,7 +76,7 @@
         },
         "translations": {
             "en": {
-                "about": "International veterinary student",
+                "about": "International Veterinary Medicine student",
                 "quote": "Each pass carries more than a ball - it carries trust, courage, and the will to move forward.",
                 "funFact": "She comes from France, a land where rugby runs deep, but it was in Croatia that she first laced up her cleats."
             },
@@ -114,20 +114,20 @@
         "name": "Dina Madir",
         "position": "Centre",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/dina_profile_cropped.jpg",
-        "bannerPhoto": "gallery/rugby-woman-player-_7614-dina.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7610-dina.jpg",
         "socials": {
             "instagram": "https://instagram.com/dinam"
         },
         "translations": {
             "en": {
-                "about": "Powerful runner with soft hands and an eye for the gap. Defensive stalwart in midfield.",
+                "about": "Former gymnast who brings exceptional body control and agility to the game.",
                 "quote": "Attack wins games, but defense wins championships.",
-                "funFact": "Former handball player who brings incredible hand-eye coordination to rugby!"
+                "funFact": "Has an intense love for gummy bears and a reputation for getting mad easily - but her passion makes her the fierce competitor she is on the field!"
             },
             "hr": {
-                "about": "Moćna trkačica s mekim rukama i okom za prazninu. Obrambeni stub u sredini terena.",
+                "about": "Bivša gimnastičarka koja donosi izuzetnu kontrolu tijela i agilnost u igru.",
                 "quote": "Napad osvaja utakmice, ali obrana osvaja prvenstva.",
-                "funFact": "Bivša rukometašica koja donosi nevjerojatnu koordinaciju oko-ruka u ragbi!"
+                "funFact": "Voli gumene bombone vise od svog brata. Lako se naljuti."
             }
         }
     },
@@ -186,14 +186,15 @@
         },
         "translations": {
             "en": {
-                "about": "Primary school student and rugby player",
-                "quote": "My name is Gabi and I like to play rugby.",
-                "funFact": "Multilingual player who helps integrate international teammates."
+                "about": "Gabi, a primary school student who loves playing rugby. Kind, wise, and strong.",
+                "quote": "Life without rugby would be like life without food and water.",
+                "funFact": "Very shy until you get to know her."
             },
+
             "hr": {
-                "about": "Dinamična trkačica s moćnim naletima i obrambenom prisutnošću u sredini terena.",
-                "quote": "Ragbi je o stvaranju prostora za druge i uzimanju svog kada dođe.",
-                "funFact": "Višejezična igračica koja pomaže integraciji međunarodnih suigračica."
+                "about": "Gabi, učenica osnovne škole koja voli igrati ragbi. Dobra, mudra i snažna.",
+                "quote": "Život bez ragbija bio bi kao život bez hrane i vode.",
+                "funFact": "Vrlo sramežljiva dok je ne upoznaš."
             }
         }
     },
@@ -223,8 +224,8 @@
         "id": "morena-ivcek",
         "name": "Morena Ivček",
         "position": "Winger",
-        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
         "socials": {
             "instagram": "https://instagram.com/morenai"
         },
@@ -245,8 +246,8 @@
         "id": "ivona-sojic",
         "name": "Ivona Šojić",
         "position": "Number 8",
-        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
         "socials": {
             "instagram": "https://instagram.com/ivonas"
         },
@@ -267,8 +268,8 @@
         "id": "lana-emanovic",
         "name": "Lana Emanović",
         "position": "Tighthead Prop",
-        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
         "socials": {
             "instagram": "https://instagram.com/lanae"
         },
@@ -289,8 +290,8 @@
         "id": "cvita-seiter",
         "name": "Cvita Seiter",
         "position": "Wing",
-        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
         "socials": {
             "instagram": "https://instagram.com/cvitas"
         },
@@ -310,22 +311,22 @@
     {
         "id": "lucija-zoric",
         "name": "Lucija Zorić",
-        "position": "Inside Centre",
-        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "position": "Winger",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
         "socials": {
             "instagram": "https://instagram.com/lucijaz"
         },
         "translations": {
             "en": {
-                "about": "Creative playmaker with silky skills and perfect game management.",
-                "quote": "Rugby is an art, and every play is a brushstroke.",
-                "funFact": "Known for her exceptional passing game and ability to read defenses."
+                "about": "Not the fastest, but also not the strongest, good at injuring teammates",
+                "quote": "I'm here for a good time, but also for a bad time. Actually, any kind of time because it is always fun.",
+                "funFact": "Can do at least one (1) push up."
             },
             "hr": {
-                "about": "Kreativna organizatorica igre s svilenim vještinama i savršenim upravljanjem igrom.",
-                "quote": "Ragbi je umjetnost, a svaki potez je potez kista.",
-                "funFact": "Poznata po svojoj izvanrednoj igri dodavanja i sposobnosti čitanja obrane."
+                "about": "Nije najbrža, ali ni najjača, dobra u ozljeđivanju suigračica.",
+                "quote": "Ovdje sam za dobro vrijeme, ali i za loše vrijeme. Zapravo, za bilo kakvo vrijeme jer je uvijek zabavno.",
+                "funFact": "Može napraviti barem jedan (1) sklek."
             }
         }
     },
@@ -333,8 +334,8 @@
         "id": "lora-aladrovic",
         "name": "Lora Aladrović",
         "position": "Hooker",
-        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
         "socials": {
             "instagram": "https://instagram.com/loraa"
         },
@@ -355,8 +356,8 @@
         "id": "barbara-debeljak",
         "name": "Barbara Debeljak",
         "position": "Flanker",
-        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
+        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
+        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
         "socials": {
             "instagram": "https://instagram.com/barbarad"
         },
@@ -370,28 +371,6 @@
                 "about": "Svestrana napadačica koja donosi energiju i intenzitet na svaku situaciju.",
                 "quote": "Pobjeda počinje s stavom i završava s naporom.",
                 "funFact": "Bivša košarkašica koja donosi iznimnu atletičnost u ragbi."
-            }
-        }
-    },
-    {
-        "id": "jelena-ivancic",
-        "name": "Jelena Ivančić",
-        "position": "Second Row",
-        "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "socials": {
-            "instagram": "https://instagram.com/jelenai"
-        },
-        "translations": {
-            "en": {
-                "about": "Lineout specialist with incredible athleticism. The engine room of our forward pack.",
-                "quote": "Every lineout is a chance to show the opposition what we're made of.",
-                "funFact": "Former volleyball player whose jumping reach is unmatched in the league!"
-            },
-            "hr": {
-                "about": "Stručnjakinja za aut s nevjerojatnom atletičnošću. Srce našeg napada.",
-                "quote": "Svaki aut je prilika da pokažemo protivniku od čega smo napravljene.",
-                "funFact": "Bivša odbojkašica čiji skok je nenadmašen u ligi!"
             }
         }
     }

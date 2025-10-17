@@ -7,6 +7,7 @@ import {
     getEmailLink,
     getPhoneLink,
 } from "../../config/contact";
+import { cdn } from "../../lib/cdn";
 
 const Footer = () => {
     const { t } = useTranslation();
@@ -94,7 +95,9 @@ const Footer = () => {
                             className="flex items-center space-x-2 mb-6"
                         >
                             <img
-                                src="src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png"
+                                src={cdn(
+                                    "logos/zagreb-rugby-ladies-logo-vector.png"
+                                )}
                                 alt={t("footer.logoAlt")}
                                 className="h-20 w-20 object-contain"
                             />

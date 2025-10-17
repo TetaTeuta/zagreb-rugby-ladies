@@ -10,6 +10,7 @@ import { CallToAction } from "../components/ui/CallToAction";
 import { Link } from "react-router-dom";
 import { SEO } from "../components/ui/SEO";
 import { contactConfig, getEmailLink } from "../config/contact";
+import { cdn } from "../lib/cdn";
 
 const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -117,7 +118,7 @@ const Contact = () => {
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
-                        src="src/assets/images/hero/zagreb-rugby-ladies-team.jpg"
+                        src={cdn("hero/zagreb-rugby-ladies-team.jpg")}
                         alt="Zagreb Rugby Ladies team huddle celebrating - Contact us to join"
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 35%" }}
@@ -499,7 +500,9 @@ const Contact = () => {
 
                 {/* Call to Action */}
                 <CallToAction
-                    image="src/assets/images/call_to_action/rugby-player-woman-panning-running.jpg"
+                    image={cdn(
+                        "call_to_action/rugby-player-woman-panning-running.jpg"
+                    )}
                     imageAlt="Zagreb Rugby Ladies player running with ball - Contact us today"
                     titleKey="contact.cta.title"
                     descriptionKey="contact.cta.description"

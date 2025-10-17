@@ -11,7 +11,7 @@ import { CallToAction } from "../components/ui/CallToAction";
 import scheduleData from "../data/schedule.json";
 import nextMatchData from "../data/nextMatch.json";
 import { SEO } from "../components/ui/SEO";
-import { buildR2ImageUrl } from "../lib/cdn";
+import { buildR2ImageUrl, cdn } from "../lib/cdn";
 
 const Schedule = () => {
     const { t, i18n } = useTranslation();
@@ -236,7 +236,7 @@ const Schedule = () => {
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
-                        src="src/assets/images/hero/margaux-rugby-action.jpg"
+                        src={cdn("hero/margaux-rugby-action.jpg")}
                         alt="Zagreb Rugby Ladies player in match action - View our schedule"
                         className="w-full h-full object-cover"
                         style={{ objectPosition: "50% 25%" }}
@@ -376,7 +376,7 @@ const Schedule = () => {
 
                 {/* Call to Action */}
                 <CallToAction
-                    image="src/assets/images/call_to_action/rugby-scrum-action.jpg"
+                    image={cdn("call_to_action/rugby-scrum-action.jpg")}
                     imageAlt="Zagreb Rugby Ladies scrum formation in match - Come watch us play"
                     titleKey="schedule.cta.title"
                     descriptionKey="schedule.cta.description"

@@ -1,22 +1,30 @@
 import { Button } from "../ui/Button";
 import { useMemo } from "react";
-import { buildR2ImageUrl } from "../../lib/cdn";
+import { buildR2ImageUrl, cdn } from "../../lib/cdn";
 import { useTranslation } from "react-i18next";
 
 const PLACEHOLDER_IMAGES = [
-    "src/assets/images/players/petra_rugby.jpg",
-    "src/assets/images/players/lucija_rugby.jpg",
-    "src/assets/images/players/manuela_rugby.jpg",
-    "src/assets/images/players/margaux_rugby.jpg",
-    "src/assets/images/players/teuta_rugby.jpg",
-    "src/assets/images/players/josipa_rugby.jpg",
-    "src/assets/images/players/petra1_rugby.jpg",
+    cdn("players/petra_rugby.jpg"),
+    cdn("players/lucija_rugby.jpg"),
+    cdn("players/manuela_rugby.jpg"),
+    cdn("players/margaux_rugby.jpg"),
+    cdn("players/teuta_rugby.jpg"),
+    cdn("players/josipa_rugby.jpg"),
+    cdn("players/petra1_rugby.jpg"),
 ];
 
 const resolveImageUrl = (profilePhoto, playerId) => {
     if (profilePhoto?.startsWith("gallery/")) {
         const filename = profilePhoto.replace("gallery/", "");
         return buildR2ImageUrl("Players", filename);
+    }
+
+    if (
+        profilePhoto?.startsWith("players/") ||
+        profilePhoto?.startsWith("players_background/") ||
+        profilePhoto?.startsWith("logos/")
+    ) {
+        return cdn(profilePhoto);
     }
 
     if (profilePhoto) {

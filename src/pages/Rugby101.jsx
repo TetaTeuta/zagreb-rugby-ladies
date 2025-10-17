@@ -13,6 +13,7 @@ import {
     createArticleStructuredData,
     createHowToStructuredData,
 } from "../components/ui/SEO";
+import { cdn } from "../lib/cdn";
 
 const IconCircle = ({ Icon, color, size = "default", children }) => {
     const sizeClasses = {
@@ -132,7 +133,7 @@ const Rugby101 = () => {
     const articleStructuredData = createArticleStructuredData({
         headline: "Rugby 101: Complete Beginner's Guide to Rugby Sevens",
         description: pageDescription,
-        image: "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
+        image: cdn("logos/zagreb-rugby-ladies-logo-vector.png"),
         datePublished: "2024-01-01",
         dateModified: new Date().toISOString().split("T")[0],
     });
@@ -142,7 +143,7 @@ const Rugby101 = () => {
         name: "How to Start Playing Rugby Sevens",
         description:
             "A step-by-step guide to getting started with rugby sevens for beginners",
-        image: "src/assets/images/logos/zagreb-rugby-ladies-logo-vector.png",
+        image: cdn("logos/zagreb-rugby-ladies-logo-vector.png"),
         steps: [
             {
                 name: "Understand the Basics",
@@ -192,7 +193,7 @@ const Rugby101 = () => {
             <div className="relative h-[50svh] overflow-hidden mt-20">
                 <div className="absolute inset-0 flex items-center justify-center bg-text-contrast">
                     <img
-                        src="src/assets/images/hero/zagreb-rugby-ladies-team-running.jpg"
+                        src={cdn("hero/zagreb-rugby-ladies-team-running.jpg")}
                         alt="Zagreb Rugby Ladies team running on the field during training - Women's rugby sevens action shot"
                         className="w-full h-full object-cover"
                     />
@@ -552,7 +553,7 @@ const Rugby101 = () => {
 
                 {/* Call to Action */}
                 <CallToAction
-                    image="src/assets/images/call_to_action/rugby-players-woman-team.jpg"
+                    image={cdn("call_to_action/rugby-players-woman-team.jpg")}
                     imageAlt="Women's rugby team celebrating together on the field - Join Zagreb Rugby Ladies"
                     titleKey="rugby101.cta.title"
                     descriptionKey="rugby101.cta.description"
