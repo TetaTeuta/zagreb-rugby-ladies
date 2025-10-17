@@ -76,7 +76,7 @@
         },
         "translations": {
             "en": {
-                "about": "International veterinary student",
+                "about": "International Veterinary Medicine student",
                 "quote": "Each pass carries more than a ball - it carries trust, courage, and the will to move forward.",
                 "funFact": "She comes from France, a land where rugby runs deep, but it was in Croatia that she first laced up her cleats."
             },
@@ -114,20 +114,20 @@
         "name": "Dina Madir",
         "position": "Centre",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/dina_profile_cropped.jpg",
-        "bannerPhoto": "gallery/rugby-woman-player-_7614-dina.jpg",
+        "bannerPhoto": "gallery/rugby-woman-player-_7610-dina.jpg",
         "socials": {
             "instagram": "https://instagram.com/dinam"
         },
         "translations": {
             "en": {
-                "about": "Powerful runner with soft hands and an eye for the gap. Defensive stalwart in midfield.",
+                "about": "Former gymnast who brings exceptional body control and agility to the game.",
                 "quote": "Attack wins games, but defense wins championships.",
-                "funFact": "Former handball player who brings incredible hand-eye coordination to rugby!"
+                "funFact": "Has an intense love for gummy bears and a reputation for getting mad easily - but her passion makes her the fierce competitor she is on the field!"
             },
             "hr": {
-                "about": "Moćna trkačica s mekim rukama i okom za prazninu. Obrambeni stub u sredini terena.",
+                "about": "Bivša gimnastičarka koja donosi izuzetnu kontrolu tijela i agilnost u igru.",
                 "quote": "Napad osvaja utakmice, ali obrana osvaja prvenstva.",
-                "funFact": "Bivša rukometašica koja donosi nevjerojatnu koordinaciju oko-ruka u ragbi!"
+                "funFact": "Voli gumene bombone vise od svog brata. Lako se naljuti."
             }
         }
     },
@@ -371,28 +371,6 @@
                 "about": "Svestrana napadačica koja donosi energiju i intenzitet na svaku situaciju.",
                 "quote": "Pobjeda počinje s stavom i završava s naporom.",
                 "funFact": "Bivša košarkašica koja donosi iznimnu atletičnost u ragbi."
-            }
-        }
-    },
-    {
-        "id": "jelena-ivancic",
-        "name": "Jelena Ivančić",
-        "position": "Second Row",
-        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
-        "socials": {
-            "instagram": "https://instagram.com/jelenai"
-        },
-        "translations": {
-            "en": {
-                "about": "Lineout specialist with incredible athleticism. The engine room of our forward pack.",
-                "quote": "Every lineout is a chance to show the opposition what we're made of.",
-                "funFact": "Former volleyball player whose jumping reach is unmatched in the league!"
-            },
-            "hr": {
-                "about": "Stručnjakinja za aut s nevjerojatnom atletičnošću. Srce našeg napada.",
-                "quote": "Svaki aut je prilika da pokažemo protivniku od čega smo napravljene.",
-                "funFact": "Bivša odbojkašica čiji skok je nenadmašen u ligi!"
             }
         }
     }
