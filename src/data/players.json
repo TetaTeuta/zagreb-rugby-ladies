@@ -2,235 +2,397 @@
     {
         "id": "petra-kusen",
         "name": "Petra Kušen",
-        "position": "Scrum Half",
-        "about": "Team captain and strategist. Played for 4 years and leads by example both on and off the field.",
+        "position": "Hooker",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/petra_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7584-petra.jpg",
-        "quote": "In rugby, we don't just play together - we grow together.",
         "socials": {
             "instagram": "https://instagram.com/marijas"
         },
-        "funFact": "Speaks four languages and uses rugby terms to teach Croatian to international players!"
+        "translations": {
+            "en": {
+                "about": "Team captain and strategist. She's been playing rugby for 11 years – which means her knees crack, but her spirit never gives up.",
+                "quote": "Living la vida loca",
+                "funFact": "When she's not on the field, she dives for peace, hikes to stay fit, digs through rocks like a geologist, and tries to explain to her dog Oggy that weekends aren't always meant for adventures… but he's the only one who can keep up with all her craziness."
+            },
+            "hr": {
+                "about": "Kapetanica tima i strateg. Igra ragbi već 11 godina – što znači da joj koljena krckaju, ali duh ne popušta.",
+                "quote": "Living la vida loca",
+                "funFact": "Kad nije na terenu, roni za mirom, planinari radi kondicije, kopa po stijenama kao geolog i pokušava objasniti svom psu Oggyu da vikendi nisu uvijek rezervirani za avanture… ali on je jedini koji može pratiti sve njezine ludosti."
+            }
+        }
     },
     {
         "id": "josipa-farac",
         "name": "Josipa Farac",
         "position": "Prop",
-        "about": "An islander from Korčula, she's known as the team's main entertainer - nicknamed 'Živiđuboks' (the live jukebox). She graduated from the stone-carving school on Brač and works in restoration. Her hobbies include photography, video production, cooking, and drawing. Rugby is the perfect sport for her—it has taught her a lot, helped her grow, and she's grateful to be part of this community.",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/josipa_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7568-josipa.jpg",
-        "quote": "Art fills my soul, rugby fills my heart, and the people around me give meaning to everything.",
         "socials": {
             "instagram": "https://instagram.com/josipaf"
         },
-        "funFact": "She can do an impressive Donald Duck voice."
+        "translations": {
+            "en": {
+                "about": "An islander from Korčula, she's known as the team's main entertainer. She graduated from the stone-carving school on Brač and works in restoration. Her hobbies include photography, video production, cooking, and drawing. Rugby is the perfect sport for her—it has taught her a lot, helped her grow, and she's grateful to be part of this community.",
+                "quote": "Art fills my soul, rugby fills my heart, and the people around me give meaning to everything.",
+                "funFact": "She can do an impressive Donald Duck voice."
+            },
+            "hr": {
+                "about": "Otočanka s Korčule, poznata kao glavni zabavljač tima - nadimak 'Živiđuboks'. Zarsila je školu klesarstva na Braču i radi u restauraciji. Hobiji su joj fotografija, video produkcija, kuhanje i crtanje. Ragbi je savršen sport za nju - naučio ju je puno, pomogao joj rasti i zahvalna je što je dio ove zajednice.",
+                "quote": "Umjetnost ispunjava moju dušu, ragbi moje srce, a ljudi oko mene daju smisao svemu.",
+                "funFact": "Vrlo realno imitira glas Paje Patka."
+            }
+        }
     },
     {
         "id": "teuta-stazic",
         "name": "Teuta Stazić",
         "position": "Loosehead Prop",
-        "about": "The oldest, but the goldest",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/teuta_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7674-teuta.jpg",
-        "quote": "Rugby taught me that strength comes from the team, not just yourself.",
         "socials": {
             "instagram": "https://instagram.com/anak"
         },
-        "funFact": "Started playing to overcome her fear of contact sports - now she's unstoppable!"
+        "translations": {
+            "en": {
+                "about": "A software engineer and photographer with encyclopedic knowledge of aviation and the British royal family.",
+                "quote": "Everything is possible if you want it enough.",
+                "funFact": "She photographed king Charles III and queen Camilla"
+            },
+            "hr": {
+                "about": "Programerka i fotografkinja s enciklopedijskim znanjem o zrakoplovstvu i britanskoj kraljevskoj obitelji.",
+                "quote": "Sve je moguće ako to dovoljno želiš.",
+                "funFact": "Fotografirala je kralja Charlesa III. i kraljicu Camillu."
+            }
+        }
     },
     {
         "id": "margaux-fabre",
         "name": "Margaux Fabre",
-        "position": "Fly Half",
-        "about": "International veterinary student",
+        "position": "Prop",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/margaux_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7559-margaux.jpg",
-        "quote": "Each pass carries more than a ball - it carries trust, courage, and the will to move forward.",
         "socials": {
             "instagram": "https://instagram.com/margauxf"
         },
-        "funFact": "She comes from France, a land where rugby runs deep, but it was in Croatia that she first laced up her cleats."
+        "translations": {
+            "en": {
+                "about": "International veterinary student",
+                "quote": "Each pass carries more than a ball - it carries trust, courage, and the will to move forward.",
+                "funFact": "She comes from France, a land where rugby runs deep, but it was in Croatia that she first laced up her cleats."
+            },
+            "hr": {
+                "about": "Međunarodna studentica veterine",
+                "quote": "Svako dodavanje nosi više od lopte - nosi povjerenje, hrabrost i volju za naprijed.",
+                "funFact": "Dolazi iz Francuske, zemlje gdje je ragbi duboko ukorijenjen, ali je u Hrvatskoj prvi put obula kopačke."
+            }
+        }
     },
     {
         "id": "manuela-andrijanan",
         "name": "Manuela Andrijanić",
         "position": "Lock",
-        "about": "Bosnian try machine",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/manuela_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7635-manuela.jpg",
-        "quote": "When the going gets tough, the tough get going.",
         "socials": {
             "instagram": "https://instagram.com/manuelaa"
         },
-        "funFact": "Never missed a lineout throw in her two years with the team!"
+        "translations": {
+            "en": {
+                "about": "Bosnian try machine",
+                "quote": "When the going gets tough, the tough get going.",
+                "funFact": "Never missed a lineout throw in her two years with the team!"
+            },
+            "hr": {
+                "about": "Bosanska mašina za scorove",
+                "quote": "Kad postane teško, jaki krenu.",
+                "funFact": "Nikad nije promašila bacanje u aut tijekom svoje dvije godine s timom!"
+            }
+        }
     },
     {
         "id": "dina-madir",
         "name": "Dina Madir",
         "position": "Centre",
-        "about": "Powerful runner with soft hands and an eye for the gap. Defensive stalwart in midfield.",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/dina_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7614-dina.jpg",
-        "quote": "Attack wins games, but defense wins championships.",
         "socials": {
             "instagram": "https://instagram.com/dinam"
         },
-        "funFact": "Former handball player who brings incredible hand-eye coordination to rugby!"
+        "translations": {
+            "en": {
+                "about": "Powerful runner with soft hands and an eye for the gap. Defensive stalwart in midfield.",
+                "quote": "Attack wins games, but defense wins championships.",
+                "funFact": "Former handball player who brings incredible hand-eye coordination to rugby!"
+            },
+            "hr": {
+                "about": "Moćna trkačica s mekim rukama i okom za prazninu. Obrambeni stub u sredini terena.",
+                "quote": "Napad osvaja utakmice, ali obrana osvaja prvenstva.",
+                "funFact": "Bivša rukometašica koja donosi nevjerojatnu koordinaciju oko-ruka u ragbi!"
+            }
+        }
     },
     {
         "id": "lea-kolaric",
         "name": "Lea Kolarić",
         "position": "Fullback",
-        "about": "Barber with a heart of gold and a smile that will light up your day.",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/lea_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-lea-pitch.jpg",
-        "quote": "Nothing in life has happened by accident.",
         "socials": {
             "instagram": "https://instagram.com/leak"
         },
-        "funFact": "She keeps saying she doesn't feel like doing anything, yet she still gets everything done."
+        "translations": {
+            "en": {
+                "about": "Barber with a heart of gold and a smile that will light up your day.",
+                "quote": "Nothing in life has happened by accident.",
+                "funFact": "She keeps saying she doesn't feel like doing anything, yet she still gets everything done."
+            },
+            "hr": {
+                "about": "Barberica koja uljepsava svaki dan.",
+                "quote": "Ništa u životu se nije dogodilo slučajno.",
+                "funFact": "Stalno govori da joj se ništa ne da, a opet sve obavi."
+            }
+        }
     },
     {
         "id": "lara-vuk",
         "name": "Lara Vuk",
         "position": "Flanker",
-        "about": "High school student and artist",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/lara_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7654-lara.jpg",
-        "quote": "Rugby taught me more about life than school ever could.",
         "socials": {
             "instagram": "https://instagram.com/larav"
         },
-        "funFact": "Before rugby, she trained kickboxing, and in her free time, she goes on adventures with her dogs."
+        "translations": {
+            "en": {
+                "about": "High school student and artist",
+                "quote": "Rugby taught me more about life than school ever could.",
+                "funFact": "Before rugby, she trained kickboxing, and in her free time, she goes on adventures with her dogs."
+            },
+            "hr": {
+                "about": "Srednjoškolka i umjetnica",
+                "quote": "Ragbi me naučio više o životu nego škola ikad.",
+                "funFact": "Prije ragbija trenirala je kickboxing, a u slobodno vrijeme ide u avanture sa svojim psima."
+            }
+        }
     },
     {
         "id": "gabriell-martinovic",
         "name": "Gabriell Martinović",
         "position": "Centre",
-        "about": "Dynamic runner with powerful carries and defensive presence in midfield.",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/gabriell_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7663-gabriell.jpg",
-        "quote": "Rugby is about making space for others and taking yours when it comes.",
         "socials": {
             "instagram": "https://instagram.com/gabriellm"
         },
-        "funFact": "Multilingual player who helps integrate international teammates."
+        "translations": {
+            "en": {
+                "about": "Primary school student and rugby player",
+                "quote": "My name is Gabi and I like to play rugby.",
+                "funFact": "Multilingual player who helps integrate international teammates."
+            },
+            "hr": {
+                "about": "Dinamična trkačica s moćnim naletima i obrambenom prisutnošću u sredini terena.",
+                "quote": "Ragbi je o stvaranju prostora za druge i uzimanju svog kada dođe.",
+                "funFact": "Višejezična igračica koja pomaže integraciji međunarodnih suigračica."
+            }
+        }
     },
     {
         "id": "macarena-camara",
         "name": "Macarena Cámara",
         "position": "Winger",
-        "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/macarena_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7623-maca.jpg",
-        "quote": "Speed gets you there, but composure gets you over the line.",
         "socials": {
             "instagram": "https://instagram.com/morenai"
         },
-        "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+        "translations": {
+            "en": {
+                "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
+                "quote": "Speed gets you there, but composure gets you over the line.",
+                "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+            },
+            "hr": {
+                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
+                "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
+                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
+            }
+        }
     },
     {
         "id": "morena-ivcek",
         "name": "Morena Ivček",
         "position": "Winger",
-        "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
         "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "quote": "Speed gets you there, but composure gets you over the line.",
         "socials": {
             "instagram": "https://instagram.com/morenai"
         },
-        "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+        "translations": {
+            "en": {
+                "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
+                "quote": "Speed gets you there, but composure gets you over the line.",
+                "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+            },
+            "hr": {
+                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
+                "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
+                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
+            }
+        }
     },
     {
         "id": "ivona-sojic",
         "name": "Ivona Šojić",
         "position": "Number 8",
-        "about": "Back row powerhouse with leadership qualities and an engine that never stops.",
         "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "quote": "Lead from the front, support from behind, never give up.",
         "socials": {
             "instagram": "https://instagram.com/ivonas"
         },
-        "funFact": "Runs 10km every morning before training - her fitness is legendary!"
+        "translations": {
+            "en": {
+                "about": "Back row powerhouse with leadership qualities and an engine that never stops.",
+                "quote": "Lead from the front, support from behind, never give up.",
+                "funFact": "Runs 10km every morning before training - her fitness is legendary!"
+            },
+            "hr": {
+                "about": "Snaga zadnjeg reda s vodstvenim kvalitetama i motorom koji nikad ne prestaje.",
+                "quote": "Vodi s prednje strane, podržavaj s leđa, nikad ne odustaj.",
+                "funFact": "Trči 10km svako jutro prije treninga - njena kondicija je legendarna!"
+            }
+        }
     },
     {
         "id": "lana-emanovic",
         "name": "Lana Emanović",
         "position": "Tighthead Prop",
-        "about": "Solid scrummager with powerful driving game in open play.",
         "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "quote": "Scrums are won with heart, not just muscle.",
         "socials": {
             "instagram": "https://instagram.com/lanae"
         },
-        "funFact": "Former powerlifter who brings incredible strength to the scrum."
+        "translations": {
+            "en": {
+                "about": "Solid scrummager with powerful driving game in open play.",
+                "quote": "Scrums are won with heart, not just muscle.",
+                "funFact": "Former powerlifter who brings incredible strength to the scrum."
+            },
+            "hr": {
+                "about": "Čvrsta u škorpijama s moćnom igrom u otvorenom prostoru.",
+                "quote": "Škorpije se osvajaju srcem, ne samo mišićima.",
+                "funFact": "Bivša powerlifterica koja donosi nevjerojatnu snagu u škorpije."
+            }
+        }
     },
     {
         "id": "cvita-seiter",
         "name": "Cvita Seiter",
         "position": "Wing",
-        "about": "Explosive winger with great footwork and finishing ability.",
         "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "quote": "Every time I touch the ball, I'm looking for the try line.",
         "socials": {
             "instagram": "https://instagram.com/cvitas"
         },
-        "funFact": "Scored a hat-trick in her debut match!"
+        "translations": {
+            "en": {
+                "about": "Explosive winger with great footwork and finishing ability.",
+                "quote": "Every time I touch the ball, I'm looking for the try line.",
+                "funFact": "Scored a hat-trick in her debut match!"
+            },
+            "hr": {
+                "about": "Eksplozivno krilo s odličnom tehnikom stopala i sposobnošću finaliziranja.",
+                "quote": "Svaki put kad dodirnem loptu, gledam liniju pokušaja.",
+                "funFact": "Postigla hat-trick na svom debitantskom meču!"
+            }
+        }
     },
     {
         "id": "lucija-zoric",
         "name": "Lucija Zorić",
         "position": "Inside Centre",
-        "about": "Creative playmaker with silky skills and perfect game management.",
         "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "quote": "Rugby is an art, and every play is a brushstroke.",
         "socials": {
             "instagram": "https://instagram.com/lucijaz"
         },
-        "funFact": "Known for her exceptional passing game and ability to read defenses."
+        "translations": {
+            "en": {
+                "about": "Creative playmaker with silky skills and perfect game management.",
+                "quote": "Rugby is an art, and every play is a brushstroke.",
+                "funFact": "Known for her exceptional passing game and ability to read defenses."
+            },
+            "hr": {
+                "about": "Kreativna organizatorica igre s svilenim vještinama i savršenim upravljanjem igrom.",
+                "quote": "Ragbi je umjetnost, a svaki potez je potez kista.",
+                "funFact": "Poznata po svojoj izvanrednoj igri dodavanja i sposobnosti čitanja obrane."
+            }
+        }
     },
     {
         "id": "lora-aladrovic",
         "name": "Lora Aladrović",
         "position": "Hooker",
-        "about": "Precision thrower and fierce competitor who leads the front row with passion.",
         "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "quote": "Accuracy under pressure is what separates good players from great ones.",
         "socials": {
             "instagram": "https://instagram.com/loraa"
         },
-        "funFact": "Has a 95% lineout throwing accuracy - the highest in the league!"
+        "translations": {
+            "en": {
+                "about": "Precision thrower and fierce competitor who leads the front row with passion.",
+                "quote": "Accuracy under pressure is what separates good players from great ones.",
+                "funFact": "Has a 95% lineout throwing accuracy - the highest in the league!"
+            },
+            "hr": {
+                "about": "Precizna bacačica i žestoka natjecateljica koja vodi prvu liniju sa strašću.",
+                "quote": "Preciznost pod pritiskom je ono što razlikuje dobre igračice od izvrsnih.",
+                "funFact": "Ima 95% preciznosti bacanja u aut - najvišu u ligi!"
+            }
+        }
     },
     {
         "id": "barbara-debeljak",
         "name": "Barbara Debeljak",
         "position": "Flanker",
-        "about": "Versatile forward who brings energy and intensity to every breakdown.",
         "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "quote": "Winning starts with attitude and ends with effort.",
         "socials": {
             "instagram": "https://instagram.com/barbarad"
         },
-        "funFact": "Former basketball player who brings exceptional athleticism to rugby."
+        "translations": {
+            "en": {
+                "about": "Versatile forward who brings energy and intensity to every breakdown.",
+                "quote": "Winning starts with attitude and ends with effort.",
+                "funFact": "Former basketball player who brings exceptional athleticism to rugby."
+            },
+            "hr": {
+                "about": "Svestrana napadačica koja donosi energiju i intenzitet na svaku situaciju.",
+                "quote": "Pobjeda počinje s stavom i završava s naporom.",
+                "funFact": "Bivša košarkašica koja donosi iznimnu atletičnost u ragbi."
+            }
+        }
     },
     {
         "id": "jelena-ivancic",
         "name": "Jelena Ivančić",
         "position": "Second Row",
-        "about": "Lineout specialist with incredible athleticism. The engine room of our forward pack.",
         "profilePhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
         "bannerPhoto": "src/assets/images/players/siluette_placeholder_rugby_ladies.png",
-        "quote": "Every lineout is a chance to show the opposition what we're made of.",
         "socials": {
             "instagram": "https://instagram.com/jelenai"
         },
-        "funFact": "Former volleyball player whose jumping reach is unmatched in the league!"
+        "translations": {
+            "en": {
+                "about": "Lineout specialist with incredible athleticism. The engine room of our forward pack.",
+                "quote": "Every lineout is a chance to show the opposition what we're made of.",
+                "funFact": "Former volleyball player whose jumping reach is unmatched in the league!"
+            },
+            "hr": {
+                "about": "Stručnjakinja za aut s nevjerojatnom atletičnošću. Srce našeg napada.",
+                "quote": "Svaki aut je prilika da pokažemo protivniku od čega smo napravljene.",
+                "funFact": "Bivša odbojkašica čiji skok je nenadmašen u ligi!"
+            }
+        }
     }
 ]
