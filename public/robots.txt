@@ -1,5 +1,5 @@
 # robots.txt for Zagreb Rugby Ladies
-# https://www.zagrebrugbyladies.com
+# https://www.zagreb-rugby-ladies.eu
 
 User-agent: *
 Allow: /
@@ -9,7 +9,7 @@ Allow: /
 # Disallow: /private/
 
 # Sitemap location
-Sitemap: https://www.zagrebrugbyladies.com/sitemap.xml
+Sitemap: https://www.zagreb-rugby-ladies.eu/sitemap.xml
 
 # Crawl delay (optional, adjust if needed)
 # Crawl-delay: 1
