@@ -46,7 +46,7 @@
             "title": "ZAŠTO ODABRATI RAGBI?",
             "inclusive": {
                 "title": "Tim u kojem su svi dobrodošli",
-                "description": "Različite pozadine. Različita iskustva. Isti cilj. \nBez obzira na iskustvo, dob ili pozadinu – ovdje imaš svoje mjesto."
+                "description": "Različite pozadine. Različita iskustva. Isti cilj."
             },
             "beginner": {
                 "title": "Prilagođeno početnicima",
@@ -78,7 +78,7 @@
     "training": {
         "title": "Raspored treninga",
         "subtitle": "Pridruži nam se na terenu",
-        "description": "Redovni treninzi za sve razine vještina. Dođi kakva jesi, otiđi jača. ili Postani jača sa svakim treningom.",
+        "description": "Postani jača sa svakim treningom.",
         "viewSchedule": "Pogledaj cijeli raspored",
         "days": {
             "Monday": "Ponedjeljak",
@@ -148,7 +148,7 @@
         "mission": {
             "title": "NAŠA MISIJA I VRIJEDNOSTI",
             "missionTitle": "NAŠA MISIJA",
-            "missionText": "Osnažiti žene kroz ragbi potičući samopouzdanje, hrabrost i prijateljstva, dok istovremeno promičemo sport koji volimo diljem Hrvatske.",
+            "missionText": "Osnažiti žene kroz ragbi potičući samopouzdanje, hrabrost i prijateljstva, dok istovremeno promičemo sport koji volimo diljem Hrvatske i izvan nje.",
             "valuesTitle": "NAŠE VRIJEDNOSTI",
             "values": {
                 "inclusion": {
@@ -276,7 +276,7 @@
     "team": {
         "hero": {
             "title": "ŽENE KOJE POMIČU GRANICE.",
-            "joinTeam": "Zaigraj kao lavica!",
+            "joinTeam": "Dođi na trening",
             "learnRugby": "Nauči više o ragbiju"
         },
         "stats": {
@@ -303,7 +303,7 @@
             },
             "development": {
                 "title": "RAZVOJ IGRAČICA",
-                "description": "Posvećeni smo pomaganju svakoj igračici da dosegne svoj puni potencijal, i kao sportašica i kao samouvjerena osoba. ili Naš cilj je pomoći svakoj igračici da otkrije svoj puni potencijal - na terenu i izvan njega.",
+                "description": "Naš cilj je pomoći svakoj igračici da otkrije svoj puni potencijal, kao sportašaica i kao samouvjerena osoba - na terenu i izvan njega.",
                 "points": [
                     "• Personalizirani planovi napretka",
                     "• Razvoj liderskog duha i zajedništva",
@@ -439,14 +439,14 @@
     },
     "rugby101": {
         "hero": {
-            "title": "Rugby 7s",
+            "title": "Ragbi 7 Osnove",
             "titleAccent": "Osnove",
             "subtitle": "Sve što trebaš znati da počneš s najuzbudljivijim rugby formatom na svijetu"
         },
         "basics": {
             "playersPerTeam": {
                 "title": "7 igrača po momčadi",
-                "description": "Svaka momčad ima 7 igrača na terenu, stvarajući brzu akciju s više prostora za trčanje i postizanje pokušaja."
+                "description": "Samo 7 igrača na terenu pune veličine - to znači puno prostora za trčanje i postizanje pokušaja!"
             },
             "objective": {
                 "title": "Cilj",
@@ -487,7 +487,7 @@
             "label": "Struktura momčadi",
             "title": "Pozicije",
             "titleAccent": "igrača",
-            "description": "Razumijevanje jedinstvenih uloga koje čine rugby sevens tako dinamičnim",
+            "description": "Razumijevanje jedinstvenih uloga koje čine ragbi 7s tako dinamičnim",
             "forwards": {
                 "title": "Napadači (1-3)",
                 "subtitle": "Temelj i snaga",
@@ -520,7 +520,7 @@
                 "title": "Što ti treba",
                 "items": [
                     "Udobna sportska odjeća",
-                    "Rugby kopačke ili tenisice za trčanje",
+                    "Kopačke ili tenisice za trčanje",
                     "Štitnik za zube (preporučeno)",
                     "Boca za vodu"
                 ]
@@ -539,25 +539,25 @@
             "label": "Provjera istine",
             "title": "Mitovi vs",
             "titleAccent": "stvarnost",
-            "description": "Razotkrivanje čestih zabluda o rugby sevensu",
+            "description": "Razotkrivanje čestih zabluda o ragbiju 7",
             "mythLabel": "MIT",
             "realityLabel": "STVARNOST",
             "items": [
                 {
-                    "myth": "Rugby sevens je samo sprint rugby",
-                    "reality": "Iako je brži, rugby sevens zahtijeva strateško razmišljanje, vještinu i izdržljivost. Otvoreni prostor stvara prilike za kreativnu igru."
+                    "myth": "Ragbi 7 je samo sprint ragbi",
+                    "reality": "Iako je brži, ragbi 7 zahtijeva strateško razmišljanje, vještinu i izdržljivost. Otvoreni prostor stvara prilike za kreativnu igru."
                 },
                 {
                     "myth": "Samo super fit sportaši mogu igrati",
-                    "reality": "Rugby sevens prihvaća sve razine kondicije. Kraće vrijeme igre i manje momčadi znače više prilika za sve da doprinesu."
+                    "reality": "Ragbi 7 prihvaća sve razine kondicije. Kraće vrijeme igranja i manje ekipe znače više prilika za sve da doprinesu igri."
                 },
                 {
                     "myth": "Prebrz je tempo za učenje",
-                    "reality": "Pojednostavljen format s manje igrača čini rugby sevens lakšim za razumijevanje. Akcija je uzbudljiva, ali pravila ostaju ista."
+                    "reality": "Pojednostavljen format s manje igrača čini ragbi 7 lakšim za razumijevanje. Akcija je uzbudljiva, ali pravila ostaju ista."
                 },
                 {
                     "myth": "Ženski sevens nije toliko uzbudljiv",
-                    "reality": "Ženski rugby sevens je olimpijski sport koji prikazuje nevjerojatnu vještinu, brzinu i atletičnost. To je jedan od najuzbudljivijih formata za gledanje i igranje."
+                    "reality": "Ženski ragbi 7 je olimpijski sport koji prikazuje nevjerojatnu vještinu, brzinu i atletičnost. To je jedan od najuzbudljivijih formata za gledanje i igranje."
                 }
             ]
         },
@@ -567,16 +567,16 @@
             "description": "Sve što si htjela znati o početku",
             "items": [
                 {
-                    "question": "Je li rugby sevens siguran za početnike?",
-                    "answer": "Apsolutno! Rugby sevens ima stroge sigurnosne protokole i brži tempo zapravo potiče vještiju igru umjesto teškog kontakta. Naši treneri daju prioritet sigurnosti i poučavaju pravilnu tehniku od prvog dana."
+                    "question": "Je li ragbi 7 siguran za početnike?",
+                    "answer": "Apsolutno! Ragbi 7 ima stroge sigurnosne protokole i brži tempo zapravo potiče vještiju igru umjesto teškog kontakta. Naši treneri daju prioritet sigurnosti i poučavaju pravilnu tehniku od prvog dana."
                 },
                 {
                     "question": "Trebam li biti super fit da igram sevens?",
-                    "answer": "Rugby sevens prihvaća sve razine kondicije. Poluvremena od 7 minuta znače da svi dobivaju odmor, a postoje pozicije koje odgovaraju različitim atributima - od brzine do snage. Kondicija se razvija prirodno kroz trening."
+                    "answer": "Ragbi 7 prihvaća sve razine kondicije. Poluvremena od 7 minuta znače da svi dobivaju odmor, a postoje pozicije koje odgovaraju različitim atributima - od brzine do snage. Kondicija se razvija prirodno kroz trening."
                 },
                 {
                     "question": "Koja oprema mi treba?",
-                    "answer": "Za početnike, samo udobna sportska odjeća i tenisice za trčanje ili rugby kopačke. Klub osigurava lopte i opremu za trening. Dodatna zaštitna oprema poput štitnika za zube dostupna je kako napreduješ."
+                    "answer": "Za početnike, samo udobna sportska odjeća i tenisice za trčanje ili kopačke. Klub osigurava lopte i opremu za trening. Dodatna zaštitna oprema poput štitnika za zube dostupna je kako napreduješ."
                 },
                 {
                     "question": "Mogu li početi igrati sevens bez iskustva?",
@@ -593,8 +593,8 @@
             ]
         },
         "cta": {
-            "title": "Spremna započeti svoje rugby putovanje?",
-            "description": "Pridruži se Zagreb Rugby Ladies i postani dio vrhunske hrvatske ženske rugby sevens momčadi",
+            "title": "Spremna započeti svoje ragbi putovanje?",
+            "description": "Pridruži se Zagreb Rugby Ladies i postani dio vrhunske hrvatske ženske ragbi 7 momčadi",
             "joinButton": "Pridruži nam se danas",
             "contactButton": "Kontaktiraj nas"
         }
@@ -608,7 +608,7 @@
         "introduction": "U Zagreb Rugby Ladies, posvećeni smo zaštiti vaše privatnosti i osobnih podataka. Ova politika privatnosti objašnjava kako rukujemo osobnim informacijama koje nam pružite putem naše web stranice ili kontakt formi. Zagreb Rugby Ladies je voditelj obrade za osobne podatke koje prikupljamo, što znači da smo odgovorni za određivanje kako i zašto se vaši podaci obrađuju.",
         "dataCollection": {
             "title": "Informacije koje prikupljamo",
-            "description": "Prikupljamo osobne podatke koje nam dobrovoljno pružite kada:",
+            "description": "Prikupljamo osobne podatke koje nam dobrovoljno pružite:",
             "items": {
                 "name": "Ime (kada nas kontaktirate putem kontakt forme)",
                 "email": "Email adresa (za potrebe komunikacije)",

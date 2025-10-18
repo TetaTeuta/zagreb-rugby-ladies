@@ -145,7 +145,7 @@
         "mission": {
             "title": "OUR MISSION & VALUES",
             "missionTitle": "OUR MISSION",
-            "missionText": "To empower girls and young women through rugby, fostering confidence, resilience, and lifelong friendships while promoting the sport we love throughout Croatia.",
+            "missionText": "To empower girls and young women through rugby, fostering confidence, resilience, and lifelong friendships while promoting the sport we love throughout Croatia and abroad.",
             "valuesTitle": "OUR VALUES",
             "values": {
                 "inclusion": {
@@ -447,7 +447,7 @@
         "basics": {
             "playersPerTeam": {
                 "title": "7 Players Per Team",
-                "description": "Each team has 7 players on the field, creating fast-paced action with more space to run and score."
+                "description": "Just 7 players on a full-size field - that means tons of space to run and score!"
             },
             "objective": {
                 "title": "Objective",
@@ -594,7 +594,7 @@
             ]
         },
         "cta": {
-            "title": "Ready to Start Your Rugby Journey?",
+            "title": "READY TO START YOUR RUGBY JOURNEY?",
             "description": "Join Zagreb Rugby Ladies and become part of Croatia's premier women's rugby sevens team",
             "joinButton": "Join Us Today",
             "contactButton": "Contact Us"

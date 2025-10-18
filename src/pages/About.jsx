@@ -177,7 +177,6 @@ const About = () => {
                             </div>
                             <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-text-light/90 leading-relaxed max-w-3xl mb-4 sm:mb-0">
                                 <p>{t("about.story.description1")}</p>
-                                <p>{t("about.story.description2")}</p>
                             </div>
                             <div className="text-center mt-4 sm:mt-6">
                                 <Button
