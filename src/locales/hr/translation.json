@@ -10,7 +10,7 @@
         "menu": "Izbornik"
     },
     "common": {
-        "joinUs": "Pridruži nam se",
+        "joinUs": "Dođi na ragbi",
         "joinTraining": "Dođi na trening",
         "learnMore": "Saznaj više",
         "watchVideo": "Pogledaj cijeli video",
@@ -355,7 +355,7 @@
     },
     "schedule": {
         "hero": {
-            "title": "RASPORED UTAKMICA.",
+            "title": "RASPORED UTAKMICA",
             "joinMatches": "Dođi na utakmicu",
             "learnRugby": "Nauči igrati ragbi"
         },
@@ -439,7 +439,7 @@
     },
     "rugby101": {
         "hero": {
-            "title": "Ragbi 7 Osnove",
+            "title": "RAGBI 7 OSNOVE",
             "titleAccent": "Osnove",
             "subtitle": "Sve što trebaš znati da počneš s najuzbudljivijim rugby formatom na svijetu"
         },
