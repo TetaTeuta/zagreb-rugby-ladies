@@ -1,8 +1,9 @@
 import { Modal } from "../ui/Modal";
 import { Button } from "../ui/Button";
-import { Instagram, ExternalLink, Zap } from "lucide-react";
+import { Instagram, ExternalLink, Zap, ChevronDown } from "lucide-react";
 import { usePlayerImage } from "../../hooks/usePlayerImage";
 import { useTranslation } from "react-i18next";
+import { useState, useEffect, useRef } from "react";
 
 const PlayerInitials = ({ name }) => {
     const initials = name
@@ -168,10 +169,75 @@ const PlayerActions = ({ onClose }) => {
     );
 };
 
+const ModalScrollIndicator = ({ containerRef }) => {
+    const [showIndicator, setShowIndicator] = useState(false);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        const checkScroll = () => {
+            const { scrollTop, scrollHeight, clientHeight } = container;
+            const isScrollable = scrollHeight > clientHeight;
+            const isNearBottom = scrollTop + clientHeight >= scrollHeight - 50;
+            setShowIndicator(isScrollable && !isNearBottom);
+        };
+
+        // Delay initial check to ensure content is fully rendered
+        const timeoutId = setTimeout(checkScroll, 100);
+
+        // Add scroll listener
+        container.addEventListener("scroll", checkScroll);
+
+        // Recheck on resize
+        window.addEventListener("resize", checkScroll);
+
+        // Observe content changes (images loading, etc)
+        const observer = new MutationObserver(checkScroll);
+        observer.observe(container, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+        });
+
+        return () => {
+            clearTimeout(timeoutId);
+            container.removeEventListener("scroll", checkScroll);
+            window.removeEventListener("resize", checkScroll);
+            observer.disconnect();
+        };
+    }, [containerRef]);
+
+    const handleScrollDown = () => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        container.scrollTo({
+            top: container.scrollTop + container.clientHeight * 0.8,
+            behavior: "smooth",
+        });
+    };
+
+    if (!showIndicator) return null;
+
+    return (
+        <button
+            onClick={handleScrollDown}
+            className="fixed bottom-6 right-6 z-50 animate-bounce"
+            aria-label="Scroll down to see more content"
+        >
+            <div className="w-10 h-10 rounded-full bg-primary/90 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-primary transition-all duration-300 active:scale-95 shadow-lg">
+                <ChevronDown className="h-5 w-5 text-white" />
+            </div>
+        </button>
+    );
+};
+
 const PlayerModal = ({ player, isOpen, onClose }) => {
     const { t, i18n } = useTranslation();
     const imageState = usePlayerImage(player, isOpen);
     const currentLanguage = i18n.language || "en";
+    const scrollContainerRef = useRef(null);
 
     if (!player) return null;
 
@@ -214,7 +280,10 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
             size="md"
             className="p-0 overflow-hidden"
         >
-            <div className="overflow-y-auto max-h-[calc(100vh-8rem)] scrollbar-hide">
+            <div
+                ref={scrollContainerRef}
+                className="overflow-y-auto max-h-[calc(100vh-8rem)] scrollbar-hide"
+            >
                 <PlayerBanner player={player} {...imageState} />
 
                 <div className="px-6 space-y-6">
@@ -234,6 +303,7 @@ const PlayerModal = ({ player, isOpen, onClose }) => {
                     <PlayerActions onClose={onClose} />
                 </div>
             </div>
+            <ModalScrollIndicator containerRef={scrollContainerRef} />
         </Modal>
     );
 };

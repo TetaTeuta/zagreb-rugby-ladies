@@ -11,7 +11,7 @@ const ScrollIndicator = ({ className = "" }) => {
     return (
         <button
             onClick={handleScrollDown}
-            className={`absolute bottom-4 right-4 z-10 lg:hidden ${className}`}
+            className={`absolute bottom-4 right-4 z-10 ${className}`}
             aria-label="Scroll down to see more content"
         >
             <div className="w-8 h-8 rounded-full bg-text-light/10 backdrop-blur-sm border border-text-light/30 flex items-center justify-center hover:bg-text-light/20 hover:border-text-light/50 transition-all duration-300 active:scale-95">
