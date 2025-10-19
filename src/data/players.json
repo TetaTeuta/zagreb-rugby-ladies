@@ -98,14 +98,14 @@
         },
         "translations": {
             "en": {
-                "about": "Bosnian try machine",
-                "quote": "When the going gets tough, the tough get going.",
-                "funFact": "Never missed a lineout throw in her two years with the team!"
+                "about": "Chemical engineering student at FKIT. When she's not on the rugby pitch, she's running after a futsal ball. In her free time, she takes photos, plays guitar and piano, and never turns down a game of chess.",
+                "quote": "Monki never cramps",
+                "funFact": "In her phase of trying new things, she went from a ballet trial class to a rugby trial training. Spoiler: ballet was harder. Rugby won her over on the first try."
             },
             "hr": {
-                "about": "Bosanska mašina za scorove",
-                "quote": "Kad postane teško, jaki krenu.",
-                "funFact": "Nikad nije promašila bacanje u aut tijekom svoje dvije godine s timom!"
+                "about": "Studentica kemijskog inženjerstva na FKIT-u. Kad nije na ragbi terenu, trči za futsal loptom. U slobodno vrijeme fotografira, svira gitaru i klavir i nikad ne odbija šahovsku partiju.",
+                "quote": "Ko zadnji gazi, najmanje košpice osjeti.",
+                "funFact": "U fazi isprobavanja novih stvari je s probnog treninga baleta završila na probnom treningu ragbija. Spoiler: balet je bio teži. Ragbi ju je osvojio na prvu."
             }
         }
     },
@@ -341,14 +341,14 @@
         },
         "translations": {
             "en": {
-                "about": "Precision thrower and fierce competitor who leads the front row with passion.",
-                "quote": "Accuracy under pressure is what separates good players from great ones.",
-                "funFact": "Has a 95% lineout throwing accuracy - the highest in the league!"
+                "about": "She almost left her first training because of mud and rain, and now that's her favorite scenario.",
+                "quote": "Not all treasure is silver and gold, mate.",
+                "funFact": "Doesn't know left from right"
             },
             "hr": {
-                "about": "Precizna bacačica i žestoka natjecateljica koja vodi prvu liniju sa strašću.",
-                "quote": "Preciznost pod pritiskom je ono što razlikuje dobre igračice od izvrsnih.",
-                "funFact": "Ima 95% preciznosti bacanja u aut - najvišu u ligi!"
+                "about": "Skoro je otišla sa prvog treninga zbog blata i kiše, a sad joj je to najdraži scenarij.",
+                "quote": "Not all treasure is silver and gold, mate.",
+                "funFact": "Ne zna lijevo i desno"
             }
         }
     },
