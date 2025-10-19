@@ -13,10 +13,12 @@ import {
     createArticleStructuredData,
 } from "../components/ui/SEO";
 import { contactConfig } from "../config/contact";
+import { useLocalizedPath } from "../hooks/useLocalizedPath";
 import "../styles/split-bg.css";
 
 const About = () => {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -133,7 +135,7 @@ const About = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/contact">
+                                <Link to={getLocalizedPath("/contact")}>
                                     {t("about.hero.joinTeam")}
                                 </Link>
                             </Button>
@@ -143,7 +145,7 @@ const About = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/team">
+                                <Link to={getLocalizedPath("/team")}>
                                     {t("about.hero.meetTeam")}
                                 </Link>
                             </Button>
@@ -184,7 +186,7 @@ const About = () => {
                                     asChild
                                     className="w-full sm:w-auto"
                                 >
-                                    <Link to="/team">
+                                    <Link to={getLocalizedPath("/team")}>
                                         {t("about.hero.meetTeam")}
                                     </Link>
                                 </Button>
@@ -224,7 +226,7 @@ const About = () => {
                                         asChild
                                         className="w-full sm:w-auto"
                                     >
-                                        <Link to="/contact">
+                                        <Link to={getLocalizedPath("/contact")}>
                                             {t("common.joinUs")}
                                         </Link>
                                     </Button>
@@ -278,7 +280,9 @@ const About = () => {
                                         asChild
                                         className="w-full sm:w-auto"
                                     >
-                                        <Link to="/rugby101">
+                                        <Link
+                                            to={getLocalizedPath("/rugby101")}
+                                        >
                                             {t("common.learnMore")}
                                         </Link>
                                     </Button>
@@ -321,7 +325,11 @@ const About = () => {
                                             asChild
                                             className="w-full"
                                         >
-                                            <Link to="/contact">
+                                            <Link
+                                                to={getLocalizedPath(
+                                                    "/contact"
+                                                )}
+                                            >
                                                 {t(
                                                     "about.coaches.contactCoach"
                                                 )}
@@ -389,7 +397,7 @@ const About = () => {
                                     asChild
                                     className="w-full sm:w-auto"
                                 >
-                                    <Link to="/contact">
+                                    <Link to={getLocalizedPath("/contact")}>
                                         {t("about.training.joinTraining")}
                                     </Link>
                                 </Button>
@@ -443,7 +451,7 @@ const About = () => {
                                     asChild
                                     className="w-full sm:w-auto"
                                 >
-                                    <Link to="/contact">
+                                    <Link to={getLocalizedPath("/contact")}>
                                         {t("navigation.contact")}
                                     </Link>
                                 </Button>

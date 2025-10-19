@@ -4,6 +4,8 @@ import { Instagram, ExternalLink, Zap, ChevronDown } from "lucide-react";
 import { usePlayerImage } from "../../hooks/usePlayerImage";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 
 const PlayerInitials = ({ name }) => {
     const initials = name
@@ -156,11 +158,14 @@ const PlayerFunFact = ({ player }) => {
 
 const PlayerActions = ({ onClose }) => {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
 
     return (
         <div className="flex flex-col sm:flex-row gap-3 pt-4 pb-6">
             <Button variant="blue" className="flex-1" asChild>
-                <a href="/contact">{t("team.playerModal.joinTeam")}</a>
+                <Link to={getLocalizedPath("/contact")}>
+                    {t("team.playerModal.joinTeam")}
+                </Link>
             </Button>
             <Button variant="yellow" onClick={onClose}>
                 {t("team.playerModal.close")}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Calendar, MapPin, Clock, Trophy, Users } from "lucide-react";
 import { Button } from "../components/ui/Button";
+import { useLocalizedPath } from "../hooks/useLocalizedPath";
 import { Card, CardContent } from "../components/ui/Card";
 import { Link } from "react-router-dom";
 import { MatchSchedule } from "../components/home/MatchSchedule";
@@ -15,6 +16,7 @@ import { buildR2ImageUrl, cdn } from "../lib/cdn";
 
 const Schedule = () => {
     const { t, i18n } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
     const [activeTeam, setActiveTeam] = useState("senior");
 
     useEffect(() => {
@@ -257,7 +259,7 @@ const Schedule = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/contact">
+                                <Link to={getLocalizedPath("/contact")}>
                                     {t("schedule.hero.joinMatches")}
                                 </Link>
                             </Button>
@@ -267,7 +269,7 @@ const Schedule = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/rugby101">
+                                <Link to={getLocalizedPath("/rugby101")}>
                                     {t("schedule.hero.learnRugby")}
                                 </Link>
                             </Button>

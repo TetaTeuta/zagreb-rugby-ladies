@@ -16,9 +16,11 @@ import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
 import { ScrollIndicator } from "../components/ui/ScrollIndicator";
 import { Sponsors } from "../components/layout/Sponsors";
 import { cdn } from "../lib/cdn";
+import { useLocalizedPath } from "../hooks/useLocalizedPath";
 
 const Home = () => {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -98,7 +100,7 @@ const Home = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/contact">
+                                <Link to={getLocalizedPath("/contact")}>
                                     {t("home.hero.joinTraining")}
                                 </Link>
                             </Button>
@@ -108,7 +110,7 @@ const Home = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/gallery">
+                                <Link to={getLocalizedPath("/gallery")}>
                                     {t("gallery.collections.title")}
                                 </Link>
                             </Button>

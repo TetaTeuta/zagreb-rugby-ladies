@@ -5,9 +5,11 @@ import { Button } from "../ui/Button";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 import { useState, useEffect } from "react";
 import { cdn } from "../../lib/cdn";
+import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 
 const MobileSidebar = ({ isOpen, onClose, navigationItems, isActiveRoute }) => {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
     const [isAnimating, setIsAnimating] = useState(false);
     const [shouldRender, setShouldRender] = useState(false);
 
@@ -101,7 +103,10 @@ const MobileSidebar = ({ isOpen, onClose, navigationItems, isActiveRoute }) => {
                 <div className="p-4 border-t border-muted-light space-y-3 mt-auto">
                     <LanguageSwitcher variant="mobile" />
                     <Button variant="yellow" asChild className="w-full">
-                        <Link to="/contact" onClick={handleClose}>
+                        <Link
+                            to={getLocalizedPath("/contact")}
+                            onClick={handleClose}
+                        >
                             {t("common.joinUs")}
                         </Link>
                     </Button>

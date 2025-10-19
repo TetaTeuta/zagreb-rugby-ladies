@@ -15,6 +15,23 @@ const resources = {
     },
 };
 
+// Custom path detector for i18next - detects language from URL path
+const pathDetector = {
+    name: "path",
+    lookup() {
+        if (typeof window !== "undefined") {
+            const path = window.location.pathname;
+            // Check if path starts with /hr
+            if (path.startsWith("/hr")) {
+                return "hr";
+            }
+            // Default to English for root or other paths
+            return "en";
+        }
+        return undefined;
+    },
+};
+
 // Custom sessionStorage detector for i18next
 const sessionStorageDetector = {
     name: "sessionStorage",
@@ -31,8 +48,9 @@ const sessionStorageDetector = {
     },
 };
 
-// Initialize LanguageDetector with custom detector
+// Initialize LanguageDetector with custom detectors
 const languageDetector = new LanguageDetector();
+languageDetector.addDetector(pathDetector);
 languageDetector.addDetector(sessionStorageDetector);
 
 // Clean up old localStorage if it exists (migration from localStorage to sessionStorage)
@@ -54,17 +72,14 @@ i18n.use(languageDetector)
 
         // Language detection options
         detection: {
-            // Order of language detection methods
-            order: ["sessionStorage", "navigator", "htmlTag"],
+            // Order of language detection methods - path first for SEO
+            order: ["path", "sessionStorage", "navigator", "htmlTag"],
 
             // Cache user language
             caches: ["sessionStorage"],
 
             // Don't lookup from subdomain
             lookupFromSubdomainIndex: 0,
-
-            // Don't lookup from path
-            lookupFromPathIndex: 0,
 
             // Check all fallback languages
             checkWhitelist: true,

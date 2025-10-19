@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
+import { useLocalizedPath } from "../hooks/useLocalizedPath";
 import { Accordion } from "../components/ui/Accordion";
 import { Card, CardContent } from "../components/ui/Card";
 import { Link } from "react-router-dom";
@@ -32,6 +33,7 @@ const IconCircle = ({ Icon, color, size = "default", children }) => {
 
 const Rugby101 = () => {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -215,7 +217,7 @@ const Rugby101 = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/contact">
+                                <Link to={getLocalizedPath("/contact")}>
                                     {t("common.joinTraining")}
                                 </Link>
                             </Button>
@@ -225,7 +227,9 @@ const Rugby101 = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/team">{t("navigation.team")}</Link>
+                                <Link to={getLocalizedPath("/team")}>
+                                    {t("navigation.team")}
+                                </Link>
                             </Button>
                         </div>
                     </div>
@@ -394,7 +398,7 @@ const Rugby101 = () => {
                                         asChild
                                         className="w-full"
                                     >
-                                        <Link to="/contact">
+                                        <Link to={getLocalizedPath("/contact")}>
                                             {t(
                                                 "rugby101.positions.learnPosition"
                                             )}

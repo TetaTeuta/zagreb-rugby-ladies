@@ -85,25 +85,35 @@ export const SEO = ({
             <meta name="googlebot" content="index, follow" />
 
             {/* Language Alternates */}
-            <link
-                rel="alternate"
-                hrefLang="en"
-                href={`${baseUrl}/en${
-                    canonicalUrl || window.location.pathname
-                }`}
-            />
-            <link
-                rel="alternate"
-                hrefLang="hr"
-                href={`${baseUrl}/hr${
-                    canonicalUrl || window.location.pathname
-                }`}
-            />
-            <link
-                rel="alternate"
-                hrefLang="x-default"
-                href={fullCanonicalUrl}
-            />
+            {(() => {
+                const currentPath = canonicalUrl || window.location.pathname;
+                // Remove /hr prefix if present to get the base path
+                const basePath = currentPath.replace(/^\/hr/, "") || "/";
+
+                return (
+                    <>
+                        <link
+                            rel="alternate"
+                            hrefLang="en"
+                            href={`${baseUrl}${
+                                basePath === "/" ? "" : basePath
+                            }`}
+                        />
+                        <link
+                            rel="alternate"
+                            hrefLang="hr"
+                            href={`${baseUrl}/hr${basePath}`}
+                        />
+                        <link
+                            rel="alternate"
+                            hrefLang="x-default"
+                            href={`${baseUrl}${
+                                basePath === "/" ? "" : basePath
+                            }`}
+                        />
+                    </>
+                );
+            })()}
 
             {/* Structured Data */}
             {structuredData && (

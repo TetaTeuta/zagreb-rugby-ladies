@@ -1,15 +1,18 @@
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 
 export const CallToAction = ({
     image,
+    imageAlt,
     titleKey,
     descriptionKey,
     primaryButton,
     secondaryButton,
 }) => {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
 
     const renderButton = (button, variant) => {
         if (button.href) {
@@ -31,7 +34,9 @@ export const CallToAction = ({
                 asChild
                 className="w-full sm:w-auto"
             >
-                <Link to={button.to}>{t(button.textKey)}</Link>
+                <Link to={getLocalizedPath(button.to)}>
+                    {t(button.textKey)}
+                </Link>
             </Button>
         );
     };
