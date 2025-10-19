@@ -2,10 +2,12 @@ import { Button } from "../ui/Button";
 import { Link } from "react-router-dom";
 import { buildR2ImageUrl } from "../../lib/cdn";
 import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 import "../../styles/split-bg.css";
 
 const TrainingSchedule = ({ trainingData }) => {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
     const splitImage = buildR2ImageUrl(
         "Training",
         "rugby-woman-team-zagreb-training_7749.jpg"
@@ -57,7 +59,7 @@ const TrainingSchedule = ({ trainingData }) => {
                             className="bg-surface text-text-contrast hover:bg-muted-light rounded-custom px-8 w-full sm:w-auto"
                             asChild
                         >
-                            <Link to="/contact">
+                            <Link to={getLocalizedPath("/contact")}>
                                 {t("common.joinTraining")}
                             </Link>
                         </Button>

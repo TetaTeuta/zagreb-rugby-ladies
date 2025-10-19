@@ -18,6 +18,7 @@ function App() {
                 <Header />
                 <main className="flex-1">
                     <Routes>
+                        {/* English routes */}
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/team" element={<Team />} />
@@ -27,6 +28,17 @@ function App() {
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/privacy" element={<Privacy />} />
                         <Route path="/terms" element={<Terms />} />
+
+                        {/* Croatian routes */}
+                        <Route path="/hr" element={<Home />} />
+                        <Route path="/hr/about" element={<About />} />
+                        <Route path="/hr/team" element={<Team />} />
+                        <Route path="/hr/schedule" element={<Schedule />} />
+                        <Route path="/hr/rugby101" element={<Rugby101 />} />
+                        <Route path="/hr/gallery" element={<Gallery />} />
+                        <Route path="/hr/contact" element={<Contact />} />
+                        <Route path="/hr/privacy" element={<Privacy />} />
+                        <Route path="/hr/terms" element={<Terms />} />
                     </Routes>
                 </main>
                 <Footer />

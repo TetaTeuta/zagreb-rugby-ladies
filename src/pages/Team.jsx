@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
+import { useLocalizedPath } from "../hooks/useLocalizedPath";
 import { PlayerCard } from "../components/team/PlayerCard";
 import { PlayerModal } from "../components/team/PlayerModal";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
@@ -14,6 +15,7 @@ import "../styles/split-bg.css";
 
 const Team = () => {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
     const [selectedPlayer, setSelectedPlayer] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -99,7 +101,7 @@ const Team = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/contact">
+                                <Link to={getLocalizedPath("/contact")}>
                                     {t("team.hero.joinTeam")}
                                 </Link>
                             </Button>
@@ -109,7 +111,7 @@ const Team = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/rugby101">
+                                <Link to={getLocalizedPath("/rugby101")}>
                                     {t("team.hero.learnRugby")}
                                 </Link>
                             </Button>
@@ -165,7 +167,7 @@ const Team = () => {
                                     asChild
                                     className="w-full sm:w-auto"
                                 >
-                                    <Link to="/contact">
+                                    <Link to={getLocalizedPath("/contact")}>
                                         {t("common.joinTraining")}
                                     </Link>
                                 </Button>
@@ -225,7 +227,7 @@ const Team = () => {
                                     asChild
                                     className="w-full sm:w-auto"
                                 >
-                                    <Link to="/contact">
+                                    <Link to={getLocalizedPath("/contact")}>
                                         {t("common.joinUs")}
                                     </Link>
                                 </Button>
@@ -256,7 +258,7 @@ const Team = () => {
                                     asChild
                                     className="w-full sm:w-auto"
                                 >
-                                    <Link to="/rugby101">
+                                    <Link to={getLocalizedPath("/rugby101")}>
                                         {t("common.learnMore")}
                                     </Link>
                                 </Button>

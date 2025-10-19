@@ -6,6 +6,7 @@ import { Button } from "../components/ui/Button";
 import { CallToAction } from "../components/ui/CallToAction";
 import { buildR2ImageUrl, cdn } from "../lib/cdn";
 import { SEO } from "../components/ui/SEO";
+import { useLocalizedPath } from "../hooks/useLocalizedPath";
 
 const Thumb = memo(function Thumb({ filename, category, onOpen, index }) {
     const imageUrl = buildR2ImageUrl(category, filename);
@@ -53,6 +54,7 @@ const Thumb = memo(function Thumb({ filename, category, onOpen, index }) {
 
 export default function Gallery() {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
     const [galleryManifest, setGalleryManifest] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -312,7 +314,7 @@ export default function Gallery() {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/contact">
+                                <Link to={getLocalizedPath("/contact")}>
                                     {t("gallery.hero.joinTeam")}
                                 </Link>
                             </Button>
@@ -322,7 +324,7 @@ export default function Gallery() {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/team">
+                                <Link to={getLocalizedPath("/team")}>
                                     {t("gallery.hero.meetPlayers")}
                                 </Link>
                             </Button>

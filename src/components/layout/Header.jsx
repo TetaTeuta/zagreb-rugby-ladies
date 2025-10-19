@@ -6,20 +6,22 @@ import { Button } from "../ui/Button";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 import { MobileSidebar } from "./MobileSidebar";
 import { cdn } from "../../lib/cdn";
+import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
 
     const navigationItems = [
-        { name: t("navigation.home"), href: "/" },
-        { name: t("navigation.about"), href: "/about" },
-        { name: t("navigation.team"), href: "/team" },
-        { name: t("navigation.schedule"), href: "/schedule" },
-        { name: t("navigation.rugby101"), href: "/rugby101" },
-        { name: t("navigation.gallery"), href: "/gallery" },
+        { name: t("navigation.home"), href: getLocalizedPath("/") },
+        { name: t("navigation.about"), href: getLocalizedPath("/about") },
+        { name: t("navigation.team"), href: getLocalizedPath("/team") },
+        { name: t("navigation.schedule"), href: getLocalizedPath("/schedule") },
+        { name: t("navigation.rugby101"), href: getLocalizedPath("/rugby101") },
+        { name: t("navigation.gallery"), href: getLocalizedPath("/gallery") },
     ];
 
     useEffect(() => {
@@ -57,8 +59,15 @@ const Header = () => {
     }, [isMenuOpen]);
 
     const isActiveRoute = (path) => {
-        if (path === "/") return location.pathname === "/";
-        return location.pathname.startsWith(path);
+        // Handle root paths
+        if (path === "/" || path === "/hr") {
+            return location.pathname === "/" || location.pathname === "/hr";
+        }
+        // Check if current path matches (with or without language prefix)
+        return (
+            location.pathname === path ||
+            location.pathname.startsWith(path + "/")
+        );
     };
 
     return (
@@ -78,7 +87,7 @@ const Header = () => {
                 <div className="w-full px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 items-center gap-4">
                         <Link
-                            to="/"
+                            to={getLocalizedPath("/")}
                             className="flex items-center space-x-2 focus-visible:outline-none flex-shrink-0"
                         >
                             <img
@@ -116,7 +125,9 @@ const Header = () => {
                             ))}
 
                             <Button size="sm" variant="yellow" asChild>
-                                <Link to="/contact">{t("common.joinUs")}</Link>
+                                <Link to={getLocalizedPath("/contact")}>
+                                    {t("common.joinUs")}
+                                </Link>
                             </Button>
                         </nav>
 

@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { PlayerCard } from "../team/PlayerCard";
+import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 
 const MeetOurPlayers = ({ players }) => {
     const navigate = useNavigate();
+    const getLocalizedPath = useLocalizedPath();
 
     const handlePlayerClick = () => {
-        navigate("/team");
+        navigate(getLocalizedPath("/team"));
     };
 
     return (

@@ -1,8 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LanguageSwitcher = ({ className = "", variant = "default" }) => {
     const { i18n } = useTranslation();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
     const [shouldRender, setShouldRender] = useState(false);
@@ -27,7 +30,27 @@ const LanguageSwitcher = ({ className = "", variant = "default" }) => {
         languages.find((lang) => lang.code === i18n.language) || languages[0];
 
     const handleLanguageChange = (languageCode) => {
+        const currentPath = location.pathname;
+        let newPath;
+
+        switch (languageCode) {
+            case "hr":
+                newPath = currentPath.startsWith("/hr")
+                    ? currentPath
+                    : currentPath === "/"
+                    ? "/hr"
+                    : `/hr${currentPath}`;
+                break;
+            case "en":
+            default:
+                newPath = currentPath.startsWith("/hr")
+                    ? currentPath.replace(/^\/hr/, "") || "/"
+                    : currentPath;
+                break;
+        }
+
         i18n.changeLanguage(languageCode);
+        navigate(newPath);
         setIsOpen(false);
     };
 

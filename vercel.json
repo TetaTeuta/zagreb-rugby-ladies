@@ -1,5 +1,9 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+    "rewrites": [
+        { "source": "/hr", "destination": "/index.html" },
+        { "source": "/hr/(.*)", "destination": "/index.html" },
+        { "source": "/(.*)", "destination": "/index.html" }
+    ],
     "headers": [
         {
             "source": "/(.*)",

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
+import { useLocalizedPath } from "../hooks/useLocalizedPath";
 import { Input, Textarea, Label, Select } from "../components/ui/Input";
 import { Toast } from "../components/ui/Toast";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
@@ -16,6 +17,7 @@ const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(""); // for aria-live
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
     const formRef = useRef(null);
 
     useEffect(() => {
@@ -139,7 +141,7 @@ const Contact = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/rugby101">
+                                <Link to={getLocalizedPath("/rugby101")}>
                                     {t("contact.hero.learnRugby")}
                                 </Link>
                             </Button>
@@ -149,7 +151,7 @@ const Contact = () => {
                                 asChild
                                 className="w-full sm:w-auto"
                             >
-                                <Link to="/team">
+                                <Link to={getLocalizedPath("/team")}>
                                     {t("contact.hero.meetTeam")}
                                 </Link>
                             </Button>
@@ -489,7 +491,7 @@ const Contact = () => {
                                     asChild
                                     className="w-full sm:w-auto"
                                 >
-                                    <Link to="/rugby101">
+                                    <Link to={getLocalizedPath("/rugby101")}>
                                         {t("contact.info.rugbyGuide")}
                                     </Link>
                                 </Button>

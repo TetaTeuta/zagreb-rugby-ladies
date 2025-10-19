@@ -8,14 +8,16 @@ import {
     getPhoneLink,
 } from "../../config/contact";
 import { cdn } from "../../lib/cdn";
+import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 
 const Footer = () => {
     const { t } = useTranslation();
+    const getLocalizedPath = useLocalizedPath();
     const currentYear = new Date().getFullYear();
 
     const legalLinks = [
-        { name: t("footer.privacyPolicy"), href: "/privacy" },
-        { name: t("footer.termsOfSale"), href: "/terms" },
+        { name: t("footer.privacyPolicy"), href: getLocalizedPath("/privacy") },
+        { name: t("footer.termsOfSale"), href: getLocalizedPath("/terms") },
     ];
 
     return (
@@ -91,7 +93,7 @@ const Footer = () => {
                     {/* Brand & Description - Right Side */}
                     <div>
                         <Link
-                            to="/"
+                            to={getLocalizedPath("/")}
                             className="flex items-center space-x-2 mb-6"
                         >
                             <img
