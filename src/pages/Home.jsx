@@ -60,15 +60,15 @@ const Home = () => {
     const { i18n } = useTranslation();
     const pageTitle =
         i18n.language === "hr"
-            ? "Ženski Ragbi Sedmerac Tim u Zagrebu, Hrvatska"
+            ? "Ženski Ragbi sedam Tim u Zagrebu, Hrvatska"
             : "Women's Rugby Sevens Team in Zagreb, Croatia";
     const pageDescription =
         i18n.language === "hr"
-            ? "Pridruži se Zagreb Rugby Ladies - ženski ragbi sedmerac tim koji osnažuje djevojke i žene kroz sport. Treninzi za početnice u Zagrebu, Hrvatska. Iskustvo nije potrebno!"
+            ? "Pridruži se Zagreb Rugby Ladies - ženski ragbi sedam tim koji osnažuje djevojke i žene kroz sport. Treninzi za početnice u Zagrebu, Hrvatska. Iskustvo nije potrebno!"
             : "Join Zagreb Rugby Ladies - women's rugby sevens team empowering girls and young women through sport. Beginner-friendly training in Zagreb, Croatia. No experience needed!";
     const keywords =
         i18n.language === "hr"
-            ? "ženski ragbi Zagreb, ragbi sedmerac Hrvatska, ženski sport Zagreb, ragbi tim Hrvatska, ragbi trening Zagreb, ragbi za žene, ragbi sedam Zagreb, ženski ragbi tim, ženske športašice Zagreb"
+            ? "ženski ragbi Zagreb, ragbi sedam Hrvatska, ženski sport Zagreb, ragbi tim Hrvatska, ragbi trening Zagreb, ragbi za žene, ragbi sedam Zagreb, ženski ragbi tim, ženske športašice Zagreb"
             : "women's rugby Zagreb, rugby sevens Croatia, women's sports Zagreb, rugby team Croatia, join rugby Zagreb, women athletes Croatia, rugby training Zagreb, girls rugby Croatia";
 
     // Structured Data for Sports Organization
