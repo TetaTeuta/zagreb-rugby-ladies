@@ -38,8 +38,8 @@ export const SEO = ({
     const metaDescription = description || defaultDescription;
     const imageUrl = ogImage || defaultImage;
 
-    // Construct full URL for Open Graph
     const baseUrl = window.location.origin;
+    const productionUrl = "https://www.zagreb-rugby-ladies.eu";
     const fullCanonicalUrl = canonicalUrl
         ? `${baseUrl}${canonicalUrl}`
         : window.location.href;
@@ -87,29 +87,26 @@ export const SEO = ({
             {/* Language Alternates */}
             {(() => {
                 const currentPath = canonicalUrl || window.location.pathname;
-                // Remove /hr prefix if present to get the base path
                 const basePath = currentPath.replace(/^\/hr/, "") || "/";
+                const enPath = basePath === "/" ? "" : basePath;
+                const hrPath = `/hr${basePath}`;
 
                 return (
                     <>
                         <link
                             rel="alternate"
                             hrefLang="en"
-                            href={`${baseUrl}${
-                                basePath === "/" ? "" : basePath
-                            }`}
+                            href={`${productionUrl}${enPath}`}
                         />
                         <link
                             rel="alternate"
                             hrefLang="hr"
-                            href={`${baseUrl}/hr${basePath}`}
+                            href={`${productionUrl}${hrPath}`}
                         />
                         <link
                             rel="alternate"
                             hrefLang="x-default"
-                            href={`${baseUrl}${
-                                basePath === "/" ? "" : basePath
-                            }`}
+                            href={`${productionUrl}${enPath}`}
                         />
                     </>
                 );
@@ -188,12 +185,21 @@ export const createArticleStructuredData = ({
     publisherLogo = cdn("logos/zagreb-rugby-ladies-logo-vector.png"),
 }) => {
     const baseUrl = window.location.origin;
+    const logoUrl = publisherLogo.startsWith("http")
+        ? publisherLogo
+        : `${baseUrl}${publisherLogo}`;
+    const imageFullUrl = image
+        ? image.startsWith("http")
+            ? image
+            : `${baseUrl}${image}`
+        : undefined;
+
     return {
         "@context": "https://schema.org",
         "@type": "Article",
         headline: headline,
         description: description,
-        image: image ? `${baseUrl}${image}` : undefined,
+        image: imageFullUrl,
         datePublished: datePublished,
         dateModified: dateModified || datePublished,
         author: {
@@ -206,7 +212,7 @@ export const createArticleStructuredData = ({
             name: publisherName,
             logo: {
                 "@type": "ImageObject",
-                url: `${baseUrl}${publisherLogo}`,
+                url: logoUrl,
             },
         },
     };
@@ -218,6 +224,8 @@ export const createArticleStructuredData = ({
  */
 export const createSportsOrganizationData = () => {
     const baseUrl = window.location.origin;
+    const logoUrl = cdn("logos/zagreb-rugby-ladies-logo-vector.png");
+
     return {
         "@context": "https://schema.org",
         "@type": "SportsOrganization",
@@ -225,7 +233,7 @@ export const createSportsOrganizationData = () => {
         description:
             "Women's rugby team in Zagreb, Croatia. Empowering girls and young women through rugby sevens.",
         url: baseUrl,
-        logo: `${baseUrl}/${cdn("logos/zagreb-rugby-ladies-logo-vector.png")}`,
+        logo: logoUrl,
         sport: "Rugby Sevens",
         address: {
             "@type": "PostalAddress",
@@ -233,7 +241,6 @@ export const createSportsOrganizationData = () => {
             addressCountry: "HR",
         },
         sameAs: [
-            // Add social media URLs here
             "https://www.instagram.com/zagrebrugbyladies",
             "https://www.facebook.com/zagrebrugbyladies",
         ],
