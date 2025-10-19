@@ -40,9 +40,21 @@ export const SEO = ({
 
     const baseUrl = window.location.origin;
     const productionUrl = "https://www.zagreb-rugby-ladies.eu";
-    const fullCanonicalUrl = canonicalUrl
-        ? `${baseUrl}${canonicalUrl}`
-        : window.location.href;
+
+    const fullCanonicalUrl = (() => {
+        if (!canonicalUrl) {
+            return window.location.href;
+        }
+
+        const isHrPage = window.location.pathname.startsWith("/hr");
+        const localizedPath =
+            isHrPage && !canonicalUrl.startsWith("/hr")
+                ? `/hr${canonicalUrl}`
+                : canonicalUrl;
+
+        return `${baseUrl}${localizedPath}`;
+    })();
+
     const fullImageUrl = imageUrl.startsWith("http")
         ? imageUrl
         : `${baseUrl}${imageUrl}`;
