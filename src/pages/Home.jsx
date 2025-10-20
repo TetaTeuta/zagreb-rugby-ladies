@@ -60,16 +60,16 @@ const Home = () => {
     const { i18n } = useTranslation();
     const pageTitle =
         i18n.language === "hr"
-            ? "Ženski Ragbi sedam Tim u Zagrebu, Hrvatska"
-            : "Women's Rugby Sevens Team in Zagreb, Croatia";
+            ? "Ženski Ragbi Klub u Zagrebu, Hrvatska"
+            : "Women's Rugby Team in Zagreb, Croatia";
     const pageDescription =
         i18n.language === "hr"
-            ? "Pridruži se Zagreb Rugby Ladies - ženski ragbi sedam tim koji osnažuje djevojke i žene kroz sport. Treninzi za početnice u Zagrebu, Hrvatska. Iskustvo nije potrebno!"
+            ? "Pridruži se Zagreb Rugby Ladies - ženski ragbi sedam klub koji osnažuje djevojke i žene kroz sport. Treninzi za početnice u Zagrebu, Hrvatska. Iskustvo nije potrebno!"
             : "Join Zagreb Rugby Ladies - women's rugby sevens team empowering girls and young women through sport. Beginner-friendly training in Zagreb, Croatia. No experience needed!";
     const keywords =
         i18n.language === "hr"
-            ? "ženski ragbi Zagreb, ragbi sedam Hrvatska, ženski sport Zagreb, ragbi tim Hrvatska, ragbi trening Zagreb, ragbi za žene, ragbi sedam Zagreb, ženski ragbi tim, ženske športašice Zagreb"
-            : "women's rugby Zagreb, rugby sevens Croatia, women's sports Zagreb, rugby team Croatia, join rugby Zagreb, women athletes Croatia, rugby training Zagreb, girls rugby Croatia";
+            ? "ženski ragbi, ženski ragbi Zagreb, ženski ragbi klub, ženski ragbi klub Zagreb, ragbi za žene, ragbi za žene Zagreb, žene ragbi, ragbi klub Zagreb, Zagreb Rugby Ladies, ženski sport Zagreb, trenirati ragbi Zagreb, pridružiti se ragbi, ragbi trening, ragbi sedam, ženski ragbi Hrvatska, učiti ragbi, početi igrati ragbi, ragbi pravila, kako igrati ragbi"
+            : "women's rugby, women's rugby Zagreb, women's rugby club, women's rugby club Zagreb, rugby for women, rugby for women Zagreb, ladies rugby, rugby team Zagreb, Zagreb Rugby Ladies, women's sports Zagreb, train rugby Zagreb, join rugby, rugby training, rugby sevens, women's rugby Croatia, learn rugby, start playing rugby, rugby rules, how to play rugby";
 
     // Structured Data for Sports Organization
     const organizationData = createSportsOrganizationData();

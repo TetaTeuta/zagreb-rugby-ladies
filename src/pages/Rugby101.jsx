@@ -32,7 +32,7 @@ const IconCircle = ({ Icon, color, size = "default", children }) => {
 };
 
 const Rugby101 = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const getLocalizedPath = useLocalizedPath();
 
     useEffect(() => {
@@ -122,11 +122,17 @@ const Rugby101 = () => {
 
     // SEO Configuration
     const pageTitle =
-        "Rugby 101: Complete Guide to Rugby Sevens Rules & How to Play";
+        i18n.language === "hr"
+            ? "Ragbi 101: Kompletan Vodič za Pravila Ragbi Sedam i Kako Igrati"
+            : "Rugby 101: Complete Guide to Rugby Sevens Rules & How to Play";
     const pageDescription =
-        "Learn everything about rugby sevens - rules, positions, scoring, safety tips, and FAQs. Perfect beginner's guide for women interested in playing rugby in Zagreb, Croatia.";
+        i18n.language === "hr"
+            ? "Naučite sve o ragbi sedam - pravila, pozicije, bodovanje, savjeti za sigurnost i FAQ. Savršen vodič za početnice zainteresirane za igranje ragbija u Zagrebu, Hrvatska."
+            : "Learn everything about rugby sevens - rules, positions, scoring, safety tips, and FAQs. Perfect beginner's guide for women interested in playing rugby in Zagreb, Croatia.";
     const keywords =
-        "rugby rules, rugby sevens, how to play rugby, rugby for beginners, rugby positions, rugby scoring, women's rugby, rugby safety, learn rugby, rugby guide, rugby Croatia, rugby Zagreb";
+        i18n.language === "hr"
+            ? "ragbi pravila, ragbi sedam pravila, kako igrati ragbi, ragbi za početnike, ragbi pozicije, ragbi bodovanje, osnove ragbija, naučiti ragbi, ragbi vodič, pravila sporta ragbi, ženski ragbi pravila, ragbi Hrvatska, ragbi Zagreb, osnovne ragbi pravila"
+            : "rugby rules, rugby sevens rules, seven rugby rules, how to play rugby, rugby for beginners, rugby positions, rugby scoring, rugby basics, learn rugby, rugby guide, rugby sport rules, women's rugby rules, rugby Croatia, rugby Zagreb, basic rugby rules, rugby game rules, understanding rugby";
 
     // Structured Data for FAQ
     const faqStructuredData = createFAQStructuredData(faqItems);
