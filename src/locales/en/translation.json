@@ -68,6 +68,8 @@
         "matchDay": "Match Day",
         "time": "Time",
         "location": "Location",
+        "noUpcomingMatches": "No scheduled matches",
+        "noUpcomingMatchesDescription": "Check back soon for our upcoming fixtures",
         "countdown": {
             "days": "Days",
             "hours": "Hours",

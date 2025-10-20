@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Calendar, MapPin, Clock, Trophy, Users } from "lucide-react";
+import { Calendar, MapPin, Clock, Trophy } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { useLocalizedPath } from "../hooks/useLocalizedPath";
 import { Card, CardContent } from "../components/ui/Card";
@@ -10,14 +10,16 @@ import { NextMatch } from "../components/home/NextMatch";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import scheduleData from "../data/schedule.json";
-import nextMatchData from "../data/nextMatch.json";
 import { SEO, createSportsEventListData } from "../components/ui/SEO";
-import { buildR2ImageUrl, cdn } from "../lib/cdn";
+import { cdn } from "../lib/cdn";
+import { getNextUpcomingMatch } from "../lib/matchUtils";
 
 const Schedule = () => {
     const { t, i18n } = useTranslation();
     const getLocalizedPath = useLocalizedPath();
-    const [activeTeam, setActiveTeam] = useState("senior");
+
+    // Get next upcoming match from schedule data
+    const nextMatchData = getNextUpcomingMatch(scheduleData);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -218,10 +220,7 @@ const Schedule = () => {
             </Card>
         );
     };
-    const img = buildR2ImageUrl(
-        "Match",
-        "rugby-woman-team-zagreb-match_7503.jpg"
-    );
+
     return (
         <div className="min-h-screen bg-surface">
             <SEO
@@ -279,18 +278,35 @@ const Schedule = () => {
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 {/* Next Match */}
                 <AnimatedSection divider="wave" className="mb-8">
-                    <NextMatch
-                        src={img}
-                        matchData={nextMatchData.match}
-                        opponent={
-                            nextMatchData.opponents[
-                                nextMatchData.match.opponentKey
-                            ]
-                        }
-                    />
+                    {nextMatchData ? (
+                        <NextMatch
+                            matchData={nextMatchData.match}
+                            opponent={nextMatchData.opponent}
+                            homeVenue={nextMatchData.homeVenue}
+                        />
+                    ) : (
+                        <div className="relative h-[400px] overflow-hidden rounded-custom">
+                            <img
+                                src={cdn(
+                                    "hero/zagreb-rugby-ladies-team-action.jpg"
+                                )}
+                                alt="Zagreb Rugby Ladies team"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                                <h3 className="text-4xl md:text-5xl font-light text-text-light mb-4 tracking-wide">
+                                    {t("match.noUpcomingMatches")}
+                                </h3>
+                                <p className="text-lg text-text-light/80 max-w-xl">
+                                    {t("match.noUpcomingMatchesDescription")}
+                                </p>
+                            </div>
+                        </div>
+                    )}
                 </AnimatedSection>
 
-                {/* Team Selection */}
+                {/* Match Schedule */}
                 <AnimatedSection className="mb-8" delay={1}>
                     <div className="text-center mb-8">
                         <h2 className="text-4xl md:text-5xl font-light text-primary mb-4 tracking-wide">
@@ -301,71 +317,21 @@ const Schedule = () => {
                         </p>
                     </div>
 
-                    {/* Team Toggle */}
-                    <div className="flex justify-center mb-12">
-                        <div className="inline-flex flex-col sm:flex-row gap-3 sm:gap-4 p-2 bg-surface rounded-lg border-2 border-border shadow-soft">
-                            <button
-                                onClick={() => setActiveTeam("senior")}
-                                className={`
-                                    inline-flex items-center justify-center gap-2 
-                                    min-h-[44px] px-6 sm:px-8 py-3
-                                    font-button font-semibold text-sm sm:text-base uppercase tracking-wide
-                                    rounded-custom border-2 
-                                    transition-all duration-300 
-                                    hover:scale-[1.02] hover:shadow-md
-                                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
-                                    whitespace-nowrap
-                                    ${
-                                        activeTeam === "senior"
-                                            ? "bg-[#003057] text-white border-transparent shadow-md"
-                                            : "bg-transparent text-text-contrast border-border hover:border-[#003057] hover:bg-[#003057]/5"
-                                    }
-                                `}
-                            >
-                                <Users className="h-4 w-4 flex-shrink-0" />
-                                <span>{t("schedule.teams.senior")}</span>
-                            </button>
-                            <button
-                                onClick={() => setActiveTeam("junior")}
-                                className={`
-                                    inline-flex items-center justify-center gap-2 
-                                    min-h-[44px] px-6 sm:px-8 py-3
-                                    font-button font-semibold text-sm sm:text-base uppercase tracking-wide
-                                    rounded-custom border-2 
-                                    transition-all duration-300 
-                                    hover:scale-[1.02] hover:shadow-md
-                                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
-                                    whitespace-nowrap
-                                    ${
-                                        activeTeam === "junior"
-                                            ? "bg-[#003057] text-white border-transparent shadow-md"
-                                            : "bg-transparent text-text-contrast border-border hover:border-[#003057] hover:bg-[#003057]/5"
-                                    }
-                                `}
-                            >
-                                <Users className="h-4 w-4 flex-shrink-0" />
-                                <span>{t("schedule.teams.junior")}</span>
-                            </button>
-                        </div>
-                    </div>
-
                     {/* Matches Grid */}
                     <div className="max-w-6xl mx-auto">
                         <div className="mb-6">
                             <h3 className="text-2xl font-light mb-2 tracking-wide font-hero text-text-contrast leading-[0.85]">
-                                {scheduleData.teams[
-                                    activeTeam
-                                ].name.toUpperCase()}
+                                {scheduleData.teams.senior.name.toUpperCase()}
                             </h3>
                             <p className="text-muted mb-8">
-                                {scheduleData.teams[activeTeam].matches.length}{" "}
+                                {scheduleData.teams.senior.matches.length}{" "}
                                 {t("schedule.matchesThisSeason")}
                             </p>
                         </div>
 
                         <MatchSchedule
-                            matches={scheduleData.teams[activeTeam].matches}
-                            teamName={scheduleData.teams[activeTeam].name}
+                            matches={scheduleData.teams.senior.matches}
+                            teamName={scheduleData.teams.senior.name}
                             getOpponent={getOpponent}
                             formatMatchResult={formatMatchResult}
                             getMatchStatusColor={getMatchStatusColor}

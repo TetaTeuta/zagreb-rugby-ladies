@@ -31,7 +31,7 @@ const MatchItem = ({
     const dateLocale = i18n.language === "hr" ? "hr-HR" : "en-US";
 
     return (
-        <div className="py-4 sm:py-6 border border-border hover:bg-primary/5 transition-colors duration-normal">
+        <div className="py-4 sm:py-6">
             {/* Date and Location */}
             <div className="text-center mb-4">
                 <div className="text-xs sm:text-sm text-muted mb-1">
@@ -137,7 +137,7 @@ const MatchSchedule = ({
             {matches.map((match, index) => (
                 <div
                     key={match.id}
-                    className="px-3 sm:px-4 md:px-6 bg-surface rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                    className="px-3 sm:px-4 md:px-6 bg-surface rounded-custom overflow-hidden border border-border shadow-sm hover:shadow-md hover:bg-primary/5 transition-all duration-normal"
                     style={{ "--index": index }}
                 >
                     <MatchItem

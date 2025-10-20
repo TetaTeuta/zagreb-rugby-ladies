@@ -68,6 +68,8 @@
         "matchDay": "Dan utakmice",
         "time": "Vrijeme",
         "location": "Lokacija",
+        "noUpcomingMatches": "Nema zakazanih utakmica",
+        "noUpcomingMatchesDescription": "Uskoro provjerite naš raspored",
         "countdown": {
             "days": "Dana",
             "hours": "Sati",

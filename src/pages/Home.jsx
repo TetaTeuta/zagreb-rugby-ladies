@@ -5,8 +5,9 @@ import { Button } from "../components/ui/Button";
 import { useState, useEffect } from "react";
 import playersData from "../data/players.json";
 import trainingData from "../data/training.json";
-import nextMatchData from "../data/nextMatch.json";
+import scheduleData from "../data/schedule.json";
 import { NextMatch } from "../components/home/NextMatch";
+import { getNextUpcomingMatch } from "../lib/matchUtils";
 import { TrainingSchedule } from "../components/home/TrainingSchedule";
 import { MeetOurPlayers } from "../components/home/MeetOurPlayers";
 import { Highlights } from "../components/home/Highlights";
@@ -30,9 +31,8 @@ const Home = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Get opponent data using the key from match data
-    const currentOpponent =
-        nextMatchData.opponents[nextMatchData.match.opponentKey];
+    // Get next upcoming match from schedule data
+    const nextMatchData = getNextUpcomingMatch(scheduleData);
 
     const highlights = [
         {
@@ -78,39 +78,32 @@ const Home = () => {
     // Structured Data for Sports Organization and Next Match Event
     const organizationData = createSportsOrganizationData();
 
-    // Create Event structured data for the next match
-    const nextMatchEventData = createSportsEventData({
-        name: `${nextMatchData.match.homeTeam.name} vs ${currentOpponent.name}`,
-        description: `${nextMatchData.match.matchType} - ${nextMatchData.match.season}. Watch Zagreb Rugby Ladies in action!`,
-        date: nextMatchData.match.date,
-        time: nextMatchData.match.time,
-        location: nextMatchData.match.isHome
-            ? {
-                  name: nextMatchData.homeVenue.name,
-                  address: nextMatchData.homeVenue.address,
-                  city: nextMatchData.homeVenue.city,
-                  country: nextMatchData.homeVenue.country,
-                  mapUrl: nextMatchData.homeVenue.mapUrl,
-              }
-            : {
-                  name: currentOpponent.location.name,
-                  address: currentOpponent.location.address,
-                  city: currentOpponent.location.city,
-                  country: currentOpponent.location.country,
-                  mapUrl: currentOpponent.location.mapUrl,
-              },
-        homeTeam: nextMatchData.match.homeTeam,
-        awayTeam: {
-            name: currentOpponent.name,
-            logo: currentOpponent.logo,
-        },
-        eventStatus: "EventScheduled",
-        matchType: nextMatchData.match.matchType,
-        isFree: true,
-    });
+    // Create Event structured data for the next match if available
+    let combinedStructuredData = [organizationData];
 
-    // Combine structured data
-    const combinedStructuredData = [organizationData, nextMatchEventData];
+    if (nextMatchData) {
+        const location = nextMatchData.match.isHome
+            ? nextMatchData.homeVenue
+            : nextMatchData.opponent.location;
+
+        const nextMatchEventData = createSportsEventData({
+            name: `${nextMatchData.match.homeTeam.name} vs ${nextMatchData.opponent.name}`,
+            description: `${nextMatchData.match.matchType} - ${nextMatchData.match.season}. Watch Zagreb Rugby Ladies in action!`,
+            date: nextMatchData.match.date,
+            time: nextMatchData.match.time,
+            location: location,
+            homeTeam: nextMatchData.match.homeTeam,
+            awayTeam: {
+                name: nextMatchData.opponent.name,
+                logo: nextMatchData.opponent.logo,
+            },
+            eventStatus: "EventScheduled",
+            matchType: nextMatchData.match.matchType,
+            isFree: true,
+        });
+
+        combinedStructuredData = [organizationData, nextMatchEventData];
+    }
 
     return (
         <div className="min-h-screen bg-surface-elevated">
@@ -170,11 +163,32 @@ const Home = () => {
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 <AnimatedSection divider="wave" className="mb-8">
-                    <NextMatch
-                        matchData={nextMatchData.match}
-                        opponent={currentOpponent}
-                        homeVenue={nextMatchData.homeVenue}
-                    />
+                    {nextMatchData ? (
+                        <NextMatch
+                            matchData={nextMatchData.match}
+                            opponent={nextMatchData.opponent}
+                            homeVenue={nextMatchData.homeVenue}
+                        />
+                    ) : (
+                        <div className="relative h-[400px] overflow-hidden rounded-custom">
+                            <img
+                                src={cdn(
+                                    "hero/zagreb-rugby-ladies-team-action.jpg"
+                                )}
+                                alt="Zagreb Rugby Ladies team"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                                <h3 className="text-4xl md:text-5xl font-light text-text-light mb-4 tracking-wide">
+                                    {t("match.noUpcomingMatches")}
+                                </h3>
+                                <p className="text-lg text-text-light/80 max-w-xl">
+                                    {t("match.noUpcomingMatchesDescription")}
+                                </p>
+                            </div>
+                        </div>
+                    )}
                 </AnimatedSection>
 
                 {/* Meet Our Players Section */}

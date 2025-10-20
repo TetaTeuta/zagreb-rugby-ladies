@@ -6,6 +6,11 @@ import { buildR2ImageUrl } from "../../lib/cdn";
 const NextMatch = ({ matchData, opponent, homeVenue }) => {
     const { t, i18n } = useTranslation();
 
+    // Handle null/undefined data
+    if (!matchData || !opponent) {
+        return null;
+    }
+
     // Determine location based on home/away status
     const location = matchData.isHome ? homeVenue : opponent?.location;
 
