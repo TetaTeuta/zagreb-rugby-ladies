@@ -11,7 +11,7 @@ import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
 import scheduleData from "../data/schedule.json";
 import nextMatchData from "../data/nextMatch.json";
-import { SEO } from "../components/ui/SEO";
+import { SEO, createSportsEventListData } from "../components/ui/SEO";
 import { buildR2ImageUrl, cdn } from "../lib/cdn";
 
 const Schedule = () => {
@@ -67,17 +67,15 @@ const Schedule = () => {
     const keywords =
         "Zagreb Rugby Ladies schedule, rugby match fixtures Croatia, women's rugby games Zagreb, rugby sevens calendar, upcoming rugby matches Croatia, rugby results Zagreb, rugby match dates, rugby game schedule Croatia";
 
-    // Sports Event Structured Data
-    const scheduleStructuredData = {
-        "@context": "https://schema.org",
-        "@type": "SportsEvent",
-        name: "Zagreb Rugby Ladies Match Schedule",
-        description: pageDescription,
-        organizer: {
-            "@type": "SportsOrganization",
-            name: "Zagreb Rugby Ladies",
-        },
-    };
+    // Create structured data for all upcoming matches
+    const allUpcomingMatches = [
+        ...scheduleData.teams.senior.matches,
+        ...scheduleData.teams.junior.matches,
+    ];
+    const scheduleStructuredData = createSportsEventListData(
+        allUpcomingMatches,
+        "Zagreb Rugby Ladies"
+    );
 
     const MatchCard = ({ match, teamName }) => {
         const isHome = isHomeMatch(match, teamName);

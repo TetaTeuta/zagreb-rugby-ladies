@@ -12,7 +12,11 @@ import { MeetOurPlayers } from "../components/home/MeetOurPlayers";
 import { Highlights } from "../components/home/Highlights";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
-import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
+import {
+    SEO,
+    createSportsOrganizationData,
+    createSportsEventData,
+} from "../components/ui/SEO";
 import { ScrollIndicator } from "../components/ui/ScrollIndicator";
 import { Sponsors } from "../components/layout/Sponsors";
 import { cdn } from "../lib/cdn";
@@ -71,8 +75,42 @@ const Home = () => {
             ? "ženski ragbi, ženski ragbi Zagreb, ženski ragbi klub, ženski ragbi klub Zagreb, ragbi za žene, ragbi za žene Zagreb, žene ragbi, ragbi klub Zagreb, Zagreb Rugby Ladies, ženski sport Zagreb, trenirati ragbi Zagreb, pridružiti se ragbi, ragbi trening, ragbi sedam, ženski ragbi Hrvatska, učiti ragbi, početi igrati ragbi, ragbi pravila, kako igrati ragbi"
             : "women's rugby, women's rugby Zagreb, women's rugby club, women's rugby club Zagreb, rugby for women, rugby for women Zagreb, ladies rugby, rugby team Zagreb, Zagreb Rugby Ladies, women's sports Zagreb, train rugby Zagreb, join rugby, rugby training, rugby sevens, women's rugby Croatia, learn rugby, start playing rugby, rugby rules, how to play rugby";
 
-    // Structured Data for Sports Organization
+    // Structured Data for Sports Organization and Next Match Event
     const organizationData = createSportsOrganizationData();
+
+    // Create Event structured data for the next match
+    const nextMatchEventData = createSportsEventData({
+        name: `${nextMatchData.match.homeTeam.name} vs ${currentOpponent.name}`,
+        description: `${nextMatchData.match.matchType} - ${nextMatchData.match.season}. Watch Zagreb Rugby Ladies in action!`,
+        date: nextMatchData.match.date,
+        time: nextMatchData.match.time,
+        location: nextMatchData.match.isHome
+            ? {
+                  name: nextMatchData.homeVenue.name,
+                  address: nextMatchData.homeVenue.address,
+                  city: nextMatchData.homeVenue.city,
+                  country: nextMatchData.homeVenue.country,
+                  mapUrl: nextMatchData.homeVenue.mapUrl,
+              }
+            : {
+                  name: currentOpponent.location.name,
+                  address: currentOpponent.location.address,
+                  city: currentOpponent.location.city,
+                  country: currentOpponent.location.country,
+                  mapUrl: currentOpponent.location.mapUrl,
+              },
+        homeTeam: nextMatchData.match.homeTeam,
+        awayTeam: {
+            name: currentOpponent.name,
+            logo: currentOpponent.logo,
+        },
+        eventStatus: "EventScheduled",
+        matchType: nextMatchData.match.matchType,
+        isFree: true,
+    });
+
+    // Combine structured data
+    const combinedStructuredData = [organizationData, nextMatchEventData];
 
     return (
         <div className="min-h-screen bg-surface-elevated">
@@ -81,7 +119,7 @@ const Home = () => {
                 description={pageDescription}
                 keywords={keywords}
                 canonicalUrl="/"
-                structuredData={organizationData}
+                structuredData={combinedStructuredData}
             />
 
             <div className="relative h-screen overflow-hidden">
