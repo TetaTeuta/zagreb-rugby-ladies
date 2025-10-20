@@ -5,14 +5,19 @@ import { Button } from "../components/ui/Button";
 import { useState, useEffect } from "react";
 import playersData from "../data/players.json";
 import trainingData from "../data/training.json";
-import nextMatchData from "../data/nextMatch.json";
+import scheduleData from "../data/schedule.json";
 import { NextMatch } from "../components/home/NextMatch";
+import { getNextUpcomingMatch } from "../lib/matchUtils";
 import { TrainingSchedule } from "../components/home/TrainingSchedule";
 import { MeetOurPlayers } from "../components/home/MeetOurPlayers";
 import { Highlights } from "../components/home/Highlights";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { CallToAction } from "../components/ui/CallToAction";
-import { SEO, createSportsOrganizationData } from "../components/ui/SEO";
+import {
+    SEO,
+    createSportsOrganizationData,
+    createSportsEventData,
+} from "../components/ui/SEO";
 import { ScrollIndicator } from "../components/ui/ScrollIndicator";
 import { Sponsors } from "../components/layout/Sponsors";
 import { cdn } from "../lib/cdn";
@@ -26,9 +31,8 @@ const Home = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Get opponent data using the key from match data
-    const currentOpponent =
-        nextMatchData.opponents[nextMatchData.match.opponentKey];
+    // Get next upcoming match from schedule data
+    const nextMatchData = getNextUpcomingMatch(scheduleData);
 
     const highlights = [
         {
@@ -60,19 +64,46 @@ const Home = () => {
     const { i18n } = useTranslation();
     const pageTitle =
         i18n.language === "hr"
-            ? "Ženski Ragbi sedam Tim u Zagrebu, Hrvatska"
-            : "Women's Rugby Sevens Team in Zagreb, Croatia";
+            ? "Ženski Ragbi Klub u Zagrebu, Hrvatska"
+            : "Women's Rugby Team in Zagreb, Croatia";
     const pageDescription =
         i18n.language === "hr"
-            ? "Pridruži se Zagreb Rugby Ladies - ženski ragbi sedam tim koji osnažuje djevojke i žene kroz sport. Treninzi za početnice u Zagrebu, Hrvatska. Iskustvo nije potrebno!"
+            ? "Pridruži se Zagreb Rugby Ladies - ženski ragbi sedam klub koji osnažuje djevojke i žene kroz sport. Treninzi za početnice u Zagrebu, Hrvatska. Iskustvo nije potrebno!"
             : "Join Zagreb Rugby Ladies - women's rugby sevens team empowering girls and young women through sport. Beginner-friendly training in Zagreb, Croatia. No experience needed!";
     const keywords =
         i18n.language === "hr"
-            ? "ženski ragbi Zagreb, ragbi sedam Hrvatska, ženski sport Zagreb, ragbi tim Hrvatska, ragbi trening Zagreb, ragbi za žene, ragbi sedam Zagreb, ženski ragbi tim, ženske športašice Zagreb"
-            : "women's rugby Zagreb, rugby sevens Croatia, women's sports Zagreb, rugby team Croatia, join rugby Zagreb, women athletes Croatia, rugby training Zagreb, girls rugby Croatia";
+            ? "ženski ragbi, ženski ragbi Zagreb, ženski ragbi klub, ženski ragbi klub Zagreb, ragbi za žene, ragbi za žene Zagreb, žene ragbi, ragbi klub Zagreb, Zagreb Rugby Ladies, ženski sport Zagreb, trenirati ragbi Zagreb, pridružiti se ragbi, ragbi trening, ragbi sedam, ženski ragbi Hrvatska, učiti ragbi, početi igrati ragbi, ragbi pravila, kako igrati ragbi"
+            : "women's rugby, women's rugby Zagreb, women's rugby club, women's rugby club Zagreb, rugby for women, rugby for women Zagreb, ladies rugby, rugby team Zagreb, Zagreb Rugby Ladies, women's sports Zagreb, train rugby Zagreb, join rugby, rugby training, rugby sevens, women's rugby Croatia, learn rugby, start playing rugby, rugby rules, how to play rugby";
 
-    // Structured Data for Sports Organization
+    // Structured Data for Sports Organization and Next Match Event
     const organizationData = createSportsOrganizationData();
+
+    // Create Event structured data for the next match if available
+    let combinedStructuredData = [organizationData];
+
+    if (nextMatchData) {
+        const location = nextMatchData.match.isHome
+            ? nextMatchData.homeVenue
+            : nextMatchData.opponent.location;
+
+        const nextMatchEventData = createSportsEventData({
+            name: `${nextMatchData.match.homeTeam.name} vs ${nextMatchData.opponent.name}`,
+            description: `${nextMatchData.match.matchType} - ${nextMatchData.match.season}. Watch Zagreb Rugby Ladies in action!`,
+            date: nextMatchData.match.date,
+            time: nextMatchData.match.time,
+            location: location,
+            homeTeam: nextMatchData.match.homeTeam,
+            awayTeam: {
+                name: nextMatchData.opponent.name,
+                logo: nextMatchData.opponent.logo,
+            },
+            eventStatus: "EventScheduled",
+            matchType: nextMatchData.match.matchType,
+            isFree: true,
+        });
+
+        combinedStructuredData = [organizationData, nextMatchEventData];
+    }
 
     return (
         <div className="min-h-screen bg-surface-elevated">
@@ -81,7 +112,7 @@ const Home = () => {
                 description={pageDescription}
                 keywords={keywords}
                 canonicalUrl="/"
-                structuredData={organizationData}
+                structuredData={combinedStructuredData}
             />
 
             <div className="relative h-screen overflow-hidden">
@@ -132,11 +163,32 @@ const Home = () => {
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 <AnimatedSection divider="wave" className="mb-8">
-                    <NextMatch
-                        matchData={nextMatchData.match}
-                        opponent={currentOpponent}
-                        homeVenue={nextMatchData.homeVenue}
-                    />
+                    {nextMatchData ? (
+                        <NextMatch
+                            matchData={nextMatchData.match}
+                            opponent={nextMatchData.opponent}
+                            homeVenue={nextMatchData.homeVenue}
+                        />
+                    ) : (
+                        <div className="relative h-[400px] overflow-hidden rounded-custom">
+                            <img
+                                src={cdn(
+                                    "hero/zagreb-rugby-ladies-team-action.jpg"
+                                )}
+                                alt="Zagreb Rugby Ladies team"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                                <h3 className="text-4xl md:text-5xl font-light text-text-light mb-4 tracking-wide">
+                                    {t("match.noUpcomingMatches")}
+                                </h3>
+                                <p className="text-lg text-text-light/80 max-w-xl">
+                                    {t("match.noUpcomingMatchesDescription")}
+                                </p>
+                            </div>
+                        </div>
+                    )}
                 </AnimatedSection>
 
                 {/* Meet Our Players Section */}
