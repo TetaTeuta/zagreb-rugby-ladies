@@ -231,14 +231,14 @@
         },
         "translations": {
             "en": {
-                "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
-                "quote": "Speed gets you there, but composure gets you over the line.",
-                "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+                "about": "Graduated in nutrition, currently studying agronomy, and has been horse riding for over 10 years.",
+                "quote": "Be yourself as you are — you’ll never please those who don’t love you anyway.",
+                "funFact": "Fun fact – can’t speak quietly, loves food and tequila, hates running at training but runs like it’s the last time when it comes to contact on the field!"
             },
             "hr": {
-                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
-                "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
-                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
+                "about": "Završen nutricionizam, trenutno studentica agronomije, bavi se jahanjem više od 10 godina.",
+                "quote": "Budi svoj takav kakav jesi — ionako ne valjaš onima koji te ne vole.",
+                "funFact": "Fun fact – ne znam pričati tiho, obožavam hranu i mrzim trčanje na treningu, ali kad je kontakt na utakmici u pitanju trčim kao da mi je zadnje!"
             }
         }
     },
