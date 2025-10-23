@@ -37,7 +37,7 @@
                 "funFact": "She can do an impressive Donald Duck voice."
             },
             "hr": {
-                "about": "Otočanka s Korčule, poznata kao glavni zabavljač tima - nadimak 'Živiđuboks'. Zarsila je školu klesarstva na Braču i radi u restauraciji. Hobiji su joj fotografija, video produkcija, kuhanje i crtanje. Ragbi je savršen sport za nju - naučio ju je puno, pomogao joj rasti i zahvalna je što je dio ove zajednice.",
+                "about": "Otočanka s Korčule, poznata kao glavni zabavljač tima - nadimak 'Živiđuboks'. Završila je školu klesarstva na Braču i radi u restauraciji. Hobiji su joj fotografija, video produkcija, kuhanje i crtanje. Ragbi je savršen sport za nju - naučio ju je puno, pomogao joj rasti i zahvalna je što je dio ove zajednice.",
                 "quote": "Umjetnost ispunjava moju dušu, ragbi moje srce, a ljudi oko mene daju smisao svemu.",
                 "funFact": "Vrlo realno imitira glas Paje Patka."
             }
@@ -176,8 +176,8 @@
         }
     },
     {
-        "id": "gabriell-martinovic",
-        "name": "Gabriell Martinović",
+        "id": "gabriella-martinovic",
+        "name": "Gabriella Martinović",
         "position": "Centre",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/gabriell_profile_cropped.jpg",
         "bannerPhoto": "gallery/rugby-woman-player-_7663-gabriell.jpg",
@@ -231,14 +231,14 @@
         },
         "translations": {
             "en": {
-                "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
-                "quote": "Speed gets you there, but composure gets you over the line.",
-                "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+                "about": "Graduated in nutrition, currently studying agronomy, and has been horse riding for over 10 years.",
+                "quote": "Be yourself as you are — you’ll never please those who don’t love you anyway.",
+                "funFact": "Fun fact – can’t speak quietly, loves food and tequila, hates running at training but runs like it’s the last time when it comes to contact on the field!"
             },
             "hr": {
-                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
-                "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
-                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
+                "about": "Završen nutricionizam, trenutno studentica agronomije, bavi se jahanjem više od 10 godina.",
+                "quote": "Budi svoj takav kakav jesi — ionako ne valjaš onima koji te ne vole.",
+                "funFact": "Fun fact – ne znam pričati tiho, obožavam hranu i mrzim trčanje na treningu, ali kad je kontakt na utakmici u pitanju trčim kao da mi je zadnje!"
             }
         }
     },
@@ -253,14 +253,14 @@
         },
         "translations": {
             "en": {
-                "about": "Back row powerhouse with leadership qualities and an engine that never stops.",
-                "quote": "Lead from the front, support from behind, never give up.",
-                "funFact": "Runs 10km every morning before training - her fitness is legendary!"
+                "about": "Talented back row player with several years of experience. Her technical skills and game awareness make her a key player. ",
+                "quote": "Every match teaches you something new. I play hard and study harder.",
+                "funFact": "Known for her powerful tackles and never missing a ruck - always first to the breakdown!"
             },
             "hr": {
-                "about": "Snaga zadnjeg reda s vodstvenim kvalitetama i motorom koji nikad ne prestaje.",
-                "quote": "Vodi s prednje strane, podržavaj s leđa, nikad ne odustaj.",
-                "funFact": "Trči 10km svako jutro prije treninga - njena kondicija je legendarna!"
+                "about": "Talentirana igračica zadnjeg reda s nekoliko godina iskustva. Njene tehničke vještine i razumijevanje igre čine je ključnom igračicom. Pohađa farmaceutsku školu dok slijedi svoje ragbi ambicije.",
+                "quote": "Svaka utakmica te nešto novo nauči. Igram snažno i učim još jače.",
+                "funFact": "Poznata po snažnim plasiranima i nikad ne propušta ruck - uvijek prva do raspada!"
             }
         }
     },
@@ -297,14 +297,14 @@
         },
         "translations": {
             "en": {
-                "about": "Explosive winger with great footwork and finishing ability.",
-                "quote": "Every time I touch the ball, I'm looking for the try line.",
-                "funFact": "Scored a hat-trick in her debut match!"
+                "about": "New to the team and still finding her place in rugby. Learning the fundamentals and adjusting to the demands of the sport.",
+                "quote": "Rugby is different from what I expected, but I'm here to try.",
+                "funFact": "Just started playing rugby last month!"
             },
             "hr": {
-                "about": "Eksplozivno krilo s odličnom tehnikom stopala i sposobnošću finaliziranja.",
-                "quote": "Svaki put kad dodirnem loptu, gledam liniju pokušaja.",
-                "funFact": "Postigla hat-trick na svom debitantskom meču!"
+                "about": "Nova u timu i još pronalazi svoje mjesto u ragbiju. Uči osnove i prilagođava se zahtjevima sporta.",
+                "quote": "Ragbi je drugačiji nego što sam očekivala, ali ovdje sam da pokušam.",
+                "funFact": "Tek sam prošli mjesec počela igrati ragbi!"
             }
         }
     },
@@ -363,14 +363,14 @@
         },
         "translations": {
             "en": {
-                "about": "Versatile forward who brings energy and intensity to every breakdown.",
-                "quote": "Winning starts with attitude and ends with effort.",
-                "funFact": "Former basketball player who brings exceptional athleticism to rugby."
+                "about": "Aspiring beautician, she plays the flute and trains rugby - the best combination, she loves chemistry.",
+                "quote": "Samo jako.",
+                "funFact": "If she sees an opportunity to break through, she won't pass the ball, and maybe she won't even if she doesn't see one."
             },
             "hr": {
-                "about": "Svestrana napadačica koja donosi energiju i intenzitet na svaku situaciju.",
-                "quote": "Pobjeda počinje s stavom i završava s naporom.",
-                "funFact": "Bivša košarkašica koja donosi iznimnu atletičnost u ragbi."
+                "about": "Kozmetičarka u nastajanju, svira flautu i trenira rugby - najbolja kombinacija, voli kemiju.",
+                "quote": "Samo jako.",
+                "funFact": "Ako vidi priliku za prolaz neće dodati loptu, a možda iako ne vidi"
             }
         }
     }
