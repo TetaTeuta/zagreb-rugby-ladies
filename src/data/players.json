@@ -245,7 +245,7 @@
     {
         "id": "ivona-sojic",
         "name": "Ivona Šojić",
-        "position": "Number 8",
+        "position": "Winger",
         "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
         "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
         "socials": {
@@ -253,14 +253,14 @@
         },
         "translations": {
             "en": {
-                "about": "Talented back row player with several years of experience. Her technical skills and game awareness make her a key player. ",
-                "quote": "Every match teaches you something new. I play hard and study harder.",
-                "funFact": "Known for her powerful tackles and never missing a ruck - always first to the breakdown!"
+                "about": "The ruck queen who shows up to every breakdown like it's Black Friday and there's only one TV left!",
+                "quote": "I don't always get to the ruck first, but when I do, it's already over.",
+                "funFact": "Has a sixth sense for turnovers. Some say she can smell a loose ball from 50 meters away. Legend has it she dreams in slow-motion replays of perfect jackal technique."
             },
             "hr": {
-                "about": "Talentirana igračica zadnjeg reda s nekoliko godina iskustva. Njene tehničke vještine i razumijevanje igre čine je ključnom igračicom. Pohađa farmaceutsku školu dok slijedi svoje ragbi ambicije.",
-                "quote": "Svaka utakmica te nešto novo nauči. Igram snažno i učim još jače.",
-                "funFact": "Poznata po snažnim obaranjima i sprintu!"
+                "about": "Kraljica ruckova koja dolazi na svaki breakdown kao da je Crni petak i ostao je samo jedan TV!",
+                "quote": "Ne stižem uvijek prva do rucka, ali kad stignem, već je gotovo.",
+                "funFact": "Ima šesto osjetilo za turnovere. Neki kažu da može namirisati izgubljenu loptu s 50 metara. Legenda kaže da sanja u usporenim snimkama savršene jackal tehnike."
             }
         }
     },
@@ -275,14 +275,14 @@
         },
         "translations": {
             "en": {
-                "about": "Solid scrummager with powerful driving game in open play.",
-                "quote": "Scrums are won with heart, not just muscle.",
-                "funFact": "Former powerlifter who brings incredible strength to the scrum."
+                "about": "At 16, she's proof that dynamite comes in small packages! She may be pocket-sized, but she's got the spirit of a giant.",
+                "quote": "I'm not short, I'm fun-sized and aerodynamically efficient!",
+                "funFact": "Often mistaken for the team mascot until she tackles you. Then you realize she's a pint-sized powerhouse who chose violence... I mean, rugby!"
             },
             "hr": {
-                "about": "Čvrsta u škorpijama s moćnom igrom u otvorenom prostoru.",
-                "quote": "Škorpije se osvajaju srcem, ne samo mišićima.",
-                "funFact": "Bivša powerlifterica koja donosi nevjerojatnu snagu u škorpije."
+                "about": "Sa 16 godina, dokaz je da dinamit dolazi u malim paketima! Možda je džepnog formata, ali ima duh diva.",
+                "quote": "Nisam niska, ja sam zabavne veličine i aerodinamički učinkovita!",
+                "funFact": "Često se zamijeni za team maskotu dok te ne obori. Onda shvatiš da je mini elektrana koja je izabrala nasilje... tj. ragbi!"
             }
         }
     },
