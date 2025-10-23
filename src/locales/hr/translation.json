@@ -473,7 +473,7 @@
                 "description": "Polaganje lopte u protivničkoj zoni pokušaja"
             },
             "conversion": {
-                "title": "Pretvorba",
+                "title": "Pretvaranje",
                 "description": "Šut kroz vratnice nakon pokušaja"
             },
             "penalty": {
