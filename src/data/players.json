@@ -363,14 +363,14 @@
         },
         "translations": {
             "en": {
-                "about": "Versatile forward who brings energy and intensity to every breakdown.",
-                "quote": "Winning starts with attitude and ends with effort.",
-                "funFact": "Former basketball player who brings exceptional athleticism to rugby."
+                "about": "Aspiring beautician, she plays the flute and trains rugby - the best combination, she loves chemistry.",
+                "quote": "Samo jako.",
+                "funFact": "If she sees an opportunity to break through, she won't pass the ball, and maybe she won't even if she doesn't see one."
             },
             "hr": {
-                "about": "Svestrana napadačica koja donosi energiju i intenzitet na svaku situaciju.",
-                "quote": "Pobjeda počinje s stavom i završava s naporom.",
-                "funFact": "Bivša košarkašica koja donosi iznimnu atletičnost u ragbi."
+                "about": "Kozmetičarka u nastajanju, svira flautu i trenira rugby - najbolja kombinacija, voli kemiju.",
+                "quote": "Samo jako.",
+                "funFact": "Ako vidi priliku za prolaz neće dodati loptu, a možda iako ne vidi"
             }
         }
     }
