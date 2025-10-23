@@ -214,14 +214,14 @@ const Team = () => {
                         }}
                     >
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
-                        <div className="relative p-8 flex flex-col justify-end h-full text-text-light z-10">
+                        <div className="relative p-8 flex flex-col h-full text-text-light z-10">
                             <h3 className="text-3xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                                 {t("team.culture.inclusive.title")}
                             </h3>
                             <p className="text-lg text-text-light/90 leading-relaxed mb-4">
                                 {t("team.culture.inclusive.description")}
                             </p>
-                            <div className="text-center">
+                            <div className="text-center mt-auto">
                                 <Button
                                     variant="blue"
                                     asChild
@@ -245,14 +245,14 @@ const Team = () => {
                         }}
                     >
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
-                        <div className="relative p-8 flex flex-col justify-end h-full text-text-light z-10">
+                        <div className="relative p-8 flex flex-col h-full text-text-light z-10">
                             <h3 className="text-3xl font-light mb-6 tracking-wide font-hero text-text-light leading-[0.85]">
                                 {t("team.culture.development.title")}
                             </h3>
                             <p className="text-lg text-text-light/90 leading-relaxed mb-4">
                                 {t("team.culture.development.description")}
                             </p>
-                            <div className="text-center">
+                            <div className="text-center mt-auto">
                                 <Button
                                     variant="blue"
                                     asChild

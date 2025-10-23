@@ -28,16 +28,12 @@ const About = () => {
         {
             name: t("about.coaches.sandi.name"),
             role: t("about.coaches.sandi.role"),
-            img: cdn(
-                "players_background/siluette_placeholder_rugby_ladies.png"
-            ),
+            img: cdn("cropped/sandi_profile_cropped.jpg"),
         },
         {
             name: t("about.coaches.kuca.name"),
             role: t("about.coaches.kuca.role"),
-            img: cdn(
-                "players_background/siluette_placeholder_rugby_ladies.png"
-            ),
+            img: cdn("cropped/kuca_profile_cropped.jpg"),
         },
         {
             name: t("about.coaches.petra.name"),
@@ -309,6 +305,7 @@ const About = () => {
                                     src={coach.img}
                                     alt={coach.name}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    style={{ objectPosition: "center 35%" }}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-text-contrast/30 via-text-contrast/20 to-transparent"></div>
                                 <div className="absolute inset-0 p-6 sm:p-8 flex flex-col text-text-light">
