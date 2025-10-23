@@ -209,14 +209,14 @@
         },
         "translations": {
             "en": {
-                "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
+                "about": "From Chile, she brings her football background to the rugby pitch with natural athleticism and speed.",
                 "quote": "Speed gets you there, but composure gets you over the line.",
-                "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+                "funFact": "Former football player who just started rugby a month ago - already making an impact with her quick feet and fearless attitude!"
             },
             "hr": {
-                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
+                "about": "Iz Čilea, donosi svoje nogometno iskustvo na ragbi teren s prirodnom atletikom i brzinom.",
                 "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
-                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
+                "funFact": "Bivša nogometašica koja je tek prije mjesec dana počela igrati ragbi - već ostavlja dojam svojom brzinom i neustrašivošću!"
             }
         }
     },
@@ -260,7 +260,7 @@
             "hr": {
                 "about": "Talentirana igračica zadnjeg reda s nekoliko godina iskustva. Njene tehničke vještine i razumijevanje igre čine je ključnom igračicom. Pohađa farmaceutsku školu dok slijedi svoje ragbi ambicije.",
                 "quote": "Svaka utakmica te nešto novo nauči. Igram snažno i učim još jače.",
-                "funFact": "Poznata po snažnim plasiranima i nikad ne propušta ruck - uvijek prva do raspada!"
+                "funFact": "Poznata po snažnim obaranjima i sprintu!"
             }
         }
     },
@@ -287,28 +287,6 @@
         }
     },
     {
-        "id": "cvita-seiter",
-        "name": "Cvita Seiter",
-        "position": "Wing",
-        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
-        "socials": {
-            "instagram": "https://instagram.com/cvitas"
-        },
-        "translations": {
-            "en": {
-                "about": "New to the team and still finding her place in rugby. Learning the fundamentals and adjusting to the demands of the sport.",
-                "quote": "Rugby is different from what I expected, but I'm here to try.",
-                "funFact": "Just started playing rugby last month!"
-            },
-            "hr": {
-                "about": "Nova u timu i još pronalazi svoje mjesto u ragbiju. Uči osnove i prilagođava se zahtjevima sporta.",
-                "quote": "Ragbi je drugačiji nego što sam očekivala, ali ovdje sam da pokušam.",
-                "funFact": "Tek sam prošli mjesec počela igrati ragbi!"
-            }
-        }
-    },
-    {
         "id": "lucija-zoric",
         "name": "Lucija Zorić",
         "position": "Winger",
@@ -327,28 +305,6 @@
                 "about": "Nije najbrža, ali ni najjača, dobra u ozljeđivanju suigračica.",
                 "quote": "Ovdje sam za dobro vrijeme, ali i za loše vrijeme. Zapravo, za bilo kakvo vrijeme jer je uvijek zabavno.",
                 "funFact": "Može napraviti barem jedan (1) sklek."
-            }
-        }
-    },
-    {
-        "id": "lora-aladrovic",
-        "name": "Lora Aladrović",
-        "position": "Hooker",
-        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
-        "socials": {
-            "instagram": "https://instagram.com/loraa"
-        },
-        "translations": {
-            "en": {
-                "about": "She almost left her first training because of mud and rain, and now that's her favorite scenario.",
-                "quote": "Not all treasure is silver and gold, mate.",
-                "funFact": "Doesn't know left from right"
-            },
-            "hr": {
-                "about": "Skoro je otišla sa prvog treninga zbog blata i kiše, a sad joj je to najdraži scenarij.",
-                "quote": "Not all treasure is silver and gold, mate.",
-                "funFact": "Ne zna lijevo i desno"
             }
         }
     },
