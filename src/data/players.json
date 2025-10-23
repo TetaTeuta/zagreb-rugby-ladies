@@ -209,14 +209,14 @@
         },
         "translations": {
             "en": {
-                "about": "Lightning-fast finisher with safe hands under pressure. Scores tries that seem impossible.",
+                "about": "From Chile, she brings her football background to the rugby pitch with natural athleticism and speed.",
                 "quote": "Speed gets you there, but composure gets you over the line.",
-                "funFact": "Former gymnast whose flexibility allows her to score tries from impossible angles!"
+                "funFact": "Former football player who just started rugby a month ago - already making an impact with her quick feet and fearless attitude!"
             },
             "hr": {
-                "about": "Munjevito brza finišerica sa sigurnim rukama pod pritiskom. Postiže pokušaje koji izgledaju nemogući.",
+                "about": "Iz Čilea, donosi svoje nogometno iskustvo na ragbi teren s prirodnom atletikom i brzinom.",
                 "quote": "Brzina te dovodi tamo, ali prisebnost te prebacuje liniju.",
-                "funFact": "Bivša gimnastičarka čija joj fleksibilnost omogućuje postizanje pokušaja iz nemogućih kutova!"
+                "funFact": "Bivša nogometašica koja je tek prije mjesec dana počela igrati ragbi - već ostavlja dojam svojom brzinom i neustrašivošću!"
             }
         }
     },
