@@ -38,21 +38,23 @@ export const SEO = ({
     const metaDescription = description || defaultDescription;
     const imageUrl = ogImage || defaultImage;
 
-    const baseUrl = window.location.origin;
     const productionUrl = "https://www.zagreb-rugby-ladies.eu";
+    const baseUrl = productionUrl;
 
     const fullCanonicalUrl = (() => {
-        if (!canonicalUrl) {
-            return window.location.href;
+        if (canonicalUrl) {
+            const isHrPage = window.location.pathname.startsWith("/hr");
+            const localizedPath =
+                isHrPage && !canonicalUrl.startsWith("/hr")
+                    ? `/hr${canonicalUrl}`
+                    : canonicalUrl;
+
+            return `${productionUrl}${localizedPath}`;
         }
 
-        const isHrPage = window.location.pathname.startsWith("/hr");
-        const localizedPath =
-            isHrPage && !canonicalUrl.startsWith("/hr")
-                ? `/hr${canonicalUrl}`
-                : canonicalUrl;
-
-        return `${baseUrl}${localizedPath}`;
+        // If no canonical URL provided, construct from current path
+        const currentPath = window.location.pathname;
+        return `${productionUrl}${currentPath}`;
     })();
 
     const fullImageUrl = imageUrl.startsWith("http")
@@ -68,7 +70,7 @@ export const SEO = ({
             {keywords && <meta name="keywords" content={keywords} />}
 
             {/* Canonical URL */}
-            {canonicalUrl && <link rel="canonical" href={fullCanonicalUrl} />}
+            <link rel="canonical" href={fullCanonicalUrl} />
 
             {/* Open Graph / Facebook */}
             <meta property="og:type" content={ogType} />
@@ -206,7 +208,7 @@ export const createArticleStructuredData = ({
     publisherName = "Zagreb Rugby Ladies",
     publisherLogo = cdn("logos/zagreb-rugby-ladies-logo-vector.png"),
 }) => {
-    const baseUrl = window.location.origin;
+    const baseUrl = "https://www.zagreb-rugby-ladies.eu";
     const logoUrl = publisherLogo.startsWith("http")
         ? publisherLogo
         : `${baseUrl}${publisherLogo}`;
@@ -245,7 +247,7 @@ export const createArticleStructuredData = ({
  * @returns {Object} JSON-LD structured data
  */
 export const createSportsOrganizationData = () => {
-    const baseUrl = window.location.origin;
+    const baseUrl = "https://www.zagreb-rugby-ladies.eu";
     const logoUrl = cdn("logos/zagreb-rugby-ladies-logo-vector.png");
 
     return {
@@ -296,7 +298,7 @@ export const createSportsEventData = ({
     matchType = "SportsEvent",
     isFree = true,
 }) => {
-    const baseUrl = window.location.origin;
+    const baseUrl = "https://www.zagreb-rugby-ladies.eu";
 
     // Create ISO 8601 datetime strings
     const startDateTime = `${date}T${time}:00`;
@@ -370,7 +372,7 @@ export const createSportsEventData = ({
  * @returns {Object} JSON-LD structured data
  */
 export const createSportsEventListData = (matches, teamName) => {
-    const baseUrl = window.location.origin;
+    const baseUrl = "https://www.zagreb-rugby-ladies.eu";
 
     const eventList = matches
         .filter((match) => match.status === "upcoming")

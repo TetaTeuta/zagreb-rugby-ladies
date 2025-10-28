@@ -1,4 +1,17 @@
 {
+    "redirects": [
+        {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "zagreb-rugby-ladies.eu"
+                }
+            ],
+            "destination": "https://www.zagreb-rugby-ladies.eu/$1",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         { "source": "/hr", "destination": "/index.html" },
         { "source": "/hr/(.*)", "destination": "/index.html" },
