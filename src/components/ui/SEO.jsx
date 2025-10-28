@@ -42,17 +42,24 @@ export const SEO = ({
     const baseUrl = productionUrl;
 
     const fullCanonicalUrl = (() => {
+        // If canonical URL is explicitly provided
         if (canonicalUrl) {
-            const isHrPage = window.location.pathname.startsWith("/hr");
+            // If it's already a full URL, use it as-is
+            if (canonicalUrl.startsWith("http")) {
+                return canonicalUrl;
+            }
+
+            // Construct language-specific canonical URL based on current language
+            // Croatian pages should have /hr prefix, English pages should not
+            const basePath = canonicalUrl.replace(/^\/hr/, ""); // Remove /hr if present
             const localizedPath =
-                isHrPage && !canonicalUrl.startsWith("/hr")
-                    ? `/hr${canonicalUrl}`
-                    : canonicalUrl;
+                currentLanguage === "hr" ? `/hr${basePath}` : basePath;
 
             return `${productionUrl}${localizedPath}`;
         }
 
         // If no canonical URL provided, construct from current path
+        // Each language version should point to itself as canonical
         const currentPath = window.location.pathname;
         return `${productionUrl}${currentPath}`;
     })();
@@ -100,17 +107,35 @@ export const SEO = ({
 
             {/* Language Alternates */}
             {(() => {
-                const currentPath = canonicalUrl || window.location.pathname;
-                const basePath = currentPath.replace(/^\/hr/, "") || "/";
-                const enPath = basePath === "/" ? "" : basePath;
-                const hrPath = `/hr${basePath}`;
+                // Extract base path from either canonicalUrl or current pathname
+                let pathToUse = canonicalUrl || window.location.pathname;
+
+                // If canonicalUrl is a full URL, extract just the pathname
+                if (pathToUse.startsWith("http")) {
+                    try {
+                        pathToUse = new URL(pathToUse).pathname;
+                    } catch {
+                        // If URL parsing fails, fall back to current pathname
+                        pathToUse = window.location.pathname;
+                    }
+                }
+
+                const basePath = pathToUse.replace(/^\/hr/, "") || "/";
+
+                // Construct language-specific URLs
+                // English version: base path without /hr
+                const enPath = basePath === "/" ? "/" : basePath;
+                // Croatian version: base path with /hr prefix
+                const hrPath = basePath === "/" ? "/hr/" : `/hr${basePath}`;
 
                 return (
                     <>
                         <link
                             rel="alternate"
                             hrefLang="en"
-                            href={`${productionUrl}${enPath}`}
+                            href={`${productionUrl}${
+                                enPath === "/" ? "" : enPath
+                            }`}
                         />
                         <link
                             rel="alternate"
@@ -120,7 +145,9 @@ export const SEO = ({
                         <link
                             rel="alternate"
                             hrefLang="x-default"
-                            href={`${productionUrl}${enPath}`}
+                            href={`${productionUrl}${
+                                enPath === "/" ? "" : enPath
+                            }`}
                         />
                     </>
                 );
