@@ -70,6 +70,9 @@
         "location": "Location",
         "noUpcomingMatches": "No scheduled matches",
         "noUpcomingMatchesDescription": "Check back soon for our upcoming fixtures",
+        "comingSoon": "Coming soon",
+        "beFirstToKnow": "Be the first to know when matches are announced!",
+        "joinOurTeam": "Join Our Team",
         "countdown": {
             "days": "Days",
             "hours": "Hours",

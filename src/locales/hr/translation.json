@@ -70,6 +70,9 @@
         "location": "Lokacija",
         "noUpcomingMatches": "Nema zakazanih utakmica",
         "noUpcomingMatchesDescription": "Uskoro provjerite naš raspored",
+        "comingSoon": "Uskoro",
+        "beFirstToKnow": "Budi prva koja će saznati kada se objave utakmice!",
+        "joinOurTeam": "Pridruži se timu",
         "countdown": {
             "days": "Dana",
             "hours": "Sati",
