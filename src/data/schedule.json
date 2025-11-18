@@ -6,6 +6,60 @@
             "logo": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/zagreb-rugby-ladies-logo-vector.png",
             "matches": [
                 {
+                    "id": "sr-005",
+                    "date": "2025-11-08",
+                    "time": "16:30",
+                    "homeTeam": "Zagreb Rugby Ladies",
+                    "awayTeam": "Women's University Rugby Lastavice",
+                    "location": {
+                        "name": "Stadion Stari Plac",
+                        "address": "Ul. Zrinsko Frankopanska 17, 21000, Split",
+                        "mapUrl": "https://maps.app.goo.gl/RJKHebvdmE3FAfm49"
+                    },
+                    "matchType": "Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 15,
+                        "awayScore": 10
+                    }
+                },
+                {
+                    "id": "sr-005",
+                    "date": "2025-11-08",
+                    "time": "16:30",
+                    "homeTeam": "Rugby Nada Split",
+                    "awayTeam": "Zagreb Rugby Ladies",
+                    "location": {
+                        "name": "Stadion Stari Plac",
+                        "address": "Ul. Zrinsko Frankopanska 17, 21000, Split",
+                        "mapUrl": "https://maps.app.goo.gl/RJKHebvdmE3FAfm49"
+                    },
+                    "matchType": "Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 57,
+                        "awayScore": 0
+                    }
+                },
+                {
+                    "id": "sr-004",
+                    "date": "2025-11-08",
+                    "time": "16:30",
+                    "homeTeam": "Zagreb Rugby Ladies",
+                    "awayTeam": "Rugby Nada Split",
+                    "location": {
+                        "name": "Stadion Stari Plac",
+                        "address": "Ul. Zrinsko Frankopanska 17, 21000, Split",
+                        "mapUrl": "https://maps.app.goo.gl/RJKHebvdmE3FAfm49"
+                    },
+                    "matchType": "Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 0,
+                        "awayScore": 37
+                    }
+                },
+                {
                     "id": "sr-003",
                     "date": "2025-11-08",
                     "time": "16:30",
@@ -17,13 +71,17 @@
                         "mapUrl": "https://maps.app.goo.gl/RJKHebvdmE3FAfm49"
                     },
                     "matchType": "Championship",
-                    "status": "upcoming"
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 58,
+                        "awayScore": 0
+                    }
                 },
                 {
                     "id": "sr-002",
                     "date": "2024-10-11",
                     "time": "15:00",
-                    "homeTeam": "Split Rugby Club",
+                    "homeTeam": "Rugby Nada Split",
                     "awayTeam": "Zagreb Rugby Ladies",
                     "location": {
                         "name": "Rugby Center Rudeš",
@@ -42,7 +100,7 @@
                     "date": "2024-10-11",
                     "time": "15:00",
                     "homeTeam": "Zagreb Rugby Ladies",
-                    "awayTeam": "Split Rugby Club",
+                    "awayTeam": "Rugby Nada Split",
                     "location": {
                         "name": "Rugby Center Rudeš",
                         "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
@@ -77,24 +135,6 @@
                     "result": {
                         "homeScore": 15,
                         "awayScore": 28
-                    }
-                },
-                {
-                    "id": "jr-001",
-                    "date": "2024-09-08",
-                    "time": "11:00",
-                    "homeTeam": "Zagreb Rugby Ladies U18",
-                    "awayTeam": "Split Rugby U18",
-                    "location": {
-                        "name": "Rugby Center Rudeš",
-                        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
-                        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
-                    },
-                    "matchType": "Youth Championship",
-                    "status": "completed",
-                    "result": {
-                        "homeScore": 35,
-                        "awayScore": 10
                     }
                 }
             ]
