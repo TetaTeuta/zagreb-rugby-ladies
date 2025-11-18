@@ -81,7 +81,7 @@
                     "id": "sr-002",
                     "date": "2024-10-11",
                     "time": "15:00",
-                    "homeTeam": "Split Rugby Club",
+                    "homeTeam": "Rugby Nada Split",
                     "awayTeam": "Zagreb Rugby Ladies",
                     "location": {
                         "name": "Rugby Center Rudeš",
@@ -100,7 +100,7 @@
                     "date": "2024-10-11",
                     "time": "15:00",
                     "homeTeam": "Zagreb Rugby Ladies",
-                    "awayTeam": "Split Rugby Club",
+                    "awayTeam": "Rugby Nada Split",
                     "location": {
                         "name": "Rugby Center Rudeš",
                         "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
@@ -135,24 +135,6 @@
                     "result": {
                         "homeScore": 15,
                         "awayScore": 28
-                    }
-                },
-                {
-                    "id": "jr-001",
-                    "date": "2024-09-08",
-                    "time": "11:00",
-                    "homeTeam": "Zagreb Rugby Ladies U18",
-                    "awayTeam": "Split Rugby U18",
-                    "location": {
-                        "name": "Rugby Center Rudeš",
-                        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
-                        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
-                    },
-                    "matchType": "Youth Championship",
-                    "status": "completed",
-                    "result": {
-                        "homeScore": 35,
-                        "awayScore": 10
                     }
                 }
             ]
