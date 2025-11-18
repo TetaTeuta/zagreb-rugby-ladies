@@ -6,9 +6,7 @@ const getTeamLogo = (teamName) => {
     const logoMap = {
         "Zagreb Rugby Ladies": cdn("logos/zagreb-rugby-ladies-logo-vector.png"),
         "Rugby Nada Split": cdn("logos/nada-rugby-logo.jpeg"),
-        "Split Rugby Club": cdn("logos/nada-rugby-logo.jpeg"),
-        "Rijeka Rugby": cdn("logos/nada-rugby-logo.jpeg"),
-        "Osijek Rugby Club": cdn("logos/nada-rugby-logo.jpeg"),
+        "Women's University Rugby Lastavice": cdn("logos/lastavice_logo.jpeg"),
     };
 
     return (

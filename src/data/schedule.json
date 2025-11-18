@@ -9,6 +9,24 @@
                     "id": "sr-005",
                     "date": "2025-11-08",
                     "time": "16:30",
+                    "homeTeam": "Zagreb Rugby Ladies",
+                    "awayTeam": "Women's University Rugby Lastavice",
+                    "location": {
+                        "name": "Stadion Stari Plac",
+                        "address": "Ul. Zrinsko Frankopanska 17, 21000, Split",
+                        "mapUrl": "https://maps.app.goo.gl/RJKHebvdmE3FAfm49"
+                    },
+                    "matchType": "Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 15,
+                        "awayScore": 10
+                    }
+                },
+                {
+                    "id": "sr-005",
+                    "date": "2025-11-08",
+                    "time": "16:30",
                     "homeTeam": "Rugby Nada Split",
                     "awayTeam": "Zagreb Rugby Ladies",
                     "location": {
