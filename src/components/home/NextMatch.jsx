@@ -9,14 +9,19 @@ import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 const NextMatch = ({ matchData, opponent, homeVenue }) => {
     const { t, i18n } = useTranslation();
     const getLocalizedPath = useLocalizedPath();
+    console.log(matchData);
 
     // Handle null/undefined data
     if (!matchData || !opponent) {
         return null;
     }
 
-    // Check if match date is in the future
-    const matchDateTime = new Date(`${matchData.date}T${matchData.time}:00`);
+    // Check if match date is in the future (when time is null, use midday so the match is still "upcoming")
+    const dateTimeString =
+        matchData.time != null
+            ? `${matchData.date}T${matchData.time}:00`
+            : `${matchData.date}T12:00:00`;
+    const matchDateTime = new Date(dateTimeString);
     const now = new Date();
     const isFutureMatch = matchDateTime > now;
 
@@ -32,7 +37,7 @@ const NextMatch = ({ matchData, opponent, homeVenue }) => {
             <img
                 src={buildR2ImageUrl(
                     "Match",
-                    "rugby-woman-team-zagreb-match_7510.jpg"
+                    "rugby-woman-team-zagreb-match_7510.jpg",
                 )}
                 alt="Match day action"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -85,7 +90,7 @@ const NextMatch = ({ matchData, opponent, homeVenue }) => {
                                 <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-accent mx-auto mb-1" />
                                 <p className="text-text-light text-xs sm:text-sm font-medium">
                                     {new Date(
-                                        matchData.date
+                                        matchData.date,
                                     ).toLocaleDateString(
                                         i18n.language === "hr"
                                             ? "hr-HR"
@@ -94,21 +99,21 @@ const NextMatch = ({ matchData, opponent, homeVenue }) => {
                                             weekday: "short",
                                             month: "short",
                                             day: "numeric",
-                                        }
+                                        },
                                     )}
                                 </p>
                             </div>
                             <div className="bg-surface/20 backdrop-blur-sm rounded-custom p-2 sm:p-3 text-center border border-accent/30">
                                 <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-accent mx-auto mb-1" />
                                 <p className="text-text-light text-xs sm:text-sm font-medium">
-                                    {matchData.time}
+                                    {matchData.time ?? t("match.timeTbd")}
                                 </p>
                             </div>
                             <a
                                 href={
                                     location?.mapUrl ||
                                     `https://maps.google.com/?q=${encodeURIComponent(
-                                        location?.address || "Zagreb, Croatia"
+                                        location?.address || "Zagreb, Croatia",
                                     )}`
                                 }
                                 target="_blank"
@@ -123,9 +128,7 @@ const NextMatch = ({ matchData, opponent, homeVenue }) => {
                         </div>
 
                         {/* Countdown */}
-                        <Countdown
-                            targetDate={`${matchData.date}T${matchData.time}:00`}
-                        />
+                        <Countdown targetDate={dateTimeString} />
                     </>
                 ) : (
                     <div className="flex flex-col items-center justify-center text-center space-y-6 sm:space-y-8">
@@ -147,7 +150,7 @@ const NextMatch = ({ matchData, opponent, homeVenue }) => {
                                     rel="noopener noreferrer"
                                     className="p-3 rounded-custom bg-surface/20 backdrop-blur-sm border border-accent/30 hover:bg-accent/20 hover:border-accent/50 transition-all duration-300"
                                     aria-label={t(
-                                        "footer.ariaLabels.instagram"
+                                        "footer.ariaLabels.instagram",
                                     )}
                                 >
                                     <Instagram className="h-6 w-6 sm:h-7 sm:w-7 text-accent" />

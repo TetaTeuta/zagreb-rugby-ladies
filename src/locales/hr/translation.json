@@ -67,6 +67,7 @@
         "nextMatch": "Sljedeća utakmica",
         "matchDay": "Dan utakmice",
         "time": "Vrijeme",
+        "timeTbd": "U dogovoru",
         "location": "Lokacija",
         "noUpcomingMatches": "Nema zakazanih utakmica",
         "noUpcomingMatchesDescription": "Uskoro provjerite naš raspored",
@@ -370,7 +371,6 @@
             "senior": "Seniorska ekipa",
             "junior": "Juniorska ekipa (U18)"
         },
-        "matchesThisSeason": "utakmice ove sezone",
         "status": {
             "completed": "Završeno",
             "upcoming": "Nadolazeće"

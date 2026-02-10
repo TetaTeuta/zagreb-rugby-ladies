@@ -14,9 +14,11 @@ export const getNextUpcomingMatch = (scheduleData) => {
         if (team.matches) {
             team.matches.forEach((match) => {
                 if (match.status === "upcoming") {
-                    const matchDateTime = new Date(
-                        `${match.date}T${match.time}:00`
-                    );
+                    const dateTimeString =
+                        match.time != null
+                            ? `${match.date}T${match.time}:00`
+                            : `${match.date}T12:00:00`;
+                    const matchDateTime = new Date(dateTimeString);
                     allMatches.push({
                         ...match,
                         dateTime: matchDateTime,

@@ -67,6 +67,7 @@
         "nextMatch": "Next Match",
         "matchDay": "Match Day",
         "time": "Time",
+        "timeTbd": "TBD",
         "location": "Location",
         "noUpcomingMatches": "No scheduled matches",
         "noUpcomingMatchesDescription": "Check back soon for our upcoming fixtures",
@@ -367,7 +368,6 @@
             "senior": "Senior Team",
             "junior": "Junior Team (U18)"
         },
-        "matchesThisSeason": "matches this season",
         "status": {
             "completed": "Completed",
             "upcoming": "Upcoming"
