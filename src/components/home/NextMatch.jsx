@@ -9,7 +9,6 @@ import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 const NextMatch = ({ matchData, opponent, homeVenue }) => {
     const { t, i18n } = useTranslation();
     const getLocalizedPath = useLocalizedPath();
-    console.log(matchData);
 
     // Handle null/undefined data
     if (!matchData || !opponent) {
