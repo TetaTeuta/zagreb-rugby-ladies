@@ -11,8 +11,20 @@ const Countdown = ({ targetDate, className = "" }) => {
     });
 
     useEffect(() => {
+        const getTargetTime = () => {
+            if (!targetDate) return +new Date();
+            const str = String(targetDate);
+            const hasNullTime = str.includes("null") || !str.includes("T");
+            const dateOnly = str.slice(0, 10);
+            if (hasNullTime && dateOnly) {
+                return +new Date(`${dateOnly}T12:00:00`);
+            }
+            return +new Date(targetDate);
+        };
+
         const calculateTimeLeft = () => {
-            const difference = +new Date(targetDate) - +new Date();
+            const target = getTargetTime();
+            const difference = target - +new Date();
 
             if (difference > 0) {
                 setTimeLeft({

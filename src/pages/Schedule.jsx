@@ -76,7 +76,7 @@ const Schedule = () => {
     ];
     const scheduleStructuredData = createSportsEventListData(
         allUpcomingMatches,
-        "Zagreb Rugby Ladies"
+        "Zagreb Rugby Ladies",
     );
 
     const MatchCard = ({ match, teamName }) => {
@@ -91,7 +91,7 @@ const Schedule = () => {
                         <div className="flex items-center gap-3">
                             <div
                                 className={`px-3 py-1 rounded-full text-xs font-medium border ${getMatchStatusColor(
-                                    match.status
+                                    match.status,
                                 )}`}
                             >
                                 {match.status.charAt(0).toUpperCase() +
@@ -130,7 +130,7 @@ const Schedule = () => {
                                             month: "long",
                                             day: "numeric",
                                             year: "numeric",
-                                        }
+                                        },
                                     )}
                                 </span>
                             </div>
@@ -288,7 +288,7 @@ const Schedule = () => {
                         <div className="relative h-[400px] overflow-hidden rounded-custom">
                             <img
                                 src={cdn(
-                                    "hero/zagreb-rugby-ladies-team-action.jpg"
+                                    "hero/zagreb-rugby-ladies-team-action.jpg",
                                 )}
                                 alt="Zagreb Rugby Ladies team"
                                 className="w-full h-full object-cover"
@@ -319,16 +319,6 @@ const Schedule = () => {
 
                     {/* Matches Grid */}
                     <div className="max-w-6xl mx-auto">
-                        <div className="mb-6">
-                            <h3 className="text-2xl font-light mb-2 tracking-wide font-hero text-text-contrast leading-[0.85]">
-                                {scheduleData.teams.senior.name.toUpperCase()}
-                            </h3>
-                            <p className="text-muted mb-8">
-                                {scheduleData.teams.senior.matches.length}{" "}
-                                {t("schedule.matchesThisSeason")}
-                            </p>
-                        </div>
-
                         <MatchSchedule
                             matches={scheduleData.teams.senior.matches}
                             teamName={scheduleData.teams.senior.name}

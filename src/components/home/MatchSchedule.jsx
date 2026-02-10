@@ -76,7 +76,7 @@ const MatchItem = ({
                     ) : (
                         <div className="text-center">
                             <div className="text-lg sm:text-xl font-heading font-bold text-text-contrast mb-1">
-                                {match.time}
+                                {match.time ? match.time : "TBD"}
                             </div>
                             <div className="text-xs text-muted whitespace-nowrap">
                                 {t("schedule.match.kickOff")}
