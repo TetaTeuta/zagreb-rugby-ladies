@@ -5,31 +5,32 @@ import { Countdown } from "../ui/Countdown";
 import { Button } from "../ui/Button";
 import { buildR2ImageUrl } from "../../lib/cdn";
 import { useLocalizedPath } from "../../hooks/useLocalizedPath";
+import { getNextUpcomingMatch } from "../../lib/matchUtils";
 
-const NextMatch = ({ matchData, opponent, homeVenue }) => {
+const NextMatch = ({ scheduleData }) => {
     const { t, i18n } = useTranslation();
     const getLocalizedPath = useLocalizedPath();
 
-    // Handle null/undefined data
-    if (!matchData || !opponent) {
-        return null;
-    }
+    const nextMatchData = getNextUpcomingMatch(scheduleData ?? null);
+    const hasMatch = nextMatchData != null;
+    const matchData = nextMatchData?.match ?? null;
+    const opponent = nextMatchData?.opponent ?? null;
+    const homeVenue = nextMatchData?.homeVenue ?? null;
 
-    // Check if match date is in the future (when time is null, use midday so the match is still "upcoming")
     const dateTimeString =
-        matchData.time != null
+        matchData?.time != null
             ? `${matchData.date}T${matchData.time}:00`
-            : `${matchData.date}T12:00:00`;
-    const matchDateTime = new Date(dateTimeString);
+            : matchData ? `${matchData.date}T12:00:00` : null;
+    const matchDateTime = dateTimeString ? new Date(dateTimeString) : null;
     const now = new Date();
-    const isFutureMatch = matchDateTime > now;
+    const isFutureMatch =
+        matchDateTime != null && matchDateTime > now;
 
-    // Determine location based on home/away status
-    const location = matchData.isHome ? homeVenue : opponent?.location;
+    const showMatchCard = hasMatch && isFutureMatch;
 
-    // Determine which team is home (left) and which is away (right)
-    const leftTeam = matchData.isHome ? matchData.homeTeam : opponent;
-    const rightTeam = matchData.isHome ? opponent : matchData.homeTeam;
+    const location = matchData?.isHome ? homeVenue : opponent?.location;
+    const leftTeam = matchData?.isHome ? matchData.homeTeam : opponent;
+    const rightTeam = matchData?.isHome ? opponent : matchData?.homeTeam;
 
     return (
         <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
@@ -43,7 +44,7 @@ const NextMatch = ({ matchData, opponent, homeVenue }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
             <div className="absolute inset-0 p-6 sm:p-8 lg:p-12 flex flex-col justify-center text-text-light">
-                {isFutureMatch ? (
+                {showMatchCard ? (
                     <>
                         <div className="mb-6 sm:mb-8">
                             {/* Team Matchup Title */}
@@ -89,7 +90,7 @@ const NextMatch = ({ matchData, opponent, homeVenue }) => {
                                 <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-accent mx-auto mb-1" />
                                 <p className="text-text-light text-xs sm:text-sm font-medium">
                                     {new Date(
-                                        matchData.date,
+                                        matchData.date
                                     ).toLocaleDateString(
                                         i18n.language === "hr"
                                             ? "hr-HR"

@@ -163,32 +163,7 @@ const Home = () => {
 
             <div className="px-4 py-16 max-w-7xl mx-auto">
                 <AnimatedSection divider="wave" className="mb-8">
-                    {nextMatchData ? (
-                        <NextMatch
-                            matchData={nextMatchData.match}
-                            opponent={nextMatchData.opponent}
-                            homeVenue={nextMatchData.homeVenue}
-                        />
-                    ) : (
-                        <div className="relative h-[400px] overflow-hidden rounded-custom">
-                            <img
-                                src={cdn(
-                                    "hero/zagreb-rugby-ladies-team-action.jpg"
-                                )}
-                                alt="Zagreb Rugby Ladies team"
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-                                <h3 className="text-4xl md:text-5xl font-light text-text-light mb-4 tracking-wide">
-                                    {t("match.noUpcomingMatches")}
-                                </h3>
-                                <p className="text-lg text-text-light/80 max-w-xl">
-                                    {t("match.noUpcomingMatchesDescription")}
-                                </p>
-                            </div>
-                        </div>
-                    )}
+                    <NextMatch scheduleData={scheduleData} />
                 </AnimatedSection>
 
                 {/* Meet Our Players Section */}

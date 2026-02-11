@@ -6,6 +6,24 @@
             "logo": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/zagreb-rugby-ladies-logo-vector.png",
             "matches": [
                 {
+                    "id": "sr-008",
+                    "date": "2026-03-07",
+                    "time": "14:00",
+                    "homeTeam": "Zagreb Rugby Ladies",
+                    "awayTeam": "Women's University Rugby Lastavice",
+                    "location": {
+                        "name": "Rugby Center Rudeš",
+                        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
+                    },
+                    "matchType": "Championship",
+                    "status": "upcoming",
+                    "result": {
+                        "homeScore": null,
+                        "awayScore": null
+                    }
+                },
+                {
                     "id": "sr-007",
                     "date": "2026-05-09",
                     "time": null,
@@ -42,7 +60,7 @@
                     }
                 },
                 {
-                    "id": "sr-005",
+                    "id": "sr-100",
                     "date": "2025-11-08",
                     "time": "16:30",
                     "homeTeam": "Zagreb Rugby Ladies",
