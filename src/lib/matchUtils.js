@@ -80,7 +80,7 @@ const getTeamLogo = (teamName) => {
         "Rugby Nada Split":
             "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/nada-rugby-logo.jpeg",
         "Women's University Rugby Lastavice":
-            "src/assets/images/logos/lastavice_logo.jpeg",
+            "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/lastavice_logo.jpeg",
     };
 
     return (

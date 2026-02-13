@@ -37,6 +37,8 @@ const Schedule = () => {
     };
 
     const getOpponent = (match, teamName) => {
+        console.log("match.awayTeam", match.awayTeam);
+
         return match.homeTeam === teamName ? match.awayTeam : match.homeTeam;
     };
 
