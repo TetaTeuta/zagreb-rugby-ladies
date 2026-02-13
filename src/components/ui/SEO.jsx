@@ -327,22 +327,20 @@ export const createSportsEventData = ({
 }) => {
     const baseUrl = "https://www.zagreb-rugby-ladies.eu";
 
-    // Create ISO 8601 datetime strings (null when time is not scheduled yet)
-    const startDateTime = time != null ? `${date}T${time}:00` : null;
-    let endDateTime = null;
-    if (time != null) {
-        const endDate = new Date(`${date}T${time}:00`);
-        endDate.setHours(endDate.getHours() + 2);
-        endDateTime = endDate.toISOString().slice(0, 16) + ":00";
-    }
+    // Create ISO 8601 datetime strings (use midday when time is not scheduled yet, so Google gets required startDate)
+    const startDateTime =
+        time != null ? `${date}T${time}:00` : `${date}T12:00:00`;
+    const endDateObj = new Date(startDateTime);
+    endDateObj.setHours(endDateObj.getHours() + 2);
+    const endDateTime = endDateObj.toISOString().slice(0, 16) + ":00";
 
     const eventData = {
         "@context": "https://schema.org",
         "@type": "SportsEvent",
         name: name,
         description: description,
-        ...(startDateTime != null && { startDate: startDateTime }),
-        ...(endDateTime != null && { endDate: endDateTime }),
+        startDate: startDateTime,
+        endDate: endDateTime,
         eventStatus: `https://schema.org/${eventStatus}`,
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         location: {
@@ -410,24 +408,19 @@ export const createSportsEventListData = (matches, teamName) => {
             const opponent = isHome ? match.awayTeam : match.homeTeam;
 
             const startDate =
-                match.time != null ? `${match.date}T${match.time}:00` : null;
-            const endDate =
                 match.time != null
-                    ? (() => {
-                          const end = new Date(
-                              `${match.date}T${match.time}:00`,
-                          );
-                          end.setHours(end.getHours() + 2);
-                          return end.toISOString().slice(0, 16) + ":00";
-                      })()
-                    : null;
+                    ? `${match.date}T${match.time}:00`
+                    : `${match.date}T12:00:00`;
+            const endDateObj = new Date(startDate);
+            endDateObj.setHours(endDateObj.getHours() + 2);
+            const endDate = endDateObj.toISOString().slice(0, 16) + ":00";
 
             return {
                 "@type": "SportsEvent",
                 name: `${match.homeTeam} vs ${match.awayTeam}`,
                 description: `${match.matchType} - ${match.homeTeam} vs ${match.awayTeam}`,
-                ...(startDate != null && { startDate }),
-                ...(endDate != null && { endDate }),
+                startDate,
+                endDate,
                 eventStatus: "https://schema.org/EventScheduled",
                 eventAttendanceMode:
                     "https://schema.org/OfflineEventAttendanceMode",

@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin, Instagram, Facebook } from "lucide-react";
+import { Calendar, Clock, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Countdown } from "../ui/Countdown";
@@ -20,11 +20,12 @@ const NextMatch = ({ scheduleData }) => {
     const dateTimeString =
         matchData?.time != null
             ? `${matchData.date}T${matchData.time}:00`
-            : matchData ? `${matchData.date}T12:00:00` : null;
+            : matchData
+              ? `${matchData.date}T12:00:00`
+              : null;
     const matchDateTime = dateTimeString ? new Date(dateTimeString) : null;
     const now = new Date();
-    const isFutureMatch =
-        matchDateTime != null && matchDateTime > now;
+    const isFutureMatch = matchDateTime != null && matchDateTime > now;
 
     const showMatchCard = hasMatch && isFutureMatch;
 
@@ -32,6 +33,7 @@ const NextMatch = ({ scheduleData }) => {
     const leftTeam = matchData?.isHome ? matchData.homeTeam : opponent;
     const rightTeam = matchData?.isHome ? opponent : matchData?.homeTeam;
 
+    console.log("rightTeam", rightTeam);
     return (
         <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
             <img
@@ -90,7 +92,7 @@ const NextMatch = ({ scheduleData }) => {
                                 <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-accent mx-auto mb-1" />
                                 <p className="text-text-light text-xs sm:text-sm font-medium">
                                     {new Date(
-                                        matchData.date
+                                        matchData.date,
                                     ).toLocaleDateString(
                                         i18n.language === "hr"
                                             ? "hr-HR"

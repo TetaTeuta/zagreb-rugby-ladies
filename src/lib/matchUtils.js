@@ -79,9 +79,8 @@ const getTeamLogo = (teamName) => {
             "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/zagreb-rugby-ladies-logo-vector.png",
         "Rugby Nada Split":
             "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/nada-rugby-logo.jpeg",
-        Lastavice:
-            "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/las-vegas-rugby-logo.jpeg",
-        "Girls Rugby BiH": "src/assets/images/logos/lastavice_logo.jpeg",
+        "Women's University Rugby Lastavice":
+            "src/assets/images/logos/lastavice_logo.jpeg",
     };
 
     return (
