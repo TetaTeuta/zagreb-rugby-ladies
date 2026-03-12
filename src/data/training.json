@@ -16,20 +16,20 @@
             "typeKey": "skillsFitness"
         },
         {
-            "dayKey": "Wednesday",
+            "dayKey": "Tuesday",
             "time": "20:00",
             "duration": "90 minutes",
             "typeKey": "teamTraining"
         },
         {
-            "dayKey": "Friday",
+            "dayKey": "Thursday",
             "time": "20:00",
             "duration": "90 minutes",
             "typeKey": "teamTraining"
         },
         {
             "dayKey": "Saturday",
-            "time": "10:00",
+            "time": "14:00",
             "duration": "Variable",
             "typeKey": "matchDay"
         }
