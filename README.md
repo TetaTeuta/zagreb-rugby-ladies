@@ -95,6 +95,8 @@ npm run preview
 
 The application is deployed and hosted on **[Vercel](https://vercel.com/)**, which provides optimal performance and seamless integration with Vite projects.
 
+When changes are **merged into `main`**, Vercel automatically builds and deploys them to **production**. No manual deploy step is required for normal releases.
+
 ### Build Configuration
 
 -   **Build Command**: `npm run build`
