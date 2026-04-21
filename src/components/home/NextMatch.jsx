@@ -33,7 +33,6 @@ const NextMatch = ({ scheduleData }) => {
     const leftTeam = matchData?.isHome ? matchData.homeTeam : opponent;
     const rightTeam = matchData?.isHome ? opponent : matchData?.homeTeam;
 
-    console.log("rightTeam", rightTeam);
     return (
         <div className="relative h-[600px] overflow-hidden rounded-custom group cursor-pointer">
             <img

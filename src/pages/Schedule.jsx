@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Calendar, MapPin, Clock, Trophy } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { useLocalizedPath } from "../hooks/useLocalizedPath";
-import { Card, CardContent } from "../components/ui/Card";
 import { Link } from "react-router-dom";
 import { MatchSchedule } from "../components/home/MatchSchedule";
 import { NextMatch } from "../components/home/NextMatch";
@@ -14,31 +12,18 @@ import { SEO, createSportsEventListData } from "../components/ui/SEO";
 import { cdn } from "../lib/cdn";
 
 const Schedule = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const getLocalizedPath = useLocalizedPath();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    const getMatchStatusColor = (status) => {
-        switch (status) {
-            case "completed":
-                return "bg-success/10 text-success border-success";
-            case "upcoming":
-                return "bg-info/10 text-info border-info";
-            default:
-                return "bg-muted-light text-text-contrast border-muted-light";
-        }
-    };
-
     const isHomeMatch = (match, teamName) => {
         return match.homeTeam === teamName;
     };
 
     const getOpponent = (match, teamName) => {
-        console.log("match.awayTeam", match.awayTeam);
-
         return match.homeTeam === teamName ? match.awayTeam : match.homeTeam;
     };
 
@@ -76,148 +61,6 @@ const Schedule = () => {
         allUpcomingMatches,
         "Zagreb Rugby Ladies",
     );
-
-    const MatchCard = ({ match, teamName }) => {
-        const isHome = isHomeMatch(match, teamName);
-        const opponent = getOpponent(match, teamName);
-        const result = formatMatchResult(match, teamName);
-
-        return (
-            <Card className="bg-surface border-muted-light hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                        <div className="flex items-center gap-3">
-                            <div
-                                className={`px-3 py-1 rounded-full text-xs font-medium border ${getMatchStatusColor(
-                                    match.status,
-                                )}`}
-                            >
-                                {match.status.charAt(0).toUpperCase() +
-                                    match.status.slice(1)}
-                            </div>
-                            <div className="text-xs text-muted uppercase tracking-wide">
-                                {match.matchType}
-                            </div>
-                        </div>
-                        {result && (
-                            <div
-                                className={`px-3 py-1 rounded-full text-sm font-bold ${
-                                    result.isWin
-                                        ? "bg-success/10 text-success"
-                                        : "bg-error/10 text-error"
-                                }`}
-                            >
-                                {result.isWin
-                                    ? t("schedule.match.win")
-                                    : t("schedule.match.loss")}
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="mb-4">
-                        <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-2">
-                                <Calendar className="h-4 w-4 text-primary" />
-                                <span className="text-text-contrast font-medium">
-                                    {new Date(match.date).toLocaleDateString(
-                                        i18n.language === "hr"
-                                            ? "hr-HR"
-                                            : "en-US",
-                                        {
-                                            weekday: "long",
-                                            month: "long",
-                                            day: "numeric",
-                                            year: "numeric",
-                                        },
-                                    )}
-                                </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Clock className="h-4 w-4 text-primary" />
-                                <span className="text-text-contrast font-medium">
-                                    {match.time}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Teams Display */}
-                    <div className="flex items-center justify-between mb-4 p-4 bg-muted-light rounded-xl">
-                        <div className="text-center flex-1">
-                            <p
-                                className={`font-semibold ${
-                                    isHome
-                                        ? "text-primary"
-                                        : "text-text-contrast"
-                                }`}
-                            >
-                                {teamName}
-                            </p>
-                            {result && (
-                                <p className="text-lg font-bold text-text-contrast mt-1">
-                                    {result.ourScore}
-                                </p>
-                            )}
-                        </div>
-
-                        <div className="text-center px-4">
-                            <div className="text-muted font-medium">
-                                {isHome
-                                    ? t("schedule.match.vs")
-                                    : t("schedule.match.at")}
-                            </div>
-                        </div>
-
-                        <div className="text-center flex-1">
-                            <p
-                                className={`font-semibold ${
-                                    !isHome
-                                        ? "text-primary"
-                                        : "text-text-contrast"
-                                }`}
-                            >
-                                {opponent}
-                            </p>
-                            {result && (
-                                <p className="text-lg font-bold text-text-contrast mt-1">
-                                    {result.theirScore}
-                                </p>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Location */}
-                    <div className="flex items-start gap-2 mb-4">
-                        <MapPin className="h-4 w-4 text-primary mt-0.5" />
-                        <div>
-                            <p className="text-text-contrast font-medium text-sm">
-                                {match.location.name}
-                            </p>
-                            <p className="text-muted text-xs">
-                                {match.location.address}
-                            </p>
-                        </div>
-                    </div>
-
-                    {match.status === "upcoming" && (
-                        <Button
-                            variant="blue"
-                            asChild
-                            className="w-full sm:w-auto"
-                        >
-                            <a
-                                href={match.location.mapUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {t("schedule.getDirections")}
-                            </a>
-                        </Button>
-                    )}
-                </CardContent>
-            </Card>
-        );
-    };
 
     return (
         <div className="min-h-screen bg-surface">
@@ -297,7 +140,6 @@ const Schedule = () => {
                             teamName={scheduleData.teams.senior.name}
                             getOpponent={getOpponent}
                             formatMatchResult={formatMatchResult}
-                            getMatchStatusColor={getMatchStatusColor}
                             isHomeMatch={isHomeMatch}
                         />
                     </div>

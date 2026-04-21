@@ -6,6 +6,24 @@
             "logo": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/logos/zagreb-rugby-ladies-logo-vector.png",
             "matches": [
                 {
+                    "id": "sr-0088",
+                    "date": "2026-04-12",
+                    "time": "16:00",
+                    "homeTeam": "Zagreb Rugby Ladies",
+                    "awayTeam": "Rugby Nada Split",
+                    "location": {
+                        "name": "Rugby Center Rudeš",
+                        "address": "Sošička ul. 55, 10110, Zagreb, Croatia",
+                        "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
+                    },
+                    "matchType": "Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 0,
+                        "awayScore": 56
+                    }
+                },
+                {
                     "id": "sr-006",
                     "date": "2026-04-12",
                     "time": "16:00",
@@ -17,10 +35,10 @@
                         "mapUrl": "https://maps.app.goo.gl/QdjharNLJWFB1ozg8"
                     },
                     "matchType": "Championship",
-                    "status": "upcoming",
+                    "status": "completed",
                     "result": {
-                        "homeScore": 12,
-                        "awayScore": 12
+                        "homeScore": 0,
+                        "awayScore": 45
                     }
                 },
                 {

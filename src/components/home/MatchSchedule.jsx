@@ -123,6 +123,13 @@ const MatchItem = ({
     );
 };
 
+const sortMatchesLatestFirst = (matches) =>
+    [...matches].sort((a, b) => {
+        const key = (m) =>
+            m.time != null ? `${m.date}T${m.time}:00` : `${m.date}T12:00:00`;
+        return new Date(key(b)) - new Date(key(a));
+    });
+
 const MatchSchedule = ({
     matches,
     teamName,
@@ -130,9 +137,11 @@ const MatchSchedule = ({
     formatMatchResult,
     isHomeMatch,
 }) => {
+    const sortedMatches = sortMatchesLatestFirst(matches);
+
     return (
         <div className="space-y-3">
-            {matches.map((match, index) => (
+            {sortedMatches.map((match, index) => (
                 <div
                     key={match.id}
                     className="px-3 sm:px-4 md:px-6 bg-surface rounded-custom overflow-hidden border border-border shadow-sm hover:shadow-md hover:bg-primary/5 transition-all duration-normal"
