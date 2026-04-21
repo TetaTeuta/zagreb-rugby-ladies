@@ -199,28 +199,6 @@
         }
     },
     {
-        "id": "macarena-camara",
-        "name": "Macarena Cámara",
-        "position": "Winger",
-        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/cropped/macarena_profile_cropped.jpg",
-        "bannerPhoto": "gallery/rugby-woman-player-_7623-maca.jpg",
-        "socials": {
-            "instagram": "https://instagram.com/morenai"
-        },
-        "translations": {
-            "en": {
-                "about": "From Chile, she brings her football background to the rugby pitch with natural athleticism and speed.",
-                "quote": "Speed gets you there, but composure gets you over the line.",
-                "funFact": "Former football player who just started rugby a month ago - already making an impact with her quick feet and fearless attitude!"
-            },
-            "hr": {
-                "about": "Iz Čilea, donosi svoje nogometno iskustvo na ragbi teren s prirodnom atletikom i brzinom.",
-                "quote": "Brzina te dovodi tamo, ali prisebnost pomiče granice.",
-                "funFact": "Bivša nogometašica koja je tek ove sezone počela igrati ragbi - već ostavlja dojam svojom brzinom i neustrašivošću!"
-            }
-        }
-    },
-    {
         "id": "morena-ivcek",
         "name": "Morena Ivček",
         "position": "Winger",
@@ -283,28 +261,6 @@
                 "about": "Sa 16 godina, dokaz je da dinamit dolazi u malim paketima! Možda je džepnog formata, ali ima duh diva.",
                 "quote": "Nisam niska, ja sam zabavne veličine i aerodinamički učinkovita!",
                 "funFact": "Često se zamijeni za team maskotu dok te ne obori. Onda shvatiš da je mini elektrana koja je izabrala nasilje... tj. ragbi!"
-            }
-        }
-    },
-    {
-        "id": "lucija-zoric",
-        "name": "Lucija Zorić",
-        "position": "Winger",
-        "profilePhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
-        "bannerPhoto": "https://pub-5f5af9bd433747e5bee00f6003bc4d76.r2.dev/players_background/siluette_placeholder_rugby_ladies.png",
-        "socials": {
-            "instagram": "https://instagram.com/lucijaz"
-        },
-        "translations": {
-            "en": {
-                "about": "Not the fastest, but also not the strongest, good at injuring teammates",
-                "quote": "I'm here for a good time, but also for a bad time. Actually, any kind of time because it is always fun.",
-                "funFact": "Can do at least one (1) push up."
-            },
-            "hr": {
-                "about": "Nije najbrža, ali ni najjača, dobra u ozljeđivanju suigračica.",
-                "quote": "Ovdje sam za dobro vrijeme, ali i za loše vrijeme. Zapravo, za bilo kakvo vrijeme jer je uvijek zabavno.",
-                "funFact": "Može napraviti barem jedan (1) sklek."
             }
         }
     },
