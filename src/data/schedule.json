@@ -53,10 +53,28 @@
                         "mapUrl": "https://maps.app.goo.gl/RJKHebvdmE3FAfm49"
                     },
                     "matchType": "Championship",
-                    "status": "upcoming",
+                    "status": "completed",
                     "result": {
-                        "homeScore": null,
-                        "awayScore": null
+                        "homeScore": 43,
+                        "awayScore": 0
+                    }
+                },
+                {
+                    "id": "sr-007",
+                    "date": "2026-05-09",
+                    "time": null,
+                    "homeTeam": "Rugby Nada Split",
+                    "awayTeam": "Zagreb Rugby Ladies",
+                    "location": {
+                        "name": "Stadion Stari Plac",
+                        "address": "Ul. Zrinsko Frankopanska 17, 21000, Split",
+                        "mapUrl": "https://maps.app.goo.gl/RJKHebvdmE3FAfm49"
+                    },
+                    "matchType": "Championship",
+                    "status": "completed",
+                    "result": {
+                        "homeScore": 43,
+                        "awayScore": 5
                     }
                 },
                 {
